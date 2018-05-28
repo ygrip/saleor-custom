@@ -1,0 +1,19 @@
+{
+  "env": {
+    "browser": true,
+    "jquery": true
+  },
+  "extends": ["standard", "plugin:react/recommended"],
+  "globals": {
+    "gettext": true,
+    "pgettext": true,
+    "ngettext": true,
+    "Materialize": true
+  },
+  "plugins": ["react"],
+  "parser": "babel-eslint",
+  "rules": {
+    "semi": ["error", "always"],
+    "space-before-function-paren": "off"
+  }
+}

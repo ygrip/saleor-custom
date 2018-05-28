@@ -1,0 +1,4 @@
+.*
+*.sqlite
+media
+node_modules
