@@ -2,6 +2,8 @@ import "ez-plus"
 import "lightgallery"
 import "lg-thumbnail"
 import "lg-fullscreen"
+import "lg-autoplay"
+import "lg-share"
 var randomColor = require('randomcolor'); 
 
 $(function() {
@@ -9,22 +11,21 @@ $(function() {
 	var $custom_item = $("#lightgallery");
     $('.carousel-item').each(function(i, obj) {
 	    //test
-	    $('#image-product-active-'+i).ezPlus({
-			zoomType: 'lens',
-		    lensShape: 'round',
-		    containLensZoom: true,
-		    lensSize:150,
-			scrollZoom: true,
-			responsive: true
-		}); 
-		console.log(i);
 		$count++;
 	});	
+
+	$('.image-details').ezPlus({
+		zoomType: 'lens',
+	    lensShape: 'round',
+	    containLensZoom: true,
+	    lensSize:150,
+		scrollZoom: true,
+		responsive: true
+	}); 
 
     var baseColor = randomColor({hue:'blue'});
     var color = randomColor({'count':$count,luminosity: 'dark',format: 'rgba',hue:baseColor,alpha:0.3});
 
-    console.log(color);
 	$custom_item.lightGallery({
 		thumbnail:true,
 		animateThumb: false,
@@ -32,10 +33,10 @@ $(function() {
 		mode: 'lg-fade'
 	});
 
+	$('.lg-outer').css({"transition": "background-color 600ms ease 0s"});
+
 	$custom_item.on('onBeforeSlide.lg', function(event, prevIndex, index){
 	    $('.lg-outer').css('background-color', color[index])
 	});
-
-	$('.lg-outer').css({"transition": "background-color 600ms ease 0s"});
 });
 

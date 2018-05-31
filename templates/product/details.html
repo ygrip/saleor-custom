@@ -81,13 +81,13 @@
                       data-caption="{{ product.name }}"
                       href="{% get_thumbnail image.image method="crop" size="1080x1080" %}"
                       data-sizes="(min-width: 40em) 80vw, 100vw">
-                  <img class="d-block img-fluid lazyload lazypreload"
+                  <img class="d-block img-fluid lazyload lazypreload image-details"
                        data-src="{% get_thumbnail image.image method="crop" size="540x540" %}"
                        data-srcset="{% get_thumbnail image.image method="crop" size="540x540" %} 1x, {% get_thumbnail image.image method="crop" size="1080x1080" %} 2x"
                        alt="{{ product.name }}"
                        src="{% placeholder size=540 %}"
                        id="image-product-active-{{ forloop.counter0 }}"
-                       {% if forloop.first %} data-zoom-image="{% get_thumbnail image.image method="crop" size="1080x1080" %}" {% endif %}/>
+                       data-zoom-image="{% get_thumbnail image.image method="crop" size="1080x1080" %}"/>
                   </a>
               {% endfor %}
             </div>

@@ -3,14 +3,13 @@ var MiniCssExtractPlugin = require('mini-css-extract-plugin');
 var path = require('path');
 var webpack = require('webpack');
 var autoprefixer = require('autoprefixer');
+var CompressionPlugin = require("compression-webpack-plugin");
 
 var resolve = path.resolve.bind(path, __dirname);
 
 var extractCssPlugin;
 var fileLoaderPath;
 var output;
-
-// const CssEntryPlugin = require("css-entry-webpack-plugin");
 
 if (process.env.NODE_ENV === 'production') {
   output = {
@@ -57,6 +56,8 @@ var config = {
     storefront: './saleor/static/js/storefront.js'
   },
   output: output,
+  cache: false,
+  devtool: 'cheap-module-source-map',
   module: {
     rules: [
       {
@@ -110,7 +111,18 @@ var config = {
   plugins: [
     bundleTrackerPlugin,
     extractCssPlugin,
-    providePlugin
+    providePlugin,
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': '"production"'
+    }),
+    new webpack.IgnorePlugin(/^\.\/locale$/, [/moment$/]),
+    new CompressionPlugin({
+      asset: "[path].gz[query]",
+      algorithm: "gzip",
+      test: /\.js$|\.css$|\.html$/,
+      threshold: 10240,
+      minRatio: 0
+    })
   ],
   resolve: {
     alias: {
