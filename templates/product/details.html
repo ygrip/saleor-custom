@@ -73,16 +73,21 @@
         {% if images %}
           
           <div id="carousel-example-generic" class="carousel slide">
-            <div class="carousel-inner" role="listbox" id="lightgallery">
+            <div class="carousel-inner" role="listbox" id="lightgallery" >
              
               {% for image in images %}
-                  <a class="carousel-item{% if forloop.first %} active{% endif %}" href="{% get_thumbnail image.image method="crop" size="1080x1080" %}" data-caption="{{ product.name }}">
+                  <a  class="carousel-item{% if forloop.first %} active{% endif %}" 
+                      data-srcset="{% get_thumbnail image.image method="crop" size="270x270" %} 270w, {% get_thumbnail image.image method="crop" size="540x540" %} 540w, {% get_thumbnail image.image method="crop" size="1080x1080" %} 1080w" 
+                      data-caption="{{ product.name }}"
+                      href="{% get_thumbnail image.image method="crop" size="1080x1080" %}"
+                      data-sizes="(min-width: 40em) 80vw, 100vw">
                   <img class="d-block img-fluid lazyload lazypreload"
                        data-src="{% get_thumbnail image.image method="crop" size="540x540" %}"
                        data-srcset="{% get_thumbnail image.image method="crop" size="540x540" %} 1x, {% get_thumbnail image.image method="crop" size="1080x1080" %} 2x"
-                       alt=""
+                       alt="{{ product.name }}"
                        src="{% placeholder size=540 %}"
-                       {% if forloop.first %} data-zoom-image="{% get_thumbnail image.image method="crop" size="1080x1080" %}" id="image-product-active-{{ forloop.counter0 }}"{% endif %}>
+                       id="image-product-active-{{ forloop.counter0 }}"
+                       {% if forloop.first %} data-zoom-image="{% get_thumbnail image.image method="crop" size="1080x1080" %}" {% endif %}/>
                   </a>
               {% endfor %}
             </div>
