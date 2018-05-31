@@ -10,6 +10,8 @@ var extractCssPlugin;
 var fileLoaderPath;
 var output;
 
+// const CssEntryPlugin = require("css-entry-webpack-plugin");
+
 if (process.env.NODE_ENV === 'production') {
   output = {
     path: resolve('saleor/static/assets/'),
@@ -63,6 +65,10 @@ var config = {
         loader: 'babel-loader'
       },
       {
+        test: /\.css$/,
+        loader: 'style-loader!css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]' 
+      },
+      {
         test: /\.scss$/,
         use: [
           MiniCssExtractPlugin.loader,
@@ -90,14 +96,14 @@ var config = {
         ]
       },
       {
-        test: /\.(eot|otf|png|svg|jpg|ttf|woff|woff2)(\?v=[0-9.]+)?$/,
+        test: /\.(eot|otf|png|svg|jpg|gif|ttf|woff|woff2)(\?v=[0-9.]+)?$/,
         loader: fileLoaderPath,
         include: [
           resolve('node_modules'),
           resolve('saleor/static/fonts'),
           resolve('saleor/static/images'),
           resolve('saleor/static/dashboard/images')
-        ]
+        ] 
       }
     ]
   },

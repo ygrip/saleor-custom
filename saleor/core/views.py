@@ -4,6 +4,7 @@ from django.contrib import messages
 from django.template.response import TemplateResponse
 from django.utils.translation import pgettext_lazy
 from impersonate.views import impersonate as orig_impersonate
+from django.conf import settings
 
 from ..account.models import User
 from ..dashboard.views import staff_member_required
@@ -20,6 +21,7 @@ def home(request):
     return TemplateResponse(
         request, 'home.html', {
             'parent': None,
+            'node_modules' : settings.NODE_URL,
             'products': products,
             'webpage_schema': json.dumps(webpage_schema)})
 

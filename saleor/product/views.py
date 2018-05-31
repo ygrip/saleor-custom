@@ -5,6 +5,7 @@ from django.http import HttpResponsePermanentRedirect, JsonResponse
 from django.shortcuts import get_object_or_404, redirect
 from django.template.response import TemplateResponse
 from django.urls import reverse
+from django.conf import settings
 
 from ..cart.utils import set_cart_cookie
 from ..core.utils import serialize_decimal

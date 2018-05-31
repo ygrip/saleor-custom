@@ -37,6 +37,7 @@
   {% endblock meta_tags %}
 
   <link rel="manifest" href="{% url "manifest" %}" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery.js@1.0.3/src/css/lightgallery.css" />
 
   <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
   <!--[if lt IE 9]>
@@ -268,8 +269,10 @@
   </footer>
 {% endblock %}
 {% block footer_scripts %}
+  
   <script type="text/javascript" src="{% url 'javascript-catalog' %}"></script>
   {% render_bundle 'storefront' 'js' %}
 {% endblock footer_scripts %}
+
 </body>
 </html>

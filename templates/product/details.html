@@ -19,6 +19,7 @@
   {% endif %}
 {% endblock %}
 
+
 {% block meta_tags %}
   <meta property="og:title" content="{{ product.seo_title|default:product.name }}">
   <meta property="og:description" content="{{ product.seo_description|default:"" }}">
@@ -70,23 +71,26 @@
     <div class="col-md-6 col-12 product__gallery">
       {% with images=product_images %}
         {% if images %}
+          
           <div id="carousel-example-generic" class="carousel slide">
-            <div class="carousel-inner" role="listbox">
+            <div class="carousel-inner" role="listbox" id="lightgallery">
+             
               {% for image in images %}
-                <div class="carousel-item{% if forloop.first %} active{% endif %}">
+                  <a class="carousel-item{% if forloop.first %} active{% endif %}" href="{% get_thumbnail image.image method="crop" size="1080x1080" %}" data-caption="{{ product.name }}">
                   <img class="d-block img-fluid lazyload lazypreload"
                        data-src="{% get_thumbnail image.image method="crop" size="540x540" %}"
                        data-srcset="{% get_thumbnail image.image method="crop" size="540x540" %} 1x, {% get_thumbnail image.image method="crop" size="1080x1080" %} 2x"
                        alt=""
-                       src="{% placeholder size=540 %}">
-                </div>
+                       src="{% placeholder size=540 %}"
+                       {% if forloop.first %} data-zoom-image="{% get_thumbnail image.image method="crop" size="1080x1080" %}" id="image-product-active-{{ forloop.counter0 }}"{% endif %}>
+                  </a>
               {% endfor %}
             </div>
             {% if images|length > 1 %}
-              <a class="carousel-control-prev" href="#carousel-example-generic" role="button" data-slide="prev">
+              <a class="carousel-control-prev" style="left:-2.7em;" href="#carousel-example-generic" role="button" data-slide="prev">
                 <svg data-src="{% static "images/gallery-arrow.svg" %}" />
               </a>
-              <a class="carousel-control-next" href="#carousel-example-generic" role="button" data-slide="next">
+              <a class="carousel-control-next" style="right:-2.7em;" href="#carousel-example-generic" role="button" data-slide="next">
                 <svg data-src="{% static "images/gallery-arrow.svg" %}" />
               </a>
             {% endif %}
