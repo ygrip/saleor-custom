@@ -4,6 +4,7 @@ import "lg-thumbnail"
 import "lg-fullscreen"
 import "lg-autoplay"
 import "lg-share"
+import "lg-zoom"
 var randomColor = require('randomcolor'); 
 
 $(function() {
