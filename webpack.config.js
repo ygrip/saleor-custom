@@ -67,7 +67,7 @@ var config = {
       },
       {
         test: /\.css$/,
-        loader: 'style-loader!css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]' 
+        loader: 'style-loader!css-loader' 
       },
       {
         test: /\.scss$/,
@@ -105,6 +105,11 @@ var config = {
           resolve('saleor/static/images'),
           resolve('saleor/static/dashboard/images')
         ] 
+      },
+      {
+        test: /\.(ani|cur)$/,
+        loader : 'url-loader',
+        query: { limit: 8192 }
       }
     ]
   },

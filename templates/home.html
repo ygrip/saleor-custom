@@ -1,8 +1,54 @@
 {% extends "base.html" %}
 {% load i18n %}
+{% load static from staticfiles %}
 
 {% block content %}
-  <div class="home">
+   <div class="home">
+  {% with promos=product_promos %}
+      {% if promos %}
+    <div class="row" style="margin-bottom: 3em;">
+       <div class="col-lg-12 home__block0">
+        <div class="home--promo">
+          <div class="home--content">
+            <div class="home--content-wrapper">
+              <div class="home--content-inner">
+                <div class="slider-pro" id="home-slider">
+                  <div class="sp-slides">
+                    {% for promo in promos %}
+                    <!-- Slide 1 -->
+                    <div class="sp-slide">
+                      <img class="sp-image" src="{% static 'images/block1.jpg' %}"/>
+                      <div class="hw-the-slider-content">
+                        <div class="row">
+                          <div class="col-sm-12">
+                            <div class="hw-the-slider-container">
+                              <div class="hw-the-slider-captions sp-layer" data-show-transition="up" data-hide-transition="down" data-show-delay="800" data-hide-delay="800" data-stay-duration="5500">
+                              <div class="title-frame black">
+                              <span class="typcn typcn-chart-line"></span>
+                                <h2>FINANCE</h2>
+                                <hr class="small"/>
+                                <p>Phosfluorescently engage worldwide methodologies with web-enabled technology engage.</p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="sp-thumbnail">
+                        <div class="sp-thumbnail-title">Lorem ipsum</div>
+                      </div>
+                    </div>
+                    {% endfor %}
+                  </div>
+                </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endif %}
+{% endwith %}
     <div class="row">
       <div class="col-sm-12 home__block1">
         <div class="home--square">

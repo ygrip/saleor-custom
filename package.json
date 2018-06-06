@@ -40,6 +40,7 @@
     "mobx": "^3.0.2",
     "mobx-react": "^4.1.0",
     "npm": "^6.0.1",
+    "picturefill": "^3.0.2",
     "popper.js": "^1.14.3",
     "query-string": "^5.0.1",
     "randomcolor": "^0.5.3",
@@ -47,6 +48,7 @@
     "react-dom": "^15.4.2",
     "require": "^2.4.20",
     "select2": "^4.0.6-rc.1",
+    "slider-pro": "^1.4.0",
     "sortablejs": "^1.5.0-rc1",
     "svg-injector-2": "^2.0.35",
     "vue-star-rating": "^1.6.0"
@@ -81,6 +83,7 @@
     "sass-loader": "^7.0.1",
     "style-loader": "^0.21.0",
     "uglifyjs-webpack-plugin": "^1.2.5",
+    "url-loader": "^1.0.1",
     "webpack": "^4.5.0",
     "webpack-bundle-tracker": "^0.3.0",
     "webpack-cli": "^2.0.14",

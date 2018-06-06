@@ -9,20 +9,22 @@ from django.conf import settings
 from ..account.models import User
 from ..dashboard.views import staff_member_required
 from ..product.utils import products_for_homepage
+from ..promo.utils import promo_for_homepage
 from ..product.utils.availability import products_with_availability
 from ..seo.schema.webpage import get_webpage_schema
 
 
 def home(request):
     products = products_for_homepage()[:8]
+    promo = promo_for_homepage()
     products = products_with_availability(
         products, discounts=request.discounts, local_currency=request.currency)
     webpage_schema = get_webpage_schema(request)
     return TemplateResponse(
         request, 'home.html', {
             'parent': None,
-            'node_modules' : settings.NODE_URL,
             'products': products,
+            'product_promos' : promo,
             'webpage_schema': json.dumps(webpage_schema)})
 
 

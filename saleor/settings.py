@@ -123,12 +123,13 @@ REST_FRAMEWORK = {
 STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
 
 STATIC_URL = '/static/'
-NODE_URL = os.path.join(PROJECT_ROOT, 'node_modules')
+
 STATICFILES_DIRS = [
     ('assets', os.path.join(PROJECT_ROOT, 'saleor', 'static', 'assets')),
     ('favicons', os.path.join(PROJECT_ROOT, 'saleor', 'static', 'favicons')),
     ('images', os.path.join(PROJECT_ROOT, 'saleor', 'static', 'images')),
-    ('dashboard', os.path.join(PROJECT_ROOT, 'saleor', 'static', 'dashboard'))]
+    ('dashboard', os.path.join(PROJECT_ROOT, 'saleor', 'static', 'dashboard')),
+    ('npm_modules', os.path.join(PROJECT_ROOT, 'node_modules'))]
 STATICFILES_FINDERS = [
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder']
@@ -222,6 +223,7 @@ INSTALLED_APPS = [
     'saleor.page',
     'saleor.dictionary',
     'saleor.track',
+    'saleor.promo',
 
     # External apps
     'versatileimagefield',

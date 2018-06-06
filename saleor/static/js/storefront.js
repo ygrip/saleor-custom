@@ -4,6 +4,8 @@ import 'bootstrap';
 
 import '../scss/storefront.scss';
 import "lightgallery/src/sass/lightgallery.scss";
+import 'slider-pro/dist/css/slider-pro.min.css';
+import '../css/home-slider.css';
 
 import './components/navbar';
 import './components/cart';
@@ -17,3 +19,4 @@ import './components/password-input';
 import './components/styleguide';
 import './components/misc';
 import './components/image-zoomer';
+import './components/home-slider';
