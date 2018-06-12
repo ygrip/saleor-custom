@@ -1,6 +1,7 @@
 import glob, os
 import requests
 import json
+import random
 from pprint import pprint
 
 from django.conf import settings
@@ -37,7 +38,7 @@ from ...dictionary.utils.mine_feature import populate_feature
 
 PRODUCTS_LIST_DIR = 'products-list/'
 DELIVERY_REGIONS = [ANY_COUNTRY, 'ID', 'AUS', 'SG', 'MLY']
-
+cwd = os.getcwd()  # Get the current working directory (cwd)
 fake = Factory.create()
 
 def make_database_faster():
@@ -66,11 +67,11 @@ def create_custom_product(dir_json,placeholders_dir):
 		for element in content:
 			product_type = create_product_type_with_attributes(product_type_name,
 								element.get('produk_specification',{}))
-			brand = create_brand(placeholders_dir, 
-								name=element.get('brand'),
-								image=element.get('brand_image'),
-								url=element.get('brand_link'),
-								)
+			brand = create_brand(placeholders_dir,brand_data={
+								'name':element.get('brand'),
+								'image':element.get('brand_image'),
+								'url':element.get('brand_link'),
+								})
 			product_category = create_category(element.get('category',{}),placeholders_dir)
 			title = element.get('title')
 			description = element.get('produk_description')
@@ -79,7 +80,7 @@ def create_custom_product(dir_json,placeholders_dir):
 			check_price = element.get('harga')
 			sku = element.get('produk_code').get('SKU Number')
 			price = int(check_price.get('Harga Awal',{})) if 'Harga Awal' in check_price else int(check_price.get('Harga',{}))
-			location = create_merchant_location(element.get('merchant_location'))
+			location, created = create_merchant_location(element.get('merchant_location'))
 			product = create_product(name=title,
 									product_type=product_type,
 									category=product_category,
@@ -88,24 +89,21 @@ def create_custom_product(dir_json,placeholders_dir):
 									brand_id=brand,
 									description=description,
 									service=service,
-									location=location
+									location=location,
+									seo_description=strip_html_and_truncate(description, 300),
 									)
 			set_product_attributes(product, product_type)
 			create_product_image(product,element.get('url_images'),placeholders_dir)
-			create_variant(product, sku=sku)
+			create_variant(product=product, price=price, sku=sku)
 			if 'Diskon' in check_price:
 				create_sale(product,float(check_price.get('Diskon')))
 		
-			check_shipping = element.get('shipping_option',{})
-			if check_shipping:
-				shipping = []
-				create_shipping_method(shipping.append(element.get('shipping_option',{})))
+			shipping = element.get('shipping_option')
+			create_shipping_method(shipping)
 
-			sentence = title+' '+
-						element.get('brand')+' '+
-						description+' '+
-						(' '.join(element.get('produk_features')))
-			product_tags = populate_feature(sentence,2)[:5]
+			sentence = title+' '+element.get('brand')+' '+description+' '+(' '.join(element.get('produk_features')))
+			sentence += ' '.join(map(lambda e: e, element.get('produk_specification')))
+			product_tags = populate_feature(sentence=sentence,treshold=2)[:6]
 
 			for tag in product_tags:
 				feature, created = Feature.objects.get_or_create(word=tag['word'], defaults={'count':1})
@@ -118,57 +116,60 @@ def create_custom_product(dir_json,placeholders_dir):
 
 		result.append(file)
 		if stdout is not None:
-            stdout.write('Product: %s (%s), %s variant(s)' % (
-                product, product_type.name, len(variant_combinations) or 1))
+			stdout.write('Product: %s (%s), %s variant(s)' % (
+				product, product_type.name, len(variant_combinations) or 1))
 
 	for data in result:
 		yield json.dumps(data,indent=4,default=str)
 
 
-def create_product(**kwargs):
+def create_product(name,**kwargs):
     defaults = {
-        'seo_description': strip_html_and_truncate(description[0], 300)}
+    	'name' : name,
+    }
     defaults.update(kwargs)
-    return Product.objects.create(**defaults)
+    return Product.objects.get_or_create(name=name,defaults=defaults)[0]
 
 def create_merchant_location(location):
 	defaults = {
 		'location' : location
 	}
-	return MerchantLocation.get_or_create(location=location,defaults=defaults)
+	return MerchantLocation.objects.get_or_create(location=location,defaults=defaults)
 
-def create_shipping_method(shipping_data, **kwargs):
+def create_shipping_method(shipping, **kwargs):
 	options = []
-	for shipping in shipping_data:
-		defaults = {
-			'name' : shipping['name'],
-		}
-		defaults.update(kwargs)
-		ship = ShippingMethod.objects.get_or_create(**defaults)[0]
+	defaults = {
+		'name' : shipping['name'],
+	}
+	defaults.update(kwargs)
+	ship,created = ShippingMethod.objects.get_or_create(name=shipping['name'],defaults=defaults)
 
-		if ship:
-			ship.price_per_country.create(price=shipping['price'])
-			options.append(ship)
-	return options
+	if created:
+		defaults = {
+			'price' : shipping['price'],
+		}
+		ship.price_per_country.get_or_create(price=shipping['price'],defaults=defaults)[0]
+	options.append(ship)
+	return options[-1]
 
 def create_brand(placeholders_dir,brand_data, **kwargs):
 	image_url = brand_data['image']
 	image = requests.get(image_url)
 	filename = brand_data['name']+'.png'
-	directory = os.path.join(placeholders_dir,'brands')
+	directory = os.path.join(placeholders_dir,'brands/')
 	if not os.path.exists(directory):
 		os.makedirs(directory)
 	filepath = os.path.join(directory,filename)
 	with open(filepath, 'wb') as f:
 		f.write(image.content)
-	brand_image = get_image(filepath)
+	brand_image = get_image(directory,filename)
 	defaults = {
 		'brand_name' : brand_data['name'],
 		'brand_link' : brand_data['url'],
 		'brand_image' : brand_image
 	}
 	defaults.update(kwargs)
-	brand = Brand.objects.get_or_create(**defaults)[0]
+	brand = Brand.objects.get_or_create(brand_name=brand_data['name'],defaults=defaults)[0]
 	return brand
 
 def create_attributes_and_values(attribute_data):
@@ -179,7 +180,7 @@ def create_attributes_and_values(attribute_data):
         attribute_values = []
         attribute_values.append(attribute_value)
         for value in attribute_values:
-            create_attribute_value(attribute, name=value)
+            create_attribute_value(attribute, value=value)
         attributes.append(attribute)
     return attributes
 
@@ -202,8 +203,7 @@ def create_attribute_value(attribute, value, **kwargs):
     return attribute_value
 
 def get_product_list_images_dir(placeholder_dir):
-    product_list_images_dir = os.path.join(
-        placeholder_dir, PRODUCTS_LIST_DIR)
+    product_list_images_dir = os.path.join(placeholder_dir, PRODUCTS_LIST_DIR)
     return product_list_images_dir
 
 
@@ -219,21 +219,23 @@ def create_category(category_data,placeholder_dir):
 		}
 		saved_category = Category.objects.get_or_create(name=category,defaults=defaults)[0]
 		if i == 0:
-			result.append(get_or_create_category({'name':saved_category.name,
+			product_category = save_category({'name':saved_category.name,
 				'image_name':str(saved_category.id)+'.jpg'},
-				placeholders_dir))
+				placeholder_dir)
+			result.append(product_category)
 		else:
 			defaults = {
 				'name' : category_data[i-1],
 			}
 			parent = Category.objects.get_or_create(name=category_data[i-1],defaults=defaults)[0]
-			result.append(get_or_create_category({'name':saved_category.name,
+			product_category = save_category({'name':saved_category.name,
 				'image_name':str(saved_category.id)+'.jpg',
 				'parent':parent.id},
-				placeholders_dir))	
+				placeholder_dir)
+			result.append(product_category)
 	return result[-1]
 
-def get_or_create_category(category_schema, placeholder_dir):
+def save_category(category_schema, placeholder_dir):
     if 'parent' in category_schema:
         parent_id = category_schema['parent']
     else:
@@ -241,6 +243,19 @@ def get_or_create_category(category_schema, placeholder_dir):
     category_name = category_schema['name']
     image_name = category_schema['image_name']
     image_dir = get_product_list_images_dir(placeholder_dir)
+
+    image_path = os.path.join(settings.PROJECT_ROOT,image_dir,image_name)
+    if not os.path.exists(image_dir):
+    	os.makedirs(image_dir)
+    filepath = os.path.join(image_dir,image_name)
+    image = open(filepath,'wb')
+    with open(image_path, 'rb') as f:
+    	while True:
+    		byte = f.read(1)
+    		if not byte:
+    			break
+    		image.write(byte)
+
     defaults = {
         'description': fake.text(),
         'parent_id':parent_id,
@@ -271,20 +286,19 @@ def create_product_image(product, image_list, placeholder_dir):
 	result = []
 	for i,image_url in enumerate(image_list):
 		image = requests.get(image_url)
-		filename = i+'.png'
-		directory = os.path.join(placeholder_dir,product.id)
+		filename = str(i)+'.png'
+		directory = os.path.join(placeholder_dir,str(product.id))
 		if not os.path.exists(directory):
 			os.makedirs(directory)
 		filepath = os.path.join(directory,filename)
 		with open(filepath, 'wb') as f:
 			f.write(image.content)
-		product_image = get_image(filepath)
-		saved_image = ProductImage(product=product, image=image)
+		product_image = get_image(directory,filename)
+		saved_image = ProductImage(product=product, image=product_image)
 		saved_image.save()
-		if i == 0:
-			create_product_thumbnails.delay(saved_image.pk)
+		create_product_thumbnails.delay(saved_image.pk)
 		result.append(saved_image)
-    return result
+	return result
 
 def create_sale(product,value,**kwargs):
 	defaults = {
@@ -293,20 +307,45 @@ def create_sale(product,value,**kwargs):
 		'value' : value
 	}
 	defaults.update(kwargs)
-    sale = Sale.objects.get_or_create(
-        value=value,defaults=defaults)
-    sale.products.add(product)
-    return sale
+	sale = Sale.objects.get_or_create(
+			value=value,defaults=defaults)[0]
+	sale.products.add(product)
+	return sale
 
-def create_variant(product, price, **kwargs):
+def create_variant(product, price, sku, **kwargs):
     defaults = {
         'product': product,
         'quantity': fake.random_int(1, 50),
         'cost_price': price,
         'quantity_allocated': fake.random_int(1, 50)}
     defaults.update(kwargs)
-    variant = ProductVariant(**defaults)
-    if variant.attributes:
-        variant.name = get_name_from_attributes(variant)
-    variant.save()
+    variant = ProductVariant.objects.get_or_create(sku=sku,defaults=defaults)[0]
     return variant
+
+def generate_rating(rated,rating):
+	rating_range = [x for x in range(1,6)]
+
+	list_user = User.objects.all().values_list('id', flat=True)
+	list_product = Product.objects.all().values_list('id', flat=True)
+
+	for id_product in list_product:
+		chance_to_rate = random.uniform(0.0,1.0)
+
+		if chance_to_rate <= rated:
+			user_count = random.randint(1,len(list_user))
+
+			random_user = random.shuffle(list_user)[:user_count]
+
+			for user in random_user:
+				give_rating = random.uniform(0.0,1.0)
+
+				if give_rating <= rating:
+					value = random.choice(rating_range)
+					defaults = {
+						'product_id' : id_product,
+						'user_id' : user,
+						'value' : value
+					}
+					ProductRating.objects.get_or_create(product_id=id_product,user_id=user,defaults=defaults)
+
+					yield 'User %s give rating %s to product %s' % (str(user),str(value),str(id_product))

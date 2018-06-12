@@ -2,7 +2,9 @@ from django.conf import settings
 from django.core.management import call_command
 from django.core.management.base import BaseCommand
 from django.db import connection
-from createproducts import create_custom_product
+from ...utils.data import (create_custom_product, generate_rating)
+from ....dictionary.utils.data import create_dictionary
+from ....promo.utils.data import create_promo
 
 from ...utils import create_superuser
 from ...utils.random_data import (
@@ -15,7 +17,8 @@ from ...utils.random_data import (
 class Command(BaseCommand):
     help = 'Populate database with test objects'
     placeholders_dir = r'saleor/static/placeholders/'
-    dir_json = r'saleor/static/json/products/'
+    dir_json_product = r'saleor/static/json/products/'
+    dir_json_dictionary = r'saleor/static/json/'
 
     def add_arguments(self, parser):
         parser.add_argument(
@@ -61,6 +64,8 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         self.make_database_faster()
         create_images = not options['withoutimages']
+        for msg in create_dictionary(self.dir_json_dictionary):
+            self.stdout.write(msg)  
         if not options['customproduct']:
             for msg in create_shipping_methods():
                 self.stdout.write(msg)
@@ -69,16 +74,20 @@ class Command(BaseCommand):
             for msg in create_product_sales(5):
                 self.stdout.write(msg)
         else:
-            for msg in create_custom_product(self.dir_json,self.placeholders_dir):
+            for msg in create_custom_product(self.dir_json_product,self.placeholders_dir):
                 self.stdout.write(msg)
-                
+
+        for msg in create_promo():
+            self.stdout.write(msg) 
         for msg in create_vouchers():
             self.stdout.write(msg)
         for msg in create_users(100):
             self.stdout.write(msg)
+        for msg in generate_rating(0.05,0.05):
+            self.stdout.write(msg)
         for msg in create_orders(300):
             self.stdout.write(msg)
-        for msg in set_featured_products(100):
+        for msg in set_featured_products(32):
             self.stdout.write(msg)
         for msg in create_collections_by_schema(self.placeholders_dir):
             self.stdout.write(msg)

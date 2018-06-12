@@ -13,7 +13,3 @@ class Command(BaseCommand):
 	def handle(self, *args, **options):
 		for msg in create_custom_product(self.dir_json,self.placeholders_dir):
 			self.stdout.write(msg)
-		for msg in create_vouchers():
-            self.stdout.write(msg)
-        for msg in create_users(100):
-            self.stdout.write(msg)
