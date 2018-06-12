@@ -18,7 +18,7 @@ if (process.env.NODE_ENV === 'production') {
     chunkFilename: '[name].[chunkhash].js',
     publicPath: process.env.STATIC_URL || '/static/assets/'
   };
-  fileLoaderPath = 'file-loader?name=[name].[hash].[ext]';
+  fileLoaderPath = 'file-loader?name=[name].[hash].[ext]&emitFile=false';
   extractCssPlugin = new MiniCssExtractPlugin({
     filename: '[name].[chunkhash].css',
     chunkFilename: '[id].[chunkhash].css'
@@ -30,7 +30,7 @@ if (process.env.NODE_ENV === 'production') {
     chunkFilename: '[name].js',
     publicPath: '/static/assets/'
   };
-  fileLoaderPath = 'file-loader?name=[name].[ext]';
+  fileLoaderPath = 'file-loader?name=[name].[ext]&emitFile=false';
   extractCssPlugin = new MiniCssExtractPlugin({
     filename: '[name].css',
     chunkFilename: '[name].css'
@@ -56,7 +56,8 @@ var config = {
     storefront: './saleor/static/js/storefront.js'
   },
   output: output,
-  cache: false,
+  cache: true,
+  target : 'web',
   devtool: 'cheap-module-source-map',
   module: {
     rules: [
@@ -97,6 +98,11 @@ var config = {
         ]
       },
       {
+        test: /\.(ani|cur)$/,
+        loader : 'url-loader',
+        query: { limit: 100000 }
+      },
+      {
         test: /\.(eot|otf|png|svg|jpg|gif|ttf|woff|woff2)(\?v=[0-9.]+)?$/,
         loader: fileLoaderPath,
         include: [
@@ -106,11 +112,7 @@ var config = {
           resolve('saleor/static/dashboard/images')
         ] 
       },
-      {
-        test: /\.(ani|cur)$/,
-        loader : 'url-loader',
-        query: { limit: 8192 }
-      }
+      
     ]
   },
   plugins: [
@@ -135,7 +137,7 @@ var config = {
       'react': resolve('node_modules/react/dist/react.min.js'),
       'react-dom': resolve('node_modules/react-dom/dist/react-dom.min.js')
     }
-  }
+  },
 };
 
 module.exports = config;

@@ -39,6 +39,7 @@
     "medium-editor": "^5.23.3",
     "mobx": "^3.0.2",
     "mobx-react": "^4.1.0",
+    "node-vibrant": "^3.0.0",
     "npm": "^6.0.1",
     "picturefill": "^3.0.2",
     "popper.js": "^1.14.3",
@@ -110,6 +111,6 @@
     "build-assets": "webpack -p --progress",
     "heroku-postbuild": "npm run build-assets && npm run build-emails",
     "start": "webpack -d --watch --progress",
-    "build-emails": "md templates\\templated_email\\compiled\\ 2>NUL && for /F \"usebackq delims=\" %A in (`dir /b /s /a-d \"*.mjml\" ^| findstr /v partials ^| findstr /v shared ^| findstr /i templates`) do mjml %A -o templates\\templated_email\\compiled\\"
+    "build-emails": "node build.js"
   }
 }

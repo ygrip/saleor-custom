@@ -24,36 +24,43 @@ def minefeature(request):
 			result = {'success':False,'input':None,'output':None,'messages':'input could not be empty'}
 			return JsonResponse(result, status=status.HTTP_400_BAD_REQUEST)
 		else:
-			all_feature = []
+			treshold = int(data['count']) if 'count' in data else 2
 
-			# clean input sentences
-			stopwords = list(Stopwords.objects.all().values_list('kata',flat=True))
-			words = set(data['sentence'].split(' '))
-			clean_words = [word for word in words if word not in stopwords]
-
-			# create stemmer
-			factory = StemmerFactory()
-			basewords = list(WordList.objects.all().values_list('katadasar',flat=True))
-			stemmer = factory.create_custom_stemmer(basewords)
-
-			# mining text
-			output = stemmer.stem(' '.join([str(word) for word in clean_words])).split(' ')
-			features = list(set(output))
-
-			for element in features:
-				count = 0
-				for word in output:
-					if element == word:
-						count += 1
-				if element and count >= 2:
-					weight = round(count/len(output),3)
-					all_feature.append({'word':element,'count':weight})
-
-			if all_feature:
-				all_feature = sorted(all_feature, key=itemgetter('count'), reverse=True)
+			all_feature = populate_feature(data['sentence'],treshold)
 
 			result = {'success':True,'input':data['sentence'],'output':all_feature,'messages':'Succesfully mine features'}
 			return JsonResponse(result)
 	else:
 		result = {'success':False,'input':None,'output':None,'messages':'Wrong request method'}
 		return JsonResponse(result, status=status.HTTP_400_BAD_REQUEST)
+
+def populate_feature(sentence,treshold):
+	all_feature = []
+
+	# clean input sentences
+	stopwords = list(Stopwords.objects.all().values_list('kata',flat=True))
+	words = set(sentence.split(' '))
+	clean_words = [word for word in words if word not in stopwords]
+
+	# create stemmer
+	factory = StemmerFactory()
+	basewords = list(WordList.objects.all().values_list('katadasar',flat=True))
+	stemmer = factory.create_custom_stemmer(basewords)
+
+	# mining text
+	output = stemmer.stem(' '.join([str(word) for word in clean_words])).split(' ')
+	features = list(set(output))
+
+	for element in features:
+		count = 0
+		for word in output:
+			if element == word:
+				count += 1
+		if element and count >= treshold:
+			weight = round(count/len(output),3)
+			all_feature.append({'word':element,'count':weight})
+
+	if all_feature:
+		all_feature = sorted(all_feature, key=itemgetter('count'), reverse=True)
+
+	return all_feature

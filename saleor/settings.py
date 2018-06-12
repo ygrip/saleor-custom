@@ -224,6 +224,7 @@ INSTALLED_APPS = [
     'saleor.dictionary',
     'saleor.track',
     'saleor.promo',
+    'saleor.feature',
 
     # External apps
     'versatileimagefield',

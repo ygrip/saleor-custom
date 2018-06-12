@@ -2,6 +2,7 @@ from django.conf import settings
 from django.core.management import call_command
 from django.core.management.base import BaseCommand
 from django.db import connection
+from createproducts import create_custom_product
 
 from ...utils import create_superuser
 from ...utils.random_data import (
@@ -14,6 +15,7 @@ from ...utils.random_data import (
 class Command(BaseCommand):
     help = 'Populate database with test objects'
     placeholders_dir = r'saleor/static/placeholders/'
+    dir_json = r'saleor/static/json/products/'
 
     def add_arguments(self, parser):
         parser.add_argument(
@@ -34,6 +36,12 @@ class Command(BaseCommand):
             dest='withoutsearch',
             default=False,
             help='Don\'t update search index')
+        parser.add_argument(
+            '--customproduct',
+            action='store_true',
+            dest='customproduct',
+            default=False,
+            help='Create custom product')
 
     def make_database_faster(self):
         """Sacrifice some of the safeguards of sqlite3 for speed.
@@ -53,19 +61,24 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         self.make_database_faster()
         create_images = not options['withoutimages']
-        for msg in create_shipping_methods():
-            self.stdout.write(msg)
-        create_products_by_schema(self.placeholders_dir, 10, create_images,
-                                  stdout=self.stdout)
-        for msg in create_product_sales(5):
-            self.stdout.write(msg)
+        if not options['customproduct']:
+            for msg in create_shipping_methods():
+                self.stdout.write(msg)
+            create_products_by_schema(self.placeholders_dir, 10, create_images,
+                                      stdout=self.stdout)
+            for msg in create_product_sales(5):
+                self.stdout.write(msg)
+        else:
+            for msg in create_custom_product(self.dir_json,self.placeholders_dir):
+                self.stdout.write(msg)
+                
         for msg in create_vouchers():
             self.stdout.write(msg)
-        for msg in create_users(20):
+        for msg in create_users(100):
             self.stdout.write(msg)
-        for msg in create_orders(20):
+        for msg in create_orders(300):
             self.stdout.write(msg)
-        for msg in set_featured_products(16):
+        for msg in set_featured_products(100):
             self.stdout.write(msg)
         for msg in create_collections_by_schema(self.placeholders_dir):
             self.stdout.write(msg)

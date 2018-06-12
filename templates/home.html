@@ -16,28 +16,45 @@
                   <div class="sp-slides">
                     {% for promo in promos %}
                     <!-- Slide 1 -->
+
                     <div class="sp-slide">
-                      <img class="sp-image" src="{% static 'images/block1.jpg' %}"/>
-                      <div class="hw-the-slider-content">
-                        <div class="row">
-                          <div class="col-sm-12">
-                            <div class="hw-the-slider-container">
-                              <div class="hw-the-slider-captions sp-layer" data-show-transition="up" data-hide-transition="down" data-show-delay="800" data-hide-delay="800" data-stay-duration="5500">
-                              <div class="title-frame black">
-                              <span class="typcn typcn-chart-line"></span>
-                                <h2>FINANCE</h2>
-                                <hr class="small"/>
-                                <p>Phosfluorescently engage worldwide methodologies with web-enabled technology engage.</p>
+                      <a href="{{ promo.promo.url }}" class="sp-selectable">
+                          <img class="sp-image" src="{% static promo.promo.image %}" />
+                      </a>
+                      {% if promo.messages %}
+                        {% for message in promo.messages %}
+                          {% if forloop.first %}
+                            <div class="hw-the-slider-content">
+                              <div class="row">
+                                <div class="col-sm-12">
+                                  <div class="hw-the-slider-container">
+                                    <div class="hw-the-slider-captions sp-layer" data-show-transition="up" data-hide-transition="down" data-show-delay="800" data-hide-delay="800" data-stay-duration="5500">
+                                    <div class="title-frame black">
+                                    <span class="typcn typcn-chart-line">
+                                      <h2>{{ message.title }}</h2>
+                                    </span>
+                                      <hr class="small"/>
+                                      <p>{{ message.message }}</p>
+                                      </div>
+                                    </div>
+                                  </div>
                                 </div>
                               </div>
                             </div>
+                          
+                            <div class="sp-thumbnail">
+                              <div class="sp-thumbnail-title">{{ message.title }}</div>
+                            </div>
                           </div>
-                        </div>
-                      </div>
-                      <div class="sp-thumbnail">
-                        <div class="sp-thumbnail-title">Lorem ipsum</div>
-                      </div>
-                    </div>
+                          {% endif %}
+                        {% endfor %}
+                        {% else %}
+                            <div class="sp-thumbnail">
+                              <div class="sp-thumbnail-title">Promo</div>
+                            </div>
+                          </div>
+
+                      {% endif %}
                     {% endfor %}
                   </div>
                 </div>
@@ -98,6 +115,7 @@
         {% include "product/_items.html" %}
       </div>
     </div>
+    <script type="application/ld+json">{{ product_promos_schema|safe }}</script>
     <script type="application/ld+json">{{ webpage_schema|safe }}</script>
   </div>
 {% endblock %}

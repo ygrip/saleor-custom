@@ -20,6 +20,7 @@ from versatileimagefield.fields import PPOIField, VersatileImageField
 from ..core.exceptions import InsufficientStock
 from ..discount.utils import calculate_discounted_price
 from ..seo.models import SeoModel
+from ..account.models import User
 
 
 class Category(MPTTModel, SeoModel):
@@ -88,12 +89,17 @@ class ProductQuerySet(models.QuerySet):
             Q(available_on__lte=today) | Q(available_on__isnull=True),
             Q(is_published=True))
 
-
 class Product(SeoModel):
     product_type = models.ForeignKey(
         ProductType, related_name='products', on_delete=models.CASCADE)
-    name = models.CharField(max_length=128)
+    name = models.TextField()
     description = models.TextField()
+    # information = models.TextField()
+    # service = models.TextField()
+    # brand_id = models.ForeignKey(
+        # Brand, related_name='products', on_delete=models.CASCADE)
+    # location = models.ForeignKey(
+    #     MerchantLocation, related_name='products', on_delete=models.CASCADE)
     category = models.ForeignKey(
         Category, related_name='products', on_delete=models.CASCADE)
     price = MoneyField(
@@ -338,3 +344,48 @@ class Collection(SeoModel):
         return reverse(
             'product:collection',
             kwargs={'pk': self.id, 'slug': self.slug})
+
+
+class ProductRating(models.Model):
+    product_id = models.ForeignKey(
+        Product, related_name='ratings', on_delete=models.CASCADE)
+    user_id = models.ForeignKey(
+        User, related_name='ratings', on_delete=models.CASCADE)
+    value = models.PositiveIntegerField(editable=True)
+    updated_at = models.DateTimeField(auto_now=True, null=True)
+
+    class Meta:
+        app_label = 'product'
+        permissions = (
+            ('view_ratinng',
+             pgettext_lazy('Permission description', 'Can view product ratings')),
+            ('edit_rating',
+             pgettext_lazy('Permission description', 'Can edit product ratings')))
+
+
+class Brand(models.Model):
+    brand_name=models.TextField()
+    brand_link=models.TextField()
+    brand_image=VersatileImageField(
+        upload_to='brand-backgrounds', blank=True, null=True)
+
+    class Meta:
+        app_label = 'product'
+        permissions = (
+            ('view_brand',
+                pgettext_lazy('Permission description', 'Can view list of product brand')),
+            ('edit_brand',
+                pgettext_lazy('Permission description', 'Can edit product brand details'))
+            )
+
+class MerchantLocation(models.Model):
+    location=models.TextField(unique=True)
+
+    class Meta:
+        app_label = 'product'
+        permissions = (
+            ('view_location',
+                pgettext_lazy('Permission description', 'Can view list of product merchant location')),
+            ('edit_location',
+                pgettext_lazy('Permission description', 'Can edit product merchant location details'))
+            )

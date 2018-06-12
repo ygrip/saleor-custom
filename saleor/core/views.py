@@ -5,6 +5,7 @@ from django.template.response import TemplateResponse
 from django.utils.translation import pgettext_lazy
 from impersonate.views import impersonate as orig_impersonate
 from django.conf import settings
+from django.core import serializers
 
 from ..account.models import User
 from ..dashboard.views import staff_member_required
@@ -25,6 +26,7 @@ def home(request):
             'parent': None,
             'products': products,
             'product_promos' : promo,
+            'product_promos_schema' : json.dumps(promo,indent=4,sort_keys=True,default=str),
             'webpage_schema': json.dumps(webpage_schema)})
 
 
