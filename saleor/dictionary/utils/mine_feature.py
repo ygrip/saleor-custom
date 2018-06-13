@@ -6,6 +6,7 @@ from rest_framework import status
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework import permissions
 from operator import itemgetter
+import re
 
 from ...dictionary.models import WordList, Stopwords
 
@@ -49,6 +50,7 @@ def populate_feature(sentence,treshold):
 	# clean sentences from stopwords
 	stopwords = list(Stopwords.objects.all().values_list('kata',flat=True))
 	output = [word for word in output if word not in stopwords]
+	output = list(filter(lambda e: not invalid(e),output))
 	features = list(set(output))
 
 	for element in features:
@@ -64,3 +66,30 @@ def populate_feature(sentence,treshold):
 		all_feature = sorted(all_feature, key=itemgetter('count'), reverse=True)
 
 	return all_feature
+
+def invalid(s):
+	prohibited_suffix = ['mah','kb','gb','mb','tb','mbps','kbps','gbps','inch','mp','mm','cm','fps','in','v','w','kw','a','kv','watt','volt','x','ml','l','kg','g','lt','liter','gram','kilo']
+	
+	c = str(s)
+	for p in prohibited_suffix:
+		if c[-len(p):] == p:
+			return True
+		else:
+			continue
+	try:
+		float(s)
+		if re.search('[a-zA-Z]', s):
+			return False
+		else:
+			return True
+	except ValueError:
+		pass
+
+	try:
+		import unicodedata
+		unicodedata.numeric(s)
+		return True
+	except (TypeError, ValueError):
+		pass
+
+	return False

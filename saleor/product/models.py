@@ -50,8 +50,8 @@ class MerchantLocation(models.Model):
             )
 
 class Category(MPTTModel, SeoModel):
-    name = models.CharField(max_length=128)
-    slug = models.SlugField(max_length=128)
+    name = models.CharField(max_length=255)
+    slug = models.SlugField(max_length=255)
     description = models.TextField(blank=True)
     parent = models.ForeignKey(
         'self', null=True, blank=True, related_name='children',
@@ -88,7 +88,7 @@ class Category(MPTTModel, SeoModel):
 
 
 class ProductType(models.Model):
-    name = models.CharField(max_length=128)
+    name = models.CharField(max_length=255)
     has_variants = models.BooleanField(default=True)
     product_attributes = models.ManyToManyField(
         'ProductAttribute', related_name='product_types', blank=True)
@@ -282,8 +282,8 @@ class ProductVariant(models.Model):
 
 
 class ProductAttribute(models.Model):
-    slug = models.SlugField(max_length=50, unique=True)
-    name = models.CharField(max_length=100)
+    slug = models.SlugField(max_length=100, unique=True)
+    name = models.CharField(max_length=300)
 
     class Meta:
         ordering = ('slug', )
@@ -299,8 +299,8 @@ class ProductAttribute(models.Model):
 
 
 class AttributeChoiceValue(models.Model):
-    name = models.CharField(max_length=100)
-    slug = models.SlugField(max_length=100)
+    name = models.CharField(max_length=300)
+    slug = models.SlugField(max_length=400)
     color = models.CharField(
         max_length=7, blank=True,
         validators=[RegexValidator('^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$')])
