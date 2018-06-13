@@ -50,7 +50,7 @@ class MerchantLocation(models.Model):
             )
 
 class Category(MPTTModel, SeoModel):
-    name = models.CharField(max_length=255)
+    name = models.CharField(max_length=255,unique=True)
     slug = models.SlugField(max_length=255)
     description = models.TextField(blank=True)
     parent = models.ForeignKey(

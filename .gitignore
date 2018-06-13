@@ -27,6 +27,8 @@ dist/
 /node_modules/
 /static/
 /saleor/static/assets/
+/saleor/static/placeholders/products/
+/saleor/static/placeholders/brands/
 webpack-bundle.json
 /templates/templated_email/compiled/
 /env/

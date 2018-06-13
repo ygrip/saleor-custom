@@ -58,9 +58,10 @@ def populate_feature(sentence,treshold):
 		for word in output:
 			if element == word:
 				count += 1
-		if element and count >= treshold:
-			weight = round(count/len(output),3)
-			all_feature.append({'word':element,'count':weight})
+		if element:
+			if count >= treshold:
+				weight = round(count/len(output),3)
+				all_feature.append({'word':element,'count':weight})
 
 	if all_feature:
 		all_feature = sorted(all_feature, key=itemgetter('count'), reverse=True)
