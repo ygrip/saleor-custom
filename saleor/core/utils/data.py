@@ -113,14 +113,12 @@ def create_custom_product(dir_json,placeholders_dir):
 										seo_description=strip_html_and_truncate(description, 300),
 										)
 
-				sentence = title+' '+element.get('brand')+' '+description+' '+(' '.join(element.get('produk_features')))+' '
+				sentence = title+' '+element.get('brand')+' '+description+' '
 				sentence += ' '.join(map(lambda e: element.get('produk_specification').get(e), element.get('produk_specification')))+' '
 				sentence += ' '.join(element.get('category'))+' '
 				sentence += product_type_name+' '
 				if location:
 					sentence += element.get('merchant_location')+' '
-
-				yield '%s' % sentence
 
 				product_tags = populate_feature(sentence=sentence,treshold=2)[:6]
 

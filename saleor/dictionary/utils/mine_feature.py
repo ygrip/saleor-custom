@@ -38,14 +38,13 @@ def minefeature(request):
 def populate_feature(sentence,treshold):
 	all_feature = []
 	factory = StemmerFactory()
-	words = set(sentence.split(' '))
 
 	# create stemmer
 	basewords = list(WordList.objects.all().values_list('katadasar',flat=True))
 	stemmer = factory.create_custom_stemmer(basewords)
 
 	# mining text
-	output = stemmer.stem(' '.join([str(word) for word in words])).split(' ')
+	output = stemmer.stem(sentence).split(' ')
 
 	# clean sentences from stopwords
 	stopwords = list(Stopwords.objects.all().values_list('kata',flat=True))
