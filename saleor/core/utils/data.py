@@ -77,12 +77,12 @@ def create_custom_product(dir_json,placeholders_dir):
 			if check_product is not None:
 				if total <= check_product.id:
 					status = False
-				else:
-					status = True
 			else:
 				status = True
 
-			if status:
+			if not status:
+				continue
+			else:
 				product_type = create_product_type_with_attributes(product_type_name,
 								element.get('produk_specification',{}))
 				brand = create_brand(placeholders_dir,brand_data={
@@ -110,18 +110,6 @@ def create_custom_product(dir_json,placeholders_dir):
 										location=location,
 										seo_description=strip_html_and_truncate(description, 300),
 										)
-				yield 'Product: %s (%s), %s variant(s)' % (
-					product, product_type.name, 1)
-
-				set_product_attributes(product, product_type)
-				create_product_image(product,element.get('url_images'),placeholders_dir)
-				create_variant(product=product, price=price, sku=sku)
-				if 'Diskon' in check_price:
-					create_sale(product,float(check_price.get('Diskon')))
-
-				shipping = element.get('shipping_option')
-				if shipping is not None or shipping:
-					create_shipping_method(shipping)
 
 				sentence = title+' '+element.get('brand')+' '+description+' '+(' '.join(element.get('produk_features')))
 				sentence += ' '.join(map(lambda e: e, element.get('produk_specification')))
@@ -140,6 +128,21 @@ def create_custom_product(dir_json,placeholders_dir):
 					product_tag = ProductFeature.objects.get_or_create(feature_id=feature,
 									product_id=product,
 									defaults={'frequency':tag['count']})[0]
+
+				set_product_attributes(product, product_type)
+				create_variant(product=product, price=price, sku=sku)
+				yield 'Product: %s (%s), %s variant(s)' % (
+					product, product_type.name, 1)
+
+				create_product_image(product,element.get('url_images'),placeholders_dir)
+				
+				if 'Diskon' in check_price:
+					create_sale(product,float(check_price.get('Diskon')))
+
+				shipping = element.get('shipping_option')
+				if shipping:
+					if 'name' in shipping:
+						create_shipping_method(shipping)
 
 				current = product.id
 
@@ -186,8 +189,24 @@ def create_brand(placeholders_dir,brand_data, **kwargs):
 		filename = brand_data['name']+'.'+extension
 		
 		filepath = os.path.join(directory,filename)
-		with open(filepath, 'wb') as f:
-			f.write(image.content)
+		
+		if image.status_code == requests.codes.ok:
+			with open(filepath, 'wb') as f:
+				f.write(image.content)
+			brand_image = get_image(directory,filename)
+			defaults = {
+				'brand_name' : brand_data['name'],
+				'brand_link' : brand_data['url'],
+				'brand_image' : brand_image
+			}
+			
+		else:
+			defaults = {
+				'brand_name' : brand_data['name'],
+				'brand_link' : brand_data['url']
+			}
+
+		defaults.update(kwargs)
 	except requests.exceptions.InvalidSchema as e:
 		image = base64.b64decode(image_url.partition('base64,')[2])
 		filename = brand_data['name']+'.png'
@@ -195,16 +214,17 @@ def create_brand(placeholders_dir,brand_data, **kwargs):
 		filepath = os.path.join(directory,filename)
 		with open(filepath, 'wb') as f:
 			f.write(image)
+		brand_image = get_image(directory,filename)
+		defaults = {
+			'brand_name' : brand_data['name'],
+			'brand_link' : brand_data['url'],
+			'brand_image' : brand_image
+		}
+		defaults.update(kwargs)
 
-	brand_image = get_image(directory,filename)
-	defaults = {
-		'brand_name' : brand_data['name'],
-		'brand_link' : brand_data['url'],
-		'brand_image' : brand_image
-	}
-	defaults.update(kwargs)
 	brand = Brand.objects.get_or_create(brand_name=brand_data['name'],defaults=defaults)[0]
 	return brand
+	
 
 def create_attributes_and_values(attribute_data):
     attributes = []
@@ -327,9 +347,17 @@ def create_product_image(product, image_list, placeholder_dir):
 			extension = os.path.splitext(urlparse(image_url).path)[-1]
 			filename = str(i)+'.'+extension
 			
-			filepath = os.path.join(directory,filename)
-			with open(filepath, 'wb') as f:
-				f.write(image.content)
+			if image.status_code == requests.codes.ok:
+				filepath = os.path.join(directory,filename)
+				with open(filepath, 'wb') as f:
+					f.write(image.content)
+				product_image = get_image(directory,filename)
+				saved_image = ProductImage(product=product, image=product_image)
+				saved_image.save()
+				create_product_thumbnails.delay(saved_image.pk)
+				result.append(saved_image)
+			else:
+				continue
 		except requests.exceptions.InvalidSchema as e:
 			image = base64.b64decode(image_url.partition('base64,')[2])
 			filename = str(i)+'.png'
@@ -337,11 +365,12 @@ def create_product_image(product, image_list, placeholder_dir):
 			filepath = os.path.join(directory,filename)
 			with open(filepath, 'wb') as f:
 				f.write(image)
-		product_image = get_image(directory,filename)
-		saved_image = ProductImage(product=product, image=product_image)
-		saved_image.save()
-		create_product_thumbnails.delay(saved_image.pk)
-		result.append(saved_image)
+			product_image = get_image(directory,filename)
+
+			saved_image = ProductImage(product=product, image=product_image)
+			saved_image.save()
+			create_product_thumbnails.delay(saved_image.pk)
+			result.append(saved_image)
 	return result
 
 def create_sale(product,value,**kwargs):
