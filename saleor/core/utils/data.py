@@ -98,7 +98,7 @@ def create_custom_product(dir_json,placeholders_dir):
 				check_price = element.get('harga')
 				sku = element.get('produk_code').get('SKU Number')
 				price = int(check_price.get('Harga Awal',{})) if 'Harga Awal' in check_price else int(check_price.get('Harga',{}))
-				location, created = create_merchant_location(element.get('merchant_location'))
+				location = create_merchant_location(element.get('merchant_location'))
 				product = create_product(name=title,
 										product_type=product_type,
 										category=product_category,
@@ -115,7 +115,9 @@ def create_custom_product(dir_json,placeholders_dir):
 				sentence += ' '.join(map(lambda e: e, element.get('produk_specification')))
 				sentence += ' '.join(element.get('category'))
 				sentence += product_type_name
-				sentence += element.get('merchant_location')
+				if location:
+					sentence += element.get('merchant_location')
+
 				product_tags = populate_feature(sentence=sentence,treshold=2)[:6]
 
 				for tag in product_tags:
@@ -131,8 +133,8 @@ def create_custom_product(dir_json,placeholders_dir):
 
 				set_product_attributes(product, product_type)
 				create_variant(product=product, price=price, sku=sku)
-				yield 'Product: %s (%s), %s variant(s)' % (
-					product, product_type.name, 1)
+				yield '\n\n\t(%s)\nProduct: %s \nID: %s\n' % (
+					product_type.name, product, product.id)
 
 				create_product_image(product,element.get('url_images'),placeholders_dir)
 				
@@ -156,10 +158,13 @@ def create_product(name,**kwargs):
     return Product.objects.get_or_create(name=name,defaults=defaults)[0]
 
 def create_merchant_location(location):
-	defaults = {
-		'location' : location
-	}
-	return MerchantLocation.objects.get_or_create(location=location,defaults=defaults)
+	if not location:
+		return None
+	else:
+		defaults = {
+			'location' : location
+		}
+		return MerchantLocation.objects.get_or_create(location=location,defaults=defaults)[0]
 
 def create_shipping_method(shipping, **kwargs):
 	options = []
@@ -367,10 +372,10 @@ def create_product_image(product, image_list, placeholder_dir):
 				f.write(image)
 			product_image = get_image(directory,filename)
 
-			saved_image = ProductImage(product=product, image=product_image)
-			saved_image.save()
-			create_product_thumbnails.delay(saved_image.pk)
-			result.append(saved_image)
+			saved_image,created = ProductImage.objects.get_or_create(product=product, image=product_image, defaults={'image':product_image})
+			if created:
+				create_product_thumbnails.delay(image_id=saved_image.pk,verbose=False)
+				result.append(saved_image)
 	return result
 
 def create_sale(product,value,**kwargs):
