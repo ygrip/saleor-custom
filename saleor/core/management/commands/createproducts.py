@@ -2,12 +2,12 @@ from django.conf import settings
 from django.core.management import call_command
 from django.core.management.base import BaseCommand
 from django.db import connection
-from ...utils.data import create_product
+from ...utils.data import create_custom_product
 
 
 class Command(BaseCommand):
 	help = 'Create Products from www.blibli.com'
-	dir_json = r'saleor/static/json/products/'
+	dir_json = r'saleor/static/json/produk/'
 	placeholders_dir = r'saleor/static/placeholders/'
 
 	def handle(self, *args, **options):

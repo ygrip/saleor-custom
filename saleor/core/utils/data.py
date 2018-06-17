@@ -44,8 +44,6 @@ DELIVERY_REGIONS = [ANY_COUNTRY, 'ID', 'AUS', 'SG', 'MLY']
 cwd = os.getcwd()  # Get the current working directory (cwd)
 fake = Factory.create()
 
-current = 0
-
 def make_database_faster():
 	if 'sqlite3' in connection.settings_dict['ENGINE']:
 		cursor = connection.cursor()
@@ -59,32 +57,39 @@ def create_custom_product(dir_json,placeholders_dir):
 	os.chdir(dir_json)
 
 	try:
-		check_product = Product.objects.all().last()
+		check_product = Product.objects.all().order_by('id').last()
 		if not check_product:
 			check_product = None
+		else:
+			yield 'last inserted product id : %s' %str(check_product.id)
 	except Product.DoesNotExist:
 		check_product = None
 	total = 0
-
+	current = 0
 	for filename in glob.glob("*.json"):
 		product_type_name = ' '.join(map(lambda e: e.capitalize(), 
 								os.path.splitext(os.path.basename(filename))[0].replace('produk-','').split('-')))
 		yield 'Processing product type : %s' % product_type_name
 		content = json.load(open(filename))
+		
 		os.chdir(cwd)
 		for element in content:
-
 			total += 1
 			status = True
 			if check_product is not None:
-				if total <= check_product.id:
-					status = False
+				try:
+					current_product = Product.objects.get(name=element.get('title'))
+					if not current_product:
+						current_product = None
+				except Product.DoesNotExist:
+					current_product = None
+				if current_product is not None:
+					if current_product.id <= check_product.id:
+						status = False
 			else:
 				status = True
 
-			if not status:
-				continue
-			else:
+			if status:
 				product_type = create_product_type_with_attributes(product_type_name,
 								element.get('produk_specification',{}))
 				brand = create_brand(placeholders_dir,brand_data={
@@ -101,6 +106,8 @@ def create_custom_product(dir_json,placeholders_dir):
 				sku = element.get('produk_code').get('SKU Number')
 				price = int(check_price.get('Harga Awal')) if 'Harga Awal' in check_price else int(check_price.get('Harga'))
 				location = create_merchant_location(element.get('merchant_location'))
+				seo_description = strip_html_and_truncate(description, 300)
+				yield 'seo : %s' % price
 				product = create_product(name=title,
 										product_type=product_type,
 										category=product_category,
@@ -110,7 +117,7 @@ def create_custom_product(dir_json,placeholders_dir):
 										description=description,
 										service=service,
 										location=location,
-										seo_description=strip_html_and_truncate(description, 300),
+										seo_description=str(seo_description)
 										)
 
 				sentence = title+' '+element.get('brand')+' '+description+' '
@@ -149,7 +156,7 @@ def create_custom_product(dir_json,placeholders_dir):
 					if 'name' in shipping:
 						create_shipping_method(shipping)
 
-				current = product.id
+				current += 1
 		
 		os.chdir(dir_json)
 	yield 'Saved %s item(s) from total of %s' % (current,total)

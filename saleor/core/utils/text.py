@@ -56,5 +56,5 @@ def strip_html_and_truncate(html_text: str, max_length: int):
     """Strips HTML tags and whitespaces from text,
     then trim the description."""
     text = strip_html(html_text, strip_whitespace=True)
-    text = truncatechars(text, max_length)
+    text = truncatechars(str(text), max_length)
     return text
