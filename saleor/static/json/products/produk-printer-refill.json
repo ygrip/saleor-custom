@@ -44,10 +44,10 @@
             "EAN Code": "HP-DESKJET2135"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/hp_hp-deskjet-2135-multi-function-printer_full01.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/hp_hp-deskjet-2135-multi-function-printer_full02.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/hp_hp-deskjet-2135-multi-function-printer_full03.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/hp_hp-deskjet-2135-multi-function-printer_full04.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/hp_hp-deskjet-2135-multi-function-printer_full01.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/hp_hp-deskjet-2135-multi-function-printer_full02.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/hp_hp-deskjet-2135-multi-function-printer_full03.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/hp_hp-deskjet-2135-multi-function-printer_full04.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -91,7 +91,7 @@
             "EAN Code": "CZ108AA"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/hp_hp-678-tri-color-ink-cartridge_full03.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/hp_hp-678-tri-color-ink-cartridge_full03.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -138,7 +138,7 @@
             "EAN Code": "LX310"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//814/epson_printer-epson-lx310--dotmatrix-_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//814/epson_printer-epson-lx310--dotmatrix-_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -190,7 +190,7 @@
             "EAN Code": "2135-WHT"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/hp_hp-deskjet-ink-advantage-2135-printer_full03.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/hp_hp-deskjet-ink-advantage-2135-printer_full03.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -244,7 +244,7 @@
             "EAN Code": "CANON-G2000"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/canon_canon-g-2000-printer_full03.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/canon_canon-g-2000-printer_full03.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -293,7 +293,7 @@
             "EAN Code": "PG-810"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//90/MTA-1938140/canon_canon-pg-810-tinta-printer---black_full03.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//90/MTA-1938140/canon_canon-pg-810-tinta-printer---black_full03.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -346,9 +346,9 @@
             "EAN Code": "011706211807181010"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//81/MTA-1213713/hp_hp-officejet-7612-wide-format-printer_full02.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//81/MTA-1213713/hp_hp-officejet-7612-wide-format-printer_full03.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//81/MTA-1213713/hp_hp-officejet-7612-wide-format-printer_full04.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//81/MTA-1213713/hp_hp-officejet-7612-wide-format-printer_full02.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//81/MTA-1213713/hp_hp-officejet-7612-wide-format-printer_full03.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//81/MTA-1213713/hp_hp-officejet-7612-wide-format-printer_full04.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -407,7 +407,7 @@
             "EAN Code": "EPS-L405-BLK"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//91/MTA-1834138/epson_epson-l405-wi-fi-all-in-one-ink-tank-printer_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//91/MTA-1834138/epson_epson-l405-wi-fi-all-in-one-ink-tank-printer_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -460,10 +460,10 @@
             "EAN Code": "L360"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/epson_epson-l360-hitam-printer--print-scan-copy-_full03.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/epson_epson-l360-hitam-printer--print-scan-copy-_full04.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/epson_epson-l360-hitam-printer--print-scan-copy-_full05.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/epson_epson-l360-hitam-printer--print-scan-copy-_full06.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/epson_epson-l360-hitam-printer--print-scan-copy-_full03.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/epson_epson-l360-hitam-printer--print-scan-copy-_full04.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/epson_epson-l360-hitam-printer--print-scan-copy-_full05.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/epson_epson-l360-hitam-printer--print-scan-copy-_full06.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -510,7 +510,7 @@
             "EAN Code": "Canon Pixma iP2770 Single Function"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//803/canon_canon-pixma-ip2770-single-function_full01.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//803/canon_canon-pixma-ip2770-single-function_full01.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -565,7 +565,7 @@
             "EAN Code": "CANON-G2000"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/canon_canon-g-2000-printer_full03.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/canon_canon-g-2000-printer_full03.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -620,7 +620,7 @@
             "EAN Code": "L120"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/epson_epson-l120-printer---black_full03.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/epson_epson-l120-printer---black_full03.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -671,9 +671,9 @@
             "EAN Code": "HP-DESKJET2132"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/hp_hp-deskjet-2132-multi-function-printer_full01.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/hp_hp-deskjet-2132-multi-function-printer_full02.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/hp_hp-deskjet-2132-multi-function-printer_full03.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/hp_hp-deskjet-2132-multi-function-printer_full01.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/hp_hp-deskjet-2132-multi-function-printer_full02.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/hp_hp-deskjet-2132-multi-function-printer_full03.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -724,9 +724,9 @@
             "EAN Code": "HP-DESKJET-2132"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/hp_hp-deskjet-2132-all-in-one_full06.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/hp_hp-deskjet-2132-all-in-one_full07.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/hp_hp-deskjet-2132-all-in-one_full08.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/hp_hp-deskjet-2132-all-in-one_full06.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/hp_hp-deskjet-2132-all-in-one_full07.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/hp_hp-deskjet-2132-all-in-one_full08.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -787,7 +787,7 @@
             "EAN Code": "PIXMA-TS307"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//84/MTA-1718120/canon_canon-pixma-ts307-inkjet-printer_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//84/MTA-1718120/canon_canon-pixma-ts307-inkjet-printer_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -844,9 +844,9 @@
             "EAN Code": "Epson L360"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//109/MTA-1489699/epson_epson-l360-printer---hitam--print--scan--copy-_full04.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//109/MTA-1489699/epson_epson-l360-printer---hitam--print--scan--copy-_full05.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//109/MTA-1489699/epson_epson-l360-printer---hitam--print--scan--copy-_full06.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//109/MTA-1489699/epson_epson-l360-printer---hitam--print--scan--copy-_full04.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//109/MTA-1489699/epson_epson-l360-printer---hitam--print--scan--copy-_full05.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//109/MTA-1489699/epson_epson-l360-printer---hitam--print--scan--copy-_full06.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -896,7 +896,7 @@
             "EAN Code": "F6V26AA"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/MTA-1972902/hp_hp-680-ink-cartridge---tri-color--f6v26aa--original-_full04.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/MTA-1972902/hp_hp-680-ink-cartridge---tri-color--f6v26aa--original-_full04.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -949,7 +949,7 @@
             "EAN Code": "EPS-L360-HTM"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/epson_epson-l360-hitam-printer--print-scan-copy-_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/epson_epson-l360-hitam-printer--print-scan-copy-_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -1013,10 +1013,10 @@
             "EAN Code": "EPPOS EP5802AI"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//919/eppos_eppos-ep5802ai-bluetooth-mini-printer_full05.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//920/eppos_eppos-ep5802ai-bluetooth-mini-printer_full06.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//921/eppos_eppos-ep5802ai-bluetooth-mini-printer_full07.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//922/eppos_eppos-ep5802ai-bluetooth-mini-printer_full08.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//919/eppos_eppos-ep5802ai-bluetooth-mini-printer_full05.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//920/eppos_eppos-ep5802ai-bluetooth-mini-printer_full06.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//921/eppos_eppos-ep5802ai-bluetooth-mini-printer_full07.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//922/eppos_eppos-ep5802ai-bluetooth-mini-printer_full08.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -1065,7 +1065,7 @@
             "EAN Code": "F6V27AA"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/MTA-1972910/hp_hp-680-ink-cartridge---black--f6v27aa--original-_full04.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/MTA-1972910/hp_hp-680-ink-cartridge---black--f6v27aa--original-_full04.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -1125,10 +1125,10 @@
             "EAN Code": "Epson L 360"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//88/MTA-1319272/epson_epson-l-360-printer--print-scan-copy-_full05.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//88/MTA-1319272/epson_epson-l-360-printer--print-scan-copy-_full06.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//88/MTA-1319272/epson_epson-l-360-printer--print-scan-copy-_full07.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//88/MTA-1319272/epson_epson-l-360-printer--print-scan-copy-_full08.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//88/MTA-1319272/epson_epson-l-360-printer--print-scan-copy-_full05.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//88/MTA-1319272/epson_epson-l-360-printer--print-scan-copy-_full06.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//88/MTA-1319272/epson_epson-l-360-printer--print-scan-copy-_full07.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//88/MTA-1319272/epson_epson-l-360-printer--print-scan-copy-_full08.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -1184,7 +1184,7 @@
             "EAN Code": "Epson L-360 Printer"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//579/epson_epson-l-360-printer_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//579/epson_epson-l-360-printer_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -1241,7 +1241,7 @@
             "EAN Code": "011705161448342110"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//578/epson_printer-epson-l360_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//578/epson_printer-epson-l360_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -1292,7 +1292,7 @@
             "EAN Code": "DCP-T300-HTM"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/brother_brother-dcp-t300-printer--print--scan--copy-_full03.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/brother_brother-dcp-t300-printer--print--scan--copy-_full03.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -1344,8 +1344,8 @@
             "EAN Code": "2132-WHT"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/hp_hp-deskjet-2132-all-in-one-printer---white_full04.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/hp_hp-deskjet-2132-all-in-one-printer---white_full05.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/hp_hp-deskjet-2132-all-in-one-printer---white_full04.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/hp_hp-deskjet-2132-all-in-one-printer---white_full05.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -1397,10 +1397,10 @@
             "EAN Code": "HP-2135-WHT"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/hp_hp-deskjet-2135-all-in-one-printer_full09.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/hp_hp-deskjet-2135-all-in-one-printer_full06.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/hp_hp-deskjet-2135-all-in-one-printer_full07.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/hp_hp-deskjet-2135-all-in-one-printer_full08.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/hp_hp-deskjet-2135-all-in-one-printer_full09.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/hp_hp-deskjet-2135-all-in-one-printer_full06.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/hp_hp-deskjet-2135-all-in-one-printer_full07.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/hp_hp-deskjet-2135-all-in-one-printer_full08.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -1457,10 +1457,10 @@
             "EAN Code": "KK-PRNTR-EPSL360-PSC"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//977/epson_epson-l360-printer---hitam--print--scan--copy-_full05.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//978/epson_epson-l360-printer---hitam--print--scan--copy-_full06.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//979/epson_epson-l360-printer---hitam--print--scan--copy-_full07.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//980/epson_epson-l360-printer---hitam--print--scan--copy-_full08.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//977/epson_epson-l360-printer---hitam--print--scan--copy-_full05.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//978/epson_epson-l360-printer---hitam--print--scan--copy-_full06.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//979/epson_epson-l360-printer---hitam--print--scan--copy-_full07.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//980/epson_epson-l360-printer---hitam--print--scan--copy-_full08.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -1515,7 +1515,7 @@
             "EAN Code": "01170516152456008"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//573/epson_epson-l120-printer_full03.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//573/epson_epson-l120-printer_full03.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -1566,7 +1566,7 @@
             "EAN Code": "58mm-Printer"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//1323/china-brand_china-brand-zjiang-zj-5802-58mm-mini-thermal-bluetooth-printer_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//1323/china-brand_china-brand-zjiang-zj-5802-58mm-mini-thermal-bluetooth-printer_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -1619,7 +1619,7 @@
             "EAN Code": null
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/modern-online-store_canon-inkjet-mx497-multifunction-printer_full01.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/modern-online-store_canon-inkjet-mx497-multifunction-printer_full01.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -1666,8 +1666,8 @@
             "EAN Code": "CL-811"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//94/MTA-1938118/canon_canon-cl-811-tinta-printer---color_full03.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//94/MTA-1938118/canon_canon-cl-811-tinta-printer---color_full04.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//94/MTA-1938118/canon_canon-cl-811-tinta-printer---color_full03.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//94/MTA-1938118/canon_canon-cl-811-tinta-printer---color_full04.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -1718,7 +1718,7 @@
             "EAN Code": "LBP6030"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/canon_canon-image-class-lbp6030-laser-printer_full03.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/canon_canon-image-class-lbp6030-laser-printer_full03.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -1771,7 +1771,7 @@
             "EAN Code": "CAN-IP2770-BLK"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/canon_canon-ip-2770-printer_full03.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/canon_canon-ip-2770-printer_full03.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -1822,10 +1822,10 @@
             "EAN Code": null
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/digital-store_bellav-printer-bluetooth-thermal-android-ios-pc-laptop_full01.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/digital-store_bellav-printer-bluetooth-thermal-android-ios-pc-laptop_full04.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/digital-store_bellav-printer-bluetooth-thermal-android-ios-pc-laptop_full03.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/digital-store_bellav-printer-bluetooth-thermal-android-ios-pc-laptop_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/digital-store_bellav-printer-bluetooth-thermal-android-ios-pc-laptop_full01.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/digital-store_bellav-printer-bluetooth-thermal-android-ios-pc-laptop_full04.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/digital-store_bellav-printer-bluetooth-thermal-android-ios-pc-laptop_full03.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/digital-store_bellav-printer-bluetooth-thermal-android-ios-pc-laptop_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -1872,7 +1872,7 @@
             "EAN Code": "T6641"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/epson_epson-t6641-hitam-tinta-printer_full03.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/epson_epson-t6641-hitam-tinta-printer_full03.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -1930,11 +1930,11 @@
             "EAN Code": "KK-PRNTR-EPSL385"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//771/epson_epson-l385-wifi-printer---hitam_full06.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//772/epson_epson-l385-wifi-printer---hitam_full07.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//773/epson_epson-l385-wifi-printer---hitam_full08.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//774/epson_epson-l385-wifi-printer---hitam_full09.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//766/epson_epson-l385-wifi-printer---hitam_full10.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//771/epson_epson-l385-wifi-printer---hitam_full06.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//772/epson_epson-l385-wifi-printer---hitam_full07.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//773/epson_epson-l385-wifi-printer---hitam_full08.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//774/epson_epson-l385-wifi-printer---hitam_full09.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//766/epson_epson-l385-wifi-printer---hitam_full10.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -1983,10 +1983,10 @@
             "EAN Code": "CP1300-BLK"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//86/MTA-1556411/canon_canon-selphy-cp1300-compact-photo-printer---black_full05.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//86/MTA-1556411/canon_canon-selphy-cp1300-compact-photo-printer---black_full06.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//86/MTA-1556411/canon_canon-selphy-cp1300-compact-photo-printer---black_full07.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//86/MTA-1556411/canon_canon-selphy-cp1300-compact-photo-printer---black_full08.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//86/MTA-1556411/canon_canon-selphy-cp1300-compact-photo-printer---black_full05.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//86/MTA-1556411/canon_canon-selphy-cp1300-compact-photo-printer---black_full06.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//86/MTA-1556411/canon_canon-selphy-cp1300-compact-photo-printer---black_full07.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//86/MTA-1556411/canon_canon-selphy-cp1300-compact-photo-printer---black_full08.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -2037,9 +2037,9 @@
             "EAN Code": "HP-DESKJET2132"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/hp_hp-deskjet-2132-multi-function-printer_full01.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/hp_hp-deskjet-2132-multi-function-printer_full02.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/hp_hp-deskjet-2132-multi-function-printer_full03.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/hp_hp-deskjet-2132-multi-function-printer_full01.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/hp_hp-deskjet-2132-multi-function-printer_full02.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/hp_hp-deskjet-2132-multi-function-printer_full03.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -2089,8 +2089,8 @@
             "EAN Code": "HP-DEKJET-1112-WHT"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//670/hp_hp-deskjet-1112-printer---putih--_full02.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//671/hp_hp-deskjet-1112-printer---putih--_full03.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//670/hp_hp-deskjet-1112-printer---putih--_full02.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//671/hp_hp-deskjet-1112-printer---putih--_full03.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -2151,7 +2151,7 @@
             "EAN Code": "CAN-PIXMA-G3010"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//95/MTA-1942286/canon_canon-pixma-g3010-multifunction-inkjet-printer_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//95/MTA-1942286/canon_canon-pixma-g3010-multifunction-inkjet-printer_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -2208,9 +2208,9 @@
             "EAN Code": "KK-PRITEP-L405"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//93/MTA-1814078/epson_epson-l405-wi-fi-and-wi-fi-direct-printer--print-scan-copy-_full04.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//93/MTA-1814078/epson_epson-l405-wi-fi-and-wi-fi-direct-printer--print-scan-copy-_full05.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//93/MTA-1814078/epson_epson-l405-wi-fi-and-wi-fi-direct-printer--print-scan-copy-_full06.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//93/MTA-1814078/epson_epson-l405-wi-fi-and-wi-fi-direct-printer--print-scan-copy-_full04.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//93/MTA-1814078/epson_epson-l405-wi-fi-and-wi-fi-direct-printer--print-scan-copy-_full05.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//93/MTA-1814078/epson_epson-l405-wi-fi-and-wi-fi-direct-printer--print-scan-copy-_full06.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -2273,9 +2273,9 @@
             "EAN Code": "HP-1112-WHT"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//77/MTA-1220061/hp_hp-deskjet-1112-printer_full04.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//77/MTA-1220061/hp_hp-deskjet-1112-printer_full05.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//77/MTA-1220061/hp_hp-deskjet-1112-printer_full06.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//77/MTA-1220061/hp_hp-deskjet-1112-printer_full04.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//77/MTA-1220061/hp_hp-deskjet-1112-printer_full05.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//77/MTA-1220061/hp_hp-deskjet-1112-printer_full06.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -2327,7 +2327,7 @@
             "EAN Code": "EPSON-L120-HTM"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/epson_epson-l120-printer---hitam_full04.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/epson_epson-l120-printer---hitam_full04.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -2376,7 +2376,7 @@
             "EAN Code": "PG-47"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//91/MTA-1938133/canon_canon-pg-47-tinta-printer---black_full03.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//91/MTA-1938133/canon_canon-pg-47-tinta-printer---black_full03.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -2431,10 +2431,10 @@
             "EAN Code": "EPS-M200-PRI-BLK"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//576/epson_epson-m200-printer_full05.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//577/epson_epson-m200-printer_full06.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//578/epson_epson-m200-printer_full07.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//579/epson_epson-m200-printer_full08.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//576/epson_epson-m200-printer_full05.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//577/epson_epson-m200-printer_full06.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//578/epson_epson-m200-printer_full07.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//579/epson_epson-m200-printer_full08.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -2492,7 +2492,7 @@
             "EAN Code": "HP INK TANK 315 AIO"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//96/MTA-1735395/hp_hp-315-aio-ink-tank-printer_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//96/MTA-1735395/hp_hp-315-aio-ink-tank-printer_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -2539,8 +2539,8 @@
             "EAN Code": "01180222161932378"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//100/MTA-1908963/hp_hp-ink-tank-315_full03.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//100/MTA-1908963/hp_hp-ink-tank-315_full04.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//100/MTA-1908963/hp_hp-ink-tank-315_full03.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//100/MTA-1908963/hp_hp-ink-tank-315_full04.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -2587,10 +2587,10 @@
             "EAN Code": "HP Ink Tank Wireless 415 Black"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//100/MTA-1908954/hp_hp-ink-tank-wireless-415_full05.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//100/MTA-1908954/hp_hp-ink-tank-wireless-415_full06.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//100/MTA-1908954/hp_hp-ink-tank-wireless-415_full07.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//100/MTA-1908954/hp_hp-ink-tank-wireless-415_full08.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//100/MTA-1908954/hp_hp-ink-tank-wireless-415_full05.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//100/MTA-1908954/hp_hp-ink-tank-wireless-415_full06.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//100/MTA-1908954/hp_hp-ink-tank-wireless-415_full07.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//100/MTA-1908954/hp_hp-ink-tank-wireless-415_full08.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -2634,8 +2634,8 @@
             "EAN Code": "GT51-BLA"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/hp_hp-gt51-ink-tinta-printer---black_full04.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/hp_hp-gt51-ink-tinta-printer---black_full05.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/hp_hp-gt51-ink-tinta-printer---black_full04.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/hp_hp-gt51-ink-tinta-printer---black_full05.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -2693,10 +2693,10 @@
             "EAN Code": "L1455"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//743/epson_epson-l1455-all-in-one-printer_full05.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//744/epson_epson-l1455-all-in-one-printer_full06.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//745/epson_epson-l1455-all-in-one-printer_full07.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//746/epson_epson-l1455-all-in-one-printer_full08.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//743/epson_epson-l1455-all-in-one-printer_full05.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//744/epson_epson-l1455-all-in-one-printer_full06.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//745/epson_epson-l1455-all-in-one-printer_full07.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//746/epson_epson-l1455-all-in-one-printer_full08.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -2741,7 +2741,7 @@
             "EAN Code": "01160229193532954"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/epson_epson-m200-all-in-one-printer--print--scan--copy--ink-tank-_full03.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/epson_epson-m200-all-in-one-printer--print--scan--copy--ink-tank-_full03.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -2794,7 +2794,7 @@
             "EAN Code": "MX-497"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/canon_canon-mx-497-printer_full03.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/canon_canon-mx-497-printer_full03.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -2843,7 +2843,7 @@
             "EAN Code": "18405"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//597/hp_hp-680-tinta-black-original_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//597/hp_hp-680-tinta-black-original_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -2901,10 +2901,10 @@
             "EAN Code": "L1300"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//736/epson_epson-l1300-a3-ink-tank-printer_full05.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//737/epson_epson-l1300-a3-ink-tank-printer_full06.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//738/epson_epson-l1300-a3-ink-tank-printer_full07.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//739/epson_epson-l1300-a3-ink-tank-printer_full08.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//736/epson_epson-l1300-a3-ink-tank-printer_full05.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//737/epson_epson-l1300-a3-ink-tank-printer_full06.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//738/epson_epson-l1300-a3-ink-tank-printer_full07.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//739/epson_epson-l1300-a3-ink-tank-printer_full08.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -2957,7 +2957,7 @@
             "EAN Code": "RS7868764-WHITE"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//408/hp_printer-hp-1112_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//408/hp_printer-hp-1112_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -3001,7 +3001,7 @@
             "EAN Code": "CH561ZZ"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/hp_hp-802-ink-cartridge---small-black_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/hp_hp-802-ink-cartridge---small-black_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -3053,9 +3053,9 @@
             "EAN Code": "bellaV zcs 05"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//97/MTA-1477159/bella-vision_printer-bluetooth-bellav-zcs-05_full05.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//97/MTA-1477159/bella-vision_printer-bluetooth-bellav-zcs-05_full06.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//97/MTA-1477159/bella-vision_printer-bluetooth-bellav-zcs-05_full07.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//97/MTA-1477159/bella-vision_printer-bluetooth-bellav-zcs-05_full05.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//97/MTA-1477159/bella-vision_printer-bluetooth-bellav-zcs-05_full06.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//97/MTA-1477159/bella-vision_printer-bluetooth-bellav-zcs-05_full07.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -3102,8 +3102,8 @@
             "EAN Code": "01170621180635162"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//79/MTA-1213711/hp_hp-laserjet-pro-mfp-m130a-printer_full02.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//79/MTA-1213711/hp_hp-laserjet-pro-mfp-m130a-printer_full03.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//79/MTA-1213711/hp_hp-laserjet-pro-mfp-m130a-printer_full02.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//79/MTA-1213711/hp_hp-laserjet-pro-mfp-m130a-printer_full03.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -3150,7 +3150,7 @@
             "EAN Code": "HP-802-COM-PACK"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//1126/hp_cartridge-hp-802-combo-pack-black---tri-color-ink-original-cr312aa_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//1126/hp_cartridge-hp-802-combo-pack-black---tri-color-ink-original-cr312aa_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -3200,8 +3200,8 @@
             "EAN Code": "CAN-LID-120"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/canon_canon-lide-120-scanner_full04.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/canon_canon-lide-120-scanner_full05.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/canon_canon-lide-120-scanner_full04.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/canon_canon-lide-120-scanner_full05.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -3255,7 +3255,7 @@
             "EAN Code": "01180329133555273"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//88/MTA-2058701/canon_canon-mp-287-printer_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//88/MTA-2058701/canon_canon-mp-287-printer_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -3308,7 +3308,7 @@
             "EAN Code": "HP-K7B87D-PRNTER"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/hp_hp-deskjet-1112-k7b87d-printer_full03.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/hp_hp-deskjet-1112-k7b87d-printer_full03.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -3360,7 +3360,7 @@
             "EAN Code": null
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/itklik_epson-l120-printer_full01.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/itklik_epson-l120-printer_full01.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -3421,7 +3421,7 @@
             "EAN Code": "L565-blk"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//584/epson_epson-l565-printer_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//584/epson_epson-l565-printer_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -3470,7 +3470,7 @@
             "EAN Code": "EPS-11L385"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//81/MTA-1208410/epson_epson-l385-wi-fi-all-in-one-ink-tank-printer_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//81/MTA-1208410/epson_epson-l385-wi-fi-all-in-one-ink-tank-printer_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -3517,7 +3517,7 @@
             "EAN Code": "HP-803-BLK"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/hp_hp-803-black-ink-cartridge_full03.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/hp_hp-803-black-ink-cartridge_full03.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -3577,8 +3577,8 @@
             "EAN Code": "Canon PIXMA TS207"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//90/MTA-2134970/canon_canon-pixma-ts207-inkjet-printer_full03.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//90/MTA-2134970/canon_canon-pixma-ts207-inkjet-printer_full04.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//90/MTA-2134970/canon_canon-pixma-ts207-inkjet-printer_full03.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//90/MTA-2134970/canon_canon-pixma-ts207-inkjet-printer_full04.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -3625,8 +3625,8 @@
             "EAN Code": "01180222161932378"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//100/MTA-1908963/hp_hp-ink-tank-315_full03.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//100/MTA-1908963/hp_hp-ink-tank-315_full04.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//100/MTA-1908963/hp_hp-ink-tank-315_full03.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//100/MTA-1908963/hp_hp-ink-tank-315_full04.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -3671,7 +3671,7 @@
             "EAN Code": "011710271319315410"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//92/MTA-1489421/hp_hp-680-original-cartridge-tinta_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//92/MTA-1489421/hp_hp-680-original-cartridge-tinta_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -3718,7 +3718,7 @@
             "EAN Code": "E-410-BLCK"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//524/canon_canon-e-410-printer_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//524/canon_canon-e-410-printer_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -3775,7 +3775,7 @@
             "EAN Code": "CP1300"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//100/MTA-1624978/canon_canon-selphy-cp1300-compact-photo-printer---pink_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//100/MTA-1624978/canon_canon-selphy-cp1300-compact-photo-printer---pink_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -3818,7 +3818,7 @@
             "EAN Code": "HP 678 Colour Cartridge"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//569/hp_hp-678-cartridge---colour_full03.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//569/hp_hp-678-cartridge---colour_full03.jpg"
         ],
         "shipping_option": null,
         "merchant_location": "Kota Surabaya, Jawa Timur"
@@ -3866,8 +3866,8 @@
             "EAN Code": "KK-PRNTR-EPSTMU220D-CS"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//851/epson_epson-tm-u220d-printer-kasir---hitam_full03.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//852/epson_epson-tm-u220d-printer-kasir---hitam_full04.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//851/epson_epson-tm-u220d-printer-kasir---hitam_full03.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//852/epson_epson-tm-u220d-printer-kasir---hitam_full04.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -3914,7 +3914,7 @@
             "EAN Code": "HP-46-K"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/MTA-0120365/hp_hp-46-black-ink-cartridge--cz637aa-_full05.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/MTA-0120365/hp_hp-46-black-ink-cartridge--cz637aa-_full05.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -3969,8 +3969,8 @@
             "EAN Code": "KK-PRNTR-EPSL485-PSCWi"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//1318/epson_epson-printer-multifungsi-l485-wifi---hitam--print--scan--copy-_full04.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//1319/epson_epson-printer-multifungsi-l485-wifi---hitam--print--scan--copy-_full05.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//1318/epson_epson-printer-multifungsi-l485-wifi---hitam--print--scan--copy-_full04.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//1319/epson_epson-printer-multifungsi-l485-wifi---hitam--print--scan--copy-_full05.jpg"
         ],
         "shipping_option": null,
         "merchant_location": "Kota Yogyakarta, DI Yogyakarta"
@@ -4012,9 +4012,9 @@
             "EAN Code": "CP1300-WHT"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//96/MTA-1556609/canon_canon-selphy-cp1300-compact-photo-printer---white_full04.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//96/MTA-1556609/canon_canon-selphy-cp1300-compact-photo-printer---white_full05.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//96/MTA-1556609/canon_canon-selphy-cp1300-compact-photo-printer---white_full06.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//96/MTA-1556609/canon_canon-selphy-cp1300-compact-photo-printer---white_full04.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//96/MTA-1556609/canon_canon-selphy-cp1300-compact-photo-printer---white_full05.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//96/MTA-1556609/canon_canon-selphy-cp1300-compact-photo-printer---white_full06.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -4066,7 +4066,7 @@
             "EAN Code": "L310"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/epson_epson-l310-printer_full01.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/epson_epson-l310-printer_full01.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -4127,10 +4127,10 @@
             "EAN Code": "Epson L 360"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//88/MTA-1319272/epson_epson-l-360-printer--print-scan-copy-_full05.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//88/MTA-1319272/epson_epson-l-360-printer--print-scan-copy-_full06.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//88/MTA-1319272/epson_epson-l-360-printer--print-scan-copy-_full07.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//88/MTA-1319272/epson_epson-l-360-printer--print-scan-copy-_full08.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//88/MTA-1319272/epson_epson-l-360-printer--print-scan-copy-_full05.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//88/MTA-1319272/epson_epson-l-360-printer--print-scan-copy-_full06.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//88/MTA-1319272/epson_epson-l-360-printer--print-scan-copy-_full07.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//88/MTA-1319272/epson_epson-l-360-printer--print-scan-copy-_full08.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -4179,8 +4179,8 @@
             "EAN Code": "CL-57s"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//91/MTA-1938115/canon_canon-cl-57s-tinta-printer---color_full03.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//91/MTA-1938115/canon_canon-cl-57s-tinta-printer---color_full04.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//91/MTA-1938115/canon_canon-cl-57s-tinta-printer---color_full03.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//91/MTA-1938115/canon_canon-cl-57s-tinta-printer---color_full04.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -4244,9 +4244,9 @@
             "EAN Code": "HP-1112-WHT"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//77/MTA-1220061/hp_hp-deskjet-1112-printer_full04.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//77/MTA-1220061/hp_hp-deskjet-1112-printer_full05.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//77/MTA-1220061/hp_hp-deskjet-1112-printer_full06.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//77/MTA-1220061/hp_hp-deskjet-1112-printer_full04.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//77/MTA-1220061/hp_hp-deskjet-1112-printer_full05.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//77/MTA-1220061/hp_hp-deskjet-1112-printer_full06.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -4289,8 +4289,8 @@
             "EAN Code": "CAN-PG-745-BK"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//99/MTA-1248984/canon_canon-pg-745-cartridge---black_full03.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//99/MTA-1248984/canon_canon-pg-745-cartridge---black_full04.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//99/MTA-1248984/canon_canon-pg-745-cartridge---black_full03.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//99/MTA-1248984/canon_canon-pg-745-cartridge---black_full04.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -4338,10 +4338,10 @@
             "EAN Code": "XPOS-58-STG-BLK"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//1083/santang_printer-kasir-direct-thermal-santang-xpos-58_full05.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//1084/santang_printer-kasir-direct-thermal-santang-xpos-58_full06.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//1085/santang_printer-kasir-direct-thermal-santang-xpos-58_full07.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//1086/santang_printer-kasir-direct-thermal-santang-xpos-58_full08.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//1083/santang_printer-kasir-direct-thermal-santang-xpos-58_full05.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//1084/santang_printer-kasir-direct-thermal-santang-xpos-58_full06.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//1085/santang_printer-kasir-direct-thermal-santang-xpos-58_full07.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//1086/santang_printer-kasir-direct-thermal-santang-xpos-58_full08.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -4394,9 +4394,9 @@
             "EAN Code": "Y5Z03B"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//80/MTA-2003018/hp_hp-deskjet--2676-all-in-one---y5z03b-_full04.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//80/MTA-2003018/hp_hp-deskjet--2676-all-in-one---y5z03b-_full05.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//80/MTA-2003018/hp_hp-deskjet--2676-all-in-one---y5z03b-_full06.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//80/MTA-2003018/hp_hp-deskjet--2676-all-in-one---y5z03b-_full04.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//80/MTA-2003018/hp_hp-deskjet--2676-all-in-one---y5z03b-_full05.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//80/MTA-2003018/hp_hp-deskjet--2676-all-in-one---y5z03b-_full06.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -4443,8 +4443,8 @@
             "EAN Code": "Epson-Tinta-664-Original-Blk"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//92/MTA-1235729/epson_epson-original-664-tinta-printer---hitam_full03.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//92/MTA-1235729/epson_epson-original-664-tinta-printer---hitam_full04.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//92/MTA-1235729/epson_epson-original-664-tinta-printer---hitam_full03.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//92/MTA-1235729/epson_epson-original-664-tinta-printer---hitam_full04.jpg"
         ],
         "shipping_option": null,
         "merchant_location": "Kota Malang, Jawa Timur"
@@ -4494,7 +4494,7 @@
             "EAN Code": "IP2870S"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/canon_canon-inkjet-pixma-ip2870s-printer_full03.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/canon_canon-inkjet-pixma-ip2870s-printer_full03.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -4556,9 +4556,9 @@
             "EAN Code": "Epson INKTANK L310"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//82/MTA-1438100/epson_epson-l310-inktank-printer_full04.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//82/MTA-1438100/epson_epson-l310-inktank-printer_full05.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//82/MTA-1438100/epson_epson-l310-inktank-printer_full06.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//82/MTA-1438100/epson_epson-l310-inktank-printer_full04.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//82/MTA-1438100/epson_epson-l310-inktank-printer_full05.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//82/MTA-1438100/epson_epson-l310-inktank-printer_full06.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -4609,8 +4609,8 @@
             "EAN Code": "L805"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/epson_epson-l805-wifi-printer_full04.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/epson_epson-l805-wifi-printer_full05.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/epson_epson-l805-wifi-printer_full04.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/epson_epson-l805-wifi-printer_full05.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -4654,7 +4654,7 @@
             "EAN Code": "CAN-PG810-BLACK-ORI"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//900/canon_tinta-canon-pg810-black-original-cartridge_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//900/canon_tinta-canon-pg810-black-original-cartridge_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -4716,7 +4716,7 @@
             "EAN Code": "CAN-PIXMA-G4010"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//97/MTA-1942369/canon_canon-pixma-g4010-multifunction-inkjet-printer_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//97/MTA-1942369/canon_canon-pixma-g4010-multifunction-inkjet-printer_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -4759,7 +4759,7 @@
             "EAN Code": "810"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/canon_canon-810-black-ink-cartridge_full03.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/canon_canon-810-black-ink-cartridge_full03.jpg"
         ],
         "shipping_option": null,
         "merchant_location": "Kota Bekasi, Jawa Barat"
@@ -4803,7 +4803,7 @@
             "EAN Code": "GI-790B"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//88/MTA-1938120/canon_canon-gi-790b-tinta-printer---black_full03.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//88/MTA-1938120/canon_canon-gi-790b-tinta-printer---black_full03.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -4858,7 +4858,7 @@
             "EAN Code": "EPS-PRI-SFC-L120-BLK"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//572/epson_epson-l120-printer_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//572/epson_epson-l120-printer_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -4906,7 +4906,7 @@
             "EAN Code": "18405"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//597/hp_hp-680-tinta-black-original_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//597/hp_hp-680-tinta-black-original_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -4952,7 +4952,7 @@
             "EAN Code": "GI-790"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/canon_canon-gi-790-hitam-tinta-printer_full03.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/canon_canon-gi-790-hitam-tinta-printer_full03.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -5006,7 +5006,7 @@
             "EAN Code": "BELLA-V-PRI-THER-BLU-ZCS05-WHT"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//91/MTA-1278217/bella-vision_bella-vision-bellav-zcs-05-thermal-bluetooth-printer_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//91/MTA-1278217/bella-vision_bella-vision-bellav-zcs-05-thermal-bluetooth-printer_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -5055,7 +5055,7 @@
             "EAN Code": "PIXMA-iP2770"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/canon_canon-pixma-ip2770-printer_full04.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/canon_canon-pixma-ip2770-printer_full04.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -5103,8 +5103,8 @@
             "EAN Code": "GI-790Y"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//90/MTA-1938123/canon_canon-gi-790y-tinta-printer---yellow_full03.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//90/MTA-1938123/canon_canon-gi-790y-tinta-printer---yellow_full04.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//90/MTA-1938123/canon_canon-gi-790y-tinta-printer---yellow_full03.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//90/MTA-1938123/canon_canon-gi-790y-tinta-printer---yellow_full04.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -5156,7 +5156,7 @@
             "EAN Code": "L565"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/epson_epson-l565--a4--color-mfp--psc---fax---lan---wifi-_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/epson_epson-l565--a4--color-mfp--psc---fax---lan---wifi-_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -5208,7 +5208,7 @@
             "EAN Code": "4977766738019"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/brother_brother-dcp-l2540dw-printer_full04.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/brother_brother-dcp-l2540dw-printer_full04.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -5266,10 +5266,10 @@
             "EAN Code": "ZCS-05-BLE"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//85/MTA-1531246/bella-vision_printer-thermal-bluetooth-bellav-zcs-05-support-paytren-i-reap-dll_full05.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//85/MTA-1531246/bella-vision_printer-thermal-bluetooth-bellav-zcs-05-support-paytren-i-reap-dll_full06.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//85/MTA-1531246/bella-vision_printer-thermal-bluetooth-bellav-zcs-05-support-paytren-i-reap-dll_full07.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//85/MTA-1531246/bella-vision_printer-thermal-bluetooth-bellav-zcs-05-support-paytren-i-reap-dll_full08.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//85/MTA-1531246/bella-vision_printer-thermal-bluetooth-bellav-zcs-05-support-paytren-i-reap-dll_full05.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//85/MTA-1531246/bella-vision_printer-thermal-bluetooth-bellav-zcs-05-support-paytren-i-reap-dll_full06.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//85/MTA-1531246/bella-vision_printer-thermal-bluetooth-bellav-zcs-05-support-paytren-i-reap-dll_full07.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//85/MTA-1531246/bella-vision_printer-thermal-bluetooth-bellav-zcs-05-support-paytren-i-reap-dll_full08.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -5312,7 +5312,7 @@
             "EAN Code": "PG-745XL-BLK"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/canon_canon-pg-745xl---hitam-tinta-printer_full03.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/canon_canon-pg-745xl---hitam-tinta-printer_full03.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -5359,7 +5359,7 @@
             "EAN Code": "TMU-220D-USB"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/epson_epson-tmu-220d---usb-printer-kasir_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/epson_epson-tmu-220d---usb-printer-kasir_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -5420,7 +5420,7 @@
             "EAN Code": "CAN-PIXMA-G2010"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//90/MTA-1942245/canon_canon-pixma-g2010-multifunction-inkjet-printer_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//90/MTA-1942245/canon_canon-pixma-g2010-multifunction-inkjet-printer_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -5468,8 +5468,8 @@
             "EAN Code": "HP680Color"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//83/MTA-1551340/hp_hp-680-ink-cartridge---color_full03.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//83/MTA-1551340/hp_hp-680-ink-cartridge---color_full04.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//83/MTA-1551340/hp_hp-680-ink-cartridge---color_full03.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//83/MTA-1551340/hp_hp-680-ink-cartridge---color_full04.jpg"
         ],
         "shipping_option": null,
         "merchant_location": "Kota Medan, Sumatera Utara"
@@ -5511,7 +5511,7 @@
             "EAN Code": "GI-790"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/canon_canon-gi-790-hitam-tinta-printer_full03.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/canon_canon-gi-790-hitam-tinta-printer_full03.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -5558,10 +5558,10 @@
             "EAN Code": "01180329162232305"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//78/MTA-2063111/hp_hp-ink-tank-319-printer---black_full02.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//78/MTA-2063111/hp_hp-ink-tank-319-printer---black_full03.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//78/MTA-2063111/hp_hp-ink-tank-319-printer---black_full04.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//78/MTA-2063111/hp_hp-ink-tank-319-printer---black_full05.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//78/MTA-2063111/hp_hp-ink-tank-319-printer---black_full02.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//78/MTA-2063111/hp_hp-ink-tank-319-printer---black_full03.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//78/MTA-2063111/hp_hp-ink-tank-319-printer---black_full04.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//78/MTA-2063111/hp_hp-ink-tank-319-printer---black_full05.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -5611,8 +5611,8 @@
             "EAN Code": "HPOFF7110"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/hp_hp-officejet-7110-printer_full01.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/hp_hp-officejet-7110-printer_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/hp_hp-officejet-7110-printer_full01.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/hp_hp-officejet-7110-printer_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -5655,7 +5655,7 @@
             "EAN Code": "LQ 2190"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/epson_epson-lq-2190-ribbon-cartridge_full03.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/epson_epson-lq-2190-ribbon-cartridge_full03.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -5698,7 +5698,7 @@
             "EAN Code": "HP-35A-BLK"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//988/hp_hp-original-35a-laserjet-toner-cartridge---black--cb435a-_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//988/hp_hp-original-35a-laserjet-toner-cartridge---black--cb435a-_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -5746,7 +5746,7 @@
             "EAN Code": "Canon IX6770"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//692/canon_canon-ix6770-printer--a3-9600d-usb-_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//692/canon_canon-ix6770-printer--a3-9600d-usb-_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -5801,7 +5801,7 @@
             "EAN Code": "DPP115w"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//81/MTA-1452004/fuji-xerox_fuji-xerox-docuprint-p115w-monochrome-laser-printer-with-wireless-printer_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//81/MTA-1452004/fuji-xerox_fuji-xerox-docuprint-p115w-monochrome-laser-printer-with-wireless-printer_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -5851,7 +5851,7 @@
             "EAN Code": "EPS-TINTA-664-BLACK-70ML"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//1344/epson_epson-original-664-t6641-tinta-printer-for-epson-l-series---black--70-ml-_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//1344/epson_epson-original-664-t6641-tinta-printer-for-epson-l-series---black--70-ml-_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -5898,7 +5898,7 @@
             "EAN Code": "kpr605w"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//738/kodak_kodak-605-photo-printer---white_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//738/kodak_kodak-605-photo-printer---white_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -5953,8 +5953,8 @@
             "EAN Code": "58MM-htm"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//100/MTA-1278676/bella-vision_printer-kasir-thermal-qpos-58mm---usb_full03.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//100/MTA-1278676/bella-vision_printer-kasir-thermal-qpos-58mm---usb_full04.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//100/MTA-1278676/bella-vision_printer-kasir-thermal-qpos-58mm---usb_full03.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//100/MTA-1278676/bella-vision_printer-kasir-thermal-qpos-58mm---usb_full04.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -6008,7 +6008,7 @@
             "EAN Code": "KX-MB1520CXD-GRY"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//1174/panasonic_panasonic-printer-multifungsi-kx-mb1520cxd-abu-abu_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//1174/panasonic_panasonic-printer-multifungsi-kx-mb1520cxd-abu-abu_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -6060,8 +6060,8 @@
             "EAN Code": "L6190-BLK"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//83/MTA-2124190/epson_epson-printer-l6190---hitam_full03.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//83/MTA-2124190/epson_epson-printer-l6190---hitam_full04.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//83/MTA-2124190/epson_epson-printer-l6190---hitam_full03.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//83/MTA-2124190/epson_epson-printer-l6190---hitam_full04.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -6115,9 +6115,9 @@
             "EAN Code": "PRI-THE-BELV-ZCS-103-BLK"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//95/MTA-1276187/bella-vision_printer-thermal-bluetooth-bellav-zcs-103-support-paytren--fast-pay-dll_full05.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//95/MTA-1276187/bella-vision_printer-thermal-bluetooth-bellav-zcs-103-support-paytren--fast-pay-dll_full06.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//95/MTA-1276187/bella-vision_printer-thermal-bluetooth-bellav-zcs-103-support-paytren--fast-pay-dll_full07.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//95/MTA-1276187/bella-vision_printer-thermal-bluetooth-bellav-zcs-103-support-paytren--fast-pay-dll_full05.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//95/MTA-1276187/bella-vision_printer-thermal-bluetooth-bellav-zcs-103-support-paytren--fast-pay-dll_full06.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//95/MTA-1276187/bella-vision_printer-thermal-bluetooth-bellav-zcs-103-support-paytren--fast-pay-dll_full07.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -6170,10 +6170,10 @@
             "EAN Code": "BELLAV-PRIN-BLU-THER-ZCS103"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//94/MTA-1278652/bella-vision_printer-bluetooth-thermal-bellav-zcs-103-5-roll-kertas_full05.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//94/MTA-1278652/bella-vision_printer-bluetooth-thermal-bellav-zcs-103-5-roll-kertas_full06.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//94/MTA-1278652/bella-vision_printer-bluetooth-thermal-bellav-zcs-103-5-roll-kertas_full07.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//94/MTA-1278652/bella-vision_printer-bluetooth-thermal-bellav-zcs-103-5-roll-kertas_full08.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//94/MTA-1278652/bella-vision_printer-bluetooth-thermal-bellav-zcs-103-5-roll-kertas_full05.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//94/MTA-1278652/bella-vision_printer-bluetooth-thermal-bellav-zcs-103-5-roll-kertas_full06.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//94/MTA-1278652/bella-vision_printer-bluetooth-thermal-bellav-zcs-103-5-roll-kertas_full07.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//94/MTA-1278652/bella-vision_printer-bluetooth-thermal-bellav-zcs-103-5-roll-kertas_full08.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -6228,7 +6228,7 @@
             "EAN Code": "CANON-G1000"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/canon_canon-g-1000-printer---black_full03.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/canon_canon-g-1000-printer---black_full03.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -6282,7 +6282,7 @@
             "EAN Code": "L565"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/epson_epson-l565--a4--color-mfp--psc---fax---lan---wifi-_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/epson_epson-l565--a4--color-mfp--psc---fax---lan---wifi-_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -6328,7 +6328,7 @@
             "EAN Code": "F6V26AA"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//104/MTA-1675679/hp_hp-680-black-ink-cartridge---f6v26aa-original_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//104/MTA-1675679/hp_hp-680-black-ink-cartridge---f6v26aa-original_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -6378,7 +6378,7 @@
             "EAN Code": "CANON-PIXMA-IP2770"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//86/MTA-2139610/canon_canon-pixma-ip2770-printer_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//86/MTA-2139610/canon_canon-pixma-ip2770-printer_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -6423,7 +6423,7 @@
             "EAN Code": "HP-704-BLACK"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/hp_hp-704-black-ink-cartridge_full03.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/hp_hp-704-black-ink-cartridge_full03.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -6479,10 +6479,10 @@
             "EAN Code": "KK-PRNTR-EPSM200MNC"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//676/epson_epson-m200-printer---hitam_full06.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//677/epson_epson-m200-printer---hitam_full07.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//678/epson_epson-m200-printer---hitam_full08.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//679/epson_epson-m200-printer---hitam_full09.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//676/epson_epson-m200-printer---hitam_full06.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//677/epson_epson-m200-printer---hitam_full07.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//678/epson_epson-m200-printer---hitam_full08.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//679/epson_epson-m200-printer---hitam_full09.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -6539,10 +6539,10 @@
             "EAN Code": "IWA-MP-58-BLK"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//92/MTA-1912394/iware_iware-mp-58---mobile-thermal-bluetooth-printer_full05.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//92/MTA-1912394/iware_iware-mp-58---mobile-thermal-bluetooth-printer_full06.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//92/MTA-1912394/iware_iware-mp-58---mobile-thermal-bluetooth-printer_full07.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//92/MTA-1912394/iware_iware-mp-58---mobile-thermal-bluetooth-printer_full08.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//92/MTA-1912394/iware_iware-mp-58---mobile-thermal-bluetooth-printer_full05.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//92/MTA-1912394/iware_iware-mp-58---mobile-thermal-bluetooth-printer_full06.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//92/MTA-1912394/iware_iware-mp-58---mobile-thermal-bluetooth-printer_full07.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//92/MTA-1912394/iware_iware-mp-58---mobile-thermal-bluetooth-printer_full08.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -6597,7 +6597,7 @@
             "EAN Code": "Canon PIXMA TS-307 Hitam"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//95/MTA-2158493/canon_canon-pixma-ts-307_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//95/MTA-2158493/canon_canon-pixma-ts-307_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -6646,7 +6646,7 @@
             "EAN Code": "IR1435"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//397/canon_canon-ir1435_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//397/canon_canon-ir1435_full02.jpg"
         ],
         "shipping_option": {},
         "merchant_location": "Kota Jakarta Pusat, DKI Jakarta"
@@ -6688,8 +6688,8 @@
             "EAN Code": "01170621180635162"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//79/MTA-1213711/hp_hp-laserjet-pro-mfp-m130a-printer_full02.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//79/MTA-1213711/hp_hp-laserjet-pro-mfp-m130a-printer_full03.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//79/MTA-1213711/hp_hp-laserjet-pro-mfp-m130a-printer_full02.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//79/MTA-1213711/hp_hp-laserjet-pro-mfp-m130a-printer_full03.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -6742,9 +6742,9 @@
             "EAN Code": "01180302094228639"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//87/MTA-1946120/canon_canon-printer-pixma-g3000_full02.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//87/MTA-1946120/canon_canon-printer-pixma-g3000_full03.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//87/MTA-1946120/canon_canon-printer-pixma-g3000_full04.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//87/MTA-1946120/canon_canon-printer-pixma-g3000_full02.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//87/MTA-1946120/canon_canon-printer-pixma-g3000_full03.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//87/MTA-1946120/canon_canon-printer-pixma-g3000_full04.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -6794,7 +6794,7 @@
             "EAN Code": "BP806"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//1108/kozure_kozure-thermal-bp806-portable-printer-struk_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//1108/kozure_kozure-thermal-bp806-portable-printer-struk_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -6846,7 +6846,7 @@
             "EAN Code": "HP-INK-802-BLK"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/hp_hp-802-ink-catridge---black_full03.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/hp_hp-802-ink-catridge---black_full03.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -6889,7 +6889,7 @@
             "EAN Code": "PG-47-BLACK"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//85/MTA-1249231/canon_canon-pg-47-cartridge---black_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//85/MTA-1249231/canon_canon-pg-47-cartridge---black_full02.jpg"
         ],
         "shipping_option": null,
         "merchant_location": "Kota Surabaya, Jawa Timur"
@@ -6940,9 +6940,9 @@
             "EAN Code": "Epson L6160"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//90/MTA-2074066/epson_epson-l6160-printer--print-scan-copy--wi-fi_full04.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//90/MTA-2074066/epson_epson-l6160-printer--print-scan-copy--wi-fi_full05.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//90/MTA-2074066/epson_epson-l6160-printer--print-scan-copy--wi-fi_full06.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//90/MTA-2074066/epson_epson-l6160-printer--print-scan-copy--wi-fi_full04.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//90/MTA-2074066/epson_epson-l6160-printer--print-scan-copy--wi-fi_full05.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//90/MTA-2074066/epson_epson-l6160-printer--print-scan-copy--wi-fi_full06.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -6992,10 +6992,10 @@
             "EAN Code": "T6B51A"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//84/MTA-2005444/hp_hp-color-laserjet-pro-m154a-t6b51a-_full05.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//84/MTA-2005444/hp_hp-color-laserjet-pro-m154a-t6b51a-_full06.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//84/MTA-2005444/hp_hp-color-laserjet-pro-m154a-t6b51a-_full07.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//84/MTA-2005444/hp_hp-color-laserjet-pro-m154a-t6b51a-_full08.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//84/MTA-2005444/hp_hp-color-laserjet-pro-m154a-t6b51a-_full05.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//84/MTA-2005444/hp_hp-color-laserjet-pro-m154a-t6b51a-_full06.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//84/MTA-2005444/hp_hp-color-laserjet-pro-m154a-t6b51a-_full07.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//84/MTA-2005444/hp_hp-color-laserjet-pro-m154a-t6b51a-_full08.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -7051,10 +7051,10 @@
             "EAN Code": "HP LaserJet Pro CP1025 (CF346A) Color Printer"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//849/hp_hp-laserjet-pro-cp1025-cf346a-color-printer_full02.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//850/hp_hp-laserjet-pro-cp1025-cf346a-color-printer_full03.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//851/hp_hp-laserjet-pro-cp1025-cf346a-color-printer_full04.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//852/hp_hp-laserjet-pro-cp1025-cf346a-color-printer_full05.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//849/hp_hp-laserjet-pro-cp1025-cf346a-color-printer_full02.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//850/hp_hp-laserjet-pro-cp1025-cf346a-color-printer_full03.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//851/hp_hp-laserjet-pro-cp1025-cf346a-color-printer_full04.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//852/hp_hp-laserjet-pro-cp1025-cf346a-color-printer_full05.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -7110,9 +7110,9 @@
             "EAN Code": "ZCS-105 White"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//93/MTA-1332597/bella-vision_bella-vision-printer-thermal-bluetooth-zcs-105_full04.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//93/MTA-1332597/bella-vision_bella-vision-printer-thermal-bluetooth-zcs-105_full05.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//93/MTA-1332597/bella-vision_bella-vision-printer-thermal-bluetooth-zcs-105_full06.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//93/MTA-1332597/bella-vision_bella-vision-printer-thermal-bluetooth-zcs-105_full04.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//93/MTA-1332597/bella-vision_bella-vision-printer-thermal-bluetooth-zcs-105_full05.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//93/MTA-1332597/bella-vision_bella-vision-printer-thermal-bluetooth-zcs-105_full06.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -7163,7 +7163,7 @@
             "EAN Code": "L850"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/epson_epson-l850-hitam-printer-multifungsi--6-color-_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/epson_epson-l850-hitam-printer-multifungsi--6-color-_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -7211,8 +7211,8 @@
             "EAN Code": "GI-790M"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//89/MTA-1938122/canon_canon-gi-790m-tinta-printer---magenta_full03.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//89/MTA-1938122/canon_canon-gi-790m-tinta-printer---magenta_full04.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//89/MTA-1938122/canon_canon-gi-790m-tinta-printer---magenta_full03.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//89/MTA-1938122/canon_canon-gi-790m-tinta-printer---magenta_full04.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -7265,7 +7265,7 @@
             "EAN Code": "HP-DESK-INK-ADV-2135"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//1050/hp_hp-deskjet-ink-advantage-2135-all-in-one-printer---putih_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//1050/hp_hp-deskjet-ink-advantage-2135-all-in-one-printer---putih_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -7320,9 +7320,9 @@
             "EAN Code": "01171120121924369"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//96/MTA-1538628/hp_hp-printer-laserjet-m12w_full02.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//96/MTA-1538628/hp_hp-printer-laserjet-m12w_full03.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//96/MTA-1538628/hp_hp-printer-laserjet-m12w_full04.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//96/MTA-1538628/hp_hp-printer-laserjet-m12w_full02.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//96/MTA-1538628/hp_hp-printer-laserjet-m12w_full03.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//96/MTA-1538628/hp_hp-printer-laserjet-m12w_full04.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -7366,8 +7366,8 @@
             "EAN Code": "CAN-SELPHY-CP1000-WHT"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/canon_canon-selphy-cp1000-compact-photo-printer---white_full04.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/canon_canon-selphy-cp1000-compact-photo-printer---white_full05.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/canon_canon-selphy-cp1000-compact-photo-printer---white_full04.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/canon_canon-selphy-cp1000-compact-photo-printer---white_full05.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -7420,10 +7420,10 @@
             "EAN Code": "KK-PRNTR-EPSL1800-PA3"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//697/epson_epson-l1800-printer---hitam--a3-_full05.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//698/epson_epson-l1800-printer---hitam--a3-_full06.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//699/epson_epson-l1800-printer---hitam--a3-_full07.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//700/epson_epson-l1800-printer---hitam--a3-_full08.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//697/epson_epson-l1800-printer---hitam--a3-_full05.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//698/epson_epson-l1800-printer---hitam--a3-_full06.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//699/epson_epson-l1800-printer---hitam--a3-_full07.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//700/epson_epson-l1800-printer---hitam--a3-_full08.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -7467,8 +7467,8 @@
             "EAN Code": "CAN-SELPHY-CP1000-WHT"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/canon_canon-selphy-cp1000-compact-photo-printer---white_full04.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/canon_canon-selphy-cp1000-compact-photo-printer---white_full05.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/canon_canon-selphy-cp1000-compact-photo-printer---white_full04.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/canon_canon-selphy-cp1000-compact-photo-printer---white_full05.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -7522,9 +7522,9 @@
             "EAN Code": "PRI-THE-BELV-ZCS-103-BLK"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//95/MTA-1276187/bella-vision_printer-thermal-bluetooth-bellav-zcs-103-support-paytren--fast-pay-dll_full05.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//95/MTA-1276187/bella-vision_printer-thermal-bluetooth-bellav-zcs-103-support-paytren--fast-pay-dll_full06.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//95/MTA-1276187/bella-vision_printer-thermal-bluetooth-bellav-zcs-103-support-paytren--fast-pay-dll_full07.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//95/MTA-1276187/bella-vision_printer-thermal-bluetooth-bellav-zcs-103-support-paytren--fast-pay-dll_full05.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//95/MTA-1276187/bella-vision_printer-thermal-bluetooth-bellav-zcs-103-support-paytren--fast-pay-dll_full06.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//95/MTA-1276187/bella-vision_printer-thermal-bluetooth-bellav-zcs-103-support-paytren--fast-pay-dll_full07.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -7569,7 +7569,7 @@
             "EAN Code": "CANON-INK-811"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/canon_canon-color-ink-811-cartridge_full03.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/canon_canon-color-ink-811-cartridge_full03.jpg"
         ],
         "shipping_option": null,
         "merchant_location": "Kab. Sleman, DI Yogyakarta"
@@ -7615,7 +7615,7 @@
             "EAN Code": "L310"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/epson_epson-l310-printer_full01.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/epson_epson-l310-printer_full01.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -7665,8 +7665,8 @@
             "EAN Code": "[G3Q59A]-WHT"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//680/hp_hp-laserjet-pro-mfp-m130fn--g3q59a-_full03.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//681/hp_hp-laserjet-pro-mfp-m130fn--g3q59a-_full04.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//680/hp_hp-laserjet-pro-mfp-m130fn--g3q59a-_full03.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//681/hp_hp-laserjet-pro-mfp-m130fn--g3q59a-_full04.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -7724,7 +7724,7 @@
             "EAN Code": "PIX-TS307-BLK"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//80/MTA-2111732/canon_canon-pixma-ts307-inkjet-printer_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//80/MTA-2111732/canon_canon-pixma-ts307-inkjet-printer_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -7772,7 +7772,7 @@
             "EAN Code": "01170302232639665"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//1467/verry-ink_verry-ink-isi-ulang-tinta-for-canon--100-ml-1-set-4-warna----free-suntikan_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//1467/verry-ink_verry-ink-isi-ulang-tinta-for-canon--100-ml-1-set-4-warna----free-suntikan_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -7832,10 +7832,10 @@
             "EAN Code": "7110-HTM"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//763/hp_hp-officejet-7110-wireless-printer_full08.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//760/hp_hp-officejet-7110-wireless-printer_full05.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//761/hp_hp-officejet-7110-wireless-printer_full06.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//762/hp_hp-officejet-7110-wireless-printer_full07.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//763/hp_hp-officejet-7110-wireless-printer_full08.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//760/hp_hp-officejet-7110-wireless-printer_full05.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//761/hp_hp-officejet-7110-wireless-printer_full06.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//762/hp_hp-officejet-7110-wireless-printer_full07.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -7888,7 +7888,7 @@
             "EAN Code": "RS7868764-WHITE"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//408/hp_printer-hp-1112_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//408/hp_printer-hp-1112_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -7936,7 +7936,7 @@
             "EAN Code": "305"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//744/kodak_kodak-305-photo-printer---putih_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//744/kodak_kodak-305-photo-printer---putih_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -7992,8 +7992,8 @@
             "EAN Code": "2676 All-in-One"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//90/MTA-2106845/hp_hp-deskjet-ink-advantage-2676-all-in-one-wireless-printer-original_full03.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//90/MTA-2106845/hp_hp-deskjet-ink-advantage-2676-all-in-one-wireless-printer-original_full04.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//90/MTA-2106845/hp_hp-deskjet-ink-advantage-2676-all-in-one-wireless-printer-original_full03.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//90/MTA-2106845/hp_hp-deskjet-ink-advantage-2676-all-in-one-wireless-printer-original_full04.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -8040,7 +8040,7 @@
             "EAN Code": "CAN-745-BLA"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//762/canon_canon-745-small-black-ink-cartridge_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//762/canon_canon-745-small-black-ink-cartridge_full02.jpg"
         ],
         "shipping_option": null,
         "merchant_location": "Kota Bogor, Jawa Barat"
@@ -8083,9 +8083,9 @@
             "EAN Code": "Epson L6190 Wi-Fi Duplex All-in-One Ink Tank Printer with ADF Hitam"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//87/MTA-2077005/epson_epson-l6190-wi-fi-duplex-all-in-one-ink-tank-printer-with-adf_full04.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//87/MTA-2077005/epson_epson-l6190-wi-fi-duplex-all-in-one-ink-tank-printer-with-adf_full05.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//87/MTA-2077005/epson_epson-l6190-wi-fi-duplex-all-in-one-ink-tank-printer-with-adf_full06.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//87/MTA-2077005/epson_epson-l6190-wi-fi-duplex-all-in-one-ink-tank-printer-with-adf_full04.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//87/MTA-2077005/epson_epson-l6190-wi-fi-duplex-all-in-one-ink-tank-printer-with-adf_full05.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//87/MTA-2077005/epson_epson-l6190-wi-fi-duplex-all-in-one-ink-tank-printer-with-adf_full06.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -8139,8 +8139,8 @@
             "EAN Code": "2132-WHT"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/hp_hp-deskjet-2132-all-in-one-printer---white_full04.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/hp_hp-deskjet-2132-all-in-one-printer---white_full05.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/hp_hp-deskjet-2132-all-in-one-printer---white_full04.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/hp_hp-deskjet-2132-all-in-one-printer---white_full05.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -8187,10 +8187,10 @@
             "EAN Code": "DPIRHP-DP27"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/data-print_data-print-dp-27-tinta-refill-for-cartridge-printer-hp---hitam--2-x-20-cc-_full06.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/data-print_data-print-dp-27-tinta-refill-for-cartridge-printer-hp---hitam--2-x-20-cc-_full07.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/data-print_data-print-dp-27-tinta-refill-for-cartridge-printer-hp---hitam--2-x-20-cc-_full08.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/data-print_data-print-dp-27-tinta-refill-for-cartridge-printer-hp---hitam--2-x-20-cc-_full9.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/data-print_data-print-dp-27-tinta-refill-for-cartridge-printer-hp---hitam--2-x-20-cc-_full06.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/data-print_data-print-dp-27-tinta-refill-for-cartridge-printer-hp---hitam--2-x-20-cc-_full07.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/data-print_data-print-dp-27-tinta-refill-for-cartridge-printer-hp---hitam--2-x-20-cc-_full08.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/data-print_data-print-dp-27-tinta-refill-for-cartridge-printer-hp---hitam--2-x-20-cc-_full9.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -8238,9 +8238,9 @@
             "EAN Code": "CP1300-WHT"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//96/MTA-1556609/canon_canon-selphy-cp1300-compact-photo-printer---white_full04.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//96/MTA-1556609/canon_canon-selphy-cp1300-compact-photo-printer---white_full05.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//96/MTA-1556609/canon_canon-selphy-cp1300-compact-photo-printer---white_full06.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//96/MTA-1556609/canon_canon-selphy-cp1300-compact-photo-printer---white_full04.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//96/MTA-1556609/canon_canon-selphy-cp1300-compact-photo-printer---white_full05.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//96/MTA-1556609/canon_canon-selphy-cp1300-compact-photo-printer---white_full06.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -8290,7 +8290,7 @@
             "EAN Code": "MX-497"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/canon_canon-mx-497-printer_full03.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/canon_canon-mx-497-printer_full03.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -8351,7 +8351,7 @@
             "EAN Code": "CP1300"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//100/MTA-1624978/canon_canon-selphy-cp1300-compact-photo-printer---pink_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//100/MTA-1624978/canon_canon-selphy-cp1300-compact-photo-printer---pink_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -8395,7 +8395,7 @@
             "EAN Code": "PG-810-BLK"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//931/canon_canon-pg-810-tinta-printer-cartridge---hitam_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//931/canon_canon-pg-810-tinta-printer-cartridge---hitam_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -8448,7 +8448,7 @@
             "EAN Code": null
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/itklik_epson-l360-hitam-printer_full01.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/itklik_epson-l360-hitam-printer_full01.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -8501,7 +8501,7 @@
             "EAN Code": "MP287-HTM"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/canon_canon-pixma-mp287-printer_full03.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/canon_canon-pixma-mp287-printer_full03.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -8548,8 +8548,8 @@
             "EAN Code": "CANON-745-BK"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/canon_canon-745-black-ink-cartridge_full03.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/canon_canon-745-black-ink-cartridge_full04.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/canon_canon-745-black-ink-cartridge_full03.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/canon_canon-745-black-ink-cartridge_full04.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -8597,7 +8597,7 @@
             "EAN Code": "01170821200324995"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//81/MTA-1354311/blueprint_tinta-refill-blueprint-canon-colour_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//81/MTA-1354311/blueprint_tinta-refill-blueprint-canon-colour_full02.jpg"
         ],
         "shipping_option": null,
         "merchant_location": "Kota Surakarta (Solo), Jawa Tengah"
@@ -8636,7 +8636,7 @@
             "EAN Code": "LC-583-K"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/brother_brother-lc-583-black-ink-cartridge_full03.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/brother_brother-lc-583-black-ink-cartridge_full03.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -8691,7 +8691,7 @@
             "EAN Code": "5810"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//717/hp_hp-5810-printer---print--scan--copy--_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//717/hp_hp-5810-printer---print--scan--copy--_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -8740,7 +8740,7 @@
             "EAN Code": "MG2570"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/canon_canon-mg2570-multifunction-printer_full03.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/canon_canon-mg2570-multifunction-printer_full03.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -8789,7 +8789,7 @@
             "EAN Code": "Da Vinci 3D Mini Maker"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//762/davinci_da-vinci-3d-mini-maker-printer_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//762/davinci_da-vinci-3d-mini-maker-printer_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -8843,8 +8843,8 @@
             "EAN Code": null
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/epson_epson-printer-l1800_full03.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/epson_epson-printer-l1800_full03.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/epson_epson-printer-l1800_full03.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/epson_epson-printer-l1800_full03.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -8903,13 +8903,13 @@
             "EAN Code": "Epson L-455 Ink Tank Printer"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//728/epson_epson-l-455-ink-tank-printer_full02.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//729/epson_epson-l-455-ink-tank-printer_full03.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//730/epson_epson-l-455-ink-tank-printer_full04.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//731/epson_epson-l-455-ink-tank-printer_full05.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//732/epson_epson-l-455-ink-tank-printer_full06.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//733/epson_epson-l-455-ink-tank-printer_full07.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//734/epson_epson-l-455-ink-tank-printer_full08.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//728/epson_epson-l-455-ink-tank-printer_full02.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//729/epson_epson-l-455-ink-tank-printer_full03.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//730/epson_epson-l-455-ink-tank-printer_full04.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//731/epson_epson-l-455-ink-tank-printer_full05.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//732/epson_epson-l-455-ink-tank-printer_full06.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//733/epson_epson-l-455-ink-tank-printer_full07.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//734/epson_epson-l-455-ink-tank-printer_full08.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -8968,10 +8968,10 @@
             "EAN Code": "EPS-L1300-PRI-BLK"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//577/epson_epson-l1300-printer_full05.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//578/epson_epson-l1300-printer_full06.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//579/epson_epson-l1300-printer_full07.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//580/epson_epson-l1300-printer_full08.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//577/epson_epson-l1300-printer_full05.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//578/epson_epson-l1300-printer_full06.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//579/epson_epson-l1300-printer_full07.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//580/epson_epson-l1300-printer_full08.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -9027,7 +9027,7 @@
             "EAN Code": "BV-BLCK"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//90/MTA-1276236/bella-vision_printer-bluetooth-thermal-bellav-support-paytren-fastpay-ireap-kudo_full05.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//90/MTA-1276236/bella-vision_printer-bluetooth-thermal-bellav-support-paytren-fastpay-ireap-kudo_full05.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -9079,7 +9079,7 @@
             "EAN Code": "MFC-J200"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/brother_brother-mfc-j200-printer---hitam_full03.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/brother_brother-mfc-j200-printer---hitam_full03.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -9122,7 +9122,7 @@
             "EAN Code": "44577"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/canon_canon-pg-88-e500-ink---black_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/canon_canon-pg-88-e500-ink---black_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -9185,8 +9185,8 @@
             "EAN Code": "Epson-INKTANK-L360"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//83/MTA-1437030/epson_epson-inktank-l360_full03.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//83/MTA-1437030/epson_epson-inktank-l360_full04.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//83/MTA-1437030/epson_epson-inktank-l360_full03.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//83/MTA-1437030/epson_epson-inktank-l360_full04.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -9244,10 +9244,10 @@
             "EAN Code": "M200"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//972/epson_epson-m200-mono-all-in-one-ink-tank-printer_full05.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//973/epson_epson-m200-mono-all-in-one-ink-tank-printer_full06.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//974/epson_epson-m200-mono-all-in-one-ink-tank-printer_full07.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//975/epson_epson-m200-mono-all-in-one-ink-tank-printer_full08.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//972/epson_epson-m200-mono-all-in-one-ink-tank-printer_full05.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//973/epson_epson-m200-mono-all-in-one-ink-tank-printer_full06.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//974/epson_epson-m200-mono-all-in-one-ink-tank-printer_full07.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//975/epson_epson-m200-mono-all-in-one-ink-tank-printer_full08.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -9299,7 +9299,7 @@
             "EAN Code": "5805LD-CHN-BRND-MINI-THRM-BLTH-BLK"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//1017/china-brand_58mm-mini-thermal-bluetooth-printer-5805ld_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//1017/china-brand_58mm-mini-thermal-bluetooth-printer-5805ld_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -9348,9 +9348,9 @@
             "EAN Code": "WF-100"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//907/epson_epson-workforce-wf-100-mobile-printer_full04.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//908/epson_epson-workforce-wf-100-mobile-printer_full05.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//909/epson_epson-workforce-wf-100-mobile-printer_full06.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//907/epson_epson-workforce-wf-100-mobile-printer_full04.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//908/epson_epson-workforce-wf-100-mobile-printer_full05.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//909/epson_epson-workforce-wf-100-mobile-printer_full06.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -9399,8 +9399,8 @@
             "EAN Code": "BLUEPRINT85A"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//1336/blueprint_blueprint-toner-85a-cartridge-for-hp-laserjet-bp-hp85a---hitam_full04.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//1337/blueprint_blueprint-toner-85a-cartridge-for-hp-laserjet-bp-hp85a---hitam_full05.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//1336/blueprint_blueprint-toner-85a-cartridge-for-hp-laserjet-bp-hp85a---hitam_full04.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//1337/blueprint_blueprint-toner-85a-cartridge-for-hp-laserjet-bp-hp85a---hitam_full05.jpg"
         ],
         "shipping_option": null,
         "merchant_location": "Kota Surakarta (Solo), Jawa Tengah"
@@ -9441,7 +9441,7 @@
             "EAN Code": "EPS-TINTA-664-MAGENTA-70ML"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//1915/epson_tinta-epson-original-664-t6643-magenta-70ml--tinta-refill-printer-epson-l100-l110-l120-l200-l210-l220-l300-l310-l350-l355-l360-l365-l455-l550-l555-l565-l1300_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//1915/epson_tinta-epson-original-664-t6643-magenta-70ml--tinta-refill-printer-epson-l100-l110-l120-l200-l210-l220-l300-l310-l350-l355-l360-l365-l455-l550-l555-l565-l1300_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -9493,9 +9493,9 @@
             "EAN Code": "MFC-J3720"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/brother_brother-mfc-j3720-printer_full05.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/brother_brother-mfc-j3720-printer_full06.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/brother_brother-mfc-j3720-printer_full07.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/brother_brother-mfc-j3720-printer_full05.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/brother_brother-mfc-j3720-printer_full06.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/brother_brother-mfc-j3720-printer_full07.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -9546,7 +9546,7 @@
             "EAN Code": "PIXMA iX6770"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//94/MTA-1601949/canon_canon-pixma-ix6770-printer_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//94/MTA-1601949/canon_canon-pixma-ix6770-printer_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -9595,7 +9595,7 @@
             "EAN Code": "P115W"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//1363/tiger-print_tiger-print-cartridge-printer-for-fuji-xerox-p115w---black_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//1363/tiger-print_tiger-print-cartridge-printer-for-fuji-xerox-p115w---black_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -9642,7 +9642,7 @@
             "EAN Code": "CAN-GI-790-RED"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/canon_canon-gi-790-magenta-ink-bottle_full03.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/canon_canon-gi-790-magenta-ink-bottle_full03.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -9700,7 +9700,7 @@
             "EAN Code": "YLG-2016039"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//1419/brother_brother-dcp-1616nw---mono-laser-multifunction-with-network---wifi-_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//1419/brother_brother-dcp-1616nw---mono-laser-multifunction-with-network---wifi-_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -9751,7 +9751,7 @@
             "EAN Code": "L1300"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/epson_epson-l1300-hitam-printer--a3-_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/epson_epson-l1300-hitam-printer--a3-_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -9798,7 +9798,7 @@
             "EAN Code": "CANON PRINTER G3000"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//90/MTA-1280429/canon_canon-printer-g3000_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//90/MTA-1280429/canon_canon-printer-g3000_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -9850,9 +9850,9 @@
             "EAN Code": "KK-PRNTR-EPSTMUT82-CS"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//843/epson_epson-tm-t82-printer-kasir---hitam_full04.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//844/epson_epson-tm-t82-printer-kasir---hitam_full05.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//845/epson_epson-tm-t82-printer-kasir---hitam_full06.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//843/epson_epson-tm-t82-printer-kasir---hitam_full04.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//844/epson_epson-tm-t82-printer-kasir---hitam_full05.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//845/epson_epson-tm-t82-printer-kasir---hitam_full06.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -9901,7 +9901,7 @@
             "EAN Code": "[G3Q60A]-WHT"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//845/hp_hp-laserjet-pro-mfp-m130fw-printer--g3q60a-_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//845/hp_hp-laserjet-pro-mfp-m130fw-printer--g3q60a-_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -9962,10 +9962,10 @@
             "EAN Code": "Epson-INKTANK-L385"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//89/MTA-1437046/epson_epson-inktank-l385_full05.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//89/MTA-1437046/epson_epson-inktank-l385_full06.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//89/MTA-1437046/epson_epson-inktank-l385_full07.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//89/MTA-1437046/epson_epson-inktank-l385_full08.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//89/MTA-1437046/epson_epson-inktank-l385_full05.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//89/MTA-1437046/epson_epson-inktank-l385_full06.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//89/MTA-1437046/epson_epson-inktank-l385_full07.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//89/MTA-1437046/epson_epson-inktank-l385_full08.jpg"
         ],
         "shipping_option": null,
         "merchant_location": "Kab. Bekasi, Jawa Barat"
@@ -10010,7 +10010,7 @@
             "EAN Code": "CAN-PRI-CAN-ORI-GI-790-G1000-G2000-G3000-BLK"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//1033/canon_canon-gi-790-original-tinta-printer-for-g1000-g2000-g3000---black_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//1033/canon_canon-gi-790-original-tinta-printer-for-g1000-g2000-g3000---black_full02.jpg"
         ],
         "shipping_option": null,
         "merchant_location": "Kota Medan, Sumatera Utara"
@@ -10049,7 +10049,7 @@
             "EAN Code": null
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/simura_hp-802-small-black-ink-cartridge_full01.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/simura_hp-802-small-black-ink-cartridge_full01.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -10104,9 +10104,9 @@
             "EAN Code": "DCP-T710W Wireles"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//92/MTA-1912718/brother_brother-printer-inkjet-multifungsi-dcp-t710w-wireless---adf---hitam_full04.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//92/MTA-1912718/brother_brother-printer-inkjet-multifungsi-dcp-t710w-wireless---adf---hitam_full05.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//92/MTA-1912718/brother_brother-printer-inkjet-multifungsi-dcp-t710w-wireless---adf---hitam_full06.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//92/MTA-1912718/brother_brother-printer-inkjet-multifungsi-dcp-t710w-wireless---adf---hitam_full04.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//92/MTA-1912718/brother_brother-printer-inkjet-multifungsi-dcp-t710w-wireless---adf---hitam_full05.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//92/MTA-1912718/brother_brother-printer-inkjet-multifungsi-dcp-t710w-wireless---adf---hitam_full06.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -10168,9 +10168,9 @@
             "EAN Code": "ZEBRA GT820"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//857/zebra_zebra-gt820---barcode-label-printer---grey_full04.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//858/zebra_zebra-gt820---barcode-label-printer---grey_full05.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//859/zebra_zebra-gt820---barcode-label-printer---grey_full06.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//857/zebra_zebra-gt820---barcode-label-printer---grey_full04.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//858/zebra_zebra-gt820---barcode-label-printer---grey_full05.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//859/zebra_zebra-gt820---barcode-label-printer---grey_full06.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -10218,8 +10218,8 @@
             "EAN Code": "GI-790C"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//88/MTA-1938121/canon_canon-gi-790c-tinta-printer---cyan_full03.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//88/MTA-1938121/canon_canon-gi-790c-tinta-printer---cyan_full04.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//88/MTA-1938121/canon_canon-gi-790c-tinta-printer---cyan_full03.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//88/MTA-1938121/canon_canon-gi-790c-tinta-printer---cyan_full04.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -10269,7 +10269,7 @@
             "EAN Code": "HP-12A-BLA"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//934/hp_hp-12a-black-original-laserjet-toner-cartridge-_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//934/hp_hp-12a-black-original-laserjet-toner-cartridge-_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -10313,7 +10313,7 @@
             "EAN Code": "HP 802 Colour Cartridge"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//559/hp_hp-802-cartridge---colour_full03.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//559/hp_hp-802-cartridge---colour_full03.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -10364,7 +10364,7 @@
             "EAN Code": "PIXMA-G1000"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/canon_canon-pixma-g1000-printer_full03.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/canon_canon-pixma-g1000-printer_full03.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -10417,7 +10417,7 @@
             "EAN Code": "F5S41D"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/hp_hp-deskjet-2132-all-in-one-printer--print-scan-copy-_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/hp_hp-deskjet-2132-all-in-one-printer--print-scan-copy-_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -10465,10 +10465,10 @@
             "EAN Code": "HP Ink Tank Wireless 415 Black"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//100/MTA-1908954/hp_hp-ink-tank-wireless-415_full05.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//100/MTA-1908954/hp_hp-ink-tank-wireless-415_full06.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//100/MTA-1908954/hp_hp-ink-tank-wireless-415_full07.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//100/MTA-1908954/hp_hp-ink-tank-wireless-415_full08.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//100/MTA-1908954/hp_hp-ink-tank-wireless-415_full05.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//100/MTA-1908954/hp_hp-ink-tank-wireless-415_full06.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//100/MTA-1908954/hp_hp-ink-tank-wireless-415_full07.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//100/MTA-1908954/hp_hp-ink-tank-wireless-415_full08.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -10524,7 +10524,7 @@
             "EAN Code": "01170506122530456"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//579/epson_epson-l-360-printer_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//579/epson_epson-l-360-printer_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -10580,8 +10580,8 @@
             "EAN Code": "2676 All-in-One"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//90/MTA-2106845/hp_hp-deskjet-ink-advantage-2676-all-in-one-wireless-printer-original_full03.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//90/MTA-2106845/hp_hp-deskjet-ink-advantage-2676-all-in-one-wireless-printer-original_full04.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//90/MTA-2106845/hp_hp-deskjet-ink-advantage-2676-all-in-one-wireless-printer-original_full03.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//90/MTA-2106845/hp_hp-deskjet-ink-advantage-2676-all-in-one-wireless-printer-original_full04.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -10632,8 +10632,8 @@
             "EAN Code": "L805"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/epson_epson-l805-wifi-printer_full04.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/epson_epson-l805-wifi-printer_full05.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/epson_epson-l805-wifi-printer_full04.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/epson_epson-l805-wifi-printer_full05.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -10672,7 +10672,7 @@
             "EAN Code": null
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/tipa_canon-fine-cartridge-pg-810xl_full01.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/tipa_canon-fine-cartridge-pg-810xl_full01.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -10722,7 +10722,7 @@
             "EAN Code": "CT202137"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//100/MTA-1360989/fuji-xerox_fuji-xerox-original-ct202137-toner-for-115-series_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//100/MTA-1360989/fuji-xerox_fuji-xerox-original-ct202137-toner-for-115-series_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -10776,7 +10776,7 @@
             "EAN Code": "PRINTER-EPSON-L6170"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//83/MTA-2107701/epson_printer-epson-l6170-pengganti-l605-wifi--copy--scan--ethernet-resmi_full03.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//83/MTA-2107701/epson_printer-epson-l6170-pengganti-l605-wifi--copy--scan--ethernet-resmi_full03.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -10828,7 +10828,7 @@
             "EAN Code": "LX 310"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//607/epson_epson-lx-310-printer_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//607/epson_epson-lx-310-printer_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -10880,7 +10880,7 @@
             "EAN Code": "EPS-L655-BLK-PRINTER"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/epson_epson-l655-hitam-printer--multifungsi--duplex--wifi--adf-_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/epson_epson-l655-hitam-printer--multifungsi--duplex--wifi--adf-_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -10927,7 +10927,7 @@
             "EAN Code": "EPSON TM-U220D LAN"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//91/MTA-1285291/epson_epson-tm-u220d-lan-printer---hitam_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//91/MTA-1285291/epson_epson-tm-u220d-lan-printer---hitam_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -10966,7 +10966,7 @@
             "EAN Code": null
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/tipa_canon-ink-tank-pg-88_full01.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/tipa_canon-ink-tank-pg-88_full01.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -11020,8 +11020,8 @@
             "EAN Code": "M100"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/epson_epson-m100-printer_full03.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/epson_epson-m100-printer_full04.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/epson_epson-m100-printer_full03.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/epson_epson-m100-printer_full04.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -11067,8 +11067,8 @@
             "EAN Code": "Hl-1201"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/brother_brother-hl-1201-printer---putih_full04.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/brother_brother-hl-1201-printer---putih_full05.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/brother_brother-hl-1201-printer---putih_full04.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/brother_brother-hl-1201-printer---putih_full05.jpg"
         ],
         "shipping_option": {
             "name": "Standard",

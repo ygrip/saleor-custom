@@ -25,9 +25,10 @@ def minefeature(request):
 			result = {'success':False,'input':None,'output':None,'messages':'input could not be empty'}
 			return JsonResponse(result, status=status.HTTP_400_BAD_REQUEST)
 		else:
+			strict = data['strict'] if 'strict' in data else False
 			treshold = int(data['count']) if 'count' in data else 2
 
-			all_feature = populate_feature(data['sentence'],treshold)
+			all_feature = populate_feature(sentence=data['sentence'],treshold=treshold,strict=strict)
 
 			result = {'success':True,'input':data['sentence'],'output':all_feature,'messages':'Succesfully mine features'}
 			return JsonResponse(result)
@@ -35,7 +36,7 @@ def minefeature(request):
 		result = {'success':False,'input':None,'output':None,'messages':'Wrong request method'}
 		return JsonResponse(result, status=status.HTTP_400_BAD_REQUEST)
 
-def populate_feature(sentence,treshold):
+def populate_feature(sentence,treshold,strict=False):
 	all_feature = []
 	factory = StemmerFactory()
 
@@ -49,7 +50,9 @@ def populate_feature(sentence,treshold):
 	# clean sentences from stopwords
 	stopwords = list(Stopwords.objects.all().values_list('kata',flat=True))
 	output = [word for word in output if word not in stopwords]
-	output = list(filter(lambda e: not invalid(e),output))
+	output = [word for strippedword in list(map(lambda e : e.split('-'), output)) for word in strippedword]
+	if strict:
+		output = list(filter(lambda e: not invalid(e),output))
 	features = list(set(output))
 
 	for element in features:
@@ -68,9 +71,11 @@ def populate_feature(sentence,treshold):
 	return all_feature
 
 def invalid(s):
-	prohibited_suffix = ['mah','kb','gb','mb','tb','mbps','kbps','gbps','inch','mp','mm','cm','fps','in','v','w','kw','a','kv','watt','volt','x','ml','l','kg','g','lt','liter','gram','kilo']
+	prohibited_suffix = ['mah','mhz','khz','ghz','kb','gb','mb','tb','mbps','kbps','gbps','p','k','m','inch','mp','mm','cm','fps','in','v','w','kw','a','kv','watt','volt','x','ml','l','kg','g','lt','liter','gram','kilo','ms','bit','mbit','mbyte','n']
 	
 	c = str(s)
+	if len(c) > 15 or len(c) < 2:
+		return True
 	for p in prohibited_suffix:
 		if c[-len(p):] == p:
 			return True

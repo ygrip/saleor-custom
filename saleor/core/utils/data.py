@@ -1,6 +1,7 @@
 import glob, os
 import requests
 import json
+import pickle
 import random
 from pprint import pprint
 from urllib.parse import urlparse
@@ -50,6 +51,81 @@ def make_database_faster():
 		cursor.execute('PRAGMA temp_store = MEMORY;')
 		cursor.execute('PRAGMA synchronous = OFF;')
 
+def as_python_object(dct):
+	if '_python_object' in dct:
+			return pickle.loads(str(dct['_python_object']))
+	return dct
+
+def validate_images(dir_json):
+	os.chdir(dir_json)
+
+	for filename in glob.glob("*.json"):
+		with open(filename) as feedsjson:
+			feeds = json.loads(feedsjson.read(),object_hook=as_python_object)
+
+		for i,element in enumerate(feeds):
+			image_list = element.get('url_images')
+			for j,image in enumerate(image_list):
+				yield 'before : %s' %image
+				feeds[i]['url_images'][j] = image.replace('catalog/full','catalog/full/',1)
+				yield 'after : %s' %feeds[i]['url_images'][j]
+
+		with open(filename, mode='w',encoding='utf-8') as f:
+			f.write(json.dumps(feeds, indent=4,cls=PythonObjectEncoder))
+
+def redownload_images(dir_json,placeholders_dir):
+	os.chdir(dir_json)
+	for filename in glob.glob("*.json"):
+		content = json.load(open(filename))
+		
+		os.chdir(cwd)
+		for element in content:
+			product = Product.objects.get(name=element.get('title'))
+			directory = os.path.join(placeholders_dir,'products/',str(product.id)+'/')
+			if not os.path.exists(directory):
+				os.makedirs(directory)
+			for i,image_url in enumerate(element.get('url_images')):
+				extension = os.path.splitext(urlparse(image_url).path)[-1]
+				filename = str(i)+extension
+				filepath = os.path.join(directory,filename)
+				if os.path.exists(filepath):
+					continue
+				else:
+					try:
+						image = requests.get(image_url)
+						
+						if image.status_code == requests.codes.ok:
+							with open(filepath, 'wb') as f:
+								f.write(image.content)
+						else:
+							continue
+					except requests.exceptions.InvalidSchema as e:
+						image = base64.b64decode(image_url.partition('base64,')[2])
+						filename = str(i)+'.png'
+						
+						filepath = os.path.join(directory,filename)
+						with open(filepath, 'wb') as f:
+							f.write(image)
+			yield '%s'%product.id
+
+		os.chdir(dir_json)
+
+
+def check_category(dir_json):
+	os.chdir(dir_json)
+
+	category_list = []
+	for filename in glob.glob("*.json"):
+		content = json.load(open(filename))
+		for element in content:
+			for category in element.get('category'):
+				if category not in category_list:
+					category_list.append(category)
+
+
+	for i,category in enumerate(category_list):
+		yield "%s : %s" % (str(i+1), category)
+
 def create_custom_product(dir_json,placeholders_dir):
 	make_database_faster()
 	cursor = connection.cursor()
@@ -84,7 +160,7 @@ def create_custom_product(dir_json,placeholders_dir):
 				except Product.DoesNotExist:
 					current_product = None
 				if current_product is not None:
-					if current_product.id <= check_product.id:
+					if current_product.id < check_product.id:
 						status = False
 			else:
 				status = True
@@ -103,12 +179,15 @@ def create_custom_product(dir_json,placeholders_dir):
 				service = json.dumps(element.get('produk_services'))
 				features = json.dumps(element.get('produk_features'))
 				check_price = element.get('harga')
+				if check_price:
+					check_price = validate_price(check_price)
+
 				sku = element.get('produk_code').get('SKU Number')
 				price = int(check_price.get('Harga Awal')) if 'Harga Awal' in check_price else int(check_price.get('Harga'))
 				location = create_merchant_location(element.get('merchant_location'))
 				seo_description = strip_html_and_truncate(description, 300)
-				yield 'seo : %s' % price
-				product = create_product(name=title,
+
+				product, created_product = create_product(name=title,
 										product_type=product_type,
 										category=product_category,
 										information=features,
@@ -127,7 +206,7 @@ def create_custom_product(dir_json,placeholders_dir):
 				if location:
 					sentence += element.get('merchant_location')+' '
 
-				product_tags = populate_feature(sentence=sentence,treshold=2)[:6]
+				product_tags = populate_feature(sentence=sentence,treshold=2,strict=True)[:6]
 
 				for tag in product_tags:
 					feature, created = Feature.objects.get_or_create(word=tag['word'], defaults={'count':1})
@@ -142,9 +221,11 @@ def create_custom_product(dir_json,placeholders_dir):
 
 				set_product_attributes(product, product_type)
 				create_variant(product=product, price=price, sku=sku)
-				yield '\n\n\t---(%s)---\nID\t\t: %s \nProduct Name\t: %s\n' % (
-					product_type.name, product.id, product)
-				yield 'Feature\t: %s' % json.dumps(product_tags)
+				if created_product:
+					yield '\n\n\t---(%s)---\nID\t\t: %s \nProduct Name\t: %s\n' % (
+						product_type.name, product.id, product)
+					yield 'Feature\t: %s' % json.dumps(product_tags)
+					current += 1
 
 				create_product_image(product,element.get('url_images'),placeholders_dir)
 				
@@ -156,17 +237,30 @@ def create_custom_product(dir_json,placeholders_dir):
 					if 'name' in shipping:
 						create_shipping_method(shipping)
 
-				current += 1
+				
 		
 		os.chdir(dir_json)
 	yield 'Saved %s item(s) from total of %s' % (current,total)
+
+def validate_price(prices):
+	result = {}
+	for key, price in prices.items():
+		normal_price = price
+		if len(str(price)) > 12:
+			price = str(price)
+			first,last = price[:int(len(price)/2)], price[int(len(price)/2):]
+			if int(first) > int(last):
+				first,last = price[:int((len(price)/2-1))], price[int((len(price)/2-1)):]
+			normal_price = int((int(first)+int(last))/2)
+		result[key] = normal_price
+	return result
 
 def create_product(name,**kwargs):
     defaults = {
     	'name' : name,
     }
     defaults.update(kwargs)
-    return Product.objects.get_or_create(name=name,defaults=defaults)[0]
+    return Product.objects.get_or_create(name=name,defaults=defaults)
 
 def create_merchant_location(location):
 	if not location:
@@ -199,7 +293,7 @@ def create_brand(placeholders_dir,brand_data, **kwargs):
 	if not os.path.exists(directory):
 		os.makedirs(directory)
 	extension = os.path.splitext(urlparse(image_url).path)[-1]
-	filename = brand_data['name']+extension
+	filename = brand_data['name'].lower()+'-logo'+extension
 	
 	filepath = os.path.join(directory,filename)
 	if os.path.exists(filepath):
@@ -217,7 +311,7 @@ def create_brand(placeholders_dir,brand_data, **kwargs):
 				brand_image = None
 		except requests.exceptions.InvalidSchema as e:
 			image = base64.b64decode(image_url.partition('base64,')[2])
-			filename = brand_data['name']+'.png'
+			filename = brand_data['name'].lower()+'-logo'+'.png'
 			
 			filepath = os.path.join(directory,filename)
 			with open(filepath, 'wb') as f:
@@ -348,49 +442,61 @@ def create_product_type_with_attributes(name, product_specifications):
 def create_product_image(product, image_list, placeholder_dir):
 	result = []
 	directory = os.path.join(placeholder_dir,'products/',str(product.id)+'/')
-	
-	if not os.path.exists(directory):
-			os.makedirs(directory)
-	for i,image_url in enumerate(image_list):
-		extension = os.path.splitext(urlparse(image_url).path)[-1]
-		filename = str(i)+extension
-		filepath = os.path.join(directory,filename)
-		if os.path.exists(filepath):
-			product_image = get_image(directory,filename)
 
-			saved_image,created = ProductImage.objects.get_or_create(product=product, image=product_image, defaults={'image':product_image})
-			if created:
-				create_product_thumbnails.delay(image_id=saved_image.pk,verbose=False)
-				result.append(saved_image)
-		else:
-			try:
-				image = requests.get(image_url)
-				
-				
-				if image.status_code == requests.codes.ok:
-					with open(filepath, 'wb') as f:
-						f.write(image.content)
+	check_image = 0
+	try:
+		check_image = ProductImage.objects.filter(product=product).count()
+	except ProductImage.DoesNotExist:
+		check_image = 0
+
+	if check_image == len(image_list):
+		return result
+	else:
+		if not os.path.exists(directory):
+				os.makedirs(directory)
+		for i,image_url in enumerate(image_list):
+			if i < check_image:
+				continue
+			else:
+				extension = os.path.splitext(urlparse(image_url).path)[-1]
+				filename = str(i)+extension
+				filepath = os.path.join(directory,filename)
+				if os.path.exists(filepath):
 					product_image = get_image(directory,filename)
+
 					saved_image,created = ProductImage.objects.get_or_create(product=product, image=product_image, defaults={'image':product_image})
 					if created:
 						create_product_thumbnails.delay(image_id=saved_image.pk,verbose=False)
 						result.append(saved_image)
 				else:
-					continue
-			except requests.exceptions.InvalidSchema as e:
-				image = base64.b64decode(image_url.partition('base64,')[2])
-				filename = str(i)+'.png'
-				
-				filepath = os.path.join(directory,filename)
-				with open(filepath, 'wb') as f:
-					f.write(image)
-				product_image = get_image(directory,filename)
+					try:
+						image = requests.get(image_url)
+						
+						
+						if image.status_code == requests.codes.ok:
+							with open(filepath, 'wb') as f:
+								f.write(image.content)
+							product_image = get_image(directory,filename)
+							saved_image,created = ProductImage.objects.get_or_create(product=product, image=product_image, defaults={'image':product_image})
+							if created:
+								create_product_thumbnails.delay(image_id=saved_image.pk,verbose=False)
+								result.append(saved_image)
+						else:
+							continue
+					except requests.exceptions.InvalidSchema as e:
+						image = base64.b64decode(image_url.partition('base64,')[2])
+						filename = str(i)+'.png'
+						
+						filepath = os.path.join(directory,filename)
+						with open(filepath, 'wb') as f:
+							f.write(image)
+						product_image = get_image(directory,filename)
 
-				saved_image,created = ProductImage.objects.get_or_create(product=product, image=product_image, defaults={'image':product_image})
-				if created:
-					create_product_thumbnails.delay(image_id=saved_image.pk,verbose=False)
-					result.append(saved_image)
-	return result
+						saved_image,created = ProductImage.objects.get_or_create(product=product, image=product_image, defaults={'image':product_image})
+						if created:
+							create_product_thumbnails.delay(image_id=saved_image.pk,verbose=False)
+							result.append(saved_image)
+		return result
 
 def create_sale(product,value,**kwargs):
 	defaults = {
@@ -417,27 +523,37 @@ def create_variant(product, price, sku, **kwargs):
 def generate_rating(rated,rating):
 	rating_range = [x for x in range(1,6)]
 
-	list_user = User.objects.all().values_list('id', flat=True)
-	list_product = Product.objects.all().values_list('id', flat=True)
+	list_user = list(User.objects.all().values_list('id', flat=True))
+	list_product = list(Product.objects.all().values_list('id', flat=True))
 
 	for id_product in list_product:
 		chance_to_rate = random.uniform(0.0,1.0)
 
 		if chance_to_rate <= rated:
 			user_count = random.randint(1,len(list_user))
+			random.shuffle(list_user)
+			random_user = list_user[:user_count]
 
-			random_user = random.shuffle(list_user)[:user_count]
-
-			for user in random_user:
+			for choosen_user in random_user:
 				give_rating = random.uniform(0.0,1.0)
+				product = Product.objects.get(id=id_product)
+				user = User.objects.get(id=choosen_user)
 
 				if give_rating <= rating:
 					value = random.choice(rating_range)
 					defaults = {
-						'product_id' : id_product,
+						'product_id' : product,
 						'user_id' : user,
 						'value' : value
 					}
-					ProductRating.objects.get_or_create(product_id=id_product,user_id=user,defaults=defaults)
+
+					ProductRating.objects.get_or_create(product_id=product,user_id=user,defaults=defaults)
 
 					yield 'User %s give rating %s to product %s' % (str(user),str(value),str(id_product))
+
+
+class PythonObjectEncoder(json.JSONEncoder):
+    def default(self, obj):
+        if isinstance(obj, (list, dict, str, int, float, bool, type(None))):
+            return json.JSONEncoder.default(self, obj)
+        return {'_python_object': pickle.dumps(obj)}

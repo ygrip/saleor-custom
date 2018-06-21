@@ -181,7 +181,7 @@ class OrderLine(models.Model):
     variant = models.ForeignKey(
         ProductVariant, related_name='+', on_delete=models.SET_NULL,
         blank=True, null=True)
-    product_name = models.CharField(max_length=128)
+    product_name = models.CharField(max_length=256)
     product_sku = models.CharField(max_length=32)
     is_shipping_required = models.BooleanField()
     quantity = models.IntegerField(
@@ -257,6 +257,11 @@ class FulfillmentLine(models.Model):
 
 
 class Payment(BasePayment):
+    total = models.DecimalField(max_digits=13, decimal_places=2, default='0.0')
+    delivery = models.DecimalField(
+        max_digits=13, decimal_places=2, default='0.0')
+    captured_amount = models.DecimalField(
+        max_digits=13, decimal_places=2, default='0.0')
     order = models.ForeignKey(
         Order, related_name='payments', on_delete=models.PROTECT)
 

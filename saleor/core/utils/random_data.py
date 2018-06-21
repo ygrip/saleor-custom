@@ -374,6 +374,7 @@ def create_payment(order):
             PaymentStatus.WAITING,
             PaymentStatus.PREAUTH,
             PaymentStatus.CONFIRMED])
+
     payment = Payment.objects.create(
         order=order,
         status=status,
@@ -429,8 +430,7 @@ def create_fulfillments(order):
 
 
 def create_fake_order():
-    user = random.choice([None, User.objects.filter(
-        is_superuser=False).order_by('?').first()])
+    user = User.objects.filter(is_superuser=False).order_by('?').first()
     if user:
         order_data = {
             'user': user,
@@ -453,12 +453,12 @@ def create_fake_order():
 
     order = Order.objects.create(**order_data)
 
-    lines = create_order_lines(order, random.randrange(1, 5))
+    lines = create_order_lines(order, random.randrange(1, 10))
 
     order.total = sum(
         [line.get_total() for line in lines], order.shipping_price)
     order.save()
-
+ 
     create_fulfillments(order)
 
     create_payment(order)

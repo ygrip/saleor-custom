@@ -10,7 +10,11 @@
             "Elektronik Dapur",
             "Perangkat Pengolah Makanan"
         ],
-        "harga": {},
+        "harga": {
+            "Harga awal": 229000,
+            "Harga": 181800,
+            "Diskon": 20.0
+        },
         "produk_features": [
             "Sandwich Maker",
             "Konsumsi Daya : 450 W",
@@ -34,7 +38,7 @@
             "EAN Code": "TSK-258"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//996/miyako_miyako-tsk-258-toaster-pemanggang-sandwich_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//996/miyako_miyako-tsk-258-toaster-pemanggang-sandwich_full02.jpg"
         ],
         "shipping_option": null,
         "merchant_location": "Indonesia"
@@ -77,7 +81,7 @@
             "EAN Code": "8990011111715"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/maspion_maspion-mec-2750-multi-cooker_full01.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/maspion_maspion-mec-2750-multi-cooker_full01.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -124,7 +128,7 @@
             "EAN Code": "DCERA-HAPP-CAL- 32CM"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/dcera_happy-call-32-cm_full03.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/dcera_happy-call-32-cm_full03.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -179,7 +183,7 @@
             "EAN Code": "NEO-BRD-MST-GOLD-EDT-BLK-RSG"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//88/MTA-1662145/neohaus_neohaus-bread-master-gold-edition_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//88/MTA-1662145/neohaus_neohaus-bread-master-gold-edition_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -225,7 +229,7 @@
             "EAN Code": "HR 2939 N"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/philips_philips-hr-2939-n-chopper-for-hr-2115-hr-2116-hr-2061-2071_full03.jpeg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/philips_philips-hr-2939-n-chopper-for-hr-2115-hr-2116-hr-2061-2071_full03.jpeg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -272,10 +276,10 @@
             "EAN Code": "AS-SEEN-ON-TV-SWI-SHA-ELEC-SHAR-GRN"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/as-seen-on-tv_as-seen-on-tv-swifty-sharp-electric-sharpener_full06.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/as-seen-on-tv_as-seen-on-tv-swifty-sharp-electric-sharpener_full07.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/as-seen-on-tv_as-seen-on-tv-swifty-sharp-electric-sharpener_full08.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/as-seen-on-tv_as-seen-on-tv-swifty-sharp-electric-sharpener_full09.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/as-seen-on-tv_as-seen-on-tv-swifty-sharp-electric-sharpener_full06.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/as-seen-on-tv_as-seen-on-tv-swifty-sharp-electric-sharpener_full07.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/as-seen-on-tv_as-seen-on-tv-swifty-sharp-electric-sharpener_full08.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/as-seen-on-tv_as-seen-on-tv-swifty-sharp-electric-sharpener_full09.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -321,7 +325,7 @@
             "EAN Code": "MAX-VA-2-PCS"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//863/maxim_maxim-valentino-set-alat-masak--2-pcs-_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//863/maxim_maxim-valentino-set-alat-masak--2-pcs-_full02.jpg"
         ],
         "shipping_option": {
             "name": "GO-SEND",
@@ -367,7 +371,7 @@
             "EAN Code": "ET-D8 "
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/getra_getra-et-d8-cup-sealer---kuning_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/getra_getra-et-d8-cup-sealer---kuning_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -418,10 +422,10 @@
             "EAN Code": "RENO-RN88-ALAT-PEMB-MIE-OTO-WHT-BLK"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//1001/renoodle_renoodle-rn-88-alat-pembuat-mie-otomatis_full08.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//1000/renoodle_renoodle-rn-88-alat-pembuat-mie-otomatis_full07.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//999/renoodle_renoodle-rn-88-alat-pembuat-mie-otomatis_full06.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//998/renoodle_renoodle-rn-88-alat-pembuat-mie-otomatis_full05.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//1001/renoodle_renoodle-rn-88-alat-pembuat-mie-otomatis_full08.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//1000/renoodle_renoodle-rn-88-alat-pembuat-mie-otomatis_full07.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//999/renoodle_renoodle-rn-88-alat-pembuat-mie-otomatis_full06.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//998/renoodle_renoodle-rn-88-alat-pembuat-mie-otomatis_full05.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -474,7 +478,7 @@
             "EAN Code": "CM-9000"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//891/cosmos_cosmos-cm-9000-planetary-stand-mixer_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//891/cosmos_cosmos-cm-9000-planetary-stand-mixer_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -521,7 +525,7 @@
             "EAN Code": "01160322204952199"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/eton_eton-et-d8-manual-cup-sealer_full03.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/eton_eton-et-d8-manual-cup-sealer_full03.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -570,7 +574,7 @@
             "EAN Code": "ZY-SB108"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/willman_willman-ice-crusher-zy-sb108-mesin-serut-es_full03.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/willman_willman-ice-crusher-zy-sb108-mesin-serut-es_full03.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -617,9 +621,9 @@
             "EAN Code": "LJERMHJ"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/lanjarjaya_teva-filo-egg-roll-master-maker---hijau_full05.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/lanjarjaya_teva-filo-egg-roll-master-maker---hijau_full06.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/lanjarjaya_teva-filo-egg-roll-master-maker---hijau_full07.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/lanjarjaya_teva-filo-egg-roll-master-maker---hijau_full05.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/lanjarjaya_teva-filo-egg-roll-master-maker---hijau_full06.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/lanjarjaya_teva-filo-egg-roll-master-maker---hijau_full07.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -671,7 +675,7 @@
             "EAN Code": "Rebread-250"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//1135/rebread_rebread-250-gold-automatic-breadmaker---495-watt---gold-white_full03.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//1135/rebread_rebread-250-gold-automatic-breadmaker---495-watt---gold-white_full03.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -717,7 +721,7 @@
             "EAN Code": "MAX-VA-2-PCS"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//863/maxim_maxim-valentino-set-alat-masak--2-pcs-_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//863/maxim_maxim-valentino-set-alat-masak--2-pcs-_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -765,7 +769,7 @@
             "EAN Code": "BM8203-CB"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//83/MTA-1271621/bread-master_bread-master-gold-edition-bm8203-cb-bread-maker---black-rose-gold_full03.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//83/MTA-1271621/bread-master_bread-master-gold-edition-bm8203-cb-bread-maker---black-rose-gold_full03.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -813,7 +817,7 @@
             "EAN Code": "Maxim-Venice-Panci-Set-5 Pcs-Gold"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//712/maxim_maxim-venice-panci-set--5-pcs-_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//712/maxim_maxim-venice-panci-set--5-pcs-_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -861,7 +865,7 @@
             "EAN Code": "ICH-300BD"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//877/fomac_fomac-ich-300bd-ice-crusher-mesin-es-serut_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//877/fomac_fomac-ich-300bd-ice-crusher-mesin-es-serut_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -910,7 +914,7 @@
             "EAN Code": "FD-S03S1"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/panasonic_panasonic-fd-s03s1-dish-dryer_full03.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/panasonic_panasonic-fd-s03s1-dish-dryer_full03.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -958,10 +962,10 @@
             "EAN Code": "01170608160701598"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/MTA-1176586/philips_philips-hd9220-40-viva-collection-airfryer---putih_full03.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/MTA-1176586/philips_philips-hd9220-40-viva-collection-airfryer---putih_full04.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/MTA-1176586/philips_philips-hd9220-40-viva-collection-airfryer---putih_full05.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/MTA-1176586/philips_philips-hd9220-40-viva-collection-airfryer---putih_full06.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/MTA-1176586/philips_philips-hd9220-40-viva-collection-airfryer---putih_full03.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/MTA-1176586/philips_philips-hd9220-40-viva-collection-airfryer---putih_full04.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/MTA-1176586/philips_philips-hd9220-40-viva-collection-airfryer---putih_full05.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/MTA-1176586/philips_philips-hd9220-40-viva-collection-airfryer---putih_full06.jpg"
         ],
         "shipping_option": {
             "name": "Ekspres",
@@ -1013,7 +1017,7 @@
             "EAN Code": "OXO-OX-2008-8L-SIL"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//98/MTA-1387394/oxone_oxone-ox-2008-alupress-8l_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//98/MTA-1387394/oxone_oxone-ox-2008-alupress-8l_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -1058,7 +1062,7 @@
             "EAN Code": "ET-K222"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/getra_gea-getra-pemanggang-tanpa-asap-et-k222--4-pemantik-_full03.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/getra_gea-getra-pemanggang-tanpa-asap-et-k222--4-pemantik-_full03.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -1106,11 +1110,11 @@
             "EAN Code": "Philips HD9045/30"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//84/MTA-1540360/philips_philips-hd9045-30-bread-maker-viva-collection_full02.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//84/MTA-1540360/philips_philips-hd9045-30-bread-maker-viva-collection_full03.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//84/MTA-1540360/philips_philips-hd9045-30-bread-maker-viva-collection_full04.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//84/MTA-1540360/philips_philips-hd9045-30-bread-maker-viva-collection_full05.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//84/MTA-1540360/philips_philips-hd9045-30-bread-maker-viva-collection_full06.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//84/MTA-1540360/philips_philips-hd9045-30-bread-maker-viva-collection_full02.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//84/MTA-1540360/philips_philips-hd9045-30-bread-maker-viva-collection_full03.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//84/MTA-1540360/philips_philips-hd9045-30-bread-maker-viva-collection_full04.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//84/MTA-1540360/philips_philips-hd9045-30-bread-maker-viva-collection_full05.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//84/MTA-1540360/philips_philips-hd9045-30-bread-maker-viva-collection_full06.jpg"
         ],
         "shipping_option": {
             "name": "Ekspres",
@@ -1155,7 +1159,7 @@
             "EAN Code": "OX-830"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/oxone_oxone-ox-830-donut-maker---putih_full03.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/oxone_oxone-ox-830-donut-maker---putih_full03.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -1207,10 +1211,10 @@
             "EAN Code": "RN-99-PINK"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//91/MTA-1483435/renoodle_renoodle-rn-99-alat-pembuat-mie---pasta-otomatis_full04.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//91/MTA-1483435/renoodle_renoodle-rn-99-alat-pembuat-mie---pasta-otomatis_full05.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//91/MTA-1483435/renoodle_renoodle-rn-99-alat-pembuat-mie---pasta-otomatis_full06.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//91/MTA-1483435/renoodle_renoodle-rn-99-alat-pembuat-mie---pasta-otomatis_full07.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//91/MTA-1483435/renoodle_renoodle-rn-99-alat-pembuat-mie---pasta-otomatis_full04.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//91/MTA-1483435/renoodle_renoodle-rn-99-alat-pembuat-mie---pasta-otomatis_full05.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//91/MTA-1483435/renoodle_renoodle-rn-99-alat-pembuat-mie---pasta-otomatis_full06.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//91/MTA-1483435/renoodle_renoodle-rn-99-alat-pembuat-mie---pasta-otomatis_full07.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -1258,7 +1262,7 @@
             "EAN Code": "HR-7627"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/philips_philips-hr-7627-food-processor_full03.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/philips_philips-hr-7627-food-processor_full03.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -1310,7 +1314,7 @@
             "EAN Code": "Rebread-250"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//1135/rebread_rebread-250-gold-automatic-breadmaker---495-watt---gold-white_full03.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//1135/rebread_rebread-250-gold-automatic-breadmaker---495-watt---gold-white_full03.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -1362,7 +1366,7 @@
             "EAN Code": "ET-D8S"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//997/getra_getra-et-d8s-manual-cup-sealer-with-counter_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//997/getra_getra-et-d8s-manual-cup-sealer-with-counter_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -1409,7 +1413,7 @@
             "EAN Code": "KG 864 3-SET"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//921/kangaroo_kangaroo-cookware-kg-864-set-panci--3-set-_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//921/kangaroo_kangaroo-cookware-kg-864-set-panci--3-set-_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -1455,7 +1459,7 @@
             "EAN Code": "ETN-ET-200"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/eton_eton-ice-crusher--mesin-serut-es-et-200_full03.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/eton_eton-ice-crusher--mesin-serut-es-et-200_full03.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -1506,7 +1510,7 @@
             "EAN Code": "SD-P104WSH"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//1296/panasonic_panasonic-sd-p104wsh-bread-maker-pembuat-kue-dan-roti---putih_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//1296/panasonic_panasonic-sd-p104wsh-bread-maker-pembuat-kue-dan-roti---putih_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -1561,7 +1565,7 @@
             "EAN Code": "GETRASJ-280 GY"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//103/MTA-1586965/getra_getra-sj-280-meat-ball-foaming-mesin-pembuat-bakso_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//103/MTA-1586965/getra_getra-sj-280-meat-ball-foaming-mesin-pembuat-bakso_full02.jpg"
         ],
         "shipping_option": {},
         "merchant_location": "Kota Jakarta Timur, DKI Jakarta"
@@ -1603,7 +1607,7 @@
             "EAN Code": "HD-2393"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//974/philips_philips-hd-2393-sandwich-maker---putih-hitam_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//974/philips_philips-hd-2393-sandwich-maker---putih-hitam_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -1653,10 +1657,10 @@
             "EAN Code": "AIMONS-EM-HTM"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//91/MTA-1196236/aimons_aimons-egg-master-penggoreng-telur-otomatis---hitam_full07.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//91/MTA-1196236/aimons_aimons-egg-master-penggoreng-telur-otomatis---hitam_full04.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//91/MTA-1196236/aimons_aimons-egg-master-penggoreng-telur-otomatis---hitam_full05.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//91/MTA-1196236/aimons_aimons-egg-master-penggoreng-telur-otomatis---hitam_full06.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//91/MTA-1196236/aimons_aimons-egg-master-penggoreng-telur-otomatis---hitam_full07.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//91/MTA-1196236/aimons_aimons-egg-master-penggoreng-telur-otomatis---hitam_full04.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//91/MTA-1196236/aimons_aimons-egg-master-penggoreng-telur-otomatis---hitam_full05.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//91/MTA-1196236/aimons_aimons-egg-master-penggoreng-telur-otomatis---hitam_full06.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -1703,7 +1707,7 @@
             "EAN Code": "OXN-EGY-PAN-MKR-OX-844"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/oxone_oxone-eggy-pancake-maker-ox-844_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/oxone_oxone-eggy-pancake-maker-ox-844_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -1748,7 +1752,7 @@
             "EAN Code": "DOD-DD2180-MUL-ALA-MAS-8IN1"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/dodawa_dodawa-dd2180-multicooker-alat-masak--8-in-1-_full03.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/dodawa_dodawa-dd2180-multicooker-alat-masak--8-in-1-_full03.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -1798,7 +1802,7 @@
             "EAN Code": "HD-2393/02"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/philips_philips-hd-2393-02-white-sandwich-toaster_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/philips_philips-hd-2393-02-white-sandwich-toaster_full02.jpg"
         ],
         "shipping_option": {
             "name": "GO-SEND",
@@ -1851,7 +1855,7 @@
             "EAN Code": "OX-272-SLV"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//102/MTA-1273998/oxone_oxone-ox-272-jumbo-chopper_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//102/MTA-1273998/oxone_oxone-ox-272-jumbo-chopper_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -1902,9 +1906,9 @@
             "EAN Code": "FP-300"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//97/MTA-1993219/cosmos_cosmos-fp-300-food-processor_full03.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//97/MTA-1993219/cosmos_cosmos-fp-300-food-processor_full04.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//97/MTA-1993219/cosmos_cosmos-fp-300-food-processor_full05.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//97/MTA-1993219/cosmos_cosmos-fp-300-food-processor_full03.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//97/MTA-1993219/cosmos_cosmos-fp-300-food-processor_full04.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//97/MTA-1993219/cosmos_cosmos-fp-300-food-processor_full05.jpg"
         ],
         "shipping_option": {
             "name": "Ekspres",
@@ -1949,8 +1953,8 @@
             "EAN Code": "Q2-PFS-400"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/q2_q2-pfs-400-biru-impulse-sealer-press-plastik--40-cm-_full03.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/q2_q2-pfs-400-biru-impulse-sealer-press-plastik--40-cm-_full04.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/q2_q2-pfs-400-biru-impulse-sealer-press-plastik--40-cm-_full03.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/q2_q2-pfs-400-biru-impulse-sealer-press-plastik--40-cm-_full04.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -1995,10 +1999,10 @@
             "EAN Code": "HSM-029-4P"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/heles_weekend-deal---heles-4in1-sandwich-toaster-hsm-029-4p-pemanggang--donut--waffle--grill--sandwich-_full05.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/heles_weekend-deal---heles-4in1-sandwich-toaster-hsm-029-4p-pemanggang--donut--waffle--grill--sandwich-_full06.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/heles_weekend-deal---heles-4in1-sandwich-toaster-hsm-029-4p-pemanggang--donut--waffle--grill--sandwich-_full07.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/heles_weekend-deal---heles-4in1-sandwich-toaster-hsm-029-4p-pemanggang--donut--waffle--grill--sandwich-_full08.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/heles_weekend-deal---heles-4in1-sandwich-toaster-hsm-029-4p-pemanggang--donut--waffle--grill--sandwich-_full05.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/heles_weekend-deal---heles-4in1-sandwich-toaster-hsm-029-4p-pemanggang--donut--waffle--grill--sandwich-_full06.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/heles_weekend-deal---heles-4in1-sandwich-toaster-hsm-029-4p-pemanggang--donut--waffle--grill--sandwich-_full07.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/heles_weekend-deal---heles-4in1-sandwich-toaster-hsm-029-4p-pemanggang--donut--waffle--grill--sandwich-_full08.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -2053,9 +2057,9 @@
             "EAN Code": "Oxone/OX-272"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//89/MTA-1226707/oxone_oxone-ox-272-penggiling-daging-otomatis_full04.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//89/MTA-1226707/oxone_oxone-ox-272-penggiling-daging-otomatis_full05.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//89/MTA-1226707/oxone_oxone-ox-272-penggiling-daging-otomatis_full06.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//89/MTA-1226707/oxone_oxone-ox-272-penggiling-daging-otomatis_full04.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//89/MTA-1226707/oxone_oxone-ox-272-penggiling-daging-otomatis_full05.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//89/MTA-1226707/oxone_oxone-ox-272-penggiling-daging-otomatis_full06.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -2102,9 +2106,9 @@
             "EAN Code": "KEN-FPM270-FOOD-PRO-SIL"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//86/MTA-1207921/kenwood_kenwood-fpm270-food-processor_full04.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//86/MTA-1207921/kenwood_kenwood-fpm270-food-processor_full05.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//86/MTA-1207921/kenwood_kenwood-fpm270-food-processor_full06.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//86/MTA-1207921/kenwood_kenwood-fpm270-food-processor_full04.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//86/MTA-1207921/kenwood_kenwood-fpm270-food-processor_full05.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//86/MTA-1207921/kenwood_kenwood-fpm270-food-processor_full06.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -2152,7 +2156,7 @@
             "EAN Code": "Maxim-Venice-Panci-Set-5 Pcs-Gold"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//712/maxim_maxim-venice-panci-set--5-pcs-_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//712/maxim_maxim-venice-panci-set--5-pcs-_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -2205,8 +2209,8 @@
             "EAN Code": "MK-5076M - Putih"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//997/panasonic_panasonic-food-processor-mk-5076m---putih_full05.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//998/panasonic_panasonic-food-processor-mk-5076m---putih_full06.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//997/panasonic_panasonic-food-processor-mk-5076m---putih_full05.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//998/panasonic_panasonic-food-processor-mk-5076m---putih_full06.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -2260,7 +2264,7 @@
             "EAN Code": "Oxone-OX-151-White"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//87/MTA-1226616/oxone_oxone-ox-151-eco-mini-chopper_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//87/MTA-1226616/oxone_oxone-ox-151-eco-mini-chopper_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -2309,7 +2313,7 @@
             "EAN Code": "sb-mtx300"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/matrix_matrix-ice-crusher--300-watt-_full04.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/matrix_matrix-ice-crusher--300-watt-_full04.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -2356,7 +2360,7 @@
             "EAN Code": "SD-P104WSH"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/panasonic_panasonic-sd-p104wsh-bread-maker_full01.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/panasonic_panasonic-sd-p104wsh-bread-maker_full01.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -2399,7 +2403,7 @@
             "EAN Code": "MT-206-DMP"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/maspion_maspion-mt-206-dmp-pemanggang-sandwich_full01.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/maspion_maspion-mt-206-dmp-pemanggang-sandwich_full01.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -2450,8 +2454,8 @@
             "EAN Code": "FDM307SS"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//96/MTA-2056856/kenwood_kenwood-fdm307ss-food-processor_full03.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//96/MTA-2056856/kenwood_kenwood-fdm307ss-food-processor_full04.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//96/MTA-2056856/kenwood_kenwood-fdm307ss-food-processor_full03.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//96/MTA-2056856/kenwood_kenwood-fdm307ss-food-processor_full04.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -2503,7 +2507,7 @@
             "EAN Code": "OXONE-OX-277-PRO-AIR-FRY-PER"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//869/oxone_oxone-ox-277-profesional-air-fryer_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//869/oxone_oxone-ox-277-profesional-air-fryer_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -2557,8 +2561,8 @@
             "EAN Code": "Oxone-OX-855-White"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/MTA-1226639/oxone_oxone-ox-855-master-standing-mixer_full03.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/MTA-1226639/oxone_oxone-ox-855-master-standing-mixer_full04.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/MTA-1226639/oxone_oxone-ox-855-master-standing-mixer_full03.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/MTA-1226639/oxone_oxone-ox-855-master-standing-mixer_full04.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -2608,8 +2612,8 @@
             "EAN Code": "MEC-1750"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/maspion_maspion-mec-1750-multi-cooker---silver_full04.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/maspion_maspion-mec-1750-multi-cooker---silver_full03.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/maspion_maspion-mec-1750-multi-cooker---silver_full04.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/maspion_maspion-mec-1750-multi-cooker---silver_full03.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -2654,8 +2658,8 @@
             "EAN Code": "DD2180"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/dodawa_hot-deals---dodawa-dd2180-multicooker-alat-masak--8-in-1-_full04.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/dodawa_hot-deals---dodawa-dd2180-multicooker-alat-masak--8-in-1-_full05.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/dodawa_hot-deals---dodawa-dd2180-multicooker-alat-masak--8-in-1-_full04.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/dodawa_hot-deals---dodawa-dd2180-multicooker-alat-masak--8-in-1-_full05.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -2706,7 +2710,7 @@
             "EAN Code": "DZ-280SE-WHT"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//752/fomac_vacum-sealer-powerpack--dz-280se-_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//752/fomac_vacum-sealer-powerpack--dz-280se-_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -2758,9 +2762,9 @@
             "EAN Code": "ET-D8-RYL-BL"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//841/matrix_matrix-et-d8-manual-cup-sealer--300-w-_full04.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//842/matrix_matrix-et-d8-manual-cup-sealer--300-w-_full05.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//843/matrix_matrix-et-d8-manual-cup-sealer--300-w-_full06.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//841/matrix_matrix-et-d8-manual-cup-sealer--300-w-_full04.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//842/matrix_matrix-et-d8-manual-cup-sealer--300-w-_full05.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//843/matrix_matrix-et-d8-manual-cup-sealer--300-w-_full06.jpg"
         ],
         "shipping_option": {},
         "merchant_location": "Kota Tangerang, Banten"
@@ -2811,9 +2815,9 @@
             "EAN Code": "Oxone/OX-989"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//92/MTA-1298171/oxone_oxone-ox-989n-new-deep-fryer_full04.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//92/MTA-1298171/oxone_oxone-ox-989n-new-deep-fryer_full05.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//92/MTA-1298171/oxone_oxone-ox-989n-new-deep-fryer_full06.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//92/MTA-1298171/oxone_oxone-ox-989n-new-deep-fryer_full04.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//92/MTA-1298171/oxone_oxone-ox-989n-new-deep-fryer_full05.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//92/MTA-1298171/oxone_oxone-ox-989n-new-deep-fryer_full06.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -2864,7 +2868,7 @@
             "EAN Code": "FPP210"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//92/MTA-2070846/kenwood_kenwood-food-processor-fpp210-pengolah-makanan_full03.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//92/MTA-2070846/kenwood_kenwood-food-processor-fpp210-pengolah-makanan_full03.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -2917,11 +2921,11 @@
             "EAN Code": "RB350-WHT"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//743/rebread_rebread-e10---rebread-rb350-bread-maker_full05.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//745/rebread_rebread-e10---rebread-rb350-bread-maker_full07.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//744/rebread_rebread-e10---rebread-rb350-bread-maker_full06.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//739/rebread_rebread-e10---rebread-rb350-bread-maker_full01.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//741/rebread_rebread-e10---rebread-rb350-bread-maker_full03.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//743/rebread_rebread-e10---rebread-rb350-bread-maker_full05.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//745/rebread_rebread-e10---rebread-rb350-bread-maker_full07.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//744/rebread_rebread-e10---rebread-rb350-bread-maker_full06.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//739/rebread_rebread-e10---rebread-rb350-bread-maker_full01.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//741/rebread_rebread-e10---rebread-rb350-bread-maker_full03.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -2967,7 +2971,7 @@
             "EAN Code": "01160322204952199"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/eton_eton-et-d8-manual-cup-sealer_full03.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/eton_eton-et-d8-manual-cup-sealer_full03.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -3015,7 +3019,7 @@
             "EAN Code": "DOD-DD2180-MUL-ALA-MAS-8IN1"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/dodawa_dodawa-dd2180-multicooker-alat-masak--8-in-1-_full03.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/dodawa_dodawa-dd2180-multicooker-alat-masak--8-in-1-_full03.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -3063,7 +3067,7 @@
             "EAN Code": "wil-imp-hand-sea-alat-pres-plas-fs-300"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//1184/willman_willman-impulse-hand-sealer---alat-press-plastik-fs-300_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//1184/willman_willman-impulse-hand-sealer---alat-press-plastik-fs-300_full02.jpg"
         ],
         "shipping_option": {
             "name": "GO-SEND",
@@ -3117,10 +3121,10 @@
             "EAN Code": "HP-MT01"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//75/MTA-1232112/strom_strom-hp-mt01-multi-cooker_full05.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//75/MTA-1232112/strom_strom-hp-mt01-multi-cooker_full06.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//75/MTA-1232112/strom_strom-hp-mt01-multi-cooker_full07.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//75/MTA-1232112/strom_strom-hp-mt01-multi-cooker_full08.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//75/MTA-1232112/strom_strom-hp-mt01-multi-cooker_full05.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//75/MTA-1232112/strom_strom-hp-mt01-multi-cooker_full06.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//75/MTA-1232112/strom_strom-hp-mt01-multi-cooker_full07.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//75/MTA-1232112/strom_strom-hp-mt01-multi-cooker_full08.jpg"
         ],
         "shipping_option": {
             "name": "GO-SEND",
@@ -3172,7 +3176,7 @@
             "EAN Code": "ICH-300BD"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//1172/fomac_fomac-mesin-penyerut-es-batu---ice-crusher--ich-300bd----silver_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//1172/fomac_fomac-mesin-penyerut-es-batu---ice-crusher--ich-300bd----silver_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -3225,7 +3229,7 @@
             "EAN Code": "Mayaka-PM-8000"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//91/MTA-1295820/mayaka_mayaka-pm-8000-ks-pembuat-mie---noodle-maker_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//91/MTA-1295820/mayaka_mayaka-pm-8000-ks-pembuat-mie---noodle-maker_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -3277,10 +3281,10 @@
             "EAN Code": "HD9045"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//88/MTA-1505751/philips_philips-bread-maker-putih---hd9045_full05.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//88/MTA-1505751/philips_philips-bread-maker-putih---hd9045_full06.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//88/MTA-1505751/philips_philips-bread-maker-putih---hd9045_full07.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//88/MTA-1505751/philips_philips-bread-maker-putih---hd9045_full08.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//88/MTA-1505751/philips_philips-bread-maker-putih---hd9045_full05.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//88/MTA-1505751/philips_philips-bread-maker-putih---hd9045_full06.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//88/MTA-1505751/philips_philips-bread-maker-putih---hd9045_full07.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//88/MTA-1505751/philips_philips-bread-maker-putih---hd9045_full08.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -3328,7 +3332,7 @@
             "EAN Code": "wil-imp-hand-sea-alat-pres-plas-fs-200"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//1181/willman_willman-fs-200-impulse-hand-sealer-alat-press-plastik_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//1181/willman_willman-fs-200-impulse-hand-sealer-alat-press-plastik_full02.jpg"
         ],
         "shipping_option": {
             "name": "GO-SEND",
@@ -3381,7 +3385,7 @@
             "EAN Code": "CM-9000"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//891/cosmos_cosmos-cm-9000-planetary-stand-mixer_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//891/cosmos_cosmos-cm-9000-planetary-stand-mixer_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -3432,8 +3436,8 @@
             "EAN Code": "HEL-SAN-TOAS"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//659/heles_heles-sandwich-toaster_full03.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//660/heles_heles-sandwich-toaster_full04.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//659/heles_heles-sandwich-toaster_full03.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//660/heles_heles-sandwich-toaster_full04.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -3485,7 +3489,7 @@
             "EAN Code": "ICE100BCHK"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//879/cuisinart_cuisinart-ice-cream-maker---ice100bchk_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//879/cuisinart_cuisinart-ice-cream-maker---ice100bchk_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -3537,9 +3541,9 @@
             "EAN Code": "DDW-300-SNW-MKR-BLK"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//82/MTA-1317005/dodawa_dodawa-dd-300-sandwich-maker-alat-pemanggang-roti_full04.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//82/MTA-1317005/dodawa_dodawa-dd-300-sandwich-maker-alat-pemanggang-roti_full05.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//82/MTA-1317005/dodawa_dodawa-dd-300-sandwich-maker-alat-pemanggang-roti_full06.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//82/MTA-1317005/dodawa_dodawa-dd-300-sandwich-maker-alat-pemanggang-roti_full04.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//82/MTA-1317005/dodawa_dodawa-dd-300-sandwich-maker-alat-pemanggang-roti_full05.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//82/MTA-1317005/dodawa_dodawa-dd-300-sandwich-maker-alat-pemanggang-roti_full06.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -3587,11 +3591,11 @@
             "EAN Code": "BM8205"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//92/MTA-1271477/bread-master_bread-master-lite-bm8205-bread-maker---red_full03.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//92/MTA-1271477/bread-master_bread-master-lite-bm8205-bread-maker---red_full04.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//92/MTA-1271477/bread-master_bread-master-lite-bm8205-bread-maker---red_full05.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//92/MTA-1271477/bread-master_bread-master-lite-bm8205-bread-maker---red_full06.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//92/MTA-1271477/bread-master_bread-master-lite-bm8205-bread-maker---red_full07.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//92/MTA-1271477/bread-master_bread-master-lite-bm8205-bread-maker---red_full03.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//92/MTA-1271477/bread-master_bread-master-lite-bm8205-bread-maker---red_full04.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//92/MTA-1271477/bread-master_bread-master-lite-bm8205-bread-maker---red_full05.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//92/MTA-1271477/bread-master_bread-master-lite-bm8205-bread-maker---red_full06.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//92/MTA-1271477/bread-master_bread-master-lite-bm8205-bread-maker---red_full07.jpg"
         ],
         "shipping_option": {
             "name": "Ekspres",
@@ -3645,10 +3649,10 @@
             "EAN Code": "RUSSELL HOBBS DESIRE MINI CHOPPER Red"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//91/MTA-1860732/russell-hobbs_russell-hobbs-desire-mini-chopper_full05.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//91/MTA-1860732/russell-hobbs_russell-hobbs-desire-mini-chopper_full06.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//91/MTA-1860732/russell-hobbs_russell-hobbs-desire-mini-chopper_full07.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//91/MTA-1860732/russell-hobbs_russell-hobbs-desire-mini-chopper_full08.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//91/MTA-1860732/russell-hobbs_russell-hobbs-desire-mini-chopper_full05.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//91/MTA-1860732/russell-hobbs_russell-hobbs-desire-mini-chopper_full06.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//91/MTA-1860732/russell-hobbs_russell-hobbs-desire-mini-chopper_full07.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//91/MTA-1860732/russell-hobbs_russell-hobbs-desire-mini-chopper_full08.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -3693,9 +3697,9 @@
             "EAN Code": "0023002301"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/kenwood_kenwood-fpp230-multipro-compact-food-processor_full04.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/kenwood_kenwood-fpp230-multipro-compact-food-processor_full05.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/kenwood_kenwood-fpp230-multipro-compact-food-processor_full06.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/kenwood_kenwood-fpp230-multipro-compact-food-processor_full04.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/kenwood_kenwood-fpp230-multipro-compact-food-processor_full05.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/kenwood_kenwood-fpp230-multipro-compact-food-processor_full06.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -3741,8 +3745,8 @@
             "EAN Code": "HD-2393"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//756/philips_philips-hd-2393-sandwich-maker_full03.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//757/philips_philips-hd-2393-sandwich-maker_full04.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//756/philips_philips-hd-2393-sandwich-maker_full03.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//757/philips_philips-hd-2393-sandwich-maker_full04.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -3794,8 +3798,8 @@
             "EAN Code": "KNW-IM280-WHI-GRY"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//100/MTA-1662688/kenwood_kenwood-im280-ice-cream-maker_full03.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//100/MTA-1662688/kenwood_kenwood-im280-ice-cream-maker_full04.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//100/MTA-1662688/kenwood_kenwood-im280-ice-cream-maker_full03.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//100/MTA-1662688/kenwood_kenwood-im280-ice-cream-maker_full04.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -3840,10 +3844,10 @@
             "EAN Code": "YOG-MAK"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//512/kic_kic-yogurt-maker_full05.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//515/kic_kic-yogurt-maker_full08.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//513/kic_kic-yogurt-maker_full06.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//514/kic_kic-yogurt-maker_full07.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//512/kic_kic-yogurt-maker_full05.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//515/kic_kic-yogurt-maker_full08.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//513/kic_kic-yogurt-maker_full06.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//514/kic_kic-yogurt-maker_full07.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -3894,8 +3898,8 @@
             "EAN Code": "FDP302SI"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//83/MTA-2073421/kenwood_kenwood-food-processor-fdp302si-pengolah-makanan_full04.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//83/MTA-2073421/kenwood_kenwood-food-processor-fdp302si-pengolah-makanan_full05.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//83/MTA-2073421/kenwood_kenwood-food-processor-fdp302si-pengolah-makanan_full04.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//83/MTA-2073421/kenwood_kenwood-food-processor-fdp302si-pengolah-makanan_full05.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -3940,7 +3944,7 @@
             "EAN Code": "FD-S03S1"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//784/panasonic_panasonic-fd-s03s1-dish-dryer_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//784/panasonic_panasonic-fd-s03s1-dish-dryer_full02.jpg"
         ],
         "shipping_option": {
             "name": "Ekspres",
@@ -3987,9 +3991,9 @@
             "EAN Code": "Oxone-OX-201"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/oxone_oxone-ox-201-cute-chopper---orange_full05.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/oxone_oxone-ox-201-cute-chopper---orange_full06.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/oxone_oxone-ox-201-cute-chopper---orange_full07.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/oxone_oxone-ox-201-cute-chopper---orange_full05.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/oxone_oxone-ox-201-cute-chopper---orange_full06.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/oxone_oxone-ox-201-cute-chopper---orange_full07.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -4041,8 +4045,8 @@
             "EAN Code": "ET-MF08"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//91/MTA-2161189/seagull_seagull-et-mf08-cotton-candy-machine_full03.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//91/MTA-2161189/seagull_seagull-et-mf08-cotton-candy-machine_full04.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//91/MTA-2161189/seagull_seagull-et-mf08-cotton-candy-machine_full03.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//91/MTA-2161189/seagull_seagull-et-mf08-cotton-candy-machine_full04.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -4097,7 +4101,7 @@
             "EAN Code": "Oxone-OX-151-White"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//87/MTA-1226616/oxone_oxone-ox-151-eco-mini-chopper_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//87/MTA-1226616/oxone_oxone-ox-151-eco-mini-chopper_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -4141,7 +4145,7 @@
             "EAN Code": "BS-PENGUPAS-KULIT-KUACI"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//743/best-seller_pengupas-kulit-kuaci_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//743/best-seller_pengupas-kulit-kuaci_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -4188,7 +4192,7 @@
             "EAN Code": "FD-S03S1"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/panasonic_panasonic-fd-s03s1-dish-dryer_full03.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/panasonic_panasonic-fd-s03s1-dish-dryer_full03.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -4238,7 +4242,7 @@
             "EAN Code": "S 660 EXT-ABU"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//737/covina_covina-kompor-gas-ts-660-ext_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//737/covina_covina-kompor-gas-ts-660-ext_full02.jpg"
         ],
         "shipping_option": null,
         "merchant_location": "Kota Surabaya, Jawa Timur"
@@ -4284,7 +4288,7 @@
             "EAN Code": "TSK-258"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//996/miyako_miyako-tsk-258-toaster-pemanggang-sandwich_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//996/miyako_miyako-tsk-258-toaster-pemanggang-sandwich_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -4333,7 +4337,7 @@
             "EAN Code": "VEN-XC-336"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//96/MTA-1976226/venusta_venusta-cool---slush-ice-machine-xc-336_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//96/MTA-1976226/venusta_venusta-cool---slush-ice-machine-xc-336_full02.jpg"
         ],
         "shipping_option": {},
         "merchant_location": "Kota Jakarta Pusat, DKI Jakarta"
@@ -4375,7 +4379,7 @@
             "EAN Code": "ETN-ET-A9-FREE"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/eton_eton-cup-sealer-automatic-et-a9---1-free-roll_full03.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/eton_eton-cup-sealer-automatic-et-a9---1-free-roll_full03.jpg"
         ],
         "shipping_option": {
             "name": "GO-SEND",
@@ -4427,12 +4431,12 @@
             "EAN Code": "RC-80-WHT-BLU"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//848/reice_reice-alat-membuat-es-krim---salad--maker_full05.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//844/reice_reice-alat-membuat-es-krim---salad--maker_full01.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//849/reice_reice-alat-membuat-es-krim---salad--maker_full06.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//846/reice_reice-alat-membuat-es-krim---salad--maker_full03.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//850/reice_reice-alat-membuat-es-krim---salad--maker_full07.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//851/reice_reice-alat-membuat-es-krim---salad--maker_full08.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//848/reice_reice-alat-membuat-es-krim---salad--maker_full05.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//844/reice_reice-alat-membuat-es-krim---salad--maker_full01.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//849/reice_reice-alat-membuat-es-krim---salad--maker_full06.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//846/reice_reice-alat-membuat-es-krim---salad--maker_full03.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//850/reice_reice-alat-membuat-es-krim---salad--maker_full07.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//851/reice_reice-alat-membuat-es-krim---salad--maker_full08.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -4483,10 +4487,10 @@
             "EAN Code": "RUSSELL HOBBS FIESTA 3 IN 1 GRILL Black"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//105/MTA-1860998/russell-hobbs_russell-hobbs-fiesta-3-in-1-grill_full05.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//105/MTA-1860998/russell-hobbs_russell-hobbs-fiesta-3-in-1-grill_full06.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//105/MTA-1860998/russell-hobbs_russell-hobbs-fiesta-3-in-1-grill_full07.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//105/MTA-1860998/russell-hobbs_russell-hobbs-fiesta-3-in-1-grill_full08.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//105/MTA-1860998/russell-hobbs_russell-hobbs-fiesta-3-in-1-grill_full05.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//105/MTA-1860998/russell-hobbs_russell-hobbs-fiesta-3-in-1-grill_full06.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//105/MTA-1860998/russell-hobbs_russell-hobbs-fiesta-3-in-1-grill_full07.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//105/MTA-1860998/russell-hobbs_russell-hobbs-fiesta-3-in-1-grill_full08.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -4534,7 +4538,7 @@
             "EAN Code": "Maxim-Venice-Panci-Set-5 Pcs-Gold"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//712/maxim_maxim-venice-panci-set--5-pcs-_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//712/maxim_maxim-venice-panci-set--5-pcs-_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -4585,10 +4589,10 @@
             "EAN Code": "DZ-280/SE-Matrix-MaroonWhite"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//85/MTA-1391233/matrix_matrix-dz-280-se-vacuum-sealer---maroon-white_full05.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//85/MTA-1391233/matrix_matrix-dz-280-se-vacuum-sealer---maroon-white_full06.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//85/MTA-1391233/matrix_matrix-dz-280-se-vacuum-sealer---maroon-white_full07.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//85/MTA-1391233/matrix_matrix-dz-280-se-vacuum-sealer---maroon-white_full08.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//85/MTA-1391233/matrix_matrix-dz-280-se-vacuum-sealer---maroon-white_full05.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//85/MTA-1391233/matrix_matrix-dz-280-se-vacuum-sealer---maroon-white_full06.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//85/MTA-1391233/matrix_matrix-dz-280-se-vacuum-sealer---maroon-white_full07.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//85/MTA-1391233/matrix_matrix-dz-280-se-vacuum-sealer---maroon-white_full08.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -4635,9 +4639,9 @@
             "EAN Code": "BREAD-MASTER"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/neohaus_neohaus-bread-master-alat-pembuat-roti_full07.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/neohaus_neohaus-bread-master-alat-pembuat-roti_full06.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/neohaus_neohaus-bread-master-alat-pembuat-roti_full05.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/neohaus_neohaus-bread-master-alat-pembuat-roti_full07.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/neohaus_neohaus-bread-master-alat-pembuat-roti_full06.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/neohaus_neohaus-bread-master-alat-pembuat-roti_full05.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -4688,9 +4692,9 @@
             "EAN Code": "SHARPKN-H24INARED"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//103/MTA-1497397/sharp_sharp-kn-h24ina-healsio-automatic-cookware_full04.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//103/MTA-1497397/sharp_sharp-kn-h24ina-healsio-automatic-cookware_full05.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//103/MTA-1497397/sharp_sharp-kn-h24ina-healsio-automatic-cookware_full06.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//103/MTA-1497397/sharp_sharp-kn-h24ina-healsio-automatic-cookware_full04.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//103/MTA-1497397/sharp_sharp-kn-h24ina-healsio-automatic-cookware_full05.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//103/MTA-1497397/sharp_sharp-kn-h24ina-healsio-automatic-cookware_full06.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -4738,7 +4742,7 @@
             "EAN Code": "Kangaroo-KG269-Multi-Cooker"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/kangaroo_kangaroo-kg269-multi-cooker_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/kangaroo_kangaroo-kg269-multi-cooker_full02.jpg"
         ],
         "shipping_option": {
             "name": "Ekspres",
@@ -4790,7 +4794,7 @@
             "EAN Code": "HP-1600"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//740/denpoo_denpoo-food-processor-hp-1600_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//740/denpoo_denpoo-food-processor-hp-1600_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -4835,10 +4839,10 @@
             "EAN Code": "AS-SEEN-ON-TV-SWI-SHA-ELEC-SHAR-GRN"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/as-seen-on-tv_as-seen-on-tv-swifty-sharp-electric-sharpener_full06.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/as-seen-on-tv_as-seen-on-tv-swifty-sharp-electric-sharpener_full07.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/as-seen-on-tv_as-seen-on-tv-swifty-sharp-electric-sharpener_full08.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/as-seen-on-tv_as-seen-on-tv-swifty-sharp-electric-sharpener_full09.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/as-seen-on-tv_as-seen-on-tv-swifty-sharp-electric-sharpener_full06.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/as-seen-on-tv_as-seen-on-tv-swifty-sharp-electric-sharpener_full07.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/as-seen-on-tv_as-seen-on-tv-swifty-sharp-electric-sharpener_full08.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/as-seen-on-tv_as-seen-on-tv-swifty-sharp-electric-sharpener_full09.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -4889,9 +4893,9 @@
             "EAN Code": "1553705"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//91/MTA-2277163/kalno_kalno-egg-master_full04.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//91/MTA-2277163/kalno_kalno-egg-master_full05.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//91/MTA-2277163/kalno_kalno-egg-master_full06.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//91/MTA-2277163/kalno_kalno-egg-master_full04.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//91/MTA-2277163/kalno_kalno-egg-master_full05.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//91/MTA-2277163/kalno_kalno-egg-master_full06.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -4942,8 +4946,8 @@
             "EAN Code": "TFL-DPA171-WHI"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//95/MTA-1716944/tefal_tefal-dpa171-food-choppers-penghalus-makanan_full03.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//95/MTA-1716944/tefal_tefal-dpa171-food-choppers-penghalus-makanan_full04.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//95/MTA-1716944/tefal_tefal-dpa171-food-choppers-penghalus-makanan_full03.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//95/MTA-1716944/tefal_tefal-dpa171-food-choppers-penghalus-makanan_full04.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -4992,9 +4996,9 @@
             "EAN Code": "5KFP1333GER"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//83/MTA-1310248/kitchen-aid_kitchen-aid-5kfp1333ger-food-processor---empire-red--3-1-l-_full04.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//83/MTA-1310248/kitchen-aid_kitchen-aid-5kfp1333ger-food-processor---empire-red--3-1-l-_full05.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//83/MTA-1310248/kitchen-aid_kitchen-aid-5kfp1333ger-food-processor---empire-red--3-1-l-_full06.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//83/MTA-1310248/kitchen-aid_kitchen-aid-5kfp1333ger-food-processor---empire-red--3-1-l-_full04.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//83/MTA-1310248/kitchen-aid_kitchen-aid-5kfp1333ger-food-processor---empire-red--3-1-l-_full05.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//83/MTA-1310248/kitchen-aid_kitchen-aid-5kfp1333ger-food-processor---empire-red--3-1-l-_full06.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -5044,7 +5048,7 @@
             "EAN Code": "TS 690 EXT-BLE"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//740/covina_covina-kompor-gas-ts-690-ext_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//740/covina_covina-kompor-gas-ts-690-ext_full02.jpg"
         ],
         "shipping_option": null,
         "merchant_location": "Kota Surabaya, Jawa Timur"
@@ -5084,9 +5088,9 @@
             "EAN Code": "KWD-SM650"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/kenwood_kenwood-sm650-sandwich-maker_full05.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/kenwood_kenwood-sm650-sandwich-maker_full06.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/kenwood_kenwood-sm650-sandwich-maker_full07.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/kenwood_kenwood-sm650-sandwich-maker_full05.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/kenwood_kenwood-sm650-sandwich-maker_full06.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/kenwood_kenwood-sm650-sandwich-maker_full07.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -5133,7 +5137,7 @@
             "EAN Code": "ZY-SB114"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/willman_willman-zy-sb114-ice-crusher_full03.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/willman_willman-zy-sb114-ice-crusher_full03.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -5185,12 +5189,12 @@
             "EAN Code": "Vienta-Food-Processor-Flexie-Putih"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//92/MTA-2253097/vienta_vienta-flexie-food-processor---putih_full08.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//92/MTA-2253097/vienta_vienta-flexie-food-processor---putih_full09.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//92/MTA-2253097/vienta_vienta-flexie-food-processor---putih_full10.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//92/MTA-2253097/vienta_vienta-flexie-food-processor---putih_full11.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//92/MTA-2253097/vienta_vienta-flexie-food-processor---putih_full12.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//92/MTA-2253097/vienta_vienta-flexie-food-processor---putih_full13.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//92/MTA-2253097/vienta_vienta-flexie-food-processor---putih_full08.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//92/MTA-2253097/vienta_vienta-flexie-food-processor---putih_full09.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//92/MTA-2253097/vienta_vienta-flexie-food-processor---putih_full10.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//92/MTA-2253097/vienta_vienta-flexie-food-processor---putih_full11.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//92/MTA-2253097/vienta_vienta-flexie-food-processor---putih_full12.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//92/MTA-2253097/vienta_vienta-flexie-food-processor---putih_full13.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -5245,9 +5249,9 @@
             "EAN Code": "Oxone/OX-272"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//89/MTA-1226707/oxone_oxone-ox-272-penggiling-daging-otomatis_full04.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//89/MTA-1226707/oxone_oxone-ox-272-penggiling-daging-otomatis_full05.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//89/MTA-1226707/oxone_oxone-ox-272-penggiling-daging-otomatis_full06.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//89/MTA-1226707/oxone_oxone-ox-272-penggiling-daging-otomatis_full04.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//89/MTA-1226707/oxone_oxone-ox-272-penggiling-daging-otomatis_full05.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//89/MTA-1226707/oxone_oxone-ox-272-penggiling-daging-otomatis_full06.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -5294,8 +5298,8 @@
             "EAN Code": "KZS-70L-W"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/sharp_sharp-kzs-70l-w-toaster-sandwich_full04.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/sharp_sharp-kzs-70l-w-toaster-sandwich_full05.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/sharp_sharp-kzs-70l-w-toaster-sandwich_full04.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/sharp_sharp-kzs-70l-w-toaster-sandwich_full05.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -5347,10 +5351,10 @@
             "EAN Code": "HD9045"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//88/MTA-1505751/philips_philips-bread-maker-putih---hd9045_full05.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//88/MTA-1505751/philips_philips-bread-maker-putih---hd9045_full06.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//88/MTA-1505751/philips_philips-bread-maker-putih---hd9045_full07.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//88/MTA-1505751/philips_philips-bread-maker-putih---hd9045_full08.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//88/MTA-1505751/philips_philips-bread-maker-putih---hd9045_full05.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//88/MTA-1505751/philips_philips-bread-maker-putih---hd9045_full06.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//88/MTA-1505751/philips_philips-bread-maker-putih---hd9045_full07.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//88/MTA-1505751/philips_philips-bread-maker-putih---hd9045_full08.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -5404,7 +5408,7 @@
             "EAN Code": "JOY-SOY-MAK-WHT"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//1380/joyoung_joyoung-soymilk-maker---pembuat-susu-kedelai-mudah-aman---cepat_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//1380/joyoung_joyoung-soymilk-maker---pembuat-susu-kedelai-mudah-aman---cepat_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -5455,7 +5459,7 @@
             "EAN Code": "OXONE-OX-277-PRO-AIR-FRY-PER"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//869/oxone_oxone-ox-277-profesional-air-fryer_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//869/oxone_oxone-ox-277-profesional-air-fryer_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -5507,10 +5511,10 @@
             "EAN Code": "HD9045"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//88/MTA-1505751/philips_philips-bread-maker-putih---hd9045_full05.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//88/MTA-1505751/philips_philips-bread-maker-putih---hd9045_full06.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//88/MTA-1505751/philips_philips-bread-maker-putih---hd9045_full07.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//88/MTA-1505751/philips_philips-bread-maker-putih---hd9045_full08.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//88/MTA-1505751/philips_philips-bread-maker-putih---hd9045_full05.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//88/MTA-1505751/philips_philips-bread-maker-putih---hd9045_full06.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//88/MTA-1505751/philips_philips-bread-maker-putih---hd9045_full07.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//88/MTA-1505751/philips_philips-bread-maker-putih---hd9045_full08.jpg"
         ],
         "shipping_option": {
             "name": "GO-SEND",
@@ -5562,7 +5566,7 @@
             "EAN Code": "Ez-Yo-RC-H2-Yogurt-Maker"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//98/MTA-1559672/ez-yo_ez-yo-rc-h2-yogurt-maker---hitam-putih_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//98/MTA-1559672/ez-yo_ez-yo-rc-h2-yogurt-maker---hitam-putih_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -5614,7 +5618,7 @@
             "EAN Code": "RC-L1-YELL"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//94/MTA-1559614/ez-yo_ez-yo-yogurt-maker-rc-l1_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//94/MTA-1559614/ez-yo_ez-yo-yogurt-maker-rc-l1_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -5658,8 +5662,8 @@
             "EAN Code": "704936024610"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/tokuniku_tokuniku-swift-chopper_full04.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/tokuniku_tokuniku-swift-chopper_full05.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/tokuniku_tokuniku-swift-chopper_full04.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/tokuniku_tokuniku-swift-chopper_full05.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -5702,7 +5706,7 @@
             "EAN Code": null
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/utama-electronic_oxone-ox-322-hitam-biscuit-maker_full01.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/utama-electronic_oxone-ox-322-hitam-biscuit-maker_full01.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -5750,7 +5754,7 @@
             "EAN Code": "BS-GRI-MES0PENG-KOP-DAN-LAD-ORG"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//1123/best-seller_best-seller-grinder-mesin-penggiling---orange_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//1123/best-seller_best-seller-grinder-mesin-penggiling---orange_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -5795,7 +5799,7 @@
             "EAN Code": "TER-WAT-TANK-8.8-LTR"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/dodawa_dodawa-water-tank-termos--8-8-l-_full03.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/dodawa_dodawa-water-tank-termos--8-8-l-_full03.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -5844,8 +5848,8 @@
             "EAN Code": "PAD-134-MIN-HAN-SEA-WHT-PINK"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//1125/padasuka_padasuka134-mini-handy-sealer-perekat-plastik-mini_full04.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//1124/padasuka_padasuka134-mini-handy-sealer-perekat-plastik-mini_full03.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//1125/padasuka_padasuka134-mini-handy-sealer-perekat-plastik-mini_full04.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//1124/padasuka_padasuka134-mini-handy-sealer-perekat-plastik-mini_full03.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -5891,8 +5895,8 @@
             "EAN Code": "704936024610"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/tokuniku_tokuniku-swift-chopper_full04.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/tokuniku_tokuniku-swift-chopper_full05.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/tokuniku_tokuniku-swift-chopper_full04.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/tokuniku_tokuniku-swift-chopper_full05.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -5942,7 +5946,7 @@
             "EAN Code": "ICK5000-WHT"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//730/delonghi_delonghi-ick5000-ice-cream-maker_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//730/delonghi_delonghi-ick5000-ice-cream-maker_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -5997,10 +6001,10 @@
             "EAN Code": "Oxone/OX-830"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//85/MTA-1226901/oxone_oxone-ox-830-pembuat-donat_full05.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//85/MTA-1226901/oxone_oxone-ox-830-pembuat-donat_full06.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//85/MTA-1226901/oxone_oxone-ox-830-pembuat-donat_full07.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//85/MTA-1226901/oxone_oxone-ox-830-pembuat-donat_full08.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//85/MTA-1226901/oxone_oxone-ox-830-pembuat-donat_full05.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//85/MTA-1226901/oxone_oxone-ox-830-pembuat-donat_full06.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//85/MTA-1226901/oxone_oxone-ox-830-pembuat-donat_full07.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//85/MTA-1226901/oxone_oxone-ox-830-pembuat-donat_full08.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -6046,7 +6050,7 @@
             "EAN Code": "ES1-131"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/oxone_breakfast-series-ox-11_full03.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/oxone_breakfast-series-ox-11_full03.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -6094,7 +6098,7 @@
             "EAN Code": "BES-SEL-CAP-MIX-YLW"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//912/best-seller_gagang-pengaduk-cappuccino-mixer_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//912/best-seller_gagang-pengaduk-cappuccino-mixer_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -6149,7 +6153,7 @@
             "EAN Code": "Mt - 1150"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//866/maspion_maspion-mt---1150-mixer-tangan---putih_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//866/maspion_maspion-mt---1150-mixer-tangan---putih_full02.jpg"
         ],
         "shipping_option": {
             "name": "GO-SEND",
@@ -6196,9 +6200,9 @@
             "EAN Code": "01160304002947188"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/heles_heles-hl-805-blue-mini-chopper_full04.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/heles_heles-hl-805-blue-mini-chopper_full05.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/heles_heles-hl-805-blue-mini-chopper_full06.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/heles_heles-hl-805-blue-mini-chopper_full04.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/heles_heles-hl-805-blue-mini-chopper_full05.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/heles_heles-hl-805-blue-mini-chopper_full06.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -6250,10 +6254,10 @@
             "EAN Code": "HD9045"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//88/MTA-1505751/philips_philips-bread-maker-putih---hd9045_full05.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//88/MTA-1505751/philips_philips-bread-maker-putih---hd9045_full06.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//88/MTA-1505751/philips_philips-bread-maker-putih---hd9045_full07.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//88/MTA-1505751/philips_philips-bread-maker-putih---hd9045_full08.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//88/MTA-1505751/philips_philips-bread-maker-putih---hd9045_full05.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//88/MTA-1505751/philips_philips-bread-maker-putih---hd9045_full06.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//88/MTA-1505751/philips_philips-bread-maker-putih---hd9045_full07.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//88/MTA-1505751/philips_philips-bread-maker-putih---hd9045_full08.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -6298,9 +6302,9 @@
             "EAN Code": "AS-SEEN-ON-TV-PER-ROL-MAK"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/as-seen-on-tv_as-seen-on-tv-perfect-roll-sushi-maker_full07.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/as-seen-on-tv_as-seen-on-tv-perfect-roll-sushi-maker_full05.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/as-seen-on-tv_as-seen-on-tv-perfect-roll-sushi-maker_full06.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/as-seen-on-tv_as-seen-on-tv-perfect-roll-sushi-maker_full07.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/as-seen-on-tv_as-seen-on-tv-perfect-roll-sushi-maker_full05.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/as-seen-on-tv_as-seen-on-tv-perfect-roll-sushi-maker_full06.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -6352,7 +6356,7 @@
             "EAN Code": "3334619"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//1345/powerpack_powerpack-hw-450-mesin-pembungkus-makanan---plastic-wrapper_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//1345/powerpack_powerpack-hw-450-mesin-pembungkus-makanan---plastic-wrapper_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -6402,7 +6406,7 @@
             "EAN Code": "MEC-1750"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//924/maspion_maspion-mec-1750-elektrik-multi-cooker_full01.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//924/maspion_maspion-mec-1750-elektrik-multi-cooker_full01.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -6447,7 +6451,7 @@
             "EAN Code": "Tj-8"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/getra_getra-tj-8-meat-grinder_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/getra_getra-tj-8-meat-grinder_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -6496,7 +6500,7 @@
             "EAN Code": "FOM-MES-PEM-EGG-WAF-LIS"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//966/fomac_fomac-mesin-pembuat-egg-waffle-listrik---ewb-e30--_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//966/fomac_fomac-mesin-pembuat-egg-waffle-listrik---ewb-e30--_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -6543,7 +6547,7 @@
             "EAN Code": "KG 864 3-SET"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//921/kangaroo_kangaroo-cookware-kg-864-set-panci--3-set-_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//921/kangaroo_kangaroo-cookware-kg-864-set-panci--3-set-_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -6589,7 +6593,7 @@
             "EAN Code": "1000001"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//1087/best-seller_meat-tenderizer-tusukan-pelembut-daging_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//1087/best-seller_meat-tenderizer-tusukan-pelembut-daging_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -6636,7 +6640,7 @@
             "EAN Code": "OX-830"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/oxone_oxone-ox-830-donut-maker---putih_full03.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/oxone_oxone-ox-830-donut-maker---putih_full03.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -6682,8 +6686,8 @@
             "EAN Code": "IM280 "
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/kenwood_kenwood-im280-ice-cream-maker_full04.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/kenwood_kenwood-im280-ice-cream-maker_full03.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/kenwood_kenwood-im280-ice-cream-maker_full04.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/kenwood_kenwood-im280-ice-cream-maker_full03.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -6736,7 +6740,7 @@
             "EAN Code": "OX-356"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//94/MTA-1551586/oxone_oxone-ox-356-automatic-noodle-maker_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//94/MTA-1551586/oxone_oxone-ox-356-automatic-noodle-maker_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -6787,10 +6791,10 @@
             "EAN Code": "DZ-280/SE-Matrix-Putih"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//84/MTA-1391232/matrix_matrix-dz-280-se-vacuum-sealer---white_full05.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//84/MTA-1391232/matrix_matrix-dz-280-se-vacuum-sealer---white_full06.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//84/MTA-1391232/matrix_matrix-dz-280-se-vacuum-sealer---white_full07.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//84/MTA-1391232/matrix_matrix-dz-280-se-vacuum-sealer---white_full08.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//84/MTA-1391232/matrix_matrix-dz-280-se-vacuum-sealer---white_full05.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//84/MTA-1391232/matrix_matrix-dz-280-se-vacuum-sealer---white_full06.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//84/MTA-1391232/matrix_matrix-dz-280-se-vacuum-sealer---white_full07.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//84/MTA-1391232/matrix_matrix-dz-280-se-vacuum-sealer---white_full08.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -6835,7 +6839,7 @@
             "EAN Code": "FD-S03S1 Dish Dryer"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//100/MTA-1459558/panasonic_panasonic-fd-s03s1-dish-dryer--original-dan-garansi-resmi-_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//100/MTA-1459558/panasonic_panasonic-fd-s03s1-dish-dryer--original-dan-garansi-resmi-_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -6887,7 +6891,7 @@
             "EAN Code": "PHI-VIVA-COLL-AIRFRY-HD-9220-20-BLK"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//1070/philips_philips-viva-collection-airfryer-hd-9220-20---hitam_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//1070/philips_philips-viva-collection-airfryer-hd-9220-20---hitam_full02.jpg"
         ],
         "shipping_option": {
             "name": "GO-SEND",
@@ -6934,7 +6938,7 @@
             "EAN Code": "MKMG 1300"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//925/panasonic_panasonic-mkmg-1300-meat-grinder---putih_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//925/panasonic_panasonic-mkmg-1300-meat-grinder---putih_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -6981,10 +6985,10 @@
             "EAN Code": "HR-7627"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/philips_philips-hr-7627-food-processor_full05.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/philips_philips-hr-7627-food-processor_full06.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/philips_philips-hr-7627-food-processor_full07.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/philips_philips-hr-7627-food-processor_full08.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/philips_philips-hr-7627-food-processor_full05.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/philips_philips-hr-7627-food-processor_full06.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/philips_philips-hr-7627-food-processor_full07.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/philips_philips-hr-7627-food-processor_full08.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -7033,7 +7037,7 @@
             "EAN Code": "SHNP150AM"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//104/MTA-1985549/shuma_shuma-noodle-and-pasta-shnp150am_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//104/MTA-1985549/shuma_shuma-noodle-and-pasta-shnp150am_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -7087,8 +7091,8 @@
             "EAN Code": "Oxone-OX-842"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//101/MTA-1229978/oxone_oxone-ox-842-crepe-maker_full03.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//101/MTA-1229978/oxone_oxone-ox-842-crepe-maker_full04.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//101/MTA-1229978/oxone_oxone-ox-842-crepe-maker_full03.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//101/MTA-1229978/oxone_oxone-ox-842-crepe-maker_full04.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -7138,7 +7142,7 @@
             "EAN Code": "TSK-258"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//996/miyako_miyako-tsk-258-toaster-pemanggang-sandwich_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//996/miyako_miyako-tsk-258-toaster-pemanggang-sandwich_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -7184,7 +7188,7 @@
             "EAN Code": "HR 2939 N"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/philips_philips-hr-2939-n-chopper-for-hr-2115-hr-2116-hr-2061-2071_full03.jpeg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/philips_philips-hr-2939-n-chopper-for-hr-2115-hr-2116-hr-2061-2071_full03.jpeg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -7231,7 +7235,7 @@
             "EAN Code": "8990011111715"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/maspion_maspion-mec-2750-multi-cooker_full01.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/maspion_maspion-mec-2750-multi-cooker_full01.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -7283,12 +7287,12 @@
             "EAN Code": "Vienta-Food-Processor-Genio-Putih"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//81/MTA-2253114/vienta_vienta-genio-food-processor---putih_full08.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//81/MTA-2253114/vienta_vienta-genio-food-processor---putih_full09.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//81/MTA-2253114/vienta_vienta-genio-food-processor---putih_full10.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//81/MTA-2253114/vienta_vienta-genio-food-processor---putih_full11.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//81/MTA-2253114/vienta_vienta-genio-food-processor---putih_full12.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//81/MTA-2253114/vienta_vienta-genio-food-processor---putih_full13.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//81/MTA-2253114/vienta_vienta-genio-food-processor---putih_full08.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//81/MTA-2253114/vienta_vienta-genio-food-processor---putih_full09.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//81/MTA-2253114/vienta_vienta-genio-food-processor---putih_full10.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//81/MTA-2253114/vienta_vienta-genio-food-processor---putih_full11.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//81/MTA-2253114/vienta_vienta-genio-food-processor---putih_full12.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//81/MTA-2253114/vienta_vienta-genio-food-processor---putih_full13.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -7338,7 +7342,7 @@
             "EAN Code": "FRY-G71"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//1187/fomac_fomac-mesin-penggoreng-nugget---deep-fryer--fry-g71----silver_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//1187/fomac_fomac-mesin-penggoreng-nugget---deep-fryer--fry-g71----silver_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -7385,10 +7389,10 @@
             "EAN Code": "AS-SEEN-ON-TV-SWI-SHA-ELEC-SHAR-GRN"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/as-seen-on-tv_as-seen-on-tv-swifty-sharp-electric-sharpener_full06.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/as-seen-on-tv_as-seen-on-tv-swifty-sharp-electric-sharpener_full07.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/as-seen-on-tv_as-seen-on-tv-swifty-sharp-electric-sharpener_full08.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/as-seen-on-tv_as-seen-on-tv-swifty-sharp-electric-sharpener_full09.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/as-seen-on-tv_as-seen-on-tv-swifty-sharp-electric-sharpener_full06.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/as-seen-on-tv_as-seen-on-tv-swifty-sharp-electric-sharpener_full07.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/as-seen-on-tv_as-seen-on-tv-swifty-sharp-electric-sharpener_full08.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/as-seen-on-tv_as-seen-on-tv-swifty-sharp-electric-sharpener_full09.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -7432,7 +7436,7 @@
             "EAN Code": "DEL-MILK-JUG-400ML"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/delonghi_delonghi-milk-jug-stainless-steel-milk-frothing--400-ml-_full03.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/delonghi_delonghi-milk-jug-stainless-steel-milk-frothing--400-ml-_full03.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -7484,7 +7488,7 @@
             "EAN Code": "F332"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//110/MTA-1975979/venusta_venusta-wellice-soft-ice-cream-machine-f332_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//110/MTA-1975979/venusta_venusta-wellice-soft-ice-cream-machine-f332_full02.jpg"
         ],
         "shipping_option": {},
         "merchant_location": "Kota Jakarta Pusat, DKI Jakarta"
@@ -7527,9 +7531,9 @@
             "EAN Code": "CLI-SHO-POM-GAL-ELE-ADA"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/clickshop_clickshop-pompa-galon-elektrik-adaptor_full05.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/clickshop_clickshop-pompa-galon-elektrik-adaptor_full06.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/clickshop_clickshop-pompa-galon-elektrik-adaptor_full07.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/clickshop_clickshop-pompa-galon-elektrik-adaptor_full05.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/clickshop_clickshop-pompa-galon-elektrik-adaptor_full06.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/clickshop_clickshop-pompa-galon-elektrik-adaptor_full07.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -7578,7 +7582,7 @@
             "EAN Code": "CPB-JE1R-SIL"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//999/fomac_fomac-mesin-pembuat-crepes-gas--cpb-je1r----silver_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//999/fomac_fomac-mesin-pembuat-crepes-gas--cpb-je1r----silver_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -7631,7 +7635,7 @@
             "EAN Code": "CM-9000"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//891/cosmos_cosmos-cm-9000-planetary-stand-mixer_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//891/cosmos_cosmos-cm-9000-planetary-stand-mixer_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -7678,7 +7682,7 @@
             "EAN Code": "CF-0401S"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/akebonno_akebonno-cf-0401s-chocolate-fountain_full03.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/akebonno_akebonno-cf-0401s-chocolate-fountain_full03.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -7727,7 +7731,7 @@
             "EAN Code": "KZS-80LP-K"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/sharp_sharp-kzs-80lp-k-toaster-sandwich_full03.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/sharp_sharp-kzs-80lp-k-toaster-sandwich_full03.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -7777,7 +7781,7 @@
             "EAN Code": "KG269"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//759/kangaroo_kangaroo-kg269-multi-cooker_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//759/kangaroo_kangaroo-kg269-multi-cooker_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -7824,9 +7828,9 @@
             "EAN Code": "PAD-134-GRN"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//1057/padasuka_padasuka134-swifty-sharp-electric-sharpener_full06.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//1055/padasuka_padasuka134-swifty-sharp-electric-sharpener_full04.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//1056/padasuka_padasuka134-swifty-sharp-electric-sharpener_full05.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//1057/padasuka_padasuka134-swifty-sharp-electric-sharpener_full06.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//1055/padasuka_padasuka134-swifty-sharp-electric-sharpener_full04.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//1056/padasuka_padasuka134-swifty-sharp-electric-sharpener_full05.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -7872,7 +7876,7 @@
             "EAN Code": "OX-181FE-GRN"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//1004/oxone_oxone-ox-181fe-2in1-frypan-and-egg-steamer---hijau_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//1004/oxone_oxone-ox-181fe-2in1-frypan-and-egg-steamer---hijau_full02.jpg"
         ],
         "shipping_option": {
             "name": "GO-SEND",
@@ -7921,7 +7925,7 @@
             "EAN Code": "Homzace/Bread-Matic"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//590/homzace_homzace-bread-matic_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//590/homzace_homzace-bread-matic_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -7976,8 +7980,8 @@
             "EAN Code": "Oxone-OX-842"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//101/MTA-1229978/oxone_oxone-ox-842-crepe-maker_full03.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//101/MTA-1229978/oxone_oxone-ox-842-crepe-maker_full04.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//101/MTA-1229978/oxone_oxone-ox-842-crepe-maker_full03.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//101/MTA-1229978/oxone_oxone-ox-842-crepe-maker_full04.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -8024,7 +8028,7 @@
             "EAN Code": "OX-151"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//734/oxone_oxone-ox-151-eco-mini-chopper_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//734/oxone_oxone-ox-151-eco-mini-chopper_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -8072,8 +8076,8 @@
             "EAN Code": "iDeal EZ Ice maker Hollow fiber membrane filter (Sterile) Whit"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//92/MTA-1591814/ideal-ez_ideal-ez-ice-maker-hollow-fiber-membrane-filter--sterile-_full03.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//92/MTA-1591814/ideal-ez_ideal-ez-ice-maker-hollow-fiber-membrane-filter--sterile-_full04.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//92/MTA-1591814/ideal-ez_ideal-ez-ice-maker-hollow-fiber-membrane-filter--sterile-_full03.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//92/MTA-1591814/ideal-ez_ideal-ez-ice-maker-hollow-fiber-membrane-filter--sterile-_full04.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -8121,12 +8125,12 @@
             "EAN Code": "NP-100"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//89/MTA-1271537/nully-pop_nully-pop-np-100-food-processor-and-tofu-maker---black_full04.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//89/MTA-1271537/nully-pop_nully-pop-np-100-food-processor-and-tofu-maker---black_full03.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//89/MTA-1271537/nully-pop_nully-pop-np-100-food-processor-and-tofu-maker---black_full05.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//89/MTA-1271537/nully-pop_nully-pop-np-100-food-processor-and-tofu-maker---black_full06.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//89/MTA-1271537/nully-pop_nully-pop-np-100-food-processor-and-tofu-maker---black_full07.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//89/MTA-1271537/nully-pop_nully-pop-np-100-food-processor-and-tofu-maker---black_full08.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//89/MTA-1271537/nully-pop_nully-pop-np-100-food-processor-and-tofu-maker---black_full04.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//89/MTA-1271537/nully-pop_nully-pop-np-100-food-processor-and-tofu-maker---black_full03.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//89/MTA-1271537/nully-pop_nully-pop-np-100-food-processor-and-tofu-maker---black_full05.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//89/MTA-1271537/nully-pop_nully-pop-np-100-food-processor-and-tofu-maker---black_full06.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//89/MTA-1271537/nully-pop_nully-pop-np-100-food-processor-and-tofu-maker---black_full07.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//89/MTA-1271537/nully-pop_nully-pop-np-100-food-processor-and-tofu-maker---black_full08.jpg"
         ],
         "shipping_option": {
             "name": "Ekspres",
@@ -8173,9 +8177,9 @@
             "EAN Code": "CLI-SHO-POM-GAL-ELE-ADA"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/clickshop_clickshop-pompa-galon-elektrik-adaptor_full05.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/clickshop_clickshop-pompa-galon-elektrik-adaptor_full06.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/clickshop_clickshop-pompa-galon-elektrik-adaptor_full07.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/clickshop_clickshop-pompa-galon-elektrik-adaptor_full05.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/clickshop_clickshop-pompa-galon-elektrik-adaptor_full06.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/clickshop_clickshop-pompa-galon-elektrik-adaptor_full07.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -8223,7 +8227,7 @@
             "EAN Code": "Maxim-Venice-Panci-Set-5 Pcs-Gold"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//712/maxim_maxim-venice-panci-set--5-pcs-_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//712/maxim_maxim-venice-panci-set--5-pcs-_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -8275,8 +8279,8 @@
             "EAN Code": "Oxone-OX-855-White"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/MTA-1226639/oxone_oxone-ox-855-master-standing-mixer_full03.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/MTA-1226639/oxone_oxone-ox-855-master-standing-mixer_full04.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/MTA-1226639/oxone_oxone-ox-855-master-standing-mixer_full03.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/MTA-1226639/oxone_oxone-ox-855-master-standing-mixer_full04.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -8321,9 +8325,9 @@
             "EAN Code": "T-1129"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//913/sayota_sayota-t-1129-chopper--1-l--pengiling-daging_full04.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//914/sayota_sayota-t-1129-chopper--1-l--pengiling-daging_full05.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//915/sayota_sayota-t-1129-chopper--1-l--pengiling-daging_full06.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//913/sayota_sayota-t-1129-chopper--1-l--pengiling-daging_full04.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//914/sayota_sayota-t-1129-chopper--1-l--pengiling-daging_full05.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//915/sayota_sayota-t-1129-chopper--1-l--pengiling-daging_full06.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -8371,7 +8375,7 @@
             "EAN Code": "KZS-80LP(K)"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/sharp_sharp-kzs-80lp-k-sandwich-toaster_full03.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/sharp_sharp-kzs-80lp-k-sandwich-toaster_full03.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -8419,7 +8423,7 @@
             "EAN Code": "BES-SEL-GEL-COC-SHA-SIL-350ML"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//768/best-seller_gelas-cocktail-shaker-350ml_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//768/best-seller_gelas-cocktail-shaker-350ml_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -8466,7 +8470,7 @@
             "EAN Code": "OX-841"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/oxone_oxone-ox-841-mini-crepe-maker_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/oxone_oxone-ox-841-mini-crepe-maker_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -8512,7 +8516,7 @@
             "EAN Code": "KS18-18898-00005"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/maspion_maspion-mw-85-brown-electric-warmer-penghangat-makanan-dan-minuman_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/maspion_maspion-mw-85-brown-electric-warmer-penghangat-makanan-dan-minuman_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -8559,8 +8563,8 @@
             "EAN Code": "01160317140126551"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/cyprus_cyprus-ak-0228-alat-pembuat-takoyaki-dan-poffertjes---merah_full04.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/cyprus_cyprus-ak-0228-alat-pembuat-takoyaki-dan-poffertjes---merah_full05.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/cyprus_cyprus-ak-0228-alat-pembuat-takoyaki-dan-poffertjes---merah_full04.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/cyprus_cyprus-ak-0228-alat-pembuat-takoyaki-dan-poffertjes---merah_full05.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -8614,8 +8618,8 @@
             "EAN Code": "OX-829"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//77/MTA-1230051/oxone_oxone-ox-829-takoyaki-maker-perangkat-pembuat-kue---roti--500-w-_full03.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//77/MTA-1230051/oxone_oxone-ox-829-takoyaki-maker-perangkat-pembuat-kue---roti--500-w-_full04.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//77/MTA-1230051/oxone_oxone-ox-829-takoyaki-maker-perangkat-pembuat-kue---roti--500-w-_full03.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//77/MTA-1230051/oxone_oxone-ox-829-takoyaki-maker-perangkat-pembuat-kue---roti--500-w-_full04.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -8660,7 +8664,7 @@
             "EAN Code": "OX-608-6-PCS"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//962/oxone_oxone-coating-marble-ox-608-set-pisau--6-pcs-_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//962/oxone_oxone-coating-marble-ox-608-set-pisau--6-pcs-_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -8713,8 +8717,8 @@
             "EAN Code": "KNW-BM256-SIL"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//97/MTA-1688910/kenwood_kenwood-bm256-bread-maker-pembuat-roti-bm-256-silver_full03.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//97/MTA-1688910/kenwood_kenwood-bm256-bread-maker-pembuat-roti-bm-256-silver_full04.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//97/MTA-1688910/kenwood_kenwood-bm256-bread-maker-pembuat-roti-bm-256-silver_full03.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//97/MTA-1688910/kenwood_kenwood-bm256-bread-maker-pembuat-roti-bm-256-silver_full04.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -8761,7 +8765,7 @@
             "EAN Code": "PS-134-MIN-DHY-SLR"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//749/padasuka_padasuka134-mini-handy-sealer_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//749/padasuka_padasuka134-mini-handy-sealer_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -8808,10 +8812,10 @@
             "EAN Code": "HR-7627"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/philips_philips-hr-7627-food-processor_full05.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/philips_philips-hr-7627-food-processor_full06.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/philips_philips-hr-7627-food-processor_full07.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/philips_philips-hr-7627-food-processor_full08.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/philips_philips-hr-7627-food-processor_full05.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/philips_philips-hr-7627-food-processor_full06.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/philips_philips-hr-7627-food-processor_full07.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/philips_philips-hr-7627-food-processor_full08.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -8857,7 +8861,7 @@
             "EAN Code": "SDP104"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/panasonic_panasonic-sdp104-bread-maker_full03.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/panasonic_panasonic-sdp104-bread-maker_full03.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -8907,9 +8911,9 @@
             "EAN Code": "SRC-2200"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//1280/sayota_sayota-travel-cooker-src-2200-portable-cooker-multi-cooker_full01.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//1281/sayota_sayota-travel-cooker-src-2200-portable-cooker-multi-cooker_full02.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//1282/sayota_sayota-travel-cooker-src-2200-portable-cooker-multi-cooker_full03.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//1280/sayota_sayota-travel-cooker-src-2200-portable-cooker-multi-cooker_full01.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//1281/sayota_sayota-travel-cooker-src-2200-portable-cooker-multi-cooker_full02.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//1282/sayota_sayota-travel-cooker-src-2200-portable-cooker-multi-cooker_full03.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -8955,8 +8959,8 @@
             "EAN Code": "IM280 "
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/kenwood_kenwood-im280-ice-cream-maker_full04.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/kenwood_kenwood-im280-ice-cream-maker_full03.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/kenwood_kenwood-im280-ice-cream-maker_full04.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/kenwood_kenwood-im280-ice-cream-maker_full03.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -9004,8 +9008,8 @@
             "EAN Code": "MEC-1750"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/maspion_maspion-mec-1750-multi-cooker---silver_full04.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/maspion_maspion-mec-1750-multi-cooker---silver_full03.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/maspion_maspion-mec-1750-multi-cooker---silver_full04.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/maspion_maspion-mec-1750-multi-cooker---silver_full03.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -9056,8 +9060,8 @@
             "EAN Code": "CYP-NDL-PST-MKR-SIL"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//89/MTA-2260086/cyprus_cyprus-noodle-and-pasta-maker-machine_full03.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//89/MTA-2260086/cyprus_cyprus-noodle-and-pasta-maker-machine_full04.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//89/MTA-2260086/cyprus_cyprus-noodle-and-pasta-maker-machine_full03.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//89/MTA-2260086/cyprus_cyprus-noodle-and-pasta-maker-machine_full04.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -9111,7 +9115,7 @@
             "EAN Code": "GETRA300ES/B-12GY"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//109/MTA-1586989/getra_getra-300es-b-12-semi-automatic-meat-slicer-mesin-pengiris-daging-beku_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//109/MTA-1586989/getra_getra-300es-b-12-semi-automatic-meat-slicer-mesin-pengiris-daging-beku_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -9163,7 +9167,7 @@
             "EAN Code": "65341235"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//99/MTA-1976166/venusta_venusta-snow-ice-machine_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//99/MTA-1976166/venusta_venusta-snow-ice-machine_full02.jpg"
         ],
         "shipping_option": {},
         "merchant_location": "Kota Jakarta Pusat, DKI Jakarta"
@@ -9208,7 +9212,7 @@
             "EAN Code": "GMU-AlkalineMineralPot-Black"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//1460/homzace_homezace-alkaline-mineral-pot-penghasil-air-alkali-dan-antioksidan---black_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//1460/homzace_homezace-alkaline-mineral-pot-penghasil-air-alkali-dan-antioksidan---black_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -9257,8 +9261,8 @@
             "EAN Code": "OX-835-BLK"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/oxone_oxone-ox-835-sandwich-toaster-pemanggang-roti---hitam_full03.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/oxone_oxone-ox-835-sandwich-toaster-pemanggang-roti---hitam_full04.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/oxone_oxone-ox-835-sandwich-toaster-pemanggang-roti---hitam_full03.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/oxone_oxone-ox-835-sandwich-toaster-pemanggang-roti---hitam_full04.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -9308,8 +9312,8 @@
             "EAN Code": "SRC-1600"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//1040/sayota_sayota-travel-cooker-src-1600-portable-cooker_full01.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//1041/sayota_sayota-travel-cooker-src-1600-portable-cooker_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//1040/sayota_sayota-travel-cooker-src-1600-portable-cooker_full01.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//1041/sayota_sayota-travel-cooker-src-1600-portable-cooker_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -9357,7 +9361,7 @@
             "EAN Code": "BES-SEL-GEL-COC-SHA-SIL-530ML"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//768/best-seller_gelas-cocktail-shaker-530ml_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//768/best-seller_gelas-cocktail-shaker-530ml_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -9403,7 +9407,7 @@
             "EAN Code": "ES1-131"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/oxone_breakfast-series-ox-11_full03.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/oxone_breakfast-series-ox-11_full03.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -9450,7 +9454,7 @@
             "EAN Code": "OX-272"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/oxone_oxone-ox-272-jumbo-chooper_full03.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/oxone_oxone-ox-272-jumbo-chooper_full03.jpg"
         ],
         "shipping_option": {
             "name": "GO-SEND",
@@ -9497,7 +9501,7 @@
             "EAN Code": "OX-841"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/oxone_oxone-ox-841-mini-crepe-maker_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/oxone_oxone-ox-841-mini-crepe-maker_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -9544,7 +9548,7 @@
             "EAN Code": "wil-cot-cand-mac-ele-mf01-mes-gul-leb-52cm"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//1033/willman_willman-mf01-cotton-candy-machine-electric--52-cm-_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//1033/willman_willman-mf01-cotton-candy-machine-electric--52-cm-_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -9589,10 +9593,10 @@
             "EAN Code": "AIM-MINI-POR-HAN-SEA-PER-KEM-PLAS-WHT"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//1250/aimons_aimons-mini-portable-hand-sealer-perekat-kemasan-plastik_full05.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//1251/aimons_aimons-mini-portable-hand-sealer-perekat-kemasan-plastik_full06.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//1252/aimons_aimons-mini-portable-hand-sealer-perekat-kemasan-plastik_full07.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//1253/aimons_aimons-mini-portable-hand-sealer-perekat-kemasan-plastik_full08.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//1250/aimons_aimons-mini-portable-hand-sealer-perekat-kemasan-plastik_full05.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//1251/aimons_aimons-mini-portable-hand-sealer-perekat-kemasan-plastik_full06.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//1252/aimons_aimons-mini-portable-hand-sealer-perekat-kemasan-plastik_full07.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//1253/aimons_aimons-mini-portable-hand-sealer-perekat-kemasan-plastik_full08.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -9646,8 +9650,8 @@
             "EAN Code": "Oxone-OX-855-White"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/MTA-1226639/oxone_oxone-ox-855-master-standing-mixer_full03.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/MTA-1226639/oxone_oxone-ox-855-master-standing-mixer_full04.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/MTA-1226639/oxone_oxone-ox-855-master-standing-mixer_full03.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/MTA-1226639/oxone_oxone-ox-855-master-standing-mixer_full04.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -9696,7 +9700,7 @@
             "EAN Code": "MEC-2750"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//762/maspion_maspion-multi-cooker-mec-2750_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//762/maspion_maspion-multi-cooker-mec-2750_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -9743,10 +9747,10 @@
             "EAN Code": "AS-SEEN-ON-TV-SWI-SHA-ELEC-SHAR-GRN"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/as-seen-on-tv_as-seen-on-tv-swifty-sharp-electric-sharpener_full06.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/as-seen-on-tv_as-seen-on-tv-swifty-sharp-electric-sharpener_full07.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/as-seen-on-tv_as-seen-on-tv-swifty-sharp-electric-sharpener_full08.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/as-seen-on-tv_as-seen-on-tv-swifty-sharp-electric-sharpener_full09.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/as-seen-on-tv_as-seen-on-tv-swifty-sharp-electric-sharpener_full06.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/as-seen-on-tv_as-seen-on-tv-swifty-sharp-electric-sharpener_full07.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/as-seen-on-tv_as-seen-on-tv-swifty-sharp-electric-sharpener_full08.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/as-seen-on-tv_as-seen-on-tv-swifty-sharp-electric-sharpener_full09.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -9801,7 +9805,7 @@
             "EAN Code": "GETRATC-22GY"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//105/MTA-1586967/getra_tc-22c-mesin-penggiling-daging---meat-grinder_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//105/MTA-1586967/getra_tc-22c-mesin-penggiling-daging---meat-grinder_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -9847,7 +9851,7 @@
             "EAN Code": "KZS-70L(W)"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/sharp_sharp-kzs-70l-w-sandwich-toaster---putih_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/sharp_sharp-kzs-70l-w-sandwich-toaster---putih_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -9896,7 +9900,7 @@
             "EAN Code": "GMU/Homzace/Alkaline-Pot/Blue"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//868/homzace_homezace-alkaline-mineral-pot---blue_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//868/homzace_homezace-alkaline-mineral-pot---blue_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -9945,7 +9949,7 @@
             "EAN Code": "EWB-G36"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//724/fomac_fomac-mesin-egg-waffle-gas---ewb-g36--_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//724/fomac_fomac-mesin-egg-waffle-gas---ewb-g36--_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -9996,8 +10000,8 @@
             "EAN Code": "01160321114725961"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/philips_philips-hd-2393-sandwich-maker---black_full04.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/philips_philips-hd-2393-sandwich-maker---black_full05.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/philips_philips-hd-2393-sandwich-maker---black_full04.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/philips_philips-hd-2393-sandwich-maker---black_full05.jpg"
         ],
         "shipping_option": {
             "name": "Ekspres",
@@ -10041,9 +10045,9 @@
             "EAN Code": "0023002301"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/kenwood_kenwood-fpp230-multipro-compact-food-processor_full04.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/kenwood_kenwood-fpp230-multipro-compact-food-processor_full05.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/kenwood_kenwood-fpp230-multipro-compact-food-processor_full06.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/kenwood_kenwood-fpp230-multipro-compact-food-processor_full04.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/kenwood_kenwood-fpp230-multipro-compact-food-processor_full05.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/kenwood_kenwood-fpp230-multipro-compact-food-processor_full06.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -10091,8 +10095,8 @@
             "EAN Code": "OX-951"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/oxone_oxone-ox-951-bamboo-bread-toaster_full03.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/oxone_oxone-ox-951-bamboo-bread-toaster_full04.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/oxone_oxone-ox-951-bamboo-bread-toaster_full03.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/oxone_oxone-ox-951-bamboo-bread-toaster_full04.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -10138,7 +10142,7 @@
             "EAN Code": "KZS-70L(W)"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/sharp_sharp-kzs-70l-w-sandwich-toaster---putih_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/sharp_sharp-kzs-70l-w-sandwich-toaster---putih_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -10185,7 +10189,7 @@
             "EAN Code": "OX-272"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/oxone_oxone-ox-272-jumbo-chooper_full03.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/oxone_oxone-ox-272-jumbo-chooper_full03.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -10232,7 +10236,7 @@
             "EAN Code": "ST4R-ROL-EGG-MASTER"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//822/st4rshop_st4rshop-rollie-egg-master_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//822/st4rshop_st4rshop-rollie-egg-master_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -10285,9 +10289,9 @@
             "EAN Code": "Oxone/OX-124"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//89/MTA-1291517/oxone_oxone-ox-124-2-in1-food-marinator-pemarinasi-makanan_full04.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//89/MTA-1291517/oxone_oxone-ox-124-2-in1-food-marinator-pemarinasi-makanan_full05.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//89/MTA-1291517/oxone_oxone-ox-124-2-in1-food-marinator-pemarinasi-makanan_full06.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//89/MTA-1291517/oxone_oxone-ox-124-2-in1-food-marinator-pemarinasi-makanan_full04.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//89/MTA-1291517/oxone_oxone-ox-124-2-in1-food-marinator-pemarinasi-makanan_full05.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//89/MTA-1291517/oxone_oxone-ox-124-2-in1-food-marinator-pemarinasi-makanan_full06.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -10333,9 +10337,9 @@
             "EAN Code": "DEL-MIL-FRO-EMF.2W-WHI"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//893/delonghi_delonghi-milk-frother-emf-2w---putih_full04.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//894/delonghi_delonghi-milk-frother-emf-2w---putih_full05.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//895/delonghi_delonghi-milk-frother-emf-2w---putih_full06.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//893/delonghi_delonghi-milk-frother-emf-2w---putih_full04.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//894/delonghi_delonghi-milk-frother-emf-2w---putih_full05.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//895/delonghi_delonghi-milk-frother-emf-2w---putih_full06.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -10382,9 +10386,9 @@
             "EAN Code": "CLI-SHO-POM-GAL-ELE-ADA"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/clickshop_clickshop-pompa-galon-elektrik-adaptor_full05.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/clickshop_clickshop-pompa-galon-elektrik-adaptor_full06.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/clickshop_clickshop-pompa-galon-elektrik-adaptor_full07.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/clickshop_clickshop-pompa-galon-elektrik-adaptor_full05.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/clickshop_clickshop-pompa-galon-elektrik-adaptor_full06.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/clickshop_clickshop-pompa-galon-elektrik-adaptor_full07.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -10428,7 +10432,7 @@
             "EAN Code": "OX-614"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/oxone_oxone-ox-614-bamboo-board-with-metal-tray_full03.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/oxone_oxone-ox-614-bamboo-board-with-metal-tray_full03.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -10475,9 +10479,9 @@
             "EAN Code": "PAD-134-GRN"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//1057/padasuka_padasuka134-swifty-sharp-electric-sharpener_full06.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//1055/padasuka_padasuka134-swifty-sharp-electric-sharpener_full04.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//1056/padasuka_padasuka134-swifty-sharp-electric-sharpener_full05.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//1057/padasuka_padasuka134-swifty-sharp-electric-sharpener_full06.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//1055/padasuka_padasuka134-swifty-sharp-electric-sharpener_full04.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//1056/padasuka_padasuka134-swifty-sharp-electric-sharpener_full05.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -10521,7 +10525,7 @@
             "EAN Code": "SDP104"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/panasonic_panasonic-sdp104-bread-maker_full03.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/panasonic_panasonic-sdp104-bread-maker_full03.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -10573,7 +10577,7 @@
             "EAN Code": "XC-224"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//98/MTA-1976246/venusta_venusta-cool---slush-ice-machine-xc-224_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//98/MTA-1976246/venusta_venusta-cool---slush-ice-machine-xc-224_full02.jpg"
         ],
         "shipping_option": {},
         "merchant_location": "Kota Jakarta Pusat, DKI Jakarta"
@@ -10620,7 +10624,7 @@
             "EAN Code": "Kangaroo-KG269-Multi-Cooker"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/kangaroo_kangaroo-kg269-multi-cooker_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/kangaroo_kangaroo-kg269-multi-cooker_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -10670,7 +10674,7 @@
             "EAN Code": "HD-2393/02"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/philips_philips-hd-2393-02-white-sandwich-toaster_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/philips_philips-hd-2393-02-white-sandwich-toaster_full02.jpg"
         ],
         "shipping_option": {
             "name": "GO-SEND",
@@ -10716,7 +10720,7 @@
             "EAN Code": "PAN-COK-FOU"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/dodawa_dodawa-pancuran-coklat-fountain_full03.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/dodawa_dodawa-pancuran-coklat-fountain_full03.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -10764,11 +10768,11 @@
             "EAN Code": "K1041"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//1015/yogurberry_yogurberry-k1041-yogurt-maker---pink_full03.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//1016/yogurberry_yogurberry-k1041-yogurt-maker---pink_full04.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//1017/yogurberry_yogurberry-k1041-yogurt-maker---pink_full05.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//1018/yogurberry_yogurberry-k1041-yogurt-maker---pink_full06.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//1019/yogurberry_yogurberry-k1041-yogurt-maker---pink_full07.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//1015/yogurberry_yogurberry-k1041-yogurt-maker---pink_full03.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//1016/yogurberry_yogurberry-k1041-yogurt-maker---pink_full04.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//1017/yogurberry_yogurberry-k1041-yogurt-maker---pink_full05.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//1018/yogurberry_yogurberry-k1041-yogurt-maker---pink_full06.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//1019/yogurberry_yogurberry-k1041-yogurt-maker---pink_full07.jpg"
         ],
         "shipping_option": {
             "name": "Ekspres",
@@ -10817,7 +10821,7 @@
             "EAN Code": "BM - 77"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/mastoso_mastoso-bm---77-bread-maker_full03.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/mastoso_mastoso-bm---77-bread-maker_full03.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -10862,7 +10866,7 @@
             "EAN Code": "OX-831"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/oxone_oxone-ox-831-waffle-maker---putih_full03.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/oxone_oxone-ox-831-waffle-maker---putih_full03.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -10912,7 +10916,7 @@
             "EAN Code": "HD-2393/02"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/philips_philips-hd-2393-02-white-sandwich-toaster_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/philips_philips-hd-2393-02-white-sandwich-toaster_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -10967,9 +10971,9 @@
             "EAN Code": "Heles/HSM-028"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//92/MTA-1305739/heles_heles-hsm-028-3in1-electronic-sandwich-maker_full04.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//92/MTA-1305739/heles_heles-hsm-028-3in1-electronic-sandwich-maker_full05.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//92/MTA-1305739/heles_heles-hsm-028-3in1-electronic-sandwich-maker_full06.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//92/MTA-1305739/heles_heles-hsm-028-3in1-electronic-sandwich-maker_full04.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//92/MTA-1305739/heles_heles-hsm-028-3in1-electronic-sandwich-maker_full05.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//92/MTA-1305739/heles_heles-hsm-028-3in1-electronic-sandwich-maker_full06.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -11018,7 +11022,7 @@
             "EAN Code": "LUX-IMPULSE-PFS-200P-20CM"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//1163/luxury_luxury-impulse-sealer-pfs-200p-pres-plastik-20-cm_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//1163/luxury_luxury-impulse-sealer-pfs-200p-pres-plastik-20-cm_full02.jpg"
         ],
         "shipping_option": {
             "name": "GO-SEND",
@@ -11064,8 +11068,8 @@
             "EAN Code": "POP-CHF-MGC-MLD-ALT-CTK-MKN"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/tokuniku_pop-chef-magic-mold-alat-cetak-makanan-buah-dan-roti_full03.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/tokuniku_pop-chef-magic-mold-alat-cetak-makanan-buah-dan-roti_full04.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/tokuniku_pop-chef-magic-mold-alat-cetak-makanan-buah-dan-roti_full03.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/tokuniku_pop-chef-magic-mold-alat-cetak-makanan-buah-dan-roti_full04.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -11115,9 +11119,9 @@
             "EAN Code": "HSM-029-4P"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/heles_heles-hsm-029-4p-4in1-sandwich-maker---hitam_full04.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/heles_heles-hsm-029-4p-4in1-sandwich-maker---hitam_full05.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/heles_heles-hsm-029-4p-4in1-sandwich-maker---hitam_full06.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/heles_heles-hsm-029-4p-4in1-sandwich-maker---hitam_full04.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/heles_heles-hsm-029-4p-4in1-sandwich-maker---hitam_full05.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/heles_heles-hsm-029-4p-4in1-sandwich-maker---hitam_full06.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -11162,8 +11166,8 @@
             "EAN Code": "TOKU0529"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/tokuniku_skinny-self-stirring-mug-hijau_full03.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/tokuniku_skinny-self-stirring-mug-hijau_full04.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/tokuniku_skinny-self-stirring-mug-hijau_full03.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/tokuniku_skinny-self-stirring-mug-hijau_full04.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -11212,7 +11216,7 @@
             "EAN Code": "BM - 77"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/mastoso_mastoso-bm---77-bread-maker_full03.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/mastoso_mastoso-bm---77-bread-maker_full03.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -11256,7 +11260,7 @@
             "EAN Code": "KANGAROO-KG80"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/kangaroo_kangaroo-kg80-yogurt-maker_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/kangaroo_kangaroo-kg80-yogurt-maker_full02.jpg"
         ],
         "shipping_option": {
             "name": "Ekspres",
@@ -11309,7 +11313,7 @@
             "EAN Code": "CM-9000"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//891/cosmos_cosmos-cm-9000-planetary-stand-mixer_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//891/cosmos_cosmos-cm-9000-planetary-stand-mixer_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -11356,9 +11360,9 @@
             "EAN Code": "PAD-134-GRN"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//1057/padasuka_padasuka134-swifty-sharp-electric-sharpener_full06.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//1055/padasuka_padasuka134-swifty-sharp-electric-sharpener_full04.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//1056/padasuka_padasuka134-swifty-sharp-electric-sharpener_full05.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//1057/padasuka_padasuka134-swifty-sharp-electric-sharpener_full06.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//1055/padasuka_padasuka134-swifty-sharp-electric-sharpener_full04.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//1056/padasuka_padasuka134-swifty-sharp-electric-sharpener_full05.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -11413,8 +11417,8 @@
             "EAN Code": "Oxone-OX-843"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//84/MTA-1230049/oxone_oxone-ox-843-sandwich-griller_full01.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//84/MTA-1230049/oxone_oxone-ox-843-sandwich-griller_full02.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//84/MTA-1230049/oxone_oxone-ox-843-sandwich-griller_full01.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//84/MTA-1230049/oxone_oxone-ox-843-sandwich-griller_full02.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -11462,7 +11466,7 @@
             "EAN Code": "OX-829"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail/oxone_oxone-takoyaki-maker-ox-829_full03.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/oxone_oxone-takoyaki-maker-ox-829_full03.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -11514,9 +11518,9 @@
             "EAN Code": "PERF-ROLL-SUSHI-MAKER"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//830/as-seen-on-tv_perfect-roll-sushi-maker_full05.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//831/as-seen-on-tv_perfect-roll-sushi-maker_full06.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//832/as-seen-on-tv_perfect-roll-sushi-maker_full07.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//830/as-seen-on-tv_perfect-roll-sushi-maker_full05.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//831/as-seen-on-tv_perfect-roll-sushi-maker_full06.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//832/as-seen-on-tv_perfect-roll-sushi-maker_full07.jpg"
         ],
         "shipping_option": {
             "name": "Standard",
@@ -11570,8 +11574,8 @@
             "EAN Code": "Oxone-OX-842"
         },
         "url_images": [
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//101/MTA-1229978/oxone_oxone-ox-842-crepe-maker_full03.jpg",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/thumbnail//101/MTA-1229978/oxone_oxone-ox-842-crepe-maker_full04.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//101/MTA-1229978/oxone_oxone-ox-842-crepe-maker_full03.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//101/MTA-1229978/oxone_oxone-ox-842-crepe-maker_full04.jpg"
         ],
         "shipping_option": {
             "name": "Standard",

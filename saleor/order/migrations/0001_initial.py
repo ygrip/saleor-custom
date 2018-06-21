@@ -50,7 +50,7 @@ class Migration(migrations.Migration):
             name='OrderedItem',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('product_name', models.CharField(max_length=128, verbose_name='product name')),
+                ('product_name', models.CharField(max_length=255, verbose_name='product name')),
                 ('product_sku', models.CharField(max_length=32, verbose_name='sku')),
                 ('quantity', models.IntegerField(verbose_name='quantity', validators=[django.core.validators.MinValueValidator(0), django.core.validators.MaxValueValidator(999)])),
                 ('unit_price_net', models.DecimalField(verbose_name='unit price (net)', max_digits=12, decimal_places=4)),
@@ -95,8 +95,8 @@ class Migration(migrations.Migration):
                 ('modified', models.DateTimeField(auto_now=True)),
                 ('transaction_id', models.CharField(max_length=255, blank=True)),
                 ('currency', models.CharField(max_length=10)),
-                ('total', models.DecimalField(default='0.0', max_digits=9, decimal_places=2)),
-                ('delivery', models.DecimalField(default='0.0', max_digits=9, decimal_places=2)),
+                ('total', models.DecimalField(default='0.0', max_digits=13, decimal_places=2)),
+                ('delivery', models.DecimalField(default='0.0', max_digits=13, decimal_places=2)),
                 ('tax', models.DecimalField(default='0.0', max_digits=9, decimal_places=2)),
                 ('description', models.TextField(default='', blank=True)),
                 ('billing_first_name', models.CharField(max_length=256, blank=True)),
@@ -112,7 +112,7 @@ class Migration(migrations.Migration):
                 ('extra_data', models.TextField(default='', blank=True)),
                 ('message', models.TextField(default='', blank=True)),
                 ('token', models.CharField(default='', max_length=36, blank=True)),
-                ('captured_amount', models.DecimalField(default='0.0', max_digits=9, decimal_places=2)),
+                ('captured_amount', models.DecimalField(default='0.0', max_digits=13, decimal_places=2)),
                 ('order', models.ForeignKey(related_name='payments', to='order.Order', on_delete=django.db.models.deletion.CASCADE)),
             ],
             options={

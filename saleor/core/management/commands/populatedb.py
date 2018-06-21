@@ -83,9 +83,9 @@ class Command(BaseCommand):
             self.stdout.write(msg)
         for msg in create_users(100):
             self.stdout.write(msg)
-        for msg in generate_rating(0.05,0.05):
+        for msg in generate_rating(0.1,0.1):
             self.stdout.write(msg)
-        for msg in create_orders(300):
+        for msg in create_orders(350):
             self.stdout.write(msg)
         for msg in set_featured_products(32):
             self.stdout.write(msg)
