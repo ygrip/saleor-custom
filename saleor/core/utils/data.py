@@ -31,14 +31,14 @@ from ...menu.models import Menu
 from ...order.models import Fulfillment, Order, Payment
 from ...order.utils import update_order_status
 from ...page.models import Page
-from ...feature.models import (Feature,ProductFeature)
+from ...feature.models import (Feature,ProductFeature,CleanProductDetails)
 from ...product.models import (
     AttributeChoiceValue, Category, Collection, Product, ProductAttribute,
     ProductImage, ProductType, ProductVariant, Brand, MerchantLocation, ProductRating)
 from ...product.thumbnails import create_product_thumbnails
 from ...product.utils.attributes import get_name_from_attributes
 from ...shipping.models import ANY_COUNTRY, ShippingMethod
-from ...dictionary.utils.mine_feature import populate_feature
+from ...dictionary.utils.helper import FeatureHelper
 
 PRODUCTS_LIST_DIR = 'products-list/'
 DELIVERY_REGIONS = [ANY_COUNTRY, 'ID', 'AUS', 'SG', 'MLY']
@@ -51,10 +51,55 @@ def make_database_faster():
 		cursor.execute('PRAGMA temp_store = MEMORY;')
 		cursor.execute('PRAGMA synchronous = OFF;')
 
+def custom_product_details():
+    cursor = connection.cursor()
+    miner = FeatureHelper()
+    query = """
+            WITH
+            values AS(
+                SELECT p.id AS pid, CAST(nullif(skeys(p.attributes),'') AS integer) AS key,
+                CAST(nullif(svals(p.attributes),'') AS integer) AS id
+                FROM product_product p
+            ),
+            spec AS (
+                SELECT v.pid AS id,string_agg(concat_ws(' ',a.name::text,c.name::text), ' ') AS keyvalue 
+                FROM values v, product_productattribute a, product_attributechoicevalue c
+                WHERE a.id = v.key AND c.attribute_id = a.id AND c.id = v.id
+                GROUP BY 1
+                ORDER BY v.pid
+            )
+            SELECT p.id AS id, concat_ws(' ', 
+                            b.brand_name::text, 
+                            c.name::text, 
+                            p.name::text, 
+                            p.description::text, 
+                            t.name::text,
+                            array_to_string(string_to_array(regexp_replace(p.information,'("|\[|\])','','g'),','),''),
+                            a.keyvalue::text
+                        ) AS details
+            FROM product_product p LEFT JOIN spec a ON P.id = a.id, product_brand b, product_category c, product_producttype t
+            WHERE P.is_published = True AND p.brand_id_id = b.id AND p.category_id = c.id AND p.product_type_id = t.id
+            ORDER BY p.id
+            """
+    cursor.execute(query)
+    for item in cursor.fetchall():
+    	product = Product.objects.get(id=item[0])
+    	details = miner.stem_query(item[1])
+    	details, created = set_product_detail(product,details)
+    	if created:
+    		yield 'Saving detail for product : %s' % details.product_id
+
 def as_python_object(dct):
 	if '_python_object' in dct:
 			return pickle.loads(str(dct['_python_object']))
 	return dct
+
+def set_product_detail(product,details):
+	defaults = {
+		'details' : details
+	}
+	return CleanProductDetails.objects.get_or_create(product_id=product,defaults=defaults)
+
 
 def validate_images(dir_json):
 	os.chdir(dir_json)
@@ -67,7 +112,7 @@ def validate_images(dir_json):
 			image_list = element.get('url_images')
 			for j,image in enumerate(image_list):
 				yield 'before : %s' %image
-				feeds[i]['url_images'][j] = image.replace('catalog/full','catalog/full/',1)
+				feeds[i]['url_images'][j] = image.replace('catalog/thumbnail/','catalog/full/',1)
 				yield 'after : %s' %feeds[i]['url_images'][j]
 
 		with open(filename, mode='w',encoding='utf-8') as f:
@@ -131,6 +176,7 @@ def create_custom_product(dir_json,placeholders_dir):
 	cursor = connection.cursor()
 	yield 'Populating Product Files : '
 	os.chdir(dir_json)
+	miner = FeatureHelper()
 
 	try:
 		check_product = Product.objects.all().order_by('id').last()
@@ -167,7 +213,7 @@ def create_custom_product(dir_json,placeholders_dir):
 
 			if status:
 				product_type = create_product_type_with_attributes(product_type_name,
-								element.get('produk_specification',{}))
+								element.get('produk_specification'))
 				brand = create_brand(placeholders_dir,brand_data={
 									'name':element.get('brand'),
 									'image':element.get('brand_image'),
@@ -206,7 +252,10 @@ def create_custom_product(dir_json,placeholders_dir):
 				if location:
 					sentence += element.get('merchant_location')+' '
 
-				product_tags = populate_feature(sentence=sentence,treshold=2,strict=True)[:6]
+				product_tags = miner.populate_feature(sentence=sentence,treshold=2,strict=True)[:6]
+				clean_details = miner.stem_query(sentence)
+
+				set_product_detail(product,clean_details)
 
 				for tag in product_tags:
 					feature, created = Feature.objects.get_or_create(word=tag['word'], defaults={'count':1})
@@ -219,7 +268,7 @@ def create_custom_product(dir_json,placeholders_dir):
 						feature.count = feature.count + 1
 						feature.save()
 
-				set_product_attributes(product, product_type)
+				set_product_attributes(product, product_type, element.get('produk_specification'))
 				create_variant(product=product, price=price, sku=sku)
 				if created_product:
 					yield '\n\n\t---(%s)---\nID\t\t: %s \nProduct Name\t: %s\n' % (
@@ -408,6 +457,7 @@ def save_category(category_schema, placeholder_dir):
         'description': fake.text(),
         'parent_id':parent_id,
         'slug': slugify(category_name),
+        'background_image' : category_image
         }
     category,created = Category.objects.update_or_create(
         name=category_name, defaults=defaults)
@@ -425,13 +475,15 @@ def save_category(category_schema, placeholder_dir):
 def get_or_create_product_type(name, **kwargs):
     return ProductType.objects.get_or_create(name=name, defaults=kwargs)[0]
 
-def set_product_attributes(product, product_type):
-    attr_dict = {}
-    for product_attribute in product_type.product_attributes.all():
-        value = random.choice(product_attribute.values.all())
-        attr_dict[str(product_attribute.pk)] = str(value.pk)
-    product.attributes = attr_dict
-    product.save(update_fields=['attributes'])
+def set_product_attributes(product, product_type, attribute):
+	attr_dict = {}
+	for key,items in attribute.items():
+		for product_attribute in product_type.product_attributes.all():
+			if key == product_attribute.name:
+				value = product_attribute.values.get(name=items)
+				attr_dict[str(product_attribute.pk)] = str(value.pk)
+	product.attributes = attr_dict
+	product.save(update_fields=['attributes'])
 
 def create_product_type_with_attributes(name, product_specifications):
 	product_type = get_or_create_product_type(name=name,is_shipping_required=True)

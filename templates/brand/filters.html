@@ -1,0 +1,15 @@
+{% extends "product/_filters.html" %}
+
+{% block title_tree %}
+  {% with children=category %}
+    {% if children %}
+      <div class="product-filters__categories">
+        <ul class="product-filters__categories__childs no-parent">
+            <li>
+              <a href="{{ children.get_absolute_url }}">{{ children.brand_name }}</a>
+            </li>
+        </ul>
+      </div>
+    {% endif %}
+  {% endwith %}
+{% endblock title_tree %}

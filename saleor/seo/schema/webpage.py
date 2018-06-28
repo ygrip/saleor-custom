@@ -18,7 +18,7 @@ def get_webpage_schema(request):
         'name': site.name,
         'description': site.settings.description}
     if settings.ENABLE_SEARCH:
-        search_url = urljoin(url, reverse('search:search'))
+        search_url = urljoin(url, reverse('search:search_view'))
         data['potentialAction'] = {
             '@type': 'SearchAction',
             'target': '%s?q={q}' % search_url,

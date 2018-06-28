@@ -56,8 +56,12 @@ api_urlpatterns = [
     url(r'^api/',include('saleor.dictionary.urls'))
 ]
 
+async_urlpatterns = [
+    url(r'^async_include/', include('async_include.urls', namespace="async_include"))
+]
+
 urlpatterns = non_translatable_urlpatterns + i18n_patterns(
-    *translatable_urlpatterns) + api_urlpatterns
+    *translatable_urlpatterns) + api_urlpatterns + async_urlpatterns
 
 if settings.DEBUG:
     import debug_toolbar

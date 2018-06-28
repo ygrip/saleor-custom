@@ -7,7 +7,7 @@ from django_filters import MultipleChoiceFilter, OrderingFilter, RangeFilter
 from django_prices.models import MoneyField
 
 from ..core.filters import SortedFilterSet
-from .models import Product, ProductAttribute
+from .models import Product, ProductAttribute, Category
 
 SORT_BY_FIELDS = OrderedDict([
     ('name', pgettext_lazy('Product list sorting option', 'name')),
@@ -29,6 +29,8 @@ class ProductFilter(SortedFilterSet):
         super().__init__(*args, **kwargs)
         self.product_attributes, self.variant_attributes = (
             self._get_attributes())
+        self.categories = self._get_category()
+        self.filters.update(self._get_category_filters())
         self.filters.update(self._get_product_attributes_filters())
         self.filters.update(self._get_product_variants_attributes_filters())
         self.filters = OrderedDict(sorted(self.filters.items()))
@@ -64,6 +66,22 @@ class ProductFilter(SortedFilterSet):
                 choices=self._get_attribute_choices(attribute))
         return filters
 
+    def _get_category(self):
+        return []
+
+    def _get_category_filters(self):
+        filters = {}
+        if self.categories:
+            filters['category'] = MultipleChoiceFilter(
+                name='__category',
+                label='Category',
+                widget=CheckboxSelectMultiple,
+                choices=self._get_category_choices(self.categories))
+        return filters
+
+    def _get_category_choices(self,categories):
+        return [(choice.pk, choice.name) for choice in categories]
+
     def _get_product_variants_attributes_filters(self):
         filters = {}
         for attribute in self.variant_attributes:
@@ -89,14 +107,36 @@ class ProductFilter(SortedFilterSet):
 class ProductCategoryFilter(ProductFilter):
     def __init__(self, *args, **kwargs):
         self.category = kwargs.pop('category')
+        self.attribute = kwargs.pop('attributes')
+        self.values = kwargs.pop('values')
         super().__init__(*args, **kwargs)
 
+    def _get_categoy(self):
+        return Category.objects.filter(id__in=self.category)
+
     def _get_product_attributes_lookup(self):
-        return Q(product_types__products__category=self.category)
+        return Q(product_types__products__category__in=self.category)&Q(name__in=self.attribute)
 
     def _get_variant_attributes_lookup(self):
-        return Q(product_variant_types__products__category=self.category)
+        return Q(product_variant_types__products__category__in=self.category)&Q(name__in=self.attribute)
 
+    def _get_attribute_choices(self,attribute):
+        return [(choice.pk, choice.name) for choice in attribute.values.filter(id__in=self.values)]
+
+class ProductBrandFilter(ProductFilter):
+    def __init__(self, *args, **kwargs):
+        self.category = kwargs.pop('category')
+        self.attribute = kwargs.pop('attributes')
+        super().__init__(*args, **kwargs)
+
+    def _get_category(self):
+        return Category.objects.filter(id__in=self.category)
+
+    def _get_product_attributes_lookup(self):
+        return Q(product_types__products__category__in=self.category)&Q(name__in=self.attribute)
+
+    def _get_variant_attributes_lookup(self):
+        return Q(product_variant_types__products__category__in=self.category)&Q(name__in=self.attribute)
 
 class ProductCollectionFilter(ProductFilter):
     def __init__(self, *args, **kwargs):

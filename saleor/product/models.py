@@ -37,6 +37,17 @@ class Brand(models.Model):
                 pgettext_lazy('Permission description', 'Can edit product brand details'))
             )
 
+    def __str__(self):
+        return self.brand_name
+
+    def get_full_path(self):
+        return slugify(smart_text(unidecode(self.brand_name)))
+
+    def get_absolute_url(self):
+        return reverse('product:brand',
+                       kwargs={'path': slugify(smart_text(unidecode(self.brand_name))),
+                               'brand_id': self.id})
+
 class MerchantLocation(models.Model):
     location=models.TextField(unique=True)
 

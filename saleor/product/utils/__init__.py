@@ -10,6 +10,7 @@ from ...core.utils import get_paginator_items
 from ...core.utils.filters import get_now_sorted_by
 from ..forms import ProductForm
 from .availability import products_with_availability
+from django.db import connection,transaction
 
 
 def products_visible_to_user(user):

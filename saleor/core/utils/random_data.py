@@ -246,11 +246,11 @@ class SaleorProvider(BaseProvider):
 fake.add_provider(SaleorProvider)
 
 
-def get_email(first_name, last_name):
+def get_email(first_name, last_name, index):
     _first = unicodedata.normalize('NFD', first_name).encode('ascii', 'ignore')
     _last = unicodedata.normalize('NFD', last_name).encode('ascii', 'ignore')
-    return '%s.%s@example.com' % (
-        _first.lower().decode('utf-8'), _last.lower().decode('utf-8'))
+    return '%s.%s%s@example.com' % (
+        _first.lower().decode('utf-8'), _last.lower().decode('utf-8'),str(index))
 
 
 def get_or_create_category(category_schema, placeholder_dir):
@@ -354,9 +354,9 @@ def create_address():
     return address
 
 
-def create_fake_user():
+def create_fake_user(index):
     address = create_address()
-    email = get_email(address.first_name, address.last_name)
+    email = get_email(address.first_name, address.last_name,index)
 
     user = User.objects.create_user(email=email, password='password')
 
@@ -476,8 +476,8 @@ def create_fake_sale():
 
 
 def create_users(how_many=10):
-    for dummy in range(how_many):
-        user = create_fake_user()
+    for i,dummy in enumerate(range(how_many)):
+        user = create_fake_user(i)
         yield 'User: %s' % (user.email,)
 
 

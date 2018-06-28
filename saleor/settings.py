@@ -203,6 +203,7 @@ INSTALLED_APPS = [
     'django.contrib.postgres',
     'django.forms',
     'rest_framework',
+    'async_include',
 
     # Local apps
     'saleor.account',
@@ -495,3 +496,6 @@ ALLOWED_STYLES = ['text-align']
 DEFAULT_MENUS = {
     'top_menu_name': 'navbar',
     'bottom_menu_name': 'footer'}
+
+# import django
+# django.setup()

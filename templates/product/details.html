@@ -66,7 +66,7 @@
       {% endblocktrans %}
     </div>
   {% endif %}
-  <div class="row product">
+  <div class="row product" id="app-products">
     <script type="application/ld+json">{{ json_ld_product_data|safe }}</script>
     <div class="col-md-6 col-12 product__gallery">
       {% with images=product_images %}
@@ -122,7 +122,7 @@
       {% endwith %}
     </div>
     <div class="col-md-6 col-12 product__info">
-      <h1 class="product__info__name">
+      <h1 class="product__info__name" style="font-size: 2rem; font-weight:350; ">
         {{ product }}
       </h1>
       {% if user.is_staff %}
@@ -131,6 +131,19 @@
             {% trans "Edit in dashboard" context "Product details link text" %}
           </a>
         </p>
+      {% endif %}
+      {% if rating %}
+        <star-rating v-on:rating-selected ="setRating"  v-bind:max-rating="5"
+                    :increment="1.0"
+                    :border-width="3" 
+                    border-color="#d8d8d8" 
+                    :rounded-corners="true" 
+                    :show-rating="false"
+                    :star-points="[23,2, 14,17, 0,19, 10,34, 7,50, 23,43, 38,50, 36,34, 46,19, 31,17]"
+                    v-bind:star-size="35" 
+                    v-bind:rating="{{ rating.value__avg }}"
+                    style="display: inline-block !important;">
+        </star-rating>
       {% endif %}
       {% if availability.available %}
         {% if show_variant_picker %}

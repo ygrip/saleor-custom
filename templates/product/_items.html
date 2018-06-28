@@ -5,7 +5,7 @@
 {% load get_thumbnail from product_images %}
 {% load placeholder %}
 
-{% for product, availability in products %}
+{% for product, rating, availability in products %}
   <div class="col-6 col-lg-3 product-list">
     <a href="{{ product.get_absolute_url }}" class="link--clean">
       <div class="text-center">
@@ -17,7 +17,21 @@
                src="{% placeholder size=255 %}">
           <span class="product-list-item-name" title="{{ product }}">{{ product }}</span>
         </div>
-        <div class="panel-footer">
+        <div class="panel-footer" style="color : #e67e22;">
+          {% if rating %}
+            <star-rating  v-bind:max-rating="5"
+                          :increment="0.25"
+                         :read-only="true"
+                         :border-width="3" 
+                         border-color="#d8d8d8" 
+                         :rounded-corners="true" 
+                         :show-rating="false"
+                         :star-points="[23,2, 14,17, 0,19, 10,34, 7,50, 23,43, 38,50, 36,34, 46,19, 31,17]"
+                         v-bind:star-size="20" 
+                         v-bind:rating="{{ rating.value__avg }}"
+                         style="margin: 0 auto;">
+            </star-rating>
+          {% endif %}
           {% if availability.available %}
             {% price_range availability.price_range %}
             {% if availability.discount %}

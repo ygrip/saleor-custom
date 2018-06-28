@@ -22,7 +22,7 @@
   <div class="row home__featured">
     <div class="col-12">
       {% if query and results %}
-        <div class="row">
+        <div class="row" id="app-products">
           {% include "product/_items.html" with products=results %}
         </div>
         {% bootstrap_pagination results url=query_string %}

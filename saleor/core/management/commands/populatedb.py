@@ -64,38 +64,38 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         self.make_database_faster()
         create_images = not options['withoutimages']
-        for msg in create_dictionary(self.dir_json_dictionary):
-            self.stdout.write(msg)  
-        if not options['customproduct']:
-            for msg in create_shipping_methods():
-                self.stdout.write(msg)
-            create_products_by_schema(self.placeholders_dir, 10, create_images,
-                                      stdout=self.stdout)
-            for msg in create_product_sales(5):
-                self.stdout.write(msg)
-        else:
-            for msg in create_custom_product(self.dir_json_product,self.placeholders_dir):
-                self.stdout.write(msg)
+        # for msg in create_dictionary(self.dir_json_dictionary):
+        #     self.stdout.write(msg)  
+        # if not options['customproduct']:
+        #     for msg in create_shipping_methods():
+        #         self.stdout.write(msg)
+        #     create_products_by_schema(self.placeholders_dir, 10, create_images,
+        #                               stdout=self.stdout)
+        #     for msg in create_product_sales(5):
+        #         self.stdout.write(msg)
+        # else:
+        #     for msg in create_custom_product(self.dir_json_product,self.placeholders_dir):
+        #         self.stdout.write(msg)
 
-        for msg in create_promo():
-            self.stdout.write(msg) 
-        for msg in create_vouchers():
+        # for msg in create_promo():
+        #     self.stdout.write(msg) 
+        # for msg in create_vouchers():
+        #     self.stdout.write(msg)
+        # for msg in create_users(100):
+        #     self.stdout.write(msg)
+        for msg in generate_rating(0.75,0.01):
             self.stdout.write(msg)
-        for msg in create_users(100):
-            self.stdout.write(msg)
-        for msg in generate_rating(0.1,0.1):
-            self.stdout.write(msg)
-        for msg in create_orders(350):
-            self.stdout.write(msg)
-        for msg in set_featured_products(32):
-            self.stdout.write(msg)
-        for msg in create_collections_by_schema(self.placeholders_dir):
-            self.stdout.write(msg)
-        for msg in create_page():
-            self.stdout.write(msg)
-        for msg in create_menus():
-            self.stdout.write(msg)
-        self.stdout.write(create_groups())
+        # for msg in create_orders(10):
+        #     self.stdout.write(msg)
+        # for msg in set_featured_products(48):
+        #     self.stdout.write(msg)
+        # for msg in create_collections_by_schema(self.placeholders_dir):
+        #     self.stdout.write(msg)
+        # for msg in create_page():
+        #     self.stdout.write(msg)
+        # for msg in create_menus():
+        #     self.stdout.write(msg)
+        # self.stdout.write(create_groups())
 
         if options['createsuperuser']:
             credentials = {'email': 'admin@example.com', 'password': 'admin'}

@@ -37,7 +37,10 @@
   {% endblock meta_tags %}
 
   <link rel="manifest" href="{% url "manifest" %}" />
-
+  <!-- <script
+    src="https://code.jquery.com/jquery-3.1.1.min.js"
+    integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+    crossorigin="anonymous"></script> -->
   <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
   <!--[if lt IE 9]>
     <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -113,7 +116,7 @@
               <div class="d-md-none mobile-search-icon">
                 <svg data-src="{% static "images/search.svg" %}" width="30" height="30"/>
               </div>
-              <form class="form-inline search-form" action="{% url "search:search" %}">
+              <form class="form-inline search-form" action="{% url "search:search_view" %}">
                 <div class="mobile-close-search d-md-none">
                   <svg data-src="{% static "images/close.svg" %}" width="30" height="30"/>
                 </div>

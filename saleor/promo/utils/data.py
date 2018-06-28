@@ -30,7 +30,7 @@ def create_promo():
 		yield 'Make Promotion Model'
 		url_list = []
 		url_image = []
-		for i in range(1,(Category.objects.count()+1)):
+		for i in range(1,6):
 			url_list.append(get_object_or_404(Category, id=i).get_absolute_url())
 			url_image.append(promo_dir+str(i)+'.jpg')
 		position_options = ['topLeft', 'topCenter', 'topRight', 'bottomLeft', 'bottomCenter', 'bottomRight', 'centerLeft', 'centerRight', 'centerCenter' ]
@@ -40,7 +40,7 @@ def create_promo():
 		message_options = [True,False]
 		featured_options = [True,False]
 
-		PROMO_COUNT = 10
+		PROMO_COUNT = 6
 		i = 0
 		for count,url,image in zip(range(PROMO_COUNT),url_list,url_image):
 			i+=1

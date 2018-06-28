@@ -14,8 +14,10 @@
 {% block title %}
   {% if object.seo_title %}
     {{ object.seo_title }}
-  {% else %}
+  {% elif object.name %}
     {{ object.name }} - {{ block.super }}
+  {% else %}
+    {{ object.brand_name }} - {{ block.super }}
   {% endif %}
 {% endblock %}
 
@@ -123,7 +125,7 @@
         <div>
           <div>
             {% if products %}
-              <div class="row">
+              <div class="row" id="app-products">
                 {% include "_items.html" with products=products %}
               </div>
               <div class="row">

@@ -20,3 +20,4 @@ import './components/styleguide';
 import './components/misc';
 import './components/image-zoomer';
 import './components/home-slider';
+import './components/rating';
