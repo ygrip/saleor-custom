@@ -4,11 +4,14 @@ import React, { Component, PropTypes } from 'react';
 export default observer(class VariantPrice extends Component {
   static propTypes = {
     availability: PropTypes.object.isRequired,
-    store: PropTypes.object
+    store: PropTypes.object,
   }
 
   render() {
-    let priceText, priceUndiscountedText, priceLocalCurrency, isDiscount;
+    let priceText,
+      priceUndiscountedText,
+      priceLocalCurrency,
+      isDiscount;
     const { availability, store } = this.props;
     const variant = store.variant;
     if (!store.isEmpty) {

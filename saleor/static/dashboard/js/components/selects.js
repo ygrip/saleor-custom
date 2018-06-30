@@ -7,15 +7,15 @@ function appendOption ($select, option) {
 
 function initSelects() {
   // Custom variant attribute select that allows creating new attribute values.
-  let $variantAttrsSelect = $('.attribute-select-or-create select');
+  const $variantAttrsSelect = $('.attribute-select-or-create select');
   $variantAttrsSelect.select2({
     tags: true,
-    width: '100%'
+    width: '100%',
   });
   $variantAttrsSelect.addClass('select2-enabled');
 
   $('select:not(.browser-default):not(.enable-ajax-select2):not([multiple])').material_select();
-  $('select[multiple]:not(.browser-default):not(.enable-ajax-select2)').select2({width: '100%'});
+  $('select[multiple]:not(.browser-default):not(.enable-ajax-select2)').select2({ width: '100%' });
 
   $('select.enable-ajax-select2:not(.select2-enabled)').each((i, select) => {
     const $select = $(select);
@@ -33,15 +33,13 @@ function initSelects() {
     $select.select2({
       ajax: {
         url: $select.data('url'),
-        delay: 250
+        delay: 250,
       },
       width: '100%',
-      minimumInputLength: $select.data('min-input')
+      minimumInputLength: $select.data('min-input'),
     });
-    $select.addClass('select2-enabled')
+    $select.addClass('select2-enabled');
   });
 }
 
-export {
-  initSelects
-};
+export { initSelects };

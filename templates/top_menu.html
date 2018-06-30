@@ -1,0 +1,62 @@
+{% url 'home' as home_url %}
+{% if site_menu %}
+  <ul class="menu {% if horizontal %}nav mb-4 mb-md-0 row col-lg-12{% endif %}{% if request.get_full_path == home_url %} no-border{% endif %}" style="margin: 0 auto; padding: 0 !important;">
+    {% for key, value in site_menu.items %}
+    {% if value %}
+      <li class="{% if horizontal %}nav-item row col-lg-6{% endif %} nav-item__dropdown menu__item" style="
+      padding: 0 !important;">
+        <a class="{% if horizontal %}nav-link{% endif %}" href="#">
+        ALL {{ key }}
+        </a>
+        <div class="{% if horizontal %}nav-item__dropdown-content{% else %}nav-item__submenu{% endif %} " style="width : 100%; max-height: 500px; overflow-y: scroll; z-index: 10001;">
+            <ul class="list-group" style="width: 100%;">
+             {% for item in value %}
+                <li class="list-group-item list-group-item-secondary justify-content-between align-items-center" style="max-width: 100%; background-color: lightgray; display: block; margin-right: unset; ">
+                  {% if item.url %}
+                    <a href="{{ item.url }}">
+                      {% if horizontal %}
+                        <strong>{{ item.name }}</strong>
+                      {% else %}
+                        {{ item.name }}
+                      {% endif %}
+                    </a>
+                  {% else %}
+                    {% if horizontal %}
+                      <strong>{{ item.name }}</strong>
+                    {% else %}
+                      {{ item.name }}
+                    {% endif %}
+                  {% endif %}
+                  {% if item.count %}
+                  <span class="badge badge-secondary badge-pill" style="float: right; background-color: gainsboro; ">{{ item.count }}</span>
+                  {% endif %}
+                  
+                </li>
+                {% if item.children %}
+                <ul class="list-group list-group-flush" style="width: 100%;">
+                  {% for grandchild in item.children %}
+                    <li class="list-group-item justify-content-between align-items-center" style="max-width: 100%; display: block; margin-right: unset;">
+                       {% if grandchild.url %}
+                          <a href="{{ grandchild.url }}">
+                              {{ grandchild.name }}
+                          </a>
+                        {% else %}
+                            {{ grandchild.name }}
+                        {% endif %}
+                      {% if grandchild.count %}
+                      <span class="badge badge-secondary badge-pill" style="float: right; background-color: gainsboro; ">{{ grandchild.count }}</span>
+                      {% endif %}
+                     
+                    </li>
+                  {% endfor %}
+                </ul>
+                {% endif %}
+             {% endfor %}
+             </ul>
+         </div>
+      </li>
+
+    {% endif %}
+    {% endfor %}
+  </ul>
+{% endif %}

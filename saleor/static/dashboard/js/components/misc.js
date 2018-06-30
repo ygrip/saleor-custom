@@ -6,7 +6,7 @@ import { onScroll } from './utils';
 const screenSizes = {
   sm: 600,
   md: 992,
-  lg: 1200
+  lg: 1200,
 };
 
 const svgInjector = new SVGInjector();
@@ -49,8 +49,8 @@ $('#product-is-published').on('click', (e) => {
       method: 'POST',
       credentials: 'same-origin',
       headers: {
-        'X-CSRFToken': $('[name=csrfmiddlewaretoken]').val()
-      }
+        'X-CSRFToken': $('[name=csrfmiddlewaretoken]').val(),
+      },
     }).then(() => {
       window.location.reload();
     }).catch(() => {
@@ -64,5 +64,5 @@ onScroll(() => $('.styleguide__menu').toggleClass('fixed', $(window).scrollTop()
 
 export {
   screenSizes,
-  svgInjector
+  svgInjector,
 };

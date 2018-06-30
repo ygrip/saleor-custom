@@ -1,11 +1,11 @@
 import 'jquery';
 import 'jquery.cookie';
 import 'bootstrap';
-
 import '../scss/storefront.scss';
-import "lightgallery/src/sass/lightgallery.scss";
+import 'lightgallery/src/sass/lightgallery.scss';
 import 'slider-pro/dist/css/slider-pro.min.css';
 import '../css/home-slider.css';
+import '../css/loading.css';
 
 import './components/navbar';
 import './components/cart';
@@ -21,3 +21,4 @@ import './components/misc';
 import './components/image-zoomer';
 import './components/home-slider';
 import './components/rating';
+import './recommender-helper';

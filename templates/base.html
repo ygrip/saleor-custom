@@ -157,7 +157,11 @@
     </div>
     <div class="navbar__menu container d-block">
       <nav class="navigation">
-        {% menu site_menu=site.settings.top_menu horizontal=True %}
+        {% with site_menu=menu_tree %}
+          {% with horizontal=True %}
+            {% include 'top_menu.html' %}
+          {% endwith %}
+        {% endwith %}
       </nav>
     </div>
   </header>
@@ -175,7 +179,27 @@
   {% block breadcrumb %}
   {% endblock breadcrumb %}
   {% block content %}
+
   {% endblock content %}
+  <div id="center-loader" class="row home__featured" style="padding-bottom: 200px; padding-top: 200px; width: 100%;">
+    <div class="col-12 justify-content-between align-items-center mb-4 mb-md-0 menu" style="margin-top: -200px; margin-bottom: 10em !important; text-align: center; border-bottom: 1px solid #D3D1D0;"><h2>{% trans "Processing your request" %}</h2></div><br><br>
+  <div class="sk-folding-cube" style="margin: 0 auto;">
+    <div class="sk-cube1 sk-cube"></div>
+    <div class="sk-cube2 sk-cube"></div>
+    <div class="sk-cube4 sk-cube"></div>
+    <div class="sk-cube3 sk-cube"></div>
+  </div>
+  <div class="animationload">
+      <div class="osahanloading"></div>
+  </div>
+  <div class="spinner">
+    <div class="rect1"></div>
+    <div class="rect2"></div>
+    <div class="rect3"></div>
+    <div class="rect4"></div>
+    <div class="rect5"></div>
+  </div>
+</div>
 </div>
 {% block footer %}
   <footer class="footer">
@@ -273,7 +297,7 @@
 {% block footer_scripts %}
   
   <script type="text/javascript" src="{% url 'javascript-catalog' %}"></script>
-  {% render_bundle 'storefront' 'js' %}
+  {% render_bundle 'storefront' 'js'%}
 {% endblock footer_scripts %}
 
 </body>

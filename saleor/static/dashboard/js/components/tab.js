@@ -5,7 +5,7 @@ if ($tabs.length) {
       .find('a')
       .attr('href');
     $('.btn-fab').addClass('btn-fab-hidden');
-    $(tabSelector + '-btn').removeClass('btn-fab-hidden');
+    $(`${tabSelector}-btn`).removeClass('btn-fab-hidden');
   });
 
   $tabs.find('a.active')

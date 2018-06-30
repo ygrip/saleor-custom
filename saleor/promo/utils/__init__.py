@@ -6,7 +6,7 @@ from django.db.models import Prefetch
 from ..models import Messages,Promo
 
 def fetch_promo():
-	return Promo.objects.filter(is_featured=True).values('id','image','url','is_featured','created_at')
+	return list(Promo.objects.filter(is_featured=True).values('id','image','url','is_featured','created_at'))
 
 def promo_with_details():
 	promos = fetch_promo()
@@ -15,7 +15,7 @@ def promo_with_details():
 		for promo in promos:
 			parent = {}
 			parent['promo'] = promo
-			messages = Messages.objects.filter(promo_id=promo['id']).values('title','message','position','show','hide')
+			messages = []
 			parent['messages'] = []
 			if messages:
 				for message in messages:

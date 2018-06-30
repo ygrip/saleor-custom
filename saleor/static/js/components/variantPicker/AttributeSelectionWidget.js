@@ -2,11 +2,10 @@ import React, { Component, PropTypes } from 'react';
 import classNames from 'classnames';
 
 export default class AttributeSelectionWidget extends Component {
-
   static propTypes = {
     attribute: PropTypes.object.isRequired,
     handleChange: PropTypes.func.isRequired,
-    selected: PropTypes.string
+    selected: PropTypes.string,
   };
 
   handleChange = (attrPk, valuePk) => {
@@ -23,7 +22,7 @@ export default class AttributeSelectionWidget extends Component {
             const active = selected === value.pk.toString();
             const labelClass = classNames({
               'btn btn-secondary variant-picker__option': true,
-              'active': active
+              active,
             });
             return (
               <label

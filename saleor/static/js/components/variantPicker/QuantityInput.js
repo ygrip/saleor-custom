@@ -2,11 +2,10 @@ import classNames from 'classnames';
 import React, { Component, PropTypes } from 'react';
 
 export default class QuantityInput extends Component {
-
   static propTypes = {
     errors: PropTypes.array,
     handleChange: PropTypes.func.isRequired,
-    quantity: PropTypes.number.isRequired
+    quantity: PropTypes.number.isRequired,
   }
 
   render() {
@@ -14,7 +13,7 @@ export default class QuantityInput extends Component {
     const formGroupClasses = classNames({
       'form-group': true,
       'has-error': errors && !!errors.length,
-      'product__info__quantity': true
+      product__info__quantity: true,
     });
     return (
       <div className={formGroupClasses}>

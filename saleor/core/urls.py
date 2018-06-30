@@ -1,4 +1,4 @@
-from django.conf.urls import url
+from django.conf.urls import url, include
 from impersonate.views import stop_impersonate
 
 from . import views

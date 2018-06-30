@@ -62,6 +62,41 @@ var config = {
   module: {
     rules: [
       {
+        test: require.resolve('jquery'),
+        use:[
+          {
+            loader: 'expose-loader',
+            options: 'jQuery'
+          },
+          {
+            loader: 'expose-loader',
+            options: '$'
+          },
+          {
+            loader: 'expose-loader',
+            options: 'window.jQuery'
+          },
+          ]
+      },
+      {
+        test: require.resolve('popper.js'),
+        use:[
+          {
+            loader: 'expose-loader',
+            options: 'Popper'
+          }
+          ]
+      },
+      {
+        test: require.resolve('query-string'),
+        use:[
+          {
+            loader: 'expose-loader',
+            options: 'query-string'
+          }
+          ]
+      },
+      {
         test: /\.js$/,
         exclude: /node_modules/,
         loader: 'babel-loader'
@@ -97,6 +132,10 @@ var config = {
           }
         ]
       },
+      {
+         test: /\.vue$/,
+         loader: 'vue-loader'
+       },
       {
         test: /\.(ani|cur)$/,
         loader : 'url-loader',
@@ -136,8 +175,8 @@ var config = {
       'jquery': resolve('node_modules/jquery/dist/jquery.js'),
       'react': resolve('node_modules/react/dist/react.min.js'),
       'react-dom': resolve('node_modules/react-dom/dist/react-dom.min.js'),
-      'vue$': resolve('node_modules/vue/dist/vue.esm.js)'
-    }
+      'vue$': resolve('node_modules/vue/dist/vue.esm.js'),
+    },
   },
 };
 

@@ -66,7 +66,7 @@
       {% endblocktrans %}
     </div>
   {% endif %}
-  <div class="row product" id="app-products">
+  <div class="row product">
     <script type="application/ld+json">{{ json_ld_product_data|safe }}</script>
     <div class="col-md-6 col-12 product__gallery">
       {% with images=product_images %}
@@ -121,7 +121,7 @@
         {% endif %}
       {% endwith %}
     </div>
-    <div class="col-md-6 col-12 product__info">
+    <div class="col-md-6 col-12 product__info" id="app-products">
       <h1 class="product__info__name" style="font-size: 2rem; font-weight:350; ">
         {{ product }}
       </h1>
@@ -141,7 +141,7 @@
                     :show-rating="false"
                     :star-points="[23,2, 14,17, 0,19, 10,34, 7,50, 23,43, 38,50, 36,34, 46,19, 31,17]"
                     v-bind:star-size="35" 
-                    v-bind:rating="{{ rating.value__avg }}"
+                    v-bind:rating="{{ rating.value }}"
                     style="display: inline-block !important;">
         </star-rating>
       {% endif %}

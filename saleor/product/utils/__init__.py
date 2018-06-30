@@ -9,9 +9,9 @@ from ...cart.utils import (
 from ...core.utils import get_paginator_items
 from ...core.utils.filters import get_now_sorted_by
 from ..forms import ProductForm
+from ..models import Product
 from .availability import products_with_availability
 from django.db import connection,transaction
-
 
 def products_visible_to_user(user):
     # pylint: disable=cyclic-import
@@ -35,6 +35,23 @@ def products_for_homepage():
     products = products.filter(is_featured=True)
     return products
 
+def top_purchased_product(limit=None):
+    user = AnonymousUser()
+    products = products_with_details(user)
+    query="""
+        SELECT p.id AS id, SUM(o.quantity) AS jumlah
+        FROM product_product p, product_productvariant v, order_orderline o
+        WHERE v.product_id = p.id AND o.variant_id = v.id
+        GROUP BY p.id
+        ORDER BY jumlah DESC
+        """
+
+    cursor = connection.cursor()
+    cursor.execute(query)
+    items = list(cursor.fetchall())
+
+    results = products.filter(id__in=[item[0] for item in items])[:limit]
+    return results
 
 def get_product_images(product):
     """Return list of product images that will be placed in product gallery."""

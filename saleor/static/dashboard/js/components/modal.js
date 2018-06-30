@@ -5,7 +5,7 @@ import { initSelects } from './selects';
 const focusInputs = [
   'textarea',
   'input[type="text"]:not(.select-dropdown)',
-  'input[type="number"]'
+  'input[type="number"]',
 ];
 
 // -----
@@ -32,7 +32,7 @@ $('body').on('click', '.modal-trigger-custom', (e) => {
       // Image checkbox selector
       $('.image_select-item-overlay').on('click', (e) => {
         const imageId = e.currentTarget.getAttribute('id');
-        const checkbox = document.querySelector('input#' + imageId);
+        const checkbox = document.querySelector(`input#${imageId}`);
         const checkboxState = checkbox.getAttribute('checked');
         checkbox.setAttribute('checked', !checkboxState);
         $(e.target).toggleClass('checked', !checkbox);
@@ -40,6 +40,6 @@ $('body').on('click', '.modal-trigger-custom', (e) => {
 
       // Inject all SVGs from modal
       svgInjector.inject(document.querySelectorAll('.modal-content svg[data-src]:not(.injected-svg)'));
-    }
+    },
   });
 });

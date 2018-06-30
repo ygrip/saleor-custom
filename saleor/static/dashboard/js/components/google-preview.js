@@ -12,10 +12,8 @@ if ($descriptionMaterialize) {
   const $descriptions = $(`.materialize-textarea[name='${$descriptionMaterialize}']`);
   // They're two textareas from Medium editor, first one contains HTML-free text
   $description = $descriptions.not($descriptionId).first();
-} else {
-  if ($descriptionId) {
-    $description = $(`#${$descriptionId}`);
-  }
+} else if ($descriptionId) {
+  $description = $(`#${$descriptionId}`);
 }
 
 const $googleTitlePreview = $('#google-preview-title');

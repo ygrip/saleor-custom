@@ -16,12 +16,12 @@ if (menuItems) {
       $.ajax({
         method: 'POST',
         url: $(menuItems).data('post-url'),
-        data: {ordered_menu_items: orderedMenuItems},
+        data: { ordered_menu_items: orderedMenuItems },
         traditional: true,
         headers: {
-          'X-CSRFToken': $.cookie('csrftoken')
-        }
+          'X-CSRFToken': $.cookie('csrftoken'),
+        },
       });
-    }
+    },
   });
 }

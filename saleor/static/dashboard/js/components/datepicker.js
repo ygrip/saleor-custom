@@ -69,5 +69,5 @@ $('.datepicker').pickadate({
   formatSubmit: 'yyyy-mm-dd',
   selectMonths: true,
   hiddenName: true,
-  onClose: () => $(document.activeElement).blur()
+  onClose: () => $(document.activeElement).blur(),
 });

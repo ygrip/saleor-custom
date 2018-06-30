@@ -165,7 +165,12 @@ TEMPLATES = [{
         'debug': DEBUG,
         'context_processors': context_processors,
         'loaders': loaders,
-        'string_if_invalid': '<< MISSING VARIABLE "%s" >>' if DEBUG else ''}}]
+        'string_if_invalid': '<< MISSING VARIABLE "%s" >>' if DEBUG else ''}},
+        {
+        'NAME': 'django_mako_plus',
+        'BACKEND': 'django_mako_plus.MakoTemplates',
+    },  
+    ]
 
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = os.environ.get('SECRET_KEY')
@@ -188,6 +193,10 @@ MIDDLEWARE = [
     'social_django.middleware.SocialAuthExceptionMiddleware',
     'impersonate.middleware.ImpersonateMiddleware']
 
+DEBUG_TOOLBAR_CONFIG = {
+    'JQUERY_URL' : '',
+}
+
 INSTALLED_APPS = [
     # External apps that need to go before django's
     'storages',
@@ -204,6 +213,7 @@ INSTALLED_APPS = [
     'django.forms',
     'rest_framework',
     'async_include',
+    'django_mako_plus',
 
     # Local apps
     'saleor.account',
@@ -289,6 +299,11 @@ LOGGING = {
             'handlers': ['console'],
             'level': 'INFO',
             'propagate': True},
+        'django_mako_plus': {
+            'handlers': ['console'],
+            'level': DEBUG and 'DEBUG' or 'WARNING',
+            'propagate': False,
+        },
         'saleor': {
             'handlers': ['console'],
             'level': 'DEBUG',

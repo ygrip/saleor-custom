@@ -15,75 +15,75 @@ import closeIcon from '../../images/close.svg';
 // eslint-disable
 const editor = new MediumEditor('.rich-text-editor', {
   paste: {
-    forcePlainText: true
+    forcePlainText: true,
   },
   toolbar: {
     buttons: [
       {
         name: 'bold',
-        aria: pgettext('Rich text editor option', 'Bold text')
+        aria: pgettext('Rich text editor option', 'Bold text'),
       },
       {
         name: 'italic',
-        aria: pgettext('Rich text editor option', 'Italic text')
+        aria: pgettext('Rich text editor option', 'Italic text'),
       },
       {
         name: 'h2',
         aria: pgettext('Rich text editor option', 'Header'),
         tagNames: ['h2'],
         contentDefault: '<b>T</b>',
-        classList: ['custom-class-h1']
+        classList: ['custom-class-h1'],
       },
       {
         name: 'h3',
         aria: pgettext('Rich text editor option', 'Subheader'),
         tagNames: ['h3'],
         contentDefault: '<b style="font-size: .75rem">T</b>',
-        classList: ['custom-class-h2']
+        classList: ['custom-class-h2'],
       },
       {
         name: 'quote',
         aria: pgettext('Rich text editor option', 'Quote'),
-        contentDefault: `<img src="${quoteIcon}">`
+        contentDefault: `<img src="${quoteIcon}">`,
       },
       {
         name: 'anchor',
         aria: pgettext('Rich text editor option', 'Link'),
         contentDefault: `<img src="${insertLinkIcon}">`,
         formSaveLabel: `<img src="${doneIcon}"`,
-        formCloseLabel: `<img src="${closeIcon}">`
+        formCloseLabel: `<img src="${closeIcon}">`,
       },
       {
         name: 'image',
         aria: pgettext('Rich text editor option', 'Image (converts selected text to an image tag)'),
-        contentDefault: `<img src="${insertPhotoIcon}">`
+        contentDefault: `<img src="${insertPhotoIcon}">`,
       },
       {
         name: 'justifyLeft',
         aria: pgettext('Rich text editor option', 'Left align'),
-        contentDefault: `<img src="${alignLeftIcon}">`
+        contentDefault: `<img src="${alignLeftIcon}">`,
       },
       {
         name: 'justifyCenter',
         aria: pgettext('Rich text editor option', 'Center align'),
-        contentDefault: `<img src="${alignCenterIcon}">`
+        contentDefault: `<img src="${alignCenterIcon}">`,
       },
       {
         name: 'justifyRight',
         aria: pgettext('Rich text editor option', 'Right align'),
-        contentDefault: `<img src="${alignRightIcon}">`
+        contentDefault: `<img src="${alignRightIcon}">`,
       },
       {
         name: 'justifyFull',
         aria: pgettext('Rich text editor option', 'Justify'),
-        contentDefault: `<img src="${alignJustifyIcon}">`
+        contentDefault: `<img src="${alignJustifyIcon}">`,
       },
       {
         name: 'removeFormat',
         aria: pgettext('Rich text editor option', 'Remove formatting'),
-        contentDefault: `<img src="${formatClear}">`
-      }
-    ]
+        contentDefault: `<img src="${formatClear}">`,
+      },
+    ],
   },
   keyboardCommands: {
     commands: [
@@ -92,15 +92,15 @@ const editor = new MediumEditor('.rich-text-editor', {
         key: 'B',
         meta: true,
         shift: false,
-        alt: false
+        alt: false,
       },
       {
         command: 'italic',
         key: 'I',
         meta: true,
         shift: false,
-        alt: false
-      }
-    ]
-  }
+        alt: false,
+      },
+    ],
+  },
 });

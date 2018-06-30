@@ -1,13 +1,13 @@
 import datetime
 import json
 
-from django.http import HttpResponsePermanentRedirect, JsonResponse
 from django.shortcuts import get_object_or_404, redirect
 from django.template.response import TemplateResponse
 from django.urls import reverse
 from django.conf import settings
-
-from django.db import connection,transaction
+from django.http import (
+    Http404, HttpResponse, HttpResponsePermanentRedirect, HttpResponseRedirect, JsonResponse
+)
 from ..cart.utils import set_cart_cookie
 from ..core.utils import serialize_decimal
 from ..seo.schema.product import product_json_ld
@@ -19,6 +19,8 @@ from .utils import (
 from .utils.attributes import get_product_attributes_data
 from .utils.availability import get_availability
 from .utils.variants_picker import get_variant_picker_data
+from ..core.helper import create_navbar_tree
+from .helper import get_filter_values, get_descendant
 from django.db.models import Avg
 
 APPROVED_FILTER = ['Brand','Jenis','Color','Gender']
@@ -53,13 +55,19 @@ def product_details(request, slug, product_id, form=None):
         currency. The value will be None if exchange rate is not available or
         the local currency is the same as site's default currency.
     """
-    products = products_with_details(user=request.user)
-    product = get_object_or_404(products, id=product_id)
+    try:
+        product = Product.objects.get(id=product_id)
+        
+    except Product.DoesNotExist:
+        raise Http404('No %s matches the given query.' % product.model._meta.object_name)
+
     if product.get_slug() != slug:
         return HttpResponsePermanentRedirect(product.get_absolute_url())
+
     today = datetime.date.today()
     is_visible = (
         product.available_on is None or product.available_on <= today)
+    
     if form is None:
         form = handle_cart_form(request, product, create_cart=False)[0]
     availability = get_availability(product, discounts=request.discounts,
@@ -71,11 +79,12 @@ def product_details(request, slug, product_id, form=None):
     # show_variant_picker determines if variant picker is used or select input
     show_variant_picker = all([v.attributes for v in product.variants.all()])
     json_ld_data = product_json_ld(product, product_attributes)
-    rating = ProductRating.objects.filter(product_id=product).aggregate(Avg('value'))
-    rating['value__avg'] = 0.0 if rating['value__avg'] is None else rating['value__avg']
+    rating = ProductRating.objects.filter(product_id=product).aggregate(value=Avg('value'))
+    rating['value'] = 0.0 if rating['value'] is None else rating['value']
     return TemplateResponse(
         request, 'product/details.html', {
             'is_visible': is_visible,
+            'menu_tree' : create_navbar_tree(request),
             'form': form,
             'availability': availability,
             'rating' : rating,
@@ -159,68 +168,6 @@ def brand_index(request, path, brand_id):
     ctx.update({'object': brand})
 
     return TemplateResponse(request, 'brand/index.html', ctx)
-
-def get_descendant(parent_id,with_self=False):
-    cursor = connection.cursor()
-    descendants = []
-    if with_self:
-        descendants.append(int(parent_id))
-    query = """
-            WITH RECURSIVE
-            descendants AS (
-                SELECT parent_id,id AS descendant, 1 AS level
-                FROM product_category
-                UNION ALL
-                SELECT d.parent_id, cat.id, d.level + 1
-                FROM descendants AS d
-                JOIN product_category cat ON cat.parent_id = d.descendant
-            )
-            SELECT DISTINCT descendant AS id
-            FROM descendants
-            WHERE parent_id = """+str(parent_id)+"""
-            ORDER BY id
-            """
-    cursor.execute(query)
-    row = [item[0] for item in cursor.fetchall()]
-    for d in row:
-        descendants.append(d)
-
-    return descendants
-
-def get_filter_values(categories, filter_field):
-    cursor = connection.cursor()
-    category = "("
-    keys = "("
-    for i,cat in enumerate(categories):
-        category += str(cat)
-        if i < (len(categories)-1):
-            category += ","
-        else:
-            category += ")"
-    for i,key in enumerate(filter_field):
-        keys += "'"+str(key)+"'"
-        if i < (len(filter_field)-1):
-            keys += ","
-        else:
-            keys += ")"
-    query = """
-            WITH
-            values AS(
-                SELECT CAST(nullif(skeys(attributes),'') AS integer) AS key,
-                CAST(nullif(svals(attributes),'') AS integer) AS id 
-                FROM product_product 
-                WHERE category_id IN """+category+"""
-            )
-            SELECT DISTINCT values.id AS id FROM values JOIN (
-                SELECT id 
-                FROM product_productattribute 
-                WHERE name IN """+keys+"""
-                ORDER BY id
-            ) AS index ON index.id = values.key
-            ORDER by values.id
-            """
-    cursor.execute(query)
-    return [item[0] for item in cursor.fetchall()]
 
 def collection_index(request, slug, pk):
     collection = get_object_or_404(Collection, id=pk)

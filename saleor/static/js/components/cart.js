@@ -1,4 +1,4 @@
-import {getAjaxError} from './misc';
+import { getAjaxError } from './misc';
 
 export const summaryLink = $('html').data('cart-summary-url');
 export const $cartDropdown = $('.cart-dropdown');
@@ -14,7 +14,7 @@ export const onAddToCartSuccess = () => {
   $.get(summaryLink, (data) => {
     $cartDropdown.html(data);
     $addToCartError.html('');
-    var newQunatity = $('.cart-dropdown__total').data('quantity');
+    const newQunatity = $('.cart-dropdown__total').data('quantity');
     $('.badge').html(newQunatity).removeClass('empty');
     $cartDropdown.addClass('show');
     $cartIcon.addClass('hover');
@@ -40,49 +40,49 @@ export default $(document).ready((e) => {
   });
   $('.product-form button').click((e) => {
     e.preventDefault();
-    let quantity = $('#id_quantity').val();
-    let variant = $('#id_variant').val();
+    const quantity = $('#id_quantity').val();
+    const variant = $('#id_variant').val();
     $.ajax({
       url: $('.product-form').attr('action'),
       type: 'POST',
       data: {
-        variant: variant,
-        quantity: quantity
+        variant,
+        quantity,
       },
       success: () => {
         onAddToCartSuccess();
       },
       error: (response) => {
         onAddToCartError(response);
-      }
+      },
     });
   });
 
   // Cart quantity form
 
-  let $cartLine = $('.cart__line');
-  let $total = $('.cart-subtotal');
-  let $cartBadge = $('.navbar__brand__cart .badge');
-  let $closeMsg = $('.close-msg');
+  const $cartLine = $('.cart__line');
+  const $total = $('.cart-subtotal');
+  const $cartBadge = $('.navbar__brand__cart .badge');
+  const $closeMsg = $('.close-msg');
   $closeMsg.on('click', (e) => {
     $removeProductSuccess.addClass('d-none');
   });
   $cartLine.each(function () {
-    let $quantityInput = $(this).find('#id_quantity');
-    let cartFormUrl = $(this).find('.form-cart').attr('action');
-    let $qunatityError = $(this).find('.cart__line__quantity-error');
-    let $subtotal = $(this).find('.cart-item-price p');
-    let $deleteIcon = $(this).find('.cart-item-delete');
+    const $quantityInput = $(this).find('#id_quantity');
+    const cartFormUrl = $(this).find('.form-cart').attr('action');
+    const $qunatityError = $(this).find('.cart__line__quantity-error');
+    const $subtotal = $(this).find('.cart-item-price p');
+    const $deleteIcon = $(this).find('.cart-item-delete');
     $(this).on('change', $quantityInput, (e) => {
-      let newQuantity = $quantityInput.val();
+      const newQuantity = $quantityInput.val();
       $.ajax({
         url: cartFormUrl,
         method: 'POST',
-        data: {quantity: newQuantity},
+        data: { quantity: newQuantity },
         success: (response) => {
           if (newQuantity === 0) {
             if (response.cart.numLines === 0) {
-              $.cookie('alert', 'true', {path: '/cart'});
+              $.cookie('alert', 'true', { path: '/cart' });
               location.reload();
             } else {
               $removeProductSuccess.removeClass('d-none');
@@ -98,14 +98,14 @@ export default $(document).ready((e) => {
         },
         error: (response) => {
           $qunatityError.html(getAjaxError(response));
-        }
+        },
       });
     });
     $deleteIcon.on('click', (e) => {
       $.ajax({
         url: cartFormUrl,
         method: 'POST',
-        data: {quantity: 0},
+        data: { quantity: 0 },
         success: (response) => {
           if (response.cart.numLines >= 1) {
             $(this).fadeOut();
@@ -114,33 +114,33 @@ export default $(document).ready((e) => {
             $cartDropdown.load(summaryLink);
             $removeProductSuccess.removeClass('d-none');
           } else {
-            $.cookie('alert', 'true', {path: '/cart'});
+            $.cookie('alert', 'true', { path: '/cart' });
             location.reload();
           }
           deliveryAjax();
-        }
+        },
       });
     });
   });
 
   // Delivery information
 
-  let $deliveryForm = $('.deliveryform');
-  let crsfToken = $deliveryForm.data('crsf');
-  let countrySelect = '#id_country';
-  let $cartSubtotal = $('.cart__subtotal');
+  const $deliveryForm = $('.deliveryform');
+  const crsfToken = $deliveryForm.data('crsf');
+  const countrySelect = '#id_country';
+  const $cartSubtotal = $('.cart__subtotal');
   let deliveryAjax = (e) => {
-    let newCountry = $(countrySelect).val();
+    const newCountry = $(countrySelect).val();
     $.ajax({
       url: $('html').data('shipping-options-url'),
       type: 'POST',
       data: {
-        'csrfmiddlewaretoken': crsfToken,
-        'country': newCountry
+        csrfmiddlewaretoken: crsfToken,
+        country: newCountry,
       },
       success: (data) => {
         $cartSubtotal.html(data);
-      }
+      },
     });
   };
 
@@ -148,6 +148,6 @@ export default $(document).ready((e) => {
 
   if ($.cookie('alert') === 'true') {
     $removeProductSuccess.removeClass('d-none');
-    $.cookie('alert', 'false', {path: '/cart'});
+    $.cookie('alert', 'false', { path: '/cart' });
   }
 });

@@ -27,7 +27,7 @@ const onAsyncFormSubmit = (e) => {
       } else {
         location.reload();
       }
-    }
+    },
   });
   e.preventDefault();
 };

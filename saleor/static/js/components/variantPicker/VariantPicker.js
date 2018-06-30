@@ -15,7 +15,7 @@ export default observer(class VariantPicker extends Component {
     store: PropTypes.object.isRequired,
     url: PropTypes.string.isRequired,
     variantAttributes: PropTypes.array.isRequired,
-    variants: PropTypes.array.isRequired
+    variants: PropTypes.array.isRequired,
   };
 
   constructor (props) {
@@ -46,7 +46,7 @@ export default observer(class VariantPicker extends Component {
     this.state = {
       errors: {},
       quantity: 1,
-      selection: selection
+      selection,
     };
     this.matchVariantFromSelection();
   }
@@ -64,34 +64,34 @@ export default observer(class VariantPicker extends Component {
         url: this.props.url,
         method: 'post',
         data: {
-          quantity: quantity,
-          variant: store.variant.id
+          quantity,
+          variant: store.variant.id,
         },
         success: () => {
           onAddToCartSuccess();
         },
         error: (response) => {
           onAddToCartError(response);
-        }
+        },
       });
     }
   };
 
   handleAttributeChange = (attrId, valueId) => {
     this.setState({
-      selection: Object.assign({}, this.state.selection, { [attrId]: valueId })
+      selection: Object.assign({}, this.state.selection, { [attrId]: valueId }),
     }, () => {
       this.matchVariantFromSelection();
-      let params = {};
+      const params = {};
       Object.keys(this.state.selection)
-        .forEach(attrId => {
+        .forEach((attrId) => {
           const attribute = this.matchAttribute(attrId);
           const value = this.matchAttributeValue(attribute, this.state.selection[attrId]);
           if (attribute && value) {
             params[attribute.slug] = value.slug;
           }
         });
-      history.pushState(null, null, '?' + queryString.stringify(params));
+      history.pushState(null, null, `?${queryString.stringify(params)}`);
     });
   };
 
@@ -124,7 +124,7 @@ export default observer(class VariantPicker extends Component {
   matchVariantFromSelection () {
     const { store, variants } = this.props;
     let matchedVariant = null;
-    variants.forEach(variant => {
+    variants.forEach((variant) => {
       if (_.isEqual(this.state.selection, variant.attributes)) {
         matchedVariant = variant;
       }
@@ -139,7 +139,7 @@ export default observer(class VariantPicker extends Component {
 
     const addToCartBtnClasses = classNames({
       'btn primary': true,
-      'disabled': disableAddToCart
+      disabled: disableAddToCart,
     });
 
     return (
@@ -150,8 +150,7 @@ export default observer(class VariantPicker extends Component {
             handleChange={this.handleAttributeChange}
             key={i}
             selected={selection[attribute.pk]}
-          />
-        )}
+          />)}
         <div className="clearfix">
           <QuantityInput
             errors={errors.quantity}

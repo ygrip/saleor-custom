@@ -4,9 +4,17 @@ from django.http import Http404
 from django.shortcuts import render
 from operator import itemgetter
 import psutil
-from django.http import HttpResponse
+from django.template.response import TemplateResponse
+from django.http import HttpResponse, JsonResponse
+from django.views.decorators.csrf import csrf_exempt
+from rest_framework.renderers import JSONRenderer
+from rest_framework.parsers import JSONParser
+from rest_framework import status
+from rest_framework.decorators import api_view, permission_classes
+from rest_framework import permissions
 
 from ..product.utils import products_with_details
+from ..core.helper import create_navbar_tree
 from ..product.models import Product, ProductRating
 from ..product.utils.availability import products_with_availability,get_availability
 from ..dictionary.utils.helper import FeatureHelper
@@ -15,17 +23,17 @@ from .forms import SearchForm
 from math import log10
 from joblib import (Parallel, delayed)
 from django.db.models import Q
-from django.http import HttpResponse
 from django.contrib.sessions.backends.db import SessionStore
 from django.db.models import Avg
+from django_mako_plus import view_function, render_template
 
 total = 0
 query_appendix = {}
 product_appendix = []
-def paginate_results(results, get_data, paginate_by=settings.PAGINATE_BY):
+def paginate_results(results, page_number, paginate_by=settings.PAGINATE_BY):
     print('now paginate result')
     paginator = Paginator(results, paginate_by)
-    page_number = get_data.get('page', 1)
+
     try:
         page = paginator.page(page_number)
     except InvalidPage:
@@ -59,8 +67,8 @@ def check_similarity(item):
 def render_item(item,discounts,currency):
     availability = get_availability(item,discounts=discounts,
                                           local_currency=currency)
-    rating = ProductRating.objects.filter(product_id=item).aggregate(Avg('value'))
-    rating['value__avg'] = 0.0 if rating['value__avg'] is None else rating['value__avg']
+    rating = ProductRating.objects.filter(product_id=item).aggregate(value=Avg('value'))
+    rating['value'] = 0.0 if rating['value'] is None else rating['value']
     return item, rating, availability
 
 def custom_query_validation(query,request,request_page):
@@ -71,13 +79,12 @@ def custom_query_validation(query,request,request_page):
     if product_appendix:
         product_appendix = []
 
-    available = products_with_details(request.user)
     query = list(set(query.split(' ')))
     queryset = Q()
     for q in query:
         query_appendix[q] = 0
         queryset = queryset | Q(details__icontains=q)
-    product_details = CleanProductDetails.objects.filter(product_id__in=available).filter(queryset)
+    product_details = list(CleanProductDetails.objects.filter(queryset))
 
     if product_details:
         for q in query_appendix:
@@ -95,13 +102,13 @@ def custom_query_validation(query,request,request_page):
         print('Sorted')
         start = (settings.PAGINATE_BY*(request_page-1))
         end = start+(settings.PAGINATE_BY)
-        products = product_appendix[start:end]
+        products = list(Product.objects.filter(id__in=product_appendix[start:end]))
 
         results = []
         results = Parallel(n_jobs=psutil.cpu_count()*2,
             verbose=50,
             require='sharedmem',
-            backend="threading")(delayed(render_item)(Product.objects.get(id=item),request.discounts,request.currency) for item in products)
+            backend="threading")(delayed(render_item)(item,request.discounts,request.currency) for item in products)
         front = [i for i in range((start))]
 
         results = front+results
@@ -112,17 +119,40 @@ def custom_query_validation(query,request,request_page):
     else:
         return []
 
+@view_function
 def search_view(request):
-
+    request_page = int(request.GET.get('page','')) if request.GET.get('page','') else 1
+    request.session['page_query'] = request_page
+    form = SearchForm(data=request.GET or None)
+    if form.is_valid():
+        query = form.cleaned_data.get('q', '')
+    else:
+        query = ''
     clean_query = ''
     if not settings.ENABLE_SEARCH:
         raise Http404('No such page!')
+    
+    ctx = {
+        'query': query,
+        'menu_tree' : create_navbar_tree(request),
+        'query_string': '?q=%s' % query}
+    response = render(request, 'search/index.html', ctx)
+    return response
+
+@view_function
+def search_ajax(request):
     form = SearchForm(data=request.GET or None)
+    request_page = 1
+    if 'page' not in request.GET:
+        if 'page_query' in request.session and request.session['page_query']:
+            request_page = request.session['page_query']
+    else:
+        request_page = int(request.GET.get('page')) if request.GET.get('page') else 1
 
     if form.is_valid():
         miner  = FeatureHelper()
         query = form.cleaned_data.get('q', '')
-        request_page = int(request.GET.get('page','')) if request.GET.get('page','') else 1
+
         clean_query = miner.stem_query(query)
         if not clean_query:
             query, results = '', []
@@ -134,14 +164,14 @@ def search_view(request):
                     results = []
                     start = (settings.PAGINATE_BY*(request_page-1))
                     end = start+(settings.PAGINATE_BY)
-                    products = request.session['query_results'][start:end]
-                    
+                    products = list(Product.objects.filter(id__in=request.session['query_results'][start:end]))
+
                     if not products:
                         raise Http404('No such page!')
                     results = Parallel(n_jobs=psutil.cpu_count()*2,
                         verbose=50,
                         require='sharedmem',
-                        backend="threading")(delayed(render_item)(Product.objects.get(id=item),request.discounts,request.currency) for item in products)
+                        backend="threading")(delayed(render_item)(item,request.discounts,request.currency) for item in products)
                     front = [i for i in range((start))]
                     results = front+results
                     for item in request.session['query_results'][end:]:
@@ -156,16 +186,13 @@ def search_view(request):
                     query, results = '', []
     else:
         query, results = '', []
-    page = paginate_results(list(results), request.GET)
-
+    page = paginate_results(list(results), request_page)
     ctx = {
         'query': query,
+        'count_query' : len(results) if results else 0,
         'results': page,
         'query_string': '?q=%s' % query}
-    response = render(request, 'search/results.html', ctx)
+    response = TemplateResponse(request, 'search/results.html', ctx)
     request.session['query'] = clean_query
     request.session['query_results'] = [item for item in product_appendix]
     return response
-
-def search_ajax(request):
-    return HttpResponse('bla')

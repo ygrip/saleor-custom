@@ -21,7 +21,7 @@ $('#product-image-form').dropzone({
   previewTemplate: $('#template').html(),
   method: 'POST',
   clickable: '.dropzone-message',
-  init: function () {
+  init () {
     this.on('success', (e, response) => {
       const $previewElement = $(e.previewElement);
       $previewElement.find('.product-gallery-item-desc').html(response.image);
@@ -37,7 +37,7 @@ $('#product-image-form').dropzone({
 
       $('.no-images').addClass('hide');
     });
-  }
+  },
 });
 
 if (productGallery) {
@@ -53,12 +53,12 @@ if (productGallery) {
       $.ajax({
         method: 'POST',
         url: $(productGallery).data('post-url'),
-        data: {ordered_images: orderedImages},
+        data: { ordered_images: orderedImages },
         traditional: true,
         headers: {
-          'X-CSRFToken': $.cookie('csrftoken')
-        }
+          'X-CSRFToken': $.cookie('csrftoken'),
+        },
       });
-    }
+    },
   });
 }

@@ -12,9 +12,10 @@ ProductAvailability = namedtuple(
 def products_with_availability(products, discounts, local_currency):
     from ..models import ProductRating
     from django.db.models import Avg
+    ratings = list(ProductRating.objects.all().values('product_id').annotate(value=Avg('value')))
     for product in products:
-        rating = ProductRating.objects.filter(product_id=product).aggregate(Avg('value'))
-        rating['value__avg'] = 0.0 if rating['value__avg'] is None else rating['value__avg']
+        rating = ProductRating.objects.filter(product_id=product).aggregate(value=Avg('value'))
+        rating['value'] = 0.0 if rating['value'] is None else rating['value']
         yield product, rating, get_availability(product, discounts, local_currency)
 
 

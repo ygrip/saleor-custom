@@ -6,7 +6,7 @@ class VariantPickerStore {
       variant: {},
       get isEmpty() {
         return !this.variant.id;
-      }
+      },
     });
   }
 
