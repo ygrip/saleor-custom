@@ -11,6 +11,7 @@ from django.http import (
 from ..cart.utils import set_cart_cookie
 from ..core.utils import serialize_decimal
 from ..seo.schema.product import product_json_ld
+from ..feature.models import ProductFeature, Feature
 from .filters import ProductCategoryFilter, ProductBrandFilter, ProductCollectionFilter
 from .models import Category, Collection, ProductRating, Brand, Product
 from .utils import (
@@ -18,10 +19,14 @@ from .utils import (
     products_for_cart, products_with_details)
 from .utils.attributes import get_product_attributes_data
 from .utils.availability import get_availability
+from ..search.views import render_item, paginate_results
 from .utils.variants_picker import get_variant_picker_data
 from ..core.helper import create_navbar_tree
 from .helper import get_filter_values, get_descendant
 from django.db.models import Avg
+from joblib import (Parallel, delayed)
+import psutil
+from django_mako_plus import view_function, render_template
 
 APPROVED_FILTER = ['Brand','Jenis','Color','Gender']
 
@@ -81,6 +86,11 @@ def product_details(request, slug, product_id, form=None):
     json_ld_data = product_json_ld(product, product_attributes)
     rating = ProductRating.objects.filter(product_id=product).aggregate(value=Avg('value'))
     rating['value'] = 0.0 if rating['value'] is None else rating['value']
+    brand = Brand.objects.get(id=product.brand_id_id)
+    tags = []
+    product_features = list(ProductFeature.objects.filter(product_id_id=product_id).values_list('feature_id_id', flat=True))
+    if product_features:
+        tags = Feature.objects.filter(id__in=product_features)
     return TemplateResponse(
         request, 'product/details.html', {
             'is_visible': is_visible,
@@ -88,6 +98,8 @@ def product_details(request, slug, product_id, form=None):
             'form': form,
             'availability': availability,
             'rating' : rating,
+            'tags' : tags,
+            'brand' : brand,
             'product': product,
             'product_attributes': product_attributes,
             'product_images': product_images,
@@ -168,6 +180,56 @@ def brand_index(request, path, brand_id):
     ctx.update({'object': brand})
 
     return TemplateResponse(request, 'brand/index.html', ctx)
+
+@view_function
+def tags_index(request, path, tag_id):
+    request_page = int(request.GET.get('page','')) if request.GET.get('page','') else 1
+    tag = get_object_or_404(Feature, id=tag_id)
+    actual_path = tag.get_full_path()
+    if actual_path != path:
+        return redirect('product:tags', permanent=True, path=actual_path,
+                        tag_id=tag_id)
+    ctx = {
+        'query': tag,
+        'menu_tree' : create_navbar_tree(request),
+        'query_string': '?page='+ str(request_page)
+        }
+    request.session['tag_query'] = tag_id
+    request.session['tag_page'] = request_page
+    response = TemplateResponse(request, 'tag/index.html', ctx)
+    return response
+
+@view_function
+def tags_render(request):
+    request_page = 1
+    if 'page' not in request.GET:
+        if 'tag_page' in request.session and request.session['tag_page']:
+            request_page = request.session['tag_page']
+    else:
+        request_page = int(request.GET.get('page')) if request.GET.get('page') else 1
+    tag = get_object_or_404(Feature, id=request.session['tag_query'])
+    results = []
+    start = (settings.PAGINATE_BY*(request_page-1))
+    end = start+(settings.PAGINATE_BY)
+    populate_product = list(ProductFeature.objects.filter(feature_id_id=tag.id).values_list('product_id_id', flat=True))
+    products = list(Product.objects.filter(id__in=populate_product[start:end]))          
+    results = Parallel(n_jobs=psutil.cpu_count()*2,
+                verbose=50,
+                require='sharedmem',
+                backend="threading")(delayed(render_item)(item,request.discounts,request.currency) for item in products)
+    front = [i for i in range((start))]
+    results = front+results
+    for item in populate_product[end:]:
+        results.append(item)
+    page = paginate_results(list(results), request_page)
+    ctx = {
+        'query': tag,
+        'count_query' : len(results) if results else 0,
+        'results': page,
+        'query_string': '?page='+ str(request_page)}
+    response = TemplateResponse(request, 'tag/results.html', ctx)
+
+    return response
 
 def collection_index(request, slug, pk):
     collection = get_object_or_404(Collection, id=pk)

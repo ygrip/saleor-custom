@@ -12,45 +12,29 @@
           <div class="home--content">
             <div class="home--content-wrapper">
               <div class="home--content-inner">
-                <div class="slider-pro" id="home-slider">
-                  <div class="sp-slides">
+                <div id="home-slider" class="carousel slide carousel-fade" data-ride="carousel">
+                  <ol class="carousel-indicators">
+                    {% for promo in promos %}
+                    <li data-target="#home-slider" data-slide-to="{{ forloop.counter0 }}"{% if forloop.first %} class="active"{% endif %}></li>
+                    {% endfor %}
+                  </ol>
+                  <div class="carousel-inner">
                     {% for promo in promos %}
                     <!-- Slide 1 -->
 
-                    <div class="sp-slide">
-                      <a href="{{ promo.promo.url }}" class="sp-selectable">
-                          <img class="sp-image" src="{% static promo.promo.image %}" />
-                      </a>
-                      {% if promo.messages %}
-                        {% for message in promo.messages %}
-                          {% if forloop.first %}
-                            <div class="hw-the-slider-content">
-                              <div class="row">
-                                <div class="col-sm-12">
-                                  <div class="hw-the-slider-container">
-                                    <div class="hw-the-slider-captions sp-layer" data-show-transition="up" data-hide-transition="down" data-show-delay="800" data-hide-delay="800" data-stay-duration="5500">
-                                    <div class="title-frame black">
-                                    <span class="typcn typcn-chart-line">
-                                      <h2>{{ message.title }}</h2>
-                                    </span>
-                                      <hr class="small"/>
-                                      <p>{{ message.message }}</p>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          
-                          </div>
-                          {% endif %}
-                        {% endfor %}
-                        {% else %}
-                            
-                          </div>
-
-                      {% endif %}
+                    <div class="carousel-item {% if forloop.first %} active {% endif %}">
+                          <img class="d-block w-100" src="{% static promo.promo.image %}" />
+                    </div>
+                      
                     {% endfor %}
+                    <a class="carousel-control-prev" href="#home-slider" role="button" data-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#home-slider" role="button" data-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="sr-only">Next</span>
+                    </a>
                   </div>
                 </div>
                 </div>
@@ -90,7 +74,7 @@
 
       </div>
     </div>
-    
+
     <script type="application/ld+json">{{ webpage_schema|safe }}</script>
   </div>
   

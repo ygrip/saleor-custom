@@ -51,9 +51,6 @@
         <a href="{{ product.category.get_absolute_url }}">{{ product.category }}</a>
       </li>
     {% endif %}
-    <li>
-      <a href="{{ product.get_absolute_url }}">{{ product }}</a>
-    </li>
   </ul>
 {% endblock breadcrumb %}
 
@@ -122,6 +119,16 @@
       {% endwith %}
     </div>
     <div class="col-md-6 col-12 product__info" id="app-products">
+      {% if brand.brand_image %}
+        <div class="row" style="display: -webkit-box;">
+          <div class="col-sm-2" style="max-width: 6em;">
+            <a href="{{ brand.get_absolute_url }}" class="ratio img-responsive img-circle" style="background-image: url('{{ brand.brand_image.url }}'); background-size: 80%; border: 1px solid #D3D1D0;"></a>
+          </div>
+          <div class="col-lg-8" style="max-width: 80%;"><h3>{{ brand.brand_name }}</h3>
+            <a href="{{ brand.get_absolute_url }}">{{brand.get_absolute_url}}</a>
+          </div>
+        </div>
+      {% endif %}
       <h1 class="product__info__name" style="font-size: 2rem; font-weight:350; ">
         {{ product }}
       </h1>
@@ -195,19 +202,55 @@
         </p>
       {% endif %}
       <div class="product__info__description">
-        <h3>{% trans "Description" context "Product details title" %}</h3>
+        {% if tags %}
+        <h3>{% trans "Product Tags" context "Product details title" %}</h3>
         <hr>
-        {{ product.description|safe }}
+        <div id="product-tags" style="display: block;">
+          {% for tag in tags %}
+            <a style=" text-decoration: none; margin: .5em;" href="{{ tag.get_absolute_url }}">
+            <span class="badge badge-pill badge-info" style="padding-top: .3em; padding-bottom: .3em; padding-right: .5em; padding-left: .5em; margin-top: 15px; margin-bottom: 15px; font-size: 1em; font-weight: 350;">{{tag.word}}</span></a>
+          {% endfor %}
+        </div>
       </div>
+      {% endif %}
       <hr>
-      <table>
-        {% for attribute, value in product_attributes.items %}
-          <tr>
-            <td>{{ attribute }}:</td>
-            <td><strong>{{ value }}</strong></td>
-          </tr>
-        {% endfor %}
-      </table>
     </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-lg-12">
+        <div class="card">
+          <ul class="nav nav-tabs" role = "tablist">
+            <li  class = "nav-item"><a class="active" href="#description-product"  data-toggle="tab">{% trans "DESCRIPTION" context "Product details title" %}
+        </a></li>
+            <li class = "nav-item"><a href="#specification-product" data-toggle="tab">{% trans "SPECIFICATION" context "Product details title" %}
+        </a></li>
+          </ul>
+          <div class="tab-content">
+            <div  class="tab-pane active" id="description-product">
+            <strong><p>{% trans "Deskripsi Produk " context "Product details title" %}{{ product.name|safe }}</p></strong>
+            <hr>
+            
+            <div id="summary" style="margin:0 auto;">
+              <p class="collapse" id="collapseSummary" style="margin-left: 2em; margin-right: 2em; margin-bottom: 0;">{{ product.description|safe }}</p>
+              <a class="collapsed" data-toggle="collapse" href="#collapseSummary" aria-expanded="false" aria-controls="collapseSummary"></a>
+            </div>
+          </div>
+            <div  class="tab-pane" id="specification-product">
+              <strong><p>{% trans "Spesifikasi Produk " context "Product details title" %}{{ product.name|safe }}</p></strong>
+              <hr>
+              <div class="table-responsive">
+              <table class="table table-striped">
+                {% for attribute, value in product_attributes.items %}
+                  <tr>
+                    <td>{{ attribute }}:</td>
+                    <td><strong>{{ value }}</strong></td>
+                  </tr>
+                {% endfor %}
+              </table>
+            </div>
+            </div>
+          </div>
+    </div>
+  </div>
   </div>
 {% endblock content %}

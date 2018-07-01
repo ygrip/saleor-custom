@@ -45,6 +45,22 @@
   <!--[if lt IE 9]>
     <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
+  <script type="text/javascript" charset="utf-8" async defer>
+    var Tos;
+    (function(d, s, id, file) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s);
+        js.id = id;
+        js.onload = function() {
+            var config = {};
+            if (TimeOnSiteTracker) {
+                Tos = new TimeOnSiteTracker(config);
+            }
+        };
+        js.src = file;fjs.parentNode.insertBefore(js, fjs);
+    } (document, 'script', 'TimeOnSiteTracker', '{% static "assets/timeonsite.js" %}'));
+  </script>
 </head>
 
 <body>
@@ -183,22 +199,6 @@
   {% endblock content %}
   <div id="center-loader" class="row home__featured" style="padding-bottom: 200px; padding-top: 200px; width: 100%;">
     <div class="col-12 justify-content-between align-items-center mb-4 mb-md-0 menu" style="margin-top: -200px; margin-bottom: 10em !important; text-align: center; border-bottom: 1px solid #D3D1D0;"><h2>{% trans "Processing your request" %}</h2></div><br><br>
-  <div class="sk-folding-cube" style="margin: 0 auto;">
-    <div class="sk-cube1 sk-cube"></div>
-    <div class="sk-cube2 sk-cube"></div>
-    <div class="sk-cube4 sk-cube"></div>
-    <div class="sk-cube3 sk-cube"></div>
-  </div>
-  <div class="animationload">
-      <div class="osahanloading"></div>
-  </div>
-  <div class="spinner">
-    <div class="rect1"></div>
-    <div class="rect2"></div>
-    <div class="rect3"></div>
-    <div class="rect4"></div>
-    <div class="rect5"></div>
-  </div>
 </div>
 </div>
 {% block footer %}

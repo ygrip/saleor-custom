@@ -7,6 +7,7 @@ import 'slider-pro/dist/css/slider-pro.min.css';
 import '../css/home-slider.css';
 import '../css/loading.css';
 
+import './track-helper'
 import './components/navbar';
 import './components/cart';
 import './components/sorter';
@@ -19,6 +20,5 @@ import './components/password-input';
 import './components/styleguide';
 import './components/misc';
 import './components/image-zoomer';
-import './components/home-slider';
 import './components/rating';
 import './recommender-helper';
