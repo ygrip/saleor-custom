@@ -172,13 +172,7 @@
       </div>
     </div>
     <div class="navbar__menu container d-block">
-      <nav class="navigation">
-        {% with site_menu=menu_tree %}
-          {% with horizontal=True %}
-            {% include 'top_menu.html' %}
-          {% endwith %}
-        {% endwith %}
-      </nav>
+      <nav class="navigation" id="custom-home-navigation"></nav>
     </div>
   </header>
 {% endblock %}

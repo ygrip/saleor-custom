@@ -23,16 +23,21 @@ def home(request):
     products = products_with_availability(
         products, discounts=request.discounts, local_currency=request.currency)
     webpage_schema = get_webpage_schema(request)
-    menu_tree = create_navbar_tree(request)
-    print([item['name'] for item in menu_tree.get('categories')])
     return TemplateResponse(
         request, 'home.html', {
             'parent': None,
             'products': products,
             'product_promos' : promo,
-            'menu_tree' : menu_tree,
             'product_promos_schema' : json.dumps(promo,indent=4,sort_keys=True,default=str),
             'webpage_schema': json.dumps(webpage_schema)})
+
+@view_function
+def render_menu(request):
+    menu_tree = create_navbar_tree(request)
+    return TemplateResponse(request, 'top_menu.html', {
+            'site_menu':menu_tree,
+            'horizontal': True,
+        })
 
 @staff_member_required
 def styleguide(request):

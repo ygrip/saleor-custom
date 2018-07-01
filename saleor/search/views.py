@@ -64,18 +64,18 @@ def check_similarity(item):
         global product_appendix
         product_appendix.append(element)
 
-def render_item(item,discounts,currency):
+def render_item(item,discounts,currency,ratings):
     availability = get_availability(item,discounts=discounts,
                                           local_currency=currency)
-    rating = ProductRating.objects.filter(product_id=item).aggregate(value=Avg('value'))
-    rating['value'] = 0.0 if rating['value'] is None else rating['value']
+    check = list(filter(lambda e: e['product_id'] == int(item.id), ratings))
+    rating = check[0] if check else {'product_id':item.id,'value':0.0}
     return item, rating, availability
 
 def custom_query_validation(query,request,request_page):
     global query_appendix
     global total
     global product_appendix
-
+    ratings = list(ProductRating.objects.all().values('product_id').annotate(value=Avg('value')))
     if product_appendix:
         product_appendix = []
 
@@ -108,7 +108,7 @@ def custom_query_validation(query,request,request_page):
         results = Parallel(n_jobs=psutil.cpu_count()*2,
             verbose=50,
             require='sharedmem',
-            backend="threading")(delayed(render_item)(item,request.discounts,request.currency) for item in products)
+            backend="threading")(delayed(render_item)(item,request.discounts,request.currency,ratings) for item in products)
         front = [i for i in range((start))]
 
         results = front+results
@@ -134,7 +134,6 @@ def search_view(request):
     
     ctx = {
         'query': query,
-        'menu_tree' : create_navbar_tree(request),
         'query_string': '?q=%s' % query}
     response = render(request, 'search/index.html', ctx)
     return response

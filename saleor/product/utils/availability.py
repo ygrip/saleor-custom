@@ -14,8 +14,8 @@ def products_with_availability(products, discounts, local_currency):
     from django.db.models import Avg
     ratings = list(ProductRating.objects.all().values('product_id').annotate(value=Avg('value')))
     for product in products:
-        rating = ProductRating.objects.filter(product_id=product).aggregate(value=Avg('value'))
-        rating['value'] = 0.0 if rating['value'] is None else rating['value']
+        check = list(filter(lambda e: e['product_id'] == int(product.id), ratings))
+        rating = check[0] if check else {'product_id':product.id,'value':0.0}
         yield product, rating, get_availability(product, discounts, local_currency)
 
 

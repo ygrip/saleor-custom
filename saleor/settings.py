@@ -164,7 +164,7 @@ TEMPLATES = [{
     'OPTIONS': {
         'debug': DEBUG,
         'context_processors': context_processors,
-        'loaders': loaders,
+        'loaders': [('django.template.loaders.cached.Loader', loaders)],
         'string_if_invalid': '<< MISSING VARIABLE "%s" >>' if DEBUG else ''}},
         {
         'NAME': 'django_mako_plus',

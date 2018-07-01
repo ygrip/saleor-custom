@@ -94,7 +94,6 @@ def product_details(request, slug, product_id, form=None):
     return TemplateResponse(
         request, 'product/details.html', {
             'is_visible': is_visible,
-            'menu_tree' : create_navbar_tree(request),
             'form': form,
             'availability': availability,
             'rating' : rating,
@@ -191,7 +190,6 @@ def tags_index(request, path, tag_id):
                         tag_id=tag_id)
     ctx = {
         'query': tag,
-        'menu_tree' : create_navbar_tree(request),
         'query_string': '?page='+ str(request_page)
         }
     request.session['tag_query'] = tag_id
@@ -201,6 +199,7 @@ def tags_index(request, path, tag_id):
 
 @view_function
 def tags_render(request):
+    ratings = list(ProductRating.objects.all().values('product_id').annotate(value=Avg('value')))
     request_page = 1
     if 'page' not in request.GET:
         if 'tag_page' in request.session and request.session['tag_page']:
@@ -216,7 +215,7 @@ def tags_render(request):
     results = Parallel(n_jobs=psutil.cpu_count()*2,
                 verbose=50,
                 require='sharedmem',
-                backend="threading")(delayed(render_item)(item,request.discounts,request.currency) for item in products)
+                backend="threading")(delayed(render_item)(item,request.discounts,request.currency,ratings) for item in products)
     front = [i for i in range((start))]
     results = front+results
     for item in populate_product[end:]:

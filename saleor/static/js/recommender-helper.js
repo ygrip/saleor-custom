@@ -24,6 +24,10 @@ const fancy_loading = ` <div class="animationload">
                       </div> `;
 $(document).ready(() => {
 
+  if ($('#custom-home-navigation').length) {
+    console.log('rendering-menu');
+      renderMenu();
+  }
   
   if ($('#query-results').length) {
     var loading_element = '#center-loader';
@@ -46,6 +50,20 @@ $(document).ready(() => {
     console.log('done processing tags');
   }
 });
+
+function renderMenu(){
+  $.ajax({
+      type: 'GET',
+      url: '/render-menu/',
+      crossDomain: 'true',
+      success(response) {
+        $('#custom-home-navigation').html(response);
+      },
+      error (xhr, status) {
+
+      },
+  });
+}
 
 function renderSearchResults(url, query, position, loading_element) {
     $(loading_element).css('display','inline-block');
