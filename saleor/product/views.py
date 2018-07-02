@@ -1,6 +1,7 @@
 import datetime
 import json
-
+import time
+from operator import itemgetter
 from django.shortcuts import get_object_or_404, redirect
 from django.template.response import TemplateResponse
 from django.urls import reverse
@@ -26,7 +27,16 @@ from .helper import get_filter_values, get_descendant
 from django.db.models import Avg
 from joblib import (Parallel, delayed)
 import psutil
-from django_mako_plus import view_function, render_template
+from django.http import HttpResponse, JsonResponse
+from django.views.decorators.csrf import csrf_exempt
+from rest_framework.renderers import JSONRenderer
+from rest_framework.parsers import JSONParser
+from rest_framework import status
+from rest_framework.decorators import api_view, permission_classes
+from rest_framework import permissions
+from math import log10
+from django.db import connection,transaction
+from .utils.availability import products_with_availability
 
 APPROVED_FILTER = ['Brand','Jenis','Color','Gender']
 
@@ -180,7 +190,6 @@ def brand_index(request, path, brand_id):
 
     return TemplateResponse(request, 'brand/index.html', ctx)
 
-@view_function
 def tags_index(request, path, tag_id):
     request_page = int(request.GET.get('page','')) if request.GET.get('page','') else 1
     tag = get_object_or_404(Feature, id=tag_id)
@@ -197,7 +206,6 @@ def tags_index(request, path, tag_id):
     response = TemplateResponse(request, 'tag/index.html', ctx)
     return response
 
-@view_function
 def tags_render(request):
     ratings = list(ProductRating.objects.all().values('product_id').annotate(value=Avg('value')))
     request_page = 1
@@ -241,3 +249,79 @@ def collection_index(request, slug, pk):
     ctx = get_product_list_context(request, product_filter)
     ctx.update({'object': collection})
     return TemplateResponse(request, 'collection/index.html', ctx)
+
+@csrf_exempt
+@api_view(['GET'])
+@permission_classes((permissions.AllowAny,))
+def get_similar_product(request, product_id):
+    try:
+        product = Product.objects.get(id=product_id)
+        
+    except Product.DoesNotExist:
+        raise Http404('No %s matches the given query.' % product.model._meta.object_name)
+
+
+def render_similar_product(request, product_id):
+    start_time = time.time()
+    products = []
+    try:
+        product = Product.objects.get(id=product_id)
+        
+    except Product.DoesNotExist:
+        return TemplateResponse(request, 'product/_small_items.html', {
+            'products': products})
+    pivot_feature = ProductFeature.objects.filter(product_id_id=product_id).values_list('id', flat=True)
+    in_clause = '('
+    for i,f in enumerate(pivot_feature):
+        in_clause += str(f)
+        if i < len(pivot_feature)-1:
+            in_clause += ', '
+    in_clause += ')'
+    query = """
+                SELECT fp.product_id_id AS id, f.word, f.count, fp.frequency
+                FROM feature_feature f JOIN feature_productfeature fp
+                ON fp.feature_id_id = f.id AND fp.feature_id_id IN """+in_clause+"""
+                ORDER BY id
+            """
+    cursor = connection.cursor()
+    cursor.execute(query)
+    product_features = [{'id':item[0],
+                         'word':item[1],
+                         'count': item[2],
+                         'frequency' : item[3]
+                        } for item in cursor.fetchall()]
+    pivot_feature = Feature.objects.filter(id__in=pivot_feature).values_list('word', flat=True)
+    product_list = list(Product.objects.filter(id__in=[d['id'] for d in product_features]).values_list('id', flat=True))
+    total_product = list(Product.objects.all().values_list('id', flat=True))
+    total = len(total_product)
+    list_similar_product = Parallel(n_jobs=psutil.cpu_count()*2,
+            verbose=50,
+            require='sharedmem',
+            backend="threading")(delayed(count_similarity)(product_features,pivot_feature,total,item) for item in product_list)
+
+    if list_similar_product:
+        list_similar_product = sorted(list_similar_product, key=itemgetter('similarity'), reverse=True)
+        products = Product.objects.filter(id__in=[d['id'] for d in list_similar_product[:6]])
+        products = products_with_availability(
+            products, discounts=request.discounts, local_currency=request.currency)
+   
+    temp = {'id':product_id, 'items': list_similar_product}
+    response = TemplateResponse(
+        request, 'product/_small_items.html', {
+            'products': products})
+    print("\nWaktu eksekusi : --- %s detik ---" % (time.time() - start_time))
+    return response
+
+def count_similarity(product_features, pivot_feature, total, item):
+    similar_feature = list(filter(lambda e: int(e.get('id')) == int(item) and e.get('word') in pivot_feature, product_features))
+    
+    similarity = 0.0
+    if similar_feature:
+        for val in similar_feature:
+            similarity += val['frequency']*(log10(1+total/val['count']))
+        similarity *= (len(pivot_feature)/len(similar_feature))
+    if similarity > 0:
+        element = {}
+        element['id'] = item
+        element['similarity'] = similarity
+        return element

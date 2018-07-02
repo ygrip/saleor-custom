@@ -25,7 +25,6 @@ from joblib import (Parallel, delayed)
 from django.db.models import Q
 from django.contrib.sessions.backends.db import SessionStore
 from django.db.models import Avg
-from django_mako_plus import view_function, render_template
 
 total = 0
 query_appendix = {}
@@ -119,7 +118,6 @@ def custom_query_validation(query,request,request_page):
     else:
         return []
 
-@view_function
 def search_view(request):
     request_page = int(request.GET.get('page','')) if request.GET.get('page','') else 1
     request.session['page_query'] = request_page
@@ -138,7 +136,6 @@ def search_view(request):
     response = render(request, 'search/index.html', ctx)
     return response
 
-@view_function
 def search_ajax(request):
     form = SearchForm(data=request.GET or None)
     request_page = 1
@@ -164,13 +161,13 @@ def search_ajax(request):
                     start = (settings.PAGINATE_BY*(request_page-1))
                     end = start+(settings.PAGINATE_BY)
                     products = list(Product.objects.filter(id__in=request.session['query_results'][start:end]))
-
+                    ratings = list(ProductRating.objects.all().values('product_id').annotate(value=Avg('value')))
                     if not products:
                         raise Http404('No such page!')
                     results = Parallel(n_jobs=psutil.cpu_count()*2,
                         verbose=50,
                         require='sharedmem',
-                        backend="threading")(delayed(render_item)(item,request.discounts,request.currency) for item in products)
+                        backend="threading")(delayed(render_item)(item,request.discounts,request.currency,ratings) for item in products)
                     front = [i for i in range((start))]
                     results = front+results
                     for item in request.session['query_results'][end:]:

@@ -74,7 +74,7 @@
              
               {% for image in images %}
                   <a  class="carousel-item{% if forloop.first %} active{% endif %}" 
-                      data-srcset="{% get_thumbnail image.image method="crop" size="270x270" %} 270w, {% get_thumbnail image.image method="crop" size="540x540" %} 540w, {% get_thumbnail image.image method="crop" size="1080x1080" %} 1080w" 
+                      data-srcset="{% get_thumbnail image.image method="crop" size="255x255" %} 255w, {% get_thumbnail image.image method="crop" size="540x540" %} 540w, {% get_thumbnail image.image method="crop" size="1080x1080" %} 1080w" 
                       data-caption="{{ product.name }}"
                       href="{% get_thumbnail image.image method="crop" size="1080x1080" %}"
                       data-sizes="(min-width: 40em) 80vw, 100vw">
@@ -152,12 +152,13 @@
                     style="display: inline-block !important;">
         </star-rating>
       {% endif %}
+      <hr>
       {% if availability.available %}
         {% if show_variant_picker %}
           <div id="variant-price-component"></div>
         {% else %}
-          <h2 class="product__info__price">
-            <span>{% price_range availability.price_range %}</span>
+          <h2 class="product__info__price">Harga : 
+            <span style="font-weight: 500; color: #e67e22;">{% price_range availability.price_range %}</span>
             {% if availability.discount %}
               <small class="product__info__price__undiscounted">{{ availability.price_range_undiscounted.start.gross|amount:'html' }}</small>
             {% endif %}
@@ -171,6 +172,7 @@
           </h2>
         {% endif %}
       {% endif %}
+      
       {% if is_visible and product.is_in_stock %}
         {% block orderform %}
           {% if show_variant_picker %}
@@ -201,10 +203,10 @@
           {% blocktrans context "Product details text" %}This product is currently <strong>unavailable</strong>.{% endblocktrans %}
         </p>
       {% endif %}
+      <hr>
       <div class="product__info__description">
         {% if tags %}
         <h3>{% trans "Product Tags" context "Product details title" %}</h3>
-        <hr>
         <div id="product-tags" style="display: block;">
           {% for tag in tags %}
             <a style=" text-decoration: none; margin: .5em;" href="{{ tag.get_absolute_url }}">
@@ -252,5 +254,13 @@
           </div>
     </div>
   </div>
+  </div>
+  <div class="row justify-content-center home__featured" style="margin-top: 2em; ">
+    <h2 class="text-center">{% trans "Related Product" context "Product details title" %}</h2>
+    <div class="col-lg-12">
+        <div class="card" id="similar-products" data-url="{% url 'product:similar-products' product_id=product.pk %}" style=" padding: 1.5em;">
+
+        </div>
+    </div>
   </div>
 {% endblock content %}

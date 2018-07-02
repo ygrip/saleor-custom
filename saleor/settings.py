@@ -164,18 +164,16 @@ TEMPLATES = [{
     'OPTIONS': {
         'debug': DEBUG,
         'context_processors': context_processors,
-        'loaders': [('django.template.loaders.cached.Loader', loaders)],
+        'loaders': loaders,
         'string_if_invalid': '<< MISSING VARIABLE "%s" >>' if DEBUG else ''}},
-        {
-        'NAME': 'django_mako_plus',
-        'BACKEND': 'django_mako_plus.MakoTemplates',
-    },  
+        
     ]
 
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 MIDDLEWARE = [
+    'django.middleware.cache.UpdateCacheMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -191,10 +189,20 @@ MIDDLEWARE = [
     'saleor.core.middleware.currency',
     'saleor.core.middleware.site',
     'social_django.middleware.SocialAuthExceptionMiddleware',
-    'impersonate.middleware.ImpersonateMiddleware']
+    'impersonate.middleware.ImpersonateMiddleware',
+    'django.middleware.cache.FetchFromCacheMiddleware',
+    ]
+
 
 DEBUG_TOOLBAR_CONFIG = {
+    # Add in this line to disable the panel
+    'SHOW_TOOLBAR_CALLBACK': lambda r: False,
     'JQUERY_URL' : '',
+    'DISABLE_PANELS': {
+        'debug_toolbar.panels.redirects.RedirectsPanel',
+        'debug_toolbar.panels.templates.TemplatesPanel'
+    },
+    'SKIP_TEMPLATE_PREFIXES': ('django/forms/widgets/', 'admin/widgets/'),
 }
 
 INSTALLED_APPS = [
@@ -212,8 +220,6 @@ INSTALLED_APPS = [
     'django.contrib.postgres',
     'django.forms',
     'rest_framework',
-    'async_include',
-    'django_mako_plus',
 
     # Local apps
     'saleor.account',
@@ -299,11 +305,6 @@ LOGGING = {
             'handlers': ['console'],
             'level': 'INFO',
             'propagate': True},
-        'django_mako_plus': {
-            'handlers': ['console'],
-            'level': DEBUG and 'DEBUG' or 'WARNING',
-            'propagate': False,
-        },
         'saleor': {
             'handlers': ['console'],
             'level': 'DEBUG',
@@ -401,6 +402,9 @@ VERSATILEIMAGEFIELD_SETTINGS = {
     'create_images_on_demand': ast.literal_eval(
         os.environ.get('CREATE_IMAGES_ON_DEMAND', repr(DEBUG))),
 }
+
+VATLAYER_USE_HTTPS = ast.literal_eval(
+    os.environ.get('VATLAYER_USE_HTTPS', 'False'))
 
 PLACEHOLDER_IMAGES = {
     60: 'images/placeholder60x60.png',

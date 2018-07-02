@@ -13,7 +13,14 @@ urlpatterns = [
         views.tags_index, name='tags'),
     url(r'tags/render/$',
         views.tags_render, name='tags_render'),
+    url(r'(?P<product_id>[0-9]+)/similar/$',
+        views.render_similar_product, name="similar-products"),
     url(r'(?P<slug>[a-z0-9-_]+?)-(?P<product_id>[0-9]+)/add/$',
         views.product_add_to_cart, name="add-to-cart"),
     url(r'^collection/(?P<slug>[a-z0-9-_/]+?)-(?P<pk>[0-9]+)/$',
         views.collection_index, name='collection')]
+
+api_urlpatterns = [
+    url(r'^product/similar/(?P<product_id>[0-9]+)/$',
+        views.get_similar_product, name='similarproduct'),
+]

@@ -3,7 +3,7 @@ from saleor.settings import *  # noqa
 
 SECRET_KEY = 'NOTREALLY'
 
-DEFAULT_CURRENCY = 'USD'
+DEFAULT_CURRENCY = 'IDR'
 
 LANGUAGE_CODE = 'en'
 

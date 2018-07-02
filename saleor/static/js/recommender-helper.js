@@ -26,7 +26,14 @@ $(document).ready(() => {
 
   if ($('#custom-home-navigation').length) {
     console.log('rendering-menu');
-      renderMenu();
+    renderMenu();
+  }
+
+  if ($('#similar-products').length) {
+    console.log('rendering-similar-products');
+    var position = '#similar-products';
+    var url = $('#similar-products').data('url');
+    renderSimilarProduct(url, position);
   }
   
   if ($('#query-results').length) {
@@ -64,7 +71,23 @@ function renderMenu(){
       },
   });
 }
-
+function renderSimilarProduct(url, position){
+  $(position).append(spinner_loading);
+  $.ajax({
+      type: 'GET',
+      url: url,
+      crossDomain: 'true',
+      success(response) {
+        $(position).html('');
+        $(position).html(response);
+        renderRating(position);
+      },
+      error (xhr, status) {
+        $(position).html('');
+        alert(`Unknown error ${status}`);
+      },
+  });
+}
 function renderSearchResults(url, query, position, loading_element) {
     $(loading_element).css('display','inline-block');
     $(loading_element).append(fancy_loading);
