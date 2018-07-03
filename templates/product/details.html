@@ -157,7 +157,7 @@
         {% if show_variant_picker %}
           <div id="variant-price-component"></div>
         {% else %}
-          <h2 class="product__info__price">Harga : 
+          <h2 class="product__info__price">Price : 
             <span style="font-weight: 500; color: #e67e22;">{% price_range availability.price_range %}</span>
             {% if availability.discount %}
               <small class="product__info__price__undiscounted">{{ availability.price_range_undiscounted.start.gross|amount:'html' }}</small>
@@ -216,6 +216,19 @@
       </div>
       {% endif %}
       <hr>
+      <div class="col-lg-12">
+        <h3>{% trans "Merchant Location" context "Product details title" %}</h3><br>
+        <div class="row">
+          {% if location %}
+            <a style=" text-decoration: none; margin: .25em; width: 100%;" href="https://maps.google.com?q={{ location_query }}" target="_blank" class="row">
+            <span class="glyphicon glyphicon-map-marker" aria-hidden="false" style="margin-left:.5em;   display: inherit;"><img src="{% static "assets/maps-and-flags.svg" %}" width="30" height="30" style="margin-right:.5em;"></img><div style="border-bottom: 1px #4285F4 dashed; color: #4285F4;"> {{ location.location }}</div></span>
+            </a>
+          {% else %}
+            <span class="glyphicon glyphicon-map-marker" aria-hidden="false" style="margin-left:.5em;"><img src="{% static "assets/maps-and-flags.svg" %}" width="30" height="30"></img> - </span>
+          {% endif %}
+        </div>
+      </div>
+      <hr>
     </div>
   </div>
   <div class="row justify-content-center">
@@ -225,6 +238,7 @@
             <li  class = "nav-item"><a class="active" href="#description-product"  data-toggle="tab">{% trans "DESCRIPTION" context "Product details title" %}
         </a></li>
             <li class = "nav-item"><a href="#specification-product" data-toggle="tab">{% trans "SPECIFICATION" context "Product details title" %}
+            <li class = "nav-item"><a href="#information-product" data-toggle="tab">{% trans "INFORMATION" context "Product details title" %}
         </a></li>
           </ul>
           <div class="tab-content">
@@ -251,14 +265,37 @@
               </table>
             </div>
             </div>
+            <div  class="tab-pane" id="information-product">
+              <strong><p>{% trans "Informasi Tambahan Produk :" context "Product details title" %}</p></strong>
+              <ul class="list-group list-group-flush">
+                {% if service %}
+                {% for value in information %}
+                  <li class="list-group-item">{{ value }}</li>
+                {% endfor %}
+                {% else %}
+                  <li class="list-group-item">-</li>
+                  {% endif %}
+                </ul>
+                <br><br>
+            <strong><p>{% trans "Service Produk :" context "Product details title" %}</p></strong>
+              <ul class="list-group list-group-flush">
+                {% if service %}
+                {% for value in service %}
+                  <li class="list-group-item">{{ value }}</li>
+                {% endfor %}
+                {% else %}
+                  <li class="list-group-item">-</li>
+                  {% endif %}
+                </ul>
+            </div>
           </div>
     </div>
   </div>
   </div>
-  <div class="row justify-content-center home__featured" style="margin-top: 2em; ">
+  <div class="row-fluid justify-content-center home__featured" style="margin-top: 2em; ">
     <h2 class="text-center">{% trans "Related Product" context "Product details title" %}</h2>
-    <div class="col-lg-12">
-        <div class="card" id="similar-products" data-url="{% url 'product:similar-products' product_id=product.pk %}" style=" padding: 1.5em;">
+    <div class="col-lg-12 col-6">
+        <div class="card" id="similar-products" data-url="{% url 'product:similar-products' product_id=product.pk %}" style=" padding-bottom: 1.5em;">
 
         </div>
     </div>

@@ -53,7 +53,7 @@
               <div class="home--content-inner" style="background-color: rgba(20, 20, 25, 0.5);">
                 <h1>{% trans "Promo &amp; Sale" context "Homepage title" %}</h1>
                 <h2>{% trans "for you" context "Homepage title" %}</h2>
-                  <a class="btn btn-secondary home__button" href="#">
+                  <a class="btn btn-secondary home__button" href="{% url 'product:sale_product' %}">
                     {% trans "Shop now" context "Homepage action" %}
                   </a>
               </div>
@@ -69,8 +69,7 @@
       </div>
     </div>
     <div class="home__featured">
-      <h2 class="text-center">{% trans "Check Message" context "Homepage title" %}</h2>
-      <div class="row" id="check_test_message">
+      <div class="row" id="categories_list">
 
       </div>
     </div>

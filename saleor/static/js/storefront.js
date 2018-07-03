@@ -4,6 +4,7 @@ import 'bootstrap';
 import '../scss/storefront.scss';
 import 'lightgallery/src/sass/lightgallery.scss';
 import 'slider-pro/dist/css/slider-pro.min.css';
+import 'flickity/dist/flickity.min.css';
 import '../css/home-slider.css';
 import '../css/loading.css';
 

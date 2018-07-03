@@ -50,6 +50,11 @@ class Brand(models.Model):
 
 class MerchantLocation(models.Model):
     location=models.TextField(unique=True)
+    def __str__(self):
+        return self.location
+    def get_query_string(self):
+        import urllib
+        return urllib.parse({'q':self.location})
 
     class Meta:
         app_label = 'product'

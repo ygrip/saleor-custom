@@ -7,6 +7,8 @@ from impersonate.views import impersonate as orig_impersonate
 from django.conf import settings
 from django.core import serializers
 from ..account.models import User
+from ..product.models import Category, Product
+from ..product.helper import get_descendant
 from django.shortcuts import render
 from ..dashboard.views import staff_member_required
 from ..product.utils import products_for_homepage, top_purchased_product
@@ -14,6 +16,7 @@ from ..promo.utils import promo_for_homepage
 from ..product.utils.availability import products_with_availability
 from ..seo.schema.webpage import get_webpage_schema
 from .helper import create_navbar_tree
+from ..product.utils.availability import products_with_availability
 
 def home(request):
     start_time = time.time()
@@ -30,6 +33,31 @@ def home(request):
             'product_promos' : promo,
             'product_promos_schema' : json.dumps(promo,indent=4,sort_keys=True,default=str),
             'webpage_schema': json.dumps(webpage_schema)})
+
+def render_home_categories(request):
+    categories = list(Category.objects.filter(parent_id__isnull=True))
+
+    results = []
+
+    for item in categories:
+        element = {}
+        element['name'] = item.name
+        element['url'] = item.get_absolute_url()
+        element['background_image'] = item.background_image.url
+        descendants = get_descendant(item.id, with_self=True)
+        products = list(Product.objects.filter(category_id__in=descendants).order_by('-category_id','name'))[:12]
+        products = list(products_with_availability(
+            products, discounts=request.discounts, local_currency=request.currency))
+
+        element['products'] = products
+        results.append(element)
+
+    ctx = {
+        'categories': results,
+        }
+    response = TemplateResponse(request, 'product/categories_list.html', ctx)
+
+    return response
 
 def render_menu(request):
     start_time = time.time()

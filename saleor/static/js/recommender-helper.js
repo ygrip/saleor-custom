@@ -1,4 +1,6 @@
 import Vue from 'vue';
+import Flickity from 'flickity';
+import swal from 'sweetalert2';
 
 console.log('recommender helper loaded');
 const processing_label = ` <div class="col-12 justify-content-between align-items-center mb-4 mb-md-0 menu" style="margin-top: -200px; margin-bottom: 10em !important; text-align: center; border-bottom: 1px solid #D3D1D0;">
@@ -29,11 +31,30 @@ $(document).ready(() => {
     renderMenu();
   }
 
+  if ($('#categories_list').length) {
+    console.log('rendering-catalog-products');
+    var target = ".featured-catalog"
+    var position = '#categories_list';
+    var url = '/render-categories/';
+    renderSimilarProduct(url, position,target);
+  }
+
   if ($('#similar-products').length) {
     console.log('rendering-similar-products');
+    var target = "#featured-courses"
     var position = '#similar-products';
     var url = $('#similar-products').data('url');
-    renderSimilarProduct(url, position);
+    renderSimilarProduct(url, position,target);
+  }
+
+  if ($('#sale-results').length) {
+    console.log('rendering-sale-products');
+    var loading_element = '#center-loader';
+    var position = '#sale-results';
+    var url = $('#sale-results').data('url');
+    const query = window.location.search.substring(1);
+    const parsed_query = parse_query_string(query);
+    renderSearchResults(url, parsed_query, position, loading_element);
   }
   
   if ($('#query-results').length) {
@@ -56,6 +77,16 @@ $(document).ready(() => {
     renderSearchResults(url, parsed_query, position, loading_element);
     console.log('done processing tags');
   }
+  if ($('#similar-results').length) {
+    var loading_element = '#center-loader';
+    var position = '#similar-results';
+    const query = window.location.search.substring(1);
+    const parsed_query = parse_query_string(query);
+    var url = $('#similar-results').data('url');
+    console.log(parsed_query);
+    renderSearchResults(url, parsed_query, position, loading_element);
+    console.log('done processing similar product');
+  }
 });
 
 function renderMenu(){
@@ -67,11 +98,15 @@ function renderMenu(){
         $('#custom-home-navigation').html(response);
       },
       error (xhr, status) {
-
+      	swal({
+		  type: 'error',
+		  title: 'Oops...',
+		  text: 'Something went wrong! '+status,
+		})
       },
   });
 }
-function renderSimilarProduct(url, position){
+function renderSimilarProduct(url, position, target){
   $(position).append(spinner_loading);
   $.ajax({
       type: 'GET',
@@ -81,10 +116,33 @@ function renderSimilarProduct(url, position){
         $(position).html('');
         $(position).html(response);
         renderRating(position);
+        var galleryElems = document.querySelectorAll(target);
+        for ( var i=0, len = galleryElems.length; i < len; i++ ) {
+          var galleryElem = galleryElems[i];
+          new Flickity( galleryElem, {
+            // options
+            cellSelector: '.course-item',
+            cellAlign: 'left',
+            lazyLoad: true,
+            pageDots: false,
+            arrowShape: { 
+              x0: 10,
+              x1: 70, y1: 50,
+              x2: 65, y2: 15,
+              x3: 45
+            }
+          });
+          $('.flickity-prev-next-button.previous').css('left','-1.5em');
+          $('.flickity-prev-next-button.next').css('right','-1.5em');
+        }
       },
       error (xhr, status) {
         $(position).html('');
-        alert(`Unknown error ${status}`);
+        swal({
+		  type: 'error',
+		  title: 'Oops...',
+		  text: 'Something went wrong! '+status,
+		})
       },
   });
 }
@@ -112,7 +170,11 @@ function renderSearchResults(url, query, position, loading_element) {
 	    error (xhr, status) {
         $(loading_element).css('display','none'); 
 	      $(loading_element+' div:last-child').remove(); 
-	      alert(`Unknown error ${status}`);
+	      swal({
+			  type: 'error',
+			  title: 'Oops...',
+			  text: 'Something went wrong! '+status,
+			})
 	    },
   });
 }

@@ -20,7 +20,7 @@
 
 {% block content %}
   <div class="row home__featured">
-    <div id="tags-results" style="width: 100%;">
+    <div id="similar-results" data-url="{% url 'product:render-all-similar-products' product_id=product_id %}">
     </div>
   </div>
 {% endblock content %}

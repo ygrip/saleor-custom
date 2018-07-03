@@ -2,7 +2,7 @@
 {% load staticfiles %}
 {% load bootstrap_pagination from bootstrap4 %}
 
-<div class="col-12 justify-content-between align-items-center mb-4 mb-md-0 menu" style="margin: 3px; text-align: center; border-bottom: 1px solid #D3D1D0;"><h2>{% trans "Found :" %} <strong>{{ count_query }}</strong> {% trans " matching items for " %} <strong>{{ query }}</strong></h2></div>
+<div class="col-12 justify-content-between align-items-center mb-4 mb-md-0 menu" style="margin: 3px; text-align: center; border-bottom: 1px solid #D3D1D0;"><h2>{% trans "Found :" %} <strong>{{ count_query }}</strong> {% trans " items related with " %} <br><strong>{{ query }}</strong></h2></div>
 <div class="divider"></div>
 <div class="col-12">
   {% if query and results %}
@@ -14,7 +14,7 @@
     <div class="row no-results">
       <div class="col-12">
         <h2>{% trans "Search:" %} <strong>{{ query }}</strong></h2>
-        <img src="{% static "images/no-results-bg.svg" %}" width="360" height="360"/>
+        <svg data-src="{% static "images/no-results-bg.svg" %}" width="360" height="360"/>
         <p>{% trans "Sorry, no matches found for your request." context "Search without results text" %}</p>
         <p>{% trans "Try again or shop new arrivals." context "Search without results text" %}</p>
       </div>

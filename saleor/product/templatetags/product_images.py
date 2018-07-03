@@ -22,6 +22,9 @@ def get_available_sizes():
 
 AVAILABLE_SIZES = get_available_sizes()
 
+@register.filter
+def get_at_index(list_, index):
+    return list_[index]
 
 def choose_placeholder(size=''):
     # type: (str) -> str

@@ -14,7 +14,7 @@ from ..core.utils import serialize_decimal
 from ..seo.schema.product import product_json_ld
 from ..feature.models import ProductFeature, Feature
 from .filters import ProductCategoryFilter, ProductBrandFilter, ProductCollectionFilter
-from .models import Category, Collection, ProductRating, Brand, Product
+from .models import Category, Collection, ProductRating, Brand, Product, MerchantLocation
 from .utils import (
     get_product_images, get_product_list_context, handle_cart_form,
     products_for_cart, products_with_details)
@@ -37,6 +37,8 @@ from rest_framework import permissions
 from math import log10
 from django.db import connection,transaction
 from .utils.availability import products_with_availability
+import urllib
+from django.forms.models import model_to_dict
 
 APPROVED_FILTER = ['Brand','Jenis','Color','Gender']
 
@@ -99,6 +101,12 @@ def product_details(request, slug, product_id, form=None):
     brand = Brand.objects.get(id=product.brand_id_id)
     tags = []
     product_features = list(ProductFeature.objects.filter(product_id_id=product_id).values_list('feature_id_id', flat=True))
+    product_info = product.information
+    product_service = product.service
+    product_info = json.loads(product_info)
+    product_service = json.loads(product_service)
+    location = MerchantLocation.objects.get(id=product.location_id)
+    location_query = '+'.join(map(lambda e: e, str(location.location).split(' ')))
     if product_features:
         tags = Feature.objects.filter(id__in=product_features)
     return TemplateResponse(
@@ -108,7 +116,11 @@ def product_details(request, slug, product_id, form=None):
             'availability': availability,
             'rating' : rating,
             'tags' : tags,
+            'service' : product_service,
+            'information' : product_info,
             'brand' : brand,
+            'location':location,
+            'location_query':location_query,
             'product': product,
             'product_attributes': product_attributes,
             'product_images': product_images,
@@ -250,27 +262,12 @@ def collection_index(request, slug, pk):
     ctx.update({'object': collection})
     return TemplateResponse(request, 'collection/index.html', ctx)
 
-@csrf_exempt
-@api_view(['GET'])
-@permission_classes((permissions.AllowAny,))
-def get_similar_product(request, product_id):
+def get_similar_product(product_id):
     try:
         product = Product.objects.get(id=product_id)
-        
     except Product.DoesNotExist:
         raise Http404('No %s matches the given query.' % product.model._meta.object_name)
-
-
-def render_similar_product(request, product_id):
-    start_time = time.time()
-    products = []
-    try:
-        product = Product.objects.get(id=product_id)
-        
-    except Product.DoesNotExist:
-        return TemplateResponse(request, 'product/_small_items.html', {
-            'products': products})
-    pivot_feature = ProductFeature.objects.filter(product_id_id=product_id).values_list('id', flat=True)
+    pivot_feature = ProductFeature.objects.filter(product_id_id=product_id).values_list('feature_id_id', flat=True)
     in_clause = '('
     for i,f in enumerate(pivot_feature):
         in_clause += str(f)
@@ -298,17 +295,52 @@ def render_similar_product(request, product_id):
             verbose=50,
             require='sharedmem',
             backend="threading")(delayed(count_similarity)(product_features,pivot_feature,total,item) for item in product_list)
+    return list_similar_product
 
+
+def render_similar_product(request, product_id):
+    start_time = time.time()
+    list_similar_product = []
+    products = []
+    try:
+        product = Product.objects.get(id=product_id)
+        
+    except Product.DoesNotExist:
+        return TemplateResponse(request, 'product/_small_items.html', {
+            'products': products})
+    status = False
+    check = []
+    if 'similar_product' in request.session and request.session['similar_product']:
+        check = list(filter(lambda e : e['id'] == product.id, request.session['similar_product']))
+        if check and check[0]['related']:
+            status = True
+
+    if status:
+        list_similar_product = check[0]['related']
+    else:
+        temp = {}
+        list_similar_product = get_similar_product(product_id)
+        if list_similar_product:
+            list_similar_product = sorted(list_similar_product, key=itemgetter('similarity'), reverse=True)
+            all_temp = []
+            temp['id'] = product.id
+            temp['related'] = list_similar_product
+            if 'similar_product' in request.session and request.session['similar_product']:
+                all_temp = request.session['similar_product']
+            all_temp.append(temp)
+            request.session['similar_product'] = all_temp
+
+    list_similarity = []
     if list_similar_product:
         list_similar_product = sorted(list_similar_product, key=itemgetter('similarity'), reverse=True)
-        products = Product.objects.filter(id__in=[d['id'] for d in list_similar_product[:6]])
+        products = Product.objects.filter(id__in=[d['id'] for d in list_similar_product[:12]])
         products = products_with_availability(
             products, discounts=request.discounts, local_currency=request.currency)
-   
-    temp = {'id':product_id, 'items': list_similar_product}
+        list_similarity = [round(d['similarity'],4) for d in list_similar_product[:12]]
+    
     response = TemplateResponse(
         request, 'product/_small_items.html', {
-            'products': products})
+            'products': products, 'product_id':product_id, 'similarity':list_similarity})
     print("\nWaktu eksekusi : --- %s detik ---" % (time.time() - start_time))
     return response
 
@@ -325,3 +357,141 @@ def count_similarity(product_features, pivot_feature, total, item):
         element['id'] = item
         element['similarity'] = similarity
         return element
+
+def all_similar_product(request, product_id):
+    request_page = int(request.GET.get('page','')) if request.GET.get('page','') else 1
+    try:
+        product = Product.objects.get(id=product_id)
+        
+    except Product.DoesNotExist:
+        raise Http404('No %s matches the given query.' % product.model._meta.object_name)
+
+    ctx = {
+        'query': product,
+        'product_id' : product_id,
+        'query_string': '?page='+ str(request_page)
+        }
+
+    request.session['similar_page'] = request_page
+    response = TemplateResponse(request, 'product/all_similar.html', ctx)
+    return response
+
+
+def render_all_similar_product(request, product_id):
+    start_time = time.time()
+    list_similar_product = []
+    products = []
+    request_page = int(request.GET.get('page')) if request.GET.get('page') else 1
+    try:
+        product = Product.objects.get(id=product_id)
+        
+    except Product.DoesNotExist:
+        ctx = {
+            'query': product.model._meta.object_name,
+            'count_query' : '-',
+            'results': [],
+            'query_string': '?page='+ str(request_page)}
+        return TemplateResponse(request, 'product/similar_results.html', ctx)
+
+    status = False
+    check = []
+    if 'similar_product' in request.session and request.session['similar_product']:
+        check = list(filter(lambda e : e['id'] == product.id, request.session['similar_product']))
+        if check and check[0]['related']:
+            status = True
+
+    if status:
+        list_similar_product = check[0]['related']
+    else:
+        temp = {}
+        list_similar_product = get_similar_product(product_id)
+        if list_similar_product:
+            list_similar_product = sorted(list_similar_product, key=itemgetter('similarity'), reverse=True)
+            all_temp = []
+            temp['id'] = product.id
+            temp['related'] = list_similar_product
+            if 'similar_product' in request.session and request.session['similar_product']:
+                all_temp = request.session['similar_product']
+            all_temp.append(temp)
+            request.session['similar_product'] = all_temp
+
+    if list_similar_product:
+        ratings = list(ProductRating.objects.all().values('product_id').annotate(value=Avg('value')))
+        request_page = 1
+        if 'page' not in request.GET:
+            if 'similar_page' in request.session and request.session['similar_page']:
+                request_page = request.session['similar_page']
+        else:
+            results = []
+            start = (settings.PAGINATE_BY*(request_page-1))
+            end = start+(settings.PAGINATE_BY)
+            products = list(Product.objects.filter(id__in=[d['id'] for d in list_similar_product[start:end]]))          
+            results = Parallel(n_jobs=psutil.cpu_count()*2,
+                        verbose=50,
+                        require='sharedmem',
+                        backend="threading")(delayed(render_item)(item,request.discounts,request.currency,ratings) for item in products)
+            front = [i for i in range((start))]
+            results = front+results
+            for item in [d['id'] for d in list_similar_product[end:]]:
+                results.append(item)
+            page = paginate_results(list(results), request_page)
+            ctx = {
+                'query': product,
+                'count_query' : len(results) if results else 0,
+                'results': page,
+                'query_string': '?page='+ str(request_page)}
+            response = TemplateResponse(request, 'product/similar_results.html', ctx)
+
+            return response
+
+def get_all_discounted_product(request):
+    request_page = int(request.GET.get('page','')) if request.GET.get('page','') else 1
+    
+    ctx = {
+        'query': '',
+        'query_string': '?page='+ str(request_page)
+        }
+    request.session['sale_page'] = request_page
+    response = TemplateResponse(request, 'sale/index.html', ctx)
+    return response
+
+def render_discounted_product(request):
+    ratings = list(ProductRating.objects.all().values('product_id').annotate(value=Avg('value')))
+    request_page = 1
+    query = """
+            SELECT p.id AS id 
+            FROM discount_sale_products d, product_product p, product_productvariant v
+            WHERE p.id = d.product_id AND p.is_published = True AND p.id = v.product_id AND v.quantity - v.quantity_allocated > 0
+            ORDER BY id;
+            """
+    cursor = connection.cursor()
+    cursor.execute(query)
+    product_list = row = [item[0] for item in cursor.fetchall()]
+    if 'page' not in request.GET:
+        if 'sale_page' in request.session and request.session['sale_page']:
+            request_page = request.session['sale_page']
+    else:
+        request_page = int(request.GET.get('page')) if request.GET.get('page') else 1
+        
+    results = []
+    start = (settings.PAGINATE_BY*(request_page-1))
+    end = start+(settings.PAGINATE_BY)
+
+    products = list(Product.objects.filter(id__in=product_list[start:end]))          
+    results = Parallel(n_jobs=psutil.cpu_count()*2,
+                verbose=50,
+                require='sharedmem',
+                backend="threading")(delayed(render_item)(item,request.discounts,request.currency,ratings) for item in products)
+    front = [i for i in range((start))]
+    results = front+results
+    for item in product_list[end:]:
+        results.append(item)
+    page = paginate_results(list(results), request_page)
+    ctx = {
+        'query': '',
+        'count_query' : len(results) if results else 0,
+        'results': page,
+        'query_string': '?page='+ str(request_page)}
+    response = TemplateResponse(request, 'sale/results.html', ctx)
+
+    return response

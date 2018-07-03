@@ -1,0 +1,22 @@
+
+{% if categories %}
+{% for category in categories %}
+<div class="card hovercard" style="margin-top: 1em;">
+	    <div class="card-background" style="height:360px; width: 100%; margin-bottom: -2em;">
+			<div class="card-bkimg" style="background-image: url('{{ category.background_image }}'); height: 100%; width: 100%; background-size: cover; background-repeat: no-repeat; padding-top:20%;">
+	<h2 class="text-center card-title" style="height: 100%; width: 100%; font-size: 3em; padding-top:1em; margin-top: -.5em; color:#eee; background: rgba(10,10,20,.5);">{{ category.name }}</h2>
+	</div></div>
+<div class="row-fluid justify-content-center home__featured" style="margin-top: 2em; ">
+	
+	<div class="col-lg-12 col-6">
+		
+		    {% with category.url as category_url %}
+		    	{% with category.products as products %}
+					  {% include "product/_medium_items.html" %}
+		    	{% endwith %}
+		    {% endwith %}
+	</div>
+</div>
+</div>
+{% endfor %}
+{% endif %}

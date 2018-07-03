@@ -24,7 +24,7 @@ ROOT_URLCONF = 'saleor.urls'
 WSGI_APPLICATION = 'saleor.wsgi.application'
 
 ADMINS = (
-    # ('Your Name', 'your_email@example.com'),
+    ('Yunaz Gilang', 'yunaz.gilang@gmail.com'),
 )
 MANAGERS = ADMINS
 
@@ -128,8 +128,9 @@ STATICFILES_DIRS = [
     ('assets', os.path.join(PROJECT_ROOT, 'saleor', 'static', 'assets')),
     ('favicons', os.path.join(PROJECT_ROOT, 'saleor', 'static', 'favicons')),
     ('images', os.path.join(PROJECT_ROOT, 'saleor', 'static', 'images')),
-    ('dashboard', os.path.join(PROJECT_ROOT, 'saleor', 'static', 'dashboard')),
-    ('npm_modules', os.path.join(PROJECT_ROOT, 'node_modules'))]
+    ('fonts', os.path.join(PROJECT_ROOT, 'saleor', 'static', 'fonts')),
+    ('dashboard', os.path.join(PROJECT_ROOT, 'saleor', 'static', 'dashboard'))
+    ]
 STATICFILES_FINDERS = [
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder']
@@ -173,7 +174,6 @@ TEMPLATES = [{
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 MIDDLEWARE = [
-    'django.middleware.cache.UpdateCacheMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -190,7 +190,6 @@ MIDDLEWARE = [
     'saleor.core.middleware.site',
     'social_django.middleware.SocialAuthExceptionMiddleware',
     'impersonate.middleware.ImpersonateMiddleware',
-    'django.middleware.cache.FetchFromCacheMiddleware',
     ]
 
 
@@ -327,6 +326,9 @@ LOGIN_REDIRECT_URL = 'home'
 
 GOOGLE_ANALYTICS_TRACKING_ID = os.environ.get('GOOGLE_ANALYTICS_TRACKING_ID')
 
+# VAT configuration
+# Enabling vat requires valid vatlayer access key.
+VATLAYER_ACCESS_KEY = os.environ.get('VATLAYER_ACCESS_KEY')
 
 def get_host():
     from django.contrib.sites.models import Site
@@ -402,9 +404,6 @@ VERSATILEIMAGEFIELD_SETTINGS = {
     'create_images_on_demand': ast.literal_eval(
         os.environ.get('CREATE_IMAGES_ON_DEMAND', repr(DEBUG))),
 }
-
-VATLAYER_USE_HTTPS = ast.literal_eval(
-    os.environ.get('VATLAYER_USE_HTTPS', 'False'))
 
 PLACEHOLDER_IMAGES = {
     60: 'images/placeholder60x60.png',
@@ -515,6 +514,3 @@ ALLOWED_STYLES = ['text-align']
 DEFAULT_MENUS = {
     'top_menu_name': 'navbar',
     'bottom_menu_name': 'footer'}
-
-# import django
-# django.setup()
