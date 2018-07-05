@@ -523,17 +523,17 @@ def get_arc_recommendation(request, mode, limit):
                 status_source = False
                 source = ''
                 try:
-                    source_data = ProductRating.objects.filter(user_id=data['user'])
-                    source = 'rating'
+                    source_data = Order.objects.filter(user_id=data['user'])
+                    source = 'order'
                     status_source = True
-                except ProductRating.DoesNotExist:
+                except Order.DoesNotExist:
                     pass
                 if not status_source:
                     try:
-                        source_data = Order.objects.filter(user_id=data['user'])
-                        source = 'order'
+                        source_data = ProductRating.objects.filter(user_id=data['user'])
+                        source = 'rating'
                         status_source = True
-                    except Order.DoesNotExist:
+                    except ProductRating.DoesNotExist:
                         result = {'success':False,'recommendation':'user has no data to process','process_time':(time.time() -  start_time)}
                         return JsonResponse(result, status=status.HTTP_400_BAD_REQUEST)
                 del source_data
@@ -555,7 +555,7 @@ def get_arc_recommendation(request, mode, limit):
                     print('done generating 2d matrix in %s'%(time.time() -  start_convert))
 
                     start_count = time.time()
-                    user_similarity = collaborative_similarity(cross_section, len(distinct_user), len(distinct_product))
+                    user_similarity = collaborative_similarity(cross_section, len(distinct_user))
                     print('done processing collaborative similarity in %s'%(time.time() -  start_count))
 
                     result_matrix = []
@@ -565,12 +565,12 @@ def get_arc_recommendation(request, mode, limit):
                     start_similarity = time.time()
                     while True:
                         if result_matrix:
-                            if 0 not in result_matrix[-1][user_id] or order > int(limit):
+                            if 0 not in result_matrix[-1][user_id] or order >= int(limit):
                                 results['ordinality']  = order
                                 results['score_for_user'] = result_matrix[-1][user_id]
                                 break
                         if order == 1:
-                            final_weight = (binary_cross_section.dot(binary_cross_section.T)*(user_similarity)).dot(cross_section)
+                            final_weight = cross_section
                             result_matrix.append(final_weight)
                         else:
                             check = result_matrix[-1]
@@ -606,6 +606,7 @@ def get_arc_recommendation(request, mode, limit):
                     recommended_items['total'] = len(all_products)
                     results['recommendation'] = recommended_items
                     results['status'] = True
+                    results['source'] = source
                     results['process_time'] = (time.time() -  start_time)
                     return JsonResponse(results) 
 
@@ -614,36 +615,43 @@ def get_arc_recommendation(request, mode, limit):
         return JsonResponse(result, status=status.HTTP_400_BAD_REQUEST) 
     print("\nWaktu eksekusi : --- %s detik ---" % (time.time() - start_time))
 
-def collaborative_similarity(array_input, users, items):
-    list_similarity = create_fixed_array(users,users, dtype=float)
+def collaborative_similarity(array_input, users):
+    list_similarity = []
     max_range = np.max(array_input)
     for i in range(0,users):
+        row = []
         for j in range(0,users):
             if i == j:
-                list_similarity[i][j] = 1
+                row.append(1.0)
             else:
-                similarity = []
-                for k in range(0,items):
-                    if array_input[i][k] > 0  and array_input[j][k] > 0:
-                        val =  max_range - abs(array_input[i][k]-array_input[j][k])/max_range
-                        similarity.append(val)
-                    else:
-                        similarity.append(0)
-                list_similarity[i][j] = sum(similarity)/len(similarity)
-
+                user_a = np.array(array_input[i])
+                user_b = np.array(array_input[j])
+                user_a[(user_a==0)|(user_b==0)] = 0
+                user_b[(user_a==0)|(user_b==0)] = 0
+                val = (max_range-abs(np.subtract(user_a,user_b)))/max_range
+                val[(user_a==0)&(user_b==0)] = 0
+                similarity = np.sum(val)/val.size
+                row.append(similarity)
+        list_similarity.append(row)
     return np.array(list_similarity)
 
 def process_cross_section(array_input, distinct_a, distinct_b):
     total_a = len(distinct_a)
     total_b = len(distinct_b)
     
-    results_normal = create_fixed_array(total_a,total_b)
-    for item in array_input:
-        results_normal[distinct_a.index(item[0])][distinct_b.index(item[1])] = item[2]
+    np_array = np.array(array_input)
+    xs = np_array[:,0]
+    ys = np_array[:,1]
+    zs = np_array[:,2]
+    xs_val, xs_idx = np.unique(xs, return_inverse=True)
+    ys_val, ys_idx = np.unique(ys, return_inverse=True)
+    results_normal = np.zeros(xs_val.shape+ys_val.shape)
+    results_normal.fill(0)
+    results_normal[xs_idx,ys_idx] = zs
 
     results_binary = np.copy(results_normal)
     results_binary[results_binary>1] = 1
-    print(len(results_normal), len(results_binary))
+
     return results_normal, results_binary
 
 def create_fixed_array(col, row, dtype=int):
