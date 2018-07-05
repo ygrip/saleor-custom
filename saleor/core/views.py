@@ -11,7 +11,7 @@ from ..product.models import Category, Product
 from ..product.helper import get_descendant
 from django.shortcuts import render
 from ..dashboard.views import staff_member_required
-from ..product.utils import products_for_homepage, top_purchased_product
+from ..product.utils import products_for_homepage, top_purchased_product,top_purchased_brand
 from ..promo.utils import promo_for_homepage
 from ..product.utils.availability import products_with_availability
 from ..seo.schema.webpage import get_webpage_schema
@@ -34,6 +34,23 @@ def home(request):
             'product_promos_schema' : json.dumps(promo,indent=4,sort_keys=True,default=str),
             'webpage_schema': json.dumps(webpage_schema)})
 
+def render_top_brand(request):
+    results = []
+    top_brands = top_purchased_brand(20)
+    for item in top_brands:
+        element = {}
+        element['name'] = item.brand_name
+        element['url'] = item.get_absolute_url()
+        element['background_image'] = item.brand_image.url
+        results.append(element)
+
+    ctx = {
+        'brands': results,
+        }
+    response = TemplateResponse(request, 'brand/_items.html', ctx)
+
+    return response
+
 def render_home_categories(request):
     categories = list(Category.objects.filter(parent_id__isnull=True))
 
@@ -45,7 +62,7 @@ def render_home_categories(request):
         element['url'] = item.get_absolute_url()
         element['background_image'] = item.background_image.url
         descendants = get_descendant(item.id, with_self=True)
-        products = list(Product.objects.filter(category_id__in=descendants).order_by('-category_id','name'))[:12]
+        products = list(Product.objects.filter(category_id__in=descendants).order_by('-category_id','-updated_at','name'))[:12]
         products = list(products_with_availability(
             products, discounts=request.discounts, local_currency=request.currency))
 

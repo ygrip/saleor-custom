@@ -9,7 +9,7 @@ from ...cart.utils import (
 from ...core.utils import get_paginator_items
 from ...core.utils.filters import get_now_sorted_by
 from ..forms import ProductForm
-from ..models import Product
+from ..models import Product, Brand
 from .availability import products_with_availability
 from django.db import connection,transaction
 
@@ -49,8 +49,24 @@ def top_purchased_product(limit=None):
     cursor = connection.cursor()
     cursor.execute(query)
     items = list(cursor.fetchall())
-
+    cursor.close()
     results = products.filter(id__in=[item[0] for item in items])[:limit]
+    return results
+
+def top_purchased_brand(limit=None):
+    brands = Brand.objects.all()
+    query = """
+            SELECT b.id AS id, SUM(o.quantity) AS jumlah
+            FROM product_product p, product_productvariant v, order_orderline o, product_brand b
+            WHERE v.product_id = p.id AND o.variant_id = v.id AND p.brand_id_id = b.id
+            GROUP BY b.id
+            ORDER BY jumlah DESC
+            """
+    cursor = connection.cursor()
+    cursor.execute(query)
+    items = list(cursor.fetchall())
+    cursor.close()
+    results = list(brands.filter(id__in=[item[0] for item in items])[:limit])
     return results
 
 def get_product_images(product):

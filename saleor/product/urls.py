@@ -31,4 +31,6 @@ urlpatterns = [
 api_urlpatterns = [
     url(r'^product/similar/(?P<product_id>[0-9]+)/$',
         views.get_similar_product, name='similarproduct'),
+    url(r'^recommender/arc/(?P<mode>[a-z0-9-_/]+?)/(?P<limit>[0-9]+)/$',
+        views.get_arc_recommendation, name='similarproduct'),
 ]

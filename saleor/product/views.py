@@ -1,5 +1,6 @@
 import datetime
 import json
+import numpy as np
 import time
 from operator import itemgetter
 from django.shortcuts import get_object_or_404, redirect
@@ -15,6 +16,7 @@ from ..seo.schema.product import product_json_ld
 from ..feature.models import ProductFeature, Feature
 from .filters import ProductCategoryFilter, ProductBrandFilter, ProductCollectionFilter
 from .models import Category, Collection, ProductRating, Brand, Product, MerchantLocation
+from ..order.models import Order, OrderLine
 from .utils import (
     get_product_images, get_product_list_context, handle_cart_form,
     products_for_cart, products_with_details)
@@ -23,7 +25,10 @@ from .utils.availability import get_availability
 from ..search.views import render_item, paginate_results
 from .utils.variants_picker import get_variant_picker_data
 from ..core.helper import create_navbar_tree
-from .helper import get_filter_values, get_descendant
+from .helper import (
+    get_filter_values, get_descendant, get_cross_section_order,
+    get_cross_section_rating, get_list_product_from_order, get_list_product_from_rating,
+     get_list_user_from_order, get_list_user_from_rating, get_all_user_rating)
 from django.db.models import Avg
 from joblib import (Parallel, delayed)
 import psutil
@@ -287,6 +292,7 @@ def get_similar_product(product_id):
                          'count': item[2],
                          'frequency' : item[3]
                         } for item in cursor.fetchall()]
+    cursor.close()
     pivot_feature = Feature.objects.filter(id__in=pivot_feature).values_list('word', flat=True)
     product_list = list(Product.objects.filter(id__in=[d['id'] for d in product_features]).values_list('id', flat=True))
     total_product = list(Product.objects.all().values_list('id', flat=True))
@@ -467,6 +473,7 @@ def render_discounted_product(request):
     cursor = connection.cursor()
     cursor.execute(query)
     product_list = row = [item[0] for item in cursor.fetchall()]
+    cursor.close()
     if 'page' not in request.GET:
         if 'sale_page' in request.session and request.session['sale_page']:
             request_page = request.session['sale_page']
@@ -495,3 +502,149 @@ def render_discounted_product(request):
     response = TemplateResponse(request, 'sale/results.html', ctx)
 
     return response
+
+MODE_REECOMMENDER = ['verbose','quiet']
+@csrf_exempt
+@api_view(['GET'])
+@permission_classes((permissions.AllowAny,))
+def get_arc_recommendation(request, mode, limit):
+    start_time = time.time()
+    if request.method == 'GET':
+        if mode not in MODE_REECOMMENDER:
+            result = {'success':False,'recommendation':None,'process_time':(time.time() -  start_time)}
+            return JsonResponse(result, status=status.HTTP_400_BAD_REQUEST)
+        else:
+            data = request.GET
+
+            if 'user' not in data:
+                result = {'success':False,'recommendation':None,'process_time':(time.time() -  start_time)}
+                return JsonResponse(result, status=status.HTTP_400_BAD_REQUEST)
+            if data['user']:
+                status_source = False
+                source = ''
+                try:
+                    source_data = ProductRating.objects.filter(user_id=data['user'])
+                    source = 'rating'
+                    status_source = True
+                except ProductRating.DoesNotExist:
+                    pass
+                if not status_source:
+                    try:
+                        source_data = Order.objects.filter(user_id=data['user'])
+                        source = 'order'
+                        status_source = True
+                    except Order.DoesNotExist:
+                        result = {'success':False,'recommendation':'user has no data to process','process_time':(time.time() -  start_time)}
+                        return JsonResponse(result, status=status.HTTP_400_BAD_REQUEST)
+                del source_data
+
+                print(source)
+                if status_source:
+                    if source == 'order':
+                        distinct_user = get_list_user_from_order()
+                        distinct_product = get_list_product_from_order()
+                        data_input = get_cross_section_order()
+                    else:
+                        distinct_user = get_list_user_from_rating()
+                        distinct_product = get_list_product_from_rating()
+                        data_input = get_cross_section_rating()
+
+                    print('done db queries in %s'%(time.time() -  start_time))
+                    start_convert = time.time()
+                    cross_section, binary_cross_section = process_cross_section(data_input,distinct_user,distinct_product)
+                    print('done generating 2d matrix in %s'%(time.time() -  start_convert))
+
+                    start_count = time.time()
+                    user_similarity = collaborative_similarity(cross_section, len(distinct_user), len(distinct_product))
+                    print('done processing collaborative similarity in %s'%(time.time() -  start_count))
+
+                    result_matrix = []
+                    user_id = distinct_user.index(int(data['user']))
+                    order = 1
+                    results = {}
+                    start_similarity = time.time()
+                    while True:
+                        if result_matrix:
+                            if 0 not in result_matrix[-1][user_id] or order > int(limit):
+                                results['ordinality']  = order
+                                results['score_for_user'] = result_matrix[-1][user_id]
+                                break
+                        if order == 1:
+                            final_weight = (binary_cross_section.dot(binary_cross_section.T)*(user_similarity)).dot(cross_section)
+                            result_matrix.append(final_weight)
+                        else:
+                            check = result_matrix[-1]
+                            final_weight = (binary_cross_section.dot(binary_cross_section.T)*(user_similarity)).dot(check)
+                            result_matrix.append(final_weight)
+                        order += 2
+
+                    print('done processing similarity %s'%(time.time() -  start_similarity))
+                    total_ratings = list(ProductRating.objects.all().values('product_id').annotate(value=Avg('value')))
+                    user_ratings = get_all_user_rating(data['user'])
+                    results['score_for_user'] = list(filter(lambda e : e > 0, results['score_for_user']))
+                    products = [distinct_product[i] for i in range(0,len(results['score_for_user']))]
+                    products = list(Product.objects.filter(id__in=products))
+                    
+                    recommended_items = {}
+                    all_products = []
+                    for item, score in zip(products, results['score_for_user']):
+                        temp = {}
+                        temp['id'] = item.id
+                        temp['name'] = item.name
+                        temp['confident'] = score
+                        check = list(filter(lambda e: e['product_id'] == int(item.id), total_ratings))
+                        rating = check[0] if check else {'product_id':item.id,'value':0.0}
+                        temp['total_rating'] = rating['value']
+                        check = list(filter(lambda e: e['product_id'] == int(item.id), user_ratings))
+                        rating = check[0] if check else {'product_id':item.id,'value':0.0}
+                        temp['user_rating'] = rating['value']
+                        all_products.append(temp)
+
+                    all_products = sorted(all_products, key=itemgetter('confident'), reverse=True)
+                    del results['score_for_user']
+                    recommended_items['products'] = all_products
+                    recommended_items['total'] = len(all_products)
+                    results['recommendation'] = recommended_items
+                    results['status'] = True
+                    results['process_time'] = (time.time() -  start_time)
+                    return JsonResponse(results) 
+
+    else:
+        result = {'success':False,'recommendation':None,'process_time':(time.time() -  start_time)}
+        return JsonResponse(result, status=status.HTTP_400_BAD_REQUEST) 
+    print("\nWaktu eksekusi : --- %s detik ---" % (time.time() - start_time))
+
+def collaborative_similarity(array_input, users, items):
+    list_similarity = create_fixed_array(users,users, dtype=float)
+    max_range = np.max(array_input)
+    for i in range(0,users):
+        for j in range(0,users):
+            if i == j:
+                list_similarity[i][j] = 1
+            else:
+                similarity = []
+                for k in range(0,items):
+                    if array_input[i][k] > 0  and array_input[j][k] > 0:
+                        val =  max_range - abs(array_input[i][k]-array_input[j][k])/max_range
+                        similarity.append(val)
+                    else:
+                        similarity.append(0)
+                list_similarity[i][j] = sum(similarity)/len(similarity)
+
+    return np.array(list_similarity)
+
+def process_cross_section(array_input, distinct_a, distinct_b):
+    total_a = len(distinct_a)
+    total_b = len(distinct_b)
+    
+    results_normal = create_fixed_array(total_a,total_b)
+    for item in array_input:
+        results_normal[distinct_a.index(item[0])][distinct_b.index(item[1])] = item[2]
+
+    results_binary = np.copy(results_normal)
+    results_binary[results_binary>1] = 1
+    print(len(results_normal), len(results_binary))
+    return results_normal, results_binary
+
+def create_fixed_array(col, row, dtype=int):
+    return np.zeros([col,row], dtype=dtype).tolist()

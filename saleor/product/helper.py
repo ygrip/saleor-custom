@@ -25,7 +25,7 @@ def get_descendant(parent_id,with_self=False):
     row = [item[0] for item in cursor.fetchall()]
     for d in row:
         descendants.append(d)
-
+    cursor.close()
     return descendants
 
 def get_filter_values(categories, filter_field):
@@ -61,4 +61,157 @@ def get_filter_values(categories, filter_field):
             ORDER by values.id
             """
     cursor.execute(query)
-    return [item[0] for item in cursor.fetchall()]
+    results = [item[0] for item in cursor.fetchall()]
+    cursor.close()
+    return results
+
+def get_list_user_from_rating():
+    query = """
+            WITH
+            users AS(
+                SELECT DISTINCT u.id AS user_id
+                FROM account_user u, product_productrating r
+                WHERE r.user_id_id = u.id
+                ORDER BY user_id
+            )
+            SELECT * FROM users;
+            """
+    cursor = connection.cursor()
+    cursor.execute(query)
+    results = [a[0] for a in cursor.fetchall()]
+    cursor.close()
+    return results
+
+def get_list_product_from_rating():
+    query = """
+            WITH
+            products AS(
+                SELECT DISTINCT p.id AS product_id
+                FROM product_product p, product_productrating r
+                WHERE r.product_id_id = p.id
+                ORDER BY product_id
+            )
+            SELECT * FROM products;
+            """
+    cursor = connection.cursor()
+    cursor.execute(query)
+    results = [a[0] for a in cursor.fetchall()]
+    cursor.close()
+    return results
+
+def get_list_user_from_order():
+    query = """
+            WITH
+            users AS(
+                SELECT DISTINCT u.id AS user_id
+                FROM account_user u, order_order o
+                WHERE u.id = o.user_id 
+                ORDER BY user_id
+            )
+            SELECT * FROM users;
+            """
+    cursor = connection.cursor()
+    cursor.execute(query)
+    results = [a[0] for a in cursor.fetchall()]
+    cursor.close()
+    return results
+
+def get_list_product_from_order():
+    query = """
+            WITH
+            products AS(
+                SELECT DISTINCT p.id AS pid
+                FROM product_product p, order_orderline o, product_productvariant v
+                WHERE o.variant_id = v.id AND p.id = v.product_id
+            )
+            SELECT * FROM products;
+            """
+    cursor = connection.cursor()
+    cursor.execute(query)
+    results = [a[0] for a in cursor.fetchall()]
+    cursor.close()
+    return results
+
+def get_cross_section_rating(limit=1.0):
+    query = """
+            WITH
+            users AS(
+                SELECT DISTINCT u.id AS user_id
+                FROM account_user u, product_productrating r
+                WHERE r.user_id_id = u.id
+                ORDER BY user_id
+            ),
+            products AS(
+                SELECT DISTINCT p.id AS product_id
+                FROM product_product p, product_productrating r
+                WHERE r.product_id_id = p.id
+                ORDER BY product_id
+            ),
+            rating AS(
+                SELECT value, updated_at, user_id_id, product_id_id
+                FROM product_productrating
+                ORDER BY updated_at DESC LIMIT (SELECT (COUNT(*)*(%s)::float)::integer FROM product_productrating)
+            ),
+            tmp AS(
+                SELECT a.user_id AS userid, b.product_id AS pid, COALESCE(c.value,0) AS value
+                FROM users a CROSS JOIN products b LEFT JOIN rating c
+                ON c.user_id_id = a.user_id AND c.product_id_id = b.product_id
+            )
+            SELECT * FROM tmp;
+            """ % limit
+    cursor = connection.cursor()
+    cursor.execute(query)
+    cross_section = [a[:] for a in cursor.fetchall()]
+    cursor.close()
+    return cross_section
+
+def get_cross_section_order(limit=1.0):
+    query = """
+            WITH
+            users AS(
+                SELECT DISTINCT u.id AS user_id
+                FROM account_user u, order_order o
+                WHERE u.id = o.user_id 
+                ORDER BY user_id
+            ),
+            products AS(
+                SELECT DISTINCT p.id AS pid
+                FROM product_product p, order_orderline o, product_productvariant v
+                WHERE o.variant_id = v.id AND p.id = v.product_id
+            ),
+            temp_order AS(
+                SELECT * FROM order_order
+                ORDER BY created DESC LIMIT (SELECT (COUNT(*)*(%s)::float)::integer FROM order_order)
+            ),
+            orders AS(
+                SELECT p.id AS pid, tor.user_id AS uid,  SUM(o.quantity) AS value
+                FROM product_product p, product_productvariant v, order_orderline o, temp_order tor
+                WHERE v.product_id = p.id AND o.variant_id = v.id AND tor.id = o.order_id
+                GROUP BY p.id, tor.user_id
+                ORDER BY value DESC
+            ),
+            tmp AS(
+                SELECT a.user_id AS userid, b.pid AS pid, COALESCE(c.value,0) AS value
+                FROM users a CROSS JOIN products b LEFT JOIN orders c
+                ON c.uid = a.user_id AND c.pid = b.pid
+            )
+            SELECT * FROM tmp ORDER BY userid, value DESC;
+            """ %limit
+
+    cursor = connection.cursor()
+    cursor.execute(query)
+    cross_section = [a[:] for a in cursor.fetchall()]
+    cursor.close()
+    return cross_section
+
+def get_all_user_rating(user):
+    query = """
+            SELECT product_id_id AS product_id, value AS value
+            FROM product_productrating
+            WHERE user_id_id = """+str(user)+"""
+            """
+    cursor = connection.cursor()
+    cursor.execute(query)
+    results = [{'product_id':a[0],'value':a[1]} for a in cursor.fetchall()]
+    cursor.close()
+    return results

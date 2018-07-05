@@ -31,6 +31,14 @@ $(document).ready(() => {
     renderMenu();
   }
 
+  if ($('#top-brands').length) {
+    console.log('rendering-top-brands');
+    var target = "#featured-brand"
+    var position = '#top-brands';
+    var url = '/render-top-brand/';
+    renderSimilarProduct(url, position,target);
+  }
+
   if ($('#categories_list').length) {
     console.log('rendering-catalog-products');
     var target = ".featured-catalog"
