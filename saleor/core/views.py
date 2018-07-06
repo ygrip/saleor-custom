@@ -17,6 +17,7 @@ from ..product.utils.availability import products_with_availability
 from ..seo.schema.webpage import get_webpage_schema
 from .helper import create_navbar_tree
 from ..product.utils.availability import products_with_availability
+from django.contrib.sessions.models import Session
 
 def home(request):
     start_time = time.time()

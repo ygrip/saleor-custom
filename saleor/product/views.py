@@ -268,6 +268,7 @@ def collection_index(request, slug, pk):
     return TemplateResponse(request, 'collection/index.html', ctx)
 
 def get_similar_product(product_id):
+    start_time = time.time()
     try:
         product = Product.objects.get(id=product_id)
     except Product.DoesNotExist:
@@ -293,7 +294,8 @@ def get_similar_product(product_id):
                          'frequency' : item[3]
                         } for item in cursor.fetchall()]
     cursor.close()
-    pivot_feature = Feature.objects.filter(id__in=pivot_feature).values_list('word', flat=True)
+
+    pivot_feature = list(Feature.objects.filter(id__in=pivot_feature).values_list('word', flat=True))
     product_list = list(Product.objects.filter(id__in=[d['id'] for d in product_features]).values_list('id', flat=True))
     total_product = list(Product.objects.all().values_list('id', flat=True))
     total = len(total_product)
@@ -301,8 +303,8 @@ def get_similar_product(product_id):
             verbose=50,
             require='sharedmem',
             backend="threading")(delayed(count_similarity)(product_features,pivot_feature,total,item) for item in product_list)
+    print('done populating similar products in %s'%(time.time() -  start_time))
     return list_similar_product
-
 
 def render_similar_product(request, product_id):
     start_time = time.time()
@@ -355,9 +357,14 @@ def count_similarity(product_features, pivot_feature, total, item):
     
     similarity = 0.0
     if similar_feature:
-        for val in similar_feature:
-            similarity += val['frequency']*(log10(1+total/val['count']))
-        similarity *= (len(pivot_feature)/len(similar_feature))
+        frequencies = np.array([val['frequency'] for val in similar_feature])
+        counts = np.array([val['count'] for val in similar_feature])
+        counts = total/counts
+        counts[counts==float('inf')] = 0
+        counts = np.array([log10(1+c) for c in counts])
+        final_weight = frequencies*counts
+        similarity += np.sum(final_weight)
+        similarity *= (len(similar_feature)/len(pivot_feature))
     if similarity > 0:
         element = {}
         element['id'] = item
@@ -381,7 +388,6 @@ def all_similar_product(request, product_id):
     request.session['similar_page'] = request_page
     response = TemplateResponse(request, 'product/all_similar.html', ctx)
     return response
-
 
 def render_all_similar_product(request, product_id):
     start_time = time.time()
@@ -551,7 +557,7 @@ def get_arc_recommendation(request, mode, limit):
 
                     print('done db queries in %s'%(time.time() -  start_time))
                     start_convert = time.time()
-                    cross_section, binary_cross_section = process_cross_section(data_input,distinct_user,distinct_product)
+                    cross_section, binary_cross_section = process_cross_section(data_input)
                     print('done generating 2d matrix in %s'%(time.time() -  start_convert))
 
                     start_count = time.time()
@@ -635,10 +641,7 @@ def collaborative_similarity(array_input, users):
         list_similarity.append(row)
     return np.array(list_similarity)
 
-def process_cross_section(array_input, distinct_a, distinct_b):
-    total_a = len(distinct_a)
-    total_b = len(distinct_b)
-    
+def process_cross_section(array_input):    
     np_array = np.array(array_input)
     xs = np_array[:,0]
     ys = np_array[:,1]
@@ -654,5 +657,46 @@ def process_cross_section(array_input, distinct_a, distinct_b):
 
     return results_normal, results_binary
 
-def create_fixed_array(col, row, dtype=int):
-    return np.zeros([col,row], dtype=dtype).tolist()
+@csrf_exempt
+@api_view(['POST'])
+@permission_classes((permissions.AllowAny,))
+def update_product_rating(request):
+    from ..account.models import User
+    start_time = time.time()
+    if request.method == 'POST':
+        data = request.data
+        if '_auth_user_id' in request.session and request.session['_auth_user_id'] and 'product_id' in data and data['product_id'] and 'value' in data and data['value']:
+            try:
+                product = Product.objects.get(id=int(data.get('product_id')))
+            except Product.DoesNotExist:
+                result = {'success':False,'message':'Product does not exist!','process_time':(time.time() -  start_time)}
+                return JsonResponse(result)
+            try:
+                user = User.objects.get(id=int(request.session['_auth_user_id']))
+            except User.DoesNotExist:
+                result = {'success':False,'message':'Fail to authenticate user!','process_time':(time.time() -  start_time)}
+                return JsonResponse(result)
+            value = data.get('value')
+            try:
+                defaults = {
+                    'product_id' : product,
+                    'user_id' : user,
+                    'value' : value
+                }
+
+                rating, created = ProductRating.objects.get_or_create(product_id=product,user_id=user,defaults=defaults)
+                print(created, rating)
+                if not created:
+                    rating.value = value
+                    rating.save()
+                result = {'success':True,'message':'Successfully update rating!','process_time':(time.time() -  start_time)}
+                return JsonResponse(result)
+            except ProductRating.DoesNotExist:
+                result = {'success':False,'message':'Something went wrong!','process_time':(time.time() -  start_time)}
+                return JsonResponse(result)
+        else:
+            result = {'success':False,'message':'You must login first!','process_time':(time.time() -  start_time),'url':settings.LOGIN_URL}
+            return JsonResponse(result)
+    else:
+        result = {'success':False,'message':'Something went wrong!','process_time':(time.time() -  start_time)}
+        return JsonResponse(result, status=status.HTTP_400_BAD_REQUEST)

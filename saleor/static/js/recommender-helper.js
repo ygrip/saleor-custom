@@ -1,6 +1,5 @@
 import Vue from 'vue';
 import Flickity from 'flickity';
-import swal from 'sweetalert2';
 
 console.log('recommender helper loaded');
 const processing_label = ` <div class="col-12 justify-content-between align-items-center mb-4 mb-md-0 menu" style="margin-top: -200px; margin-bottom: 10em !important; text-align: center; border-bottom: 1px solid #D3D1D0;">
@@ -114,6 +113,7 @@ function renderMenu(){
       },
   });
 }
+
 function renderSimilarProduct(url, position, target){
   $(position).append(spinner_loading);
   $.ajax({
@@ -154,6 +154,7 @@ function renderSimilarProduct(url, position, target){
       },
   });
 }
+
 function renderSearchResults(url, query, position, loading_element) {
     $(loading_element).css('display','inline-block');
     $(loading_element).append(fancy_loading);
