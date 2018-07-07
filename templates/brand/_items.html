@@ -8,9 +8,9 @@
     <div class="col-6 col-sm-2 product-list course-item slide" style="margin-bottom: 1em;">
       <a href="{{ brand.url }}" class="link--clean" style="margin-bottom: 15px;">
         <div class="text-center">
-          <div class="card" style="width: 150px; height: 150px;  text-align: center;">
-            <img class="img-responsive lazyload lazypreload"
-                 src="{{ brand.background_image }}" style=" width: 140px; height :auto; margin:0 auto; background-size: contain; background-repeat: no-repeat; vertical-align: middle; display: inline-block;"/>
+          <div class="card" style="width: 100%; height: 125px;  text-align: center; white-space: nowrap; margin: 0 auto; display: grid;">
+            <span class="img-helper" style="height: 100%; display: inline-block; vertical-align: middle;"></span><img class="img-responsive lazyload lazypreload"
+                 src="{{ brand.background_image }}" style=" width: 90%; height :auto; margin:0 auto; background-size: contain; background-repeat: no-repeat; vertical-align: middle; max-height: 125px;"/>
             
           </div>
           <span class="product-list-item-name hideOverflow row-fluid" data-toggle="tooltip" data-placement="top" style="overflow-wrap:break-word; max-height: 75px;" title="{{ brand.name }}">{{ brand.name }}</span>

@@ -25,6 +25,7 @@ from joblib import (Parallel, delayed)
 from django.db.models import Q
 from django.contrib.sessions.backends.db import SessionStore
 from django.db.models import Avg
+import numpy as np
 
 total = 0
 query_appendix = {}
@@ -50,14 +51,14 @@ def check_similarity(item):
     global query_appendix
 
     element = {}
-    detail = item.details.split(' ')
+    idx, detail = item
     c = len(detail)
     similarity = 0
     for q in query_appendix:
         if query_appendix[q] > 0:
-            f = detail.count(q)/c
+            f = (detail.count(q))/c
             similarity += (f*(log10(1+total/query_appendix[q])))
-    element['id'] = item.product_id
+    element['id'] = idx
     element['similarity'] = similarity
     if similarity > 0:
         global product_appendix
@@ -74,6 +75,7 @@ def custom_query_validation(query,request,request_page):
     global query_appendix
     global total
     global product_appendix
+
     ratings = list(ProductRating.objects.all().values('product_id').annotate(value=Avg('value')))
     if product_appendix:
         product_appendix = []
@@ -83,28 +85,35 @@ def custom_query_validation(query,request,request_page):
     for q in query:
         query_appendix[q] = 0
         queryset = queryset | Q(details__icontains=q)
-    product_details = list(CleanProductDetails.objects.filter(queryset))
+    product_details = list(CleanProductDetails.objects.filter(queryset).values('product_id','details'))
 
     if product_details:
-        for q in query_appendix:
-            for item in product_details:
-                if q in item.details:
-                    query_appendix[q] += 1
-
         total = len(product_details)
+
+        temp_details = [d['details'].split(' ') for d in product_details]
+        temp_idx = [d['product_id'] for d in product_details]
+        for q in query_appendix:
+            query_appendix[q] = len([s for s in temp_details if q in s])
+            print(query_appendix[q])
+        del(product_details)
+
+        product_details = zip(temp_idx, temp_details)
+        del temp_details
+        del temp_idx
+
         Parallel(n_jobs=psutil.cpu_count()*2,
             verbose=50,
             require='sharedmem')(map(delayed(check_similarity),product_details))
         print('Job Done')
         product_appendix = sorted(product_appendix, key=itemgetter('similarity'), reverse=True)
-        product_appendix = [item['id'].pk for item in product_appendix]
+        product_appendix = [item['id'] for item in product_appendix]
         print('Sorted')
         start = (settings.PAGINATE_BY*(request_page-1))
         end = start+(settings.PAGINATE_BY)
         products = list(Product.objects.filter(id__in=product_appendix[start:end]))
 
         results = []
-        results = Parallel(n_jobs=psutil.cpu_count()*2,
+        results = Parallel(n_jobs=psutil.cpu_count(),
             verbose=50,
             require='sharedmem',
             backend="threading")(delayed(render_item)(item,request.discounts,request.currency,ratings) for item in products)
@@ -112,10 +121,16 @@ def custom_query_validation(query,request,request_page):
 
         results = front+results
 
+
         for item in product_appendix[end:]:
             results.append(item)
+
+        query_appendix = {}
+        total = 0
         return results
     else:
+        query_appendix = {}
+        total = 0
         return []
 
 def search_view(request):

@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import Flickity from 'flickity';
+import swal from 'sweetalert2';
 
 console.log('recommender helper loaded');
 const processing_label = ` <div class="col-12 justify-content-between align-items-center mb-4 mb-md-0 menu" style="margin-top: -200px; margin-bottom: 10em !important; text-align: center; border-bottom: 1px solid #D3D1D0;">
@@ -142,6 +143,8 @@ function renderSimilarProduct(url, position, target){
           });
           $('.flickity-prev-next-button.previous').css('left','-1.5em');
           $('.flickity-prev-next-button.next').css('right','-1.5em');
+          $('.flickity-viewport').css('min-height','240px !important');
+          $('.flickity-viewport').css('height','100% !important');
         }
       },
       error (xhr, status) {
@@ -180,10 +183,10 @@ function renderSearchResults(url, query, position, loading_element) {
         $(loading_element).css('display','none'); 
 	      $(loading_element+' div:last-child').remove(); 
 	      swal({
-			  type: 'error',
-			  title: 'Oops...',
-			  text: 'Something went wrong! '+status,
-			})
+  			  type: 'error',
+  			  title: 'Oops...',
+  			  text: 'Something went wrong! '+status,
+  			})
 	    },
   });
 }

@@ -7,8 +7,8 @@
 {% load placeholder %}
 
 {% if products %}
-  <div class="site-content cf row-fluid" style="margin-bottom:-2.5em !important;">
-     <div class="courses cf featured-catalog">
+  <div class="site-content cf row-fluid" style="min-height: 300px;">
+     <div class="courses cf featured-catalog" style="margin-bottom:0 !important;">
   {% for product, rating, availability in products %}
     <div class="col-6 col-md-3 product-list course-item slide" style="margin-bottom: 1em;">
       <a href="{{ product.get_absolute_url }}" class="link--clean" style="margin-bottom: 15px;">

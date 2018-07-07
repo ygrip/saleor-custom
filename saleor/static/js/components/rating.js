@@ -8,12 +8,16 @@ console.log('rating module loaded');
 
 $(document).ready(() => {
   if ($('#app-products').length) {
-    new Vue({
+    renderProductRating();
+	}
+});
+
+function  renderProductRating(){
+	new Vue({
       el: '#app-products',
       methods: {
         setRating(rating) {
         	var product = document.getElementById('app-products');
-	     	this.rating = rating;
 	     	update_rating(product.dataset.product_id, rating)
 	    },
 	    showCurrentRating(rating) {
@@ -33,9 +37,9 @@ $(document).ready(() => {
     });
 	    $('.vue-star-rating div').each(function(index) {
 	    	$(this).css('margin', '0 auto');
-	    });
-  }
 });
+}
+
 
 function update_rating(product_id, value){
 	var csrftoken = getCookie('csrftoken');
@@ -50,8 +54,6 @@ function update_rating(product_id, value){
     },
     crossDomain: 'true',
     success(response) {
-    	console.log(response);
-    	console.log(response.success);
       if(response.success==true){
       	location.reload();
       }else{
@@ -67,7 +69,9 @@ function update_rating(product_id, value){
 		        showCloseButton: true,
 				showCancelButton: true,
 				showConfirmButton: false,
-		    })
+		    }).then(function(){
+          location.reload();
+        });
       	}else{
 	  		swal({
 		        type: 'error',
@@ -76,8 +80,11 @@ function update_rating(product_id, value){
 		        showCloseButton: true,
 				showCancelButton: true,
 				showConfirmButton: false,
-		    })
+		    }).then(function(){
+          location.reload();
+        });
       	}
+      	
       }
     },
     error (xhr, status) {
@@ -85,7 +92,9 @@ function update_rating(product_id, value){
         type: 'error',
         title: 'Oops...',
         text: 'Something went wrong! '+status,
-      })
+      }).then(function(){
+          location.reload();
+        });
     },
 });
 }
