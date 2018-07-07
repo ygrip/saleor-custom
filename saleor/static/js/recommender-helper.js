@@ -144,7 +144,8 @@ function renderSimilarProduct(url, position, target){
           $('.flickity-prev-next-button.previous').css('left','-1.5em');
           $('.flickity-prev-next-button.next').css('right','-1.5em');
           $('.flickity-viewport').css('min-height','240px !important');
-          $('.flickity-viewport').css('height','100% !important');
+          $('.flickity-viewport').css('max-height','540px !important');
+          $('.flickity-viewport').css('height','300px !important');
         }
       },
       error (xhr, status) {

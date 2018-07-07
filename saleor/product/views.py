@@ -267,13 +267,13 @@ def collection_index(request, slug, pk):
     ctx.update({'object': collection})
     return TemplateResponse(request, 'collection/index.html', ctx)
 
-def get_similar_product(product_id):
+def get_similar_product(product_id,limit=0):
     start_time = time.time()
     try:
         product = Product.objects.get(id=product_id)
     except Product.DoesNotExist:
         raise Http404('No %s matches the given query.' % product.model._meta.object_name)
-    pivot_feature = ProductFeature.objects.filter(product_id_id=product_id).values_list('feature_id_id', flat=True)
+    pivot_feature = list(ProductFeature.objects.filter(product_id_id=product_id).values_list('feature_id_id', flat=True))
     in_clause = '('
     for i,f in enumerate(pivot_feature):
         in_clause += str(f)
@@ -281,28 +281,61 @@ def get_similar_product(product_id):
             in_clause += ', '
     in_clause += ')'
     query = """
-                SELECT fp.product_id_id AS id, f.word, f.count, fp.frequency
+                SELECT fp.product_id_id AS id, f.id AS fid, f.count, fp.frequency
                 FROM feature_feature f JOIN feature_productfeature fp
                 ON fp.feature_id_id = f.id AND fp.feature_id_id IN """+in_clause+"""
                 ORDER BY id
             """
     cursor = connection.cursor()
     cursor.execute(query)
-    product_features = [{'id':item[0],
-                         'word':item[1],
-                         'count': item[2],
-                         'frequency' : item[3]
-                        } for item in cursor.fetchall()]
-    cursor.close()
+    temp_product_features = np.array([item[:] for item in cursor.fetchall()] )
 
-    pivot_feature = list(Feature.objects.filter(id__in=pivot_feature).values_list('word', flat=True))
-    product_list = list(Product.objects.filter(id__in=[d['id'] for d in product_features]).values_list('id', flat=True))
-    total_product = list(Product.objects.all().values_list('id', flat=True))
-    total = len(total_product)
+    cursor.close()
+    total = len(list(Product.objects.all().values_list('id', flat=True)))
+    xs = temp_product_features[:,0]
+    ys = temp_product_features[:,1]
+    zs = temp_product_features[:,2]
+    fs = temp_product_features[:,3]
+    xs_val, xs_idx = np.unique(xs, return_inverse=True)
+    ys_val, ys_idx = np.unique(ys, return_inverse=True)
+    results_count = np.zeros(xs_val.shape+ys_val.shape)
+    results_freq = np.zeros(xs_val.shape+ys_val.shape)
+    results_count.fill(0)
+    results_freq.fill(0)
+    results_count[xs_idx,ys_idx] = zs
+    results_freq[xs_idx,ys_idx] = fs
+    temp_pivot = np.array(pivot_feature)
+    check_idx = np.in1d(ys_val, temp_pivot).nonzero()[0]
+    results_count = total/results_count
+    results_count[results_count[:,:]==float('inf')] = 0
+    final_weight = np.log10(1+results_count) 
+    final_weight = final_weight*results_freq
+    mask = np.ones(len(ys_val), np.bool)
+    mask[check_idx] = 0
+    final_weight[:,mask] = 0
+
+    del temp_product_features
+    del results_count
+    del results_freq
+    del check_idx
+    del xs
+    del ys
+    del zs
+    del fs
+
+    arr_sum = np.zeros((len(xs_val),2))
+    arr_sum[:,0] = xs_val
+    arr_sum[:,1] = np.sum(final_weight, axis=1)
+    arr_sum = arr_sum[arr_sum[:,1].argsort()[::-1]]
+    if limit > 0:
+        arr_sum = arr_sum[:limit]
+    del final_weight
+
+    target_feature = len(pivot_feature)
     list_similar_product = Parallel(n_jobs=psutil.cpu_count()*2,
             verbose=50,
             require='sharedmem',
-            backend="threading")(delayed(count_similarity)(product_features,pivot_feature,total,item) for item in product_list)
+            backend="threading")(delayed(count_similarity)(item, target_feature) for item in arr_sum)
     print('done populating similar products in %s'%(time.time() -  start_time))
     return list_similar_product
 
@@ -352,22 +385,13 @@ def render_similar_product(request, product_id):
     print("\nWaktu eksekusi : --- %s detik ---" % (time.time() - start_time))
     return response
 
-def count_similarity(product_features, pivot_feature, total, item):
-    similar_feature = list(filter(lambda e: int(e.get('id')) == int(item) and e.get('word') in pivot_feature, product_features))
-    
-    similarity = 0.0
-    if similar_feature:
-        frequencies = np.array([val['frequency'] for val in similar_feature])
-        counts = np.array([val['count'] for val in similar_feature])
-        counts = total/counts
-        counts[counts==float('inf')] = 0
-        counts = np.array([log10(1+c) for c in counts])
-        final_weight = frequencies*counts
-        similarity += np.sum(final_weight)
-        similarity *= (len(similar_feature)/len(pivot_feature))
+def count_similarity(item, target_feature):
+    idx=item[0]
+    similarity = item[1]
+
     if similarity > 0:
         element = {}
-        element['id'] = item
+        element['id'] = int(idx)
         element['similarity'] = similarity
         return element
 
