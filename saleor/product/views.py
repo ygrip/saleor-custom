@@ -322,20 +322,22 @@ def get_similar_product(product_id,limit=0):
     del ys
     del zs
     del fs
+    target_feature = len(pivot_feature)
 
-    arr_sum = np.zeros((len(xs_val),2))
+    arr_sum = np.zeros((len(xs_val),3))
     arr_sum[:,0] = xs_val
     arr_sum[:,1] = np.sum(final_weight, axis=1)
+    arr_sum[:,2] = np.count_nonzero(final_weight, axis=1)/target_feature
     arr_sum = arr_sum[arr_sum[:,1].argsort()[::-1]]
     if limit > 0:
         arr_sum = arr_sum[:limit]
     del final_weight
 
-    target_feature = len(pivot_feature)
     list_similar_product = Parallel(n_jobs=psutil.cpu_count()*2,
             verbose=50,
             require='sharedmem',
-            backend="threading")(delayed(count_similarity)(item, target_feature) for item in arr_sum)
+            backend="threading")(delayed(count_similarity)(item) for item in arr_sum)
+    list_similar_product = sorted(list_similar_product, key=itemgetter('similarity'), reverse=True)
     print('done populating similar products in %s'%(time.time() -  start_time))
     return list_similar_product
 
@@ -362,7 +364,6 @@ def render_similar_product(request, product_id):
         temp = {}
         list_similar_product = get_similar_product(product_id)
         if list_similar_product:
-            list_similar_product = sorted(list_similar_product, key=itemgetter('similarity'), reverse=True)
             all_temp = []
             temp['id'] = product.id
             temp['related'] = list_similar_product
@@ -373,7 +374,6 @@ def render_similar_product(request, product_id):
 
     list_similarity = []
     if list_similar_product:
-        list_similar_product = sorted(list_similar_product, key=itemgetter('similarity'), reverse=True)
         products = Product.objects.filter(id__in=[d['id'] for d in list_similar_product[:12]])
         products = products_with_availability(
             products, discounts=request.discounts, local_currency=request.currency)
@@ -385,14 +385,14 @@ def render_similar_product(request, product_id):
     print("\nWaktu eksekusi : --- %s detik ---" % (time.time() - start_time))
     return response
 
-def count_similarity(item, target_feature):
+def count_similarity(item):
     idx=item[0]
-    similarity = item[1]
+    similarity = item[1]*item[2]
 
     if similarity > 0:
         element = {}
         element['id'] = int(idx)
-        element['similarity'] = similarity
+        element['similarity'] = round(similarity,4)
         return element
 
 def all_similar_product(request, product_id):
@@ -442,7 +442,6 @@ def render_all_similar_product(request, product_id):
         temp = {}
         list_similar_product = get_similar_product(product_id)
         if list_similar_product:
-            list_similar_product = sorted(list_similar_product, key=itemgetter('similarity'), reverse=True)
             all_temp = []
             temp['id'] = product.id
             temp['related'] = list_similar_product
