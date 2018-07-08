@@ -34,5 +34,9 @@ api_urlpatterns = [
     url(r'^update/rating/$',
         views.update_product_rating, name='update_rating'),
     url(r'^recommender/arc/(?P<mode>[a-z0-9-_/]+?)/(?P<limit>[0-9]+)/$',
-        views.get_arc_recommendation, name='similarproduct'),
+        views.get_arc_recommendation, name='arcrecommendaion'),
+    url(r'^recommendation/hybrid/$',
+        views.get_recommendation, name='hybridrecommendation'),
+    url(r'^recommendation/partial/render/$',
+        views.render_recommendation, name='renderhomerecommendation'),
 ]

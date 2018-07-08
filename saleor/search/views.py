@@ -26,6 +26,7 @@ from django.db.models import Q
 from django.contrib.sessions.backends.db import SessionStore
 from django.db.models import Avg
 import numpy as np
+from django.db.models import Case, When
 
 total = 0
 query_appendix = {}
@@ -110,7 +111,8 @@ def custom_query_validation(query,request,request_page):
         print('Sorted')
         start = (settings.PAGINATE_BY*(request_page-1))
         end = start+(settings.PAGINATE_BY)
-        products = list(Product.objects.filter(id__in=product_appendix[start:end]))
+        preserved = Case(*[When(pk=pk, then=pos) for pos, pk in enumerate(product_appendix[start:end])])
+        products = list(Product.objects.filter(id__in=product_appendix[start:end]).order_by(preserved))
 
         results = []
         results = Parallel(n_jobs=psutil.cpu_count(),
@@ -175,7 +177,8 @@ def search_ajax(request):
                     results = []
                     start = (settings.PAGINATE_BY*(request_page-1))
                     end = start+(settings.PAGINATE_BY)
-                    products = list(Product.objects.filter(id__in=request.session['query_results'][start:end]))
+                    preserved = Case(*[When(pk=pk, then=pos) for pos, pk in enumerate(request.session['query_results'][start:end])])
+                    products = list(Product.objects.filter(id__in=request.session['query_results'][start:end]).order_by(preserved))
                     ratings = list(ProductRating.objects.all().values('product_id').annotate(value=Avg('value')))
                     if not products:
                         raise Http404('No such page!')

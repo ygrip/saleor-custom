@@ -39,6 +39,13 @@ $(document).ready(() => {
     renderSimilarProduct(url, position,target);
   }
 
+  if ($('#recommended_items').length) {
+    console.log('rendering-featured-products');
+    var position = '#recommended_items';
+    var url = '/api/recommendation/hybrid/';
+    getFeaturedProducts(url, position);
+  }
+
   if ($('#categories_list').length) {
     console.log('rendering-catalog-products');
     var target = ".featured-catalog"
@@ -159,6 +166,66 @@ function renderSimilarProduct(url, position, target){
   });
 }
 
+function getFeaturedProducts(url, position){
+  $(position).append(spinner_loading);
+  $.ajax({
+      type: 'GET',
+      url: url,
+      crossDomain: 'true',
+      success(response) {
+        console.log(response)
+        if(response.success==true){
+          var url = '/api/recommendation/partial/render/';
+          var newposition = '#recommended_items';
+          var data = JSON.stringify(response.recommendation.products);
+          var source = response.source;
+          renderFeaturedProducts(url,newposition,data,source);
+        }else{
+          $(position).html('');
+          swal({
+            type: 'error',
+            title: 'Oops...',
+            text: 'Something went wrong! '+status,
+          })
+        }
+      },
+      error (xhr, status) {
+        $(position).html('');
+            swal({
+          type: 'error',
+          title: 'Oops...',
+          text: 'Something went wrong! '+status,
+        })
+      },
+  });
+}
+
+function renderFeaturedProducts(url, position, inputdata, source){
+  var csrftoken = getCookie('csrftoken');
+  $.ajax({
+      type: 'POST',
+      url: url,
+      data:{
+        products:inputdata,
+        csrfmiddlewaretoken: csrftoken,
+      },
+      crossDomain: 'true',
+      success(response) {
+        $(position).html('');
+        $(position).html(response);
+        renderRating(position);
+      },
+      error (xhr, status) {
+        $(position).html('');
+            swal({
+          type: 'error',
+          title: 'Oops...',
+          text: 'Something went wrong! '+status,
+        })
+      },
+  });
+}
+
 function renderSearchResults(url, query, position, loading_element) {
     $(loading_element).css('display','inline-block');
     $(loading_element).append(fancy_loading);
@@ -240,4 +307,20 @@ function parse_query_string(query) {
     }
   }
   return query_string;
+}
+
+function getCookie(name) {
+    var cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        var cookies = document.cookie.split(';');
+        for (var i = 0; i < cookies.length; i++) {
+            var cookie = jQuery.trim(cookies[i]);
+            // Does this cookie string begin with the name we want?
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
 }

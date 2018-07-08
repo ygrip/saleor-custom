@@ -215,3 +215,46 @@ def get_all_user_rating(user):
     results = [{'product_id':a[0],'value':a[1]} for a in cursor.fetchall()]
     cursor.close()
     return results
+
+def get_all_user_order_history():
+    query = """
+            SELECT o.user_id AS uid, p.id AS pid, SUM(d.quantity) AS value
+            FROM order_order o, order_orderline d, product_product p, product_productvariant v
+            WHERE o.id = d.order_id AND v.id = d.variant_id AND v.product_id = p.id
+            GROUP BY uid, pid
+            ORDER BY uid
+            """
+    cursor = connection.cursor()
+    cursor.execute(query)
+    results = [{'user_id':a[0],'product_id':a[1],'value':a[2]} for a in cursor.fetchall()]
+    cursor.close()
+    return results
+
+def get_user_order_history(user):
+    query = """
+            SELECT o.user_id AS uid, p.id AS pid, SUM(d.quantity) AS value
+            FROM order_order o, order_orderline d, product_product p, product_productvariant v
+            WHERE o.id = d.order_id AND v.id = d.variant_id AND v.product_id = p.id
+            AND o.user_id ="""+str(user)+"""
+            GROUP BY uid, pid
+            ORDER BY uid
+            """
+    cursor = connection.cursor()
+    cursor.execute(query)
+    results = [{'product_id':a[1],'value':a[2]} for a in cursor.fetchall()]
+    cursor.close()
+    return results
+
+def get_product_order_history():
+    query = """
+            SELECT p.id AS id, SUM(o.quantity) AS jumlah
+            FROM product_product p, product_productvariant v, order_orderline o
+            WHERE v.product_id = p.id AND o.variant_id = v.id
+            GROUP BY p.id
+            ORDER BY jumlah DESC
+            """
+    cursor = connection.cursor()
+    cursor.execute(query)
+    results = [{'product_id':a[0],'value':a[1]} for a in cursor.fetchall()]
+    cursor.close()
+    return results

@@ -21,6 +21,8 @@ PROJECT_ROOT = os.path.normpath(os.path.join(os.path.dirname(__file__), '..'))
 
 ROOT_URLCONF = 'saleor.urls'
 
+DATA_UPLOAD_MAX_NUMBER_FIELDS = 10240
+
 WSGI_APPLICATION = 'saleor.wsgi.application'
 
 ADMINS = (
