@@ -5,15 +5,23 @@
     {% if value %}
       <li class="{% if horizontal %}nav-item row col-lg-6{% endif %} nav-item__dropdown menu__item" style="
       padding: 0 !important;">
-        <a class="{% if horizontal %}nav-link{% endif %}" href="#">
+        <a class="{% if horizontal %}nav-link{% endif %}" data-target="#myModal{{forloop.counter0}}" data-toggle="modal">
         ALL {{ key }}
         </a>
-        <div class="{% if horizontal %}nav-item__dropdown-content{% else %}nav-item__submenu{% endif %} " style="width : 100%; max-height: 500px; overflow-y: scroll; z-index: 10001;">
+        <div class="modal fade animated bounceIn" id="myModal{{forloop.counter0}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="width : 100%;padding: 0 ;overflow-y: scroll; z-index: 10001;">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title" id="myModalLabel" style="font-size: 1.2rem; font-weight: 400;">ALL {{key}}</h2>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    
+                </div>
+                <div class="modal-body">
             <ul class="list-group" style="width: 100%;">
              {% for item in value %}
                 <li class="list-group-item list-group-item-secondary justify-content-between align-items-center" style="max-width: 100%; background-color: lightgray; display: block; margin-right: unset; ">
                   {% if item.url %}
-                    <a href="{{ item.url }}">
+                    <a href="{{ item.url }}" style="font-size: 1rem; padding: 2px;">
                       {% if horizontal %}
                         <strong>{{ item.name }}</strong>
                       {% else %}
@@ -37,7 +45,7 @@
                   {% for grandchild in item.children %}
                     <li class="list-group-item justify-content-between align-items-center" style="max-width: 100%; display: block; margin-right: unset;">
                        {% if grandchild.url %}
-                          <a href="{{ grandchild.url }}">
+                          <a href="{{ grandchild.url }}" style="font-size: .9rem; padding: 0;">
                               {{ grandchild.name }}
                           </a>
                         {% else %}
@@ -53,6 +61,9 @@
                 {% endif %}
              {% endfor %}
              </ul>
+           </div>
+         </div>
+       </div>
          </div>
       </li>
 

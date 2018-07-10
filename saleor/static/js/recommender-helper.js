@@ -148,12 +148,13 @@ function renderSimilarProduct(url, position, target){
               x3: 45
             }
           });
-          $('.flickity-prev-next-button.previous').css('left','-1.5em');
-          $('.flickity-prev-next-button.next').css('right','-1.5em');
-          $('.flickity-viewport').css('min-height','240px !important');
-          $('.flickity-viewport').css('max-height','540px !important');
-          $('.flickity-viewport').css('height','300px !important');
+          
         }
+        $('.flickity-prev-next-button.previous').css('left','-1.5em');
+        $('.flickity-prev-next-button.next').css('right','-1.5em');
+        $('.flickity-viewport').css('min-height','240px !important');
+        $('.flickity-viewport').css('max-height','640px !important');
+        $('.flickity-viewport').css('height','320px !important');
       },
       error (xhr, status) {
         $(position).html('');
