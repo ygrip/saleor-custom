@@ -25,7 +25,6 @@ const fancy_loading = ` <div class="animationload">
                           <div class="osahanloading"></div>
                       </div> `;
 $(document).ready(() => {
-
   if ($('#custom-home-navigation').length) {
     console.log('rendering-menu');
     renderMenu();
@@ -96,35 +95,12 @@ $(document).ready(() => {
     var target = "#featured-courses"
     var position = '#similar-products';
     var url = $('#similar-products').data('url');
+    var id_product = $('#similar-products').data('id_product');
     
     renderSimilarProduct(url, position,target);
     setTimeout(function (){
-      st.stop(); // Stop it 5 seconds later...
-      swal({
-          type: 'question',
-          title: 'A quick question for you...',
-          text: 'Seems like you\'ve spend many times on this product, do you like it?',
-          showCancelButton: true,
-          confirmButtonText: 'Yes!',
-          cancelButtonText: 'No!',
-        }).then((result) => {
-          if (result.value) {
-            swal(
-              'Great!',
-              'Thanks for your support.',
-              'success'
-            )
-          } else if (
-            // Read more about handling dismissals
-            result.dismiss === swal.DismissReason.cancel
-          ) {
-            swal(
-              'Oh..',
-              'Okay that\'s fine anyway',
-              'error'
-            )
-          }
-        })
+      st.stop(); // Stop it 10 seconds later...
+      trackItem(id_product);
     }, 10000);
   }
 
@@ -184,6 +160,42 @@ function renderMenu(){
 		  title: 'Oops...',
 		  text: 'Something went wrong! '+status,
 		})
+      },
+  });
+}
+
+function trackItem(id_item){
+  console.log('tracking item');
+  var csrftoken = getCookie('csrftoken');
+  $.ajax({
+      type: 'POST',
+      url: '/api/track/insertvisit/',
+      data:{
+        product_id: id_item,
+        csrfmiddlewaretoken: csrftoken,
+      },
+      crossDomain: 'true',
+      success(response) {
+        if(response.success==true){
+          swal({
+            type: 'success',
+            title: 'Great...',
+            text: response.message,
+          })
+        }else{
+          swal({
+            type: 'warning',
+            title: 'Oops...',
+            text: response.message,
+          })
+        }
+      },
+      error (xhr, status) {
+        swal({
+          type: 'error',
+          title: 'Oops...',
+          text: 'Something went wrong! '+status,
+        })
       },
   });
 }

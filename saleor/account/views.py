@@ -17,7 +17,7 @@ from .forms import (
 
 @find_and_assign_anonymous_cart()
 def login(request):
-    if request.session['_auth_user_id']:
+    if '_auth_user_id' in request.session and request.session['_auth_user_id']:
         return HttpResponseRedirect('/')
     else:
         kwargs = {

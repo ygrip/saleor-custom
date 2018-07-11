@@ -920,7 +920,7 @@ def update_product_rating(request):
                 }
 
                 rating, created = ProductRating.objects.get_or_create(product_id=product,user_id=user,defaults=defaults)
-                print(created, rating)
+               
                 if not created:
                     rating.value = value
                     rating.save()

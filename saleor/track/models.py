@@ -6,7 +6,7 @@ from django.utils.text import slugify
 from django.utils.translation import pgettext_lazy
 # Create your models here.
 
-class VisitPorduct(models.Model):
+class VisitProduct(models.Model):
 	product_id = models.ForeignKey(
 	Product, related_name='tracks', on_delete=models.CASCADE)
 	user_id = models.ForeignKey(

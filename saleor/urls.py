@@ -19,6 +19,7 @@ from .graphql.api import schema
 from .order.urls import urlpatterns as order_urls
 from .page.urls import urlpatterns as page_urls
 from .product.urls import urlpatterns as product_urls, api_urlpatterns as product_api_urls
+from .track.urls import api_urlpatterns as track_api_urls
 from .search.urls import urlpatterns as search_urls
 
 router = routers.DefaultRouter()
@@ -55,6 +56,7 @@ translatable_urlpatterns = [
 api_urlpatterns = [
     url(r'^api/',include(('saleor.dictionary.urls', 'dictionary'), namespace='dictionary')),
     url(r'^api/',include((product_api_urls, 'productapi'), namespace='productapi')),
+    url(r'^api/',include((track_api_urls, 'trackapi'), namespace='trackapi')),
 ]
 
 async_urlpatterns = [

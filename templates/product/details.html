@@ -296,7 +296,7 @@
   <div class="row-fluid justify-content-center home__featured" style="margin-top: 2em; ">
     <h2 class="text-center">{% trans "Related Product" context "Product details title" %}</h2>
     <div class="col-lg-12 col-6">
-        <div class="card" id="similar-products" data-url="{% url 'product:similar-products' product_id=product.pk %}" style=" padding-bottom: 1.5em;">
+        <div class="card" id="similar-products" data-id_product="{{product.pk}}" data-url="{% url 'product:similar-products' product_id=product.pk %}" style=" padding-bottom: 1.5em;">
 
         </div>
     </div>
