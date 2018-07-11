@@ -17,10 +17,13 @@ from .forms import (
 
 @find_and_assign_anonymous_cart()
 def login(request):
-    kwargs = {
-        'template_name': 'account/login.html',
-        'authentication_form': LoginForm}
-    return django_views.LoginView.as_view(**kwargs)(request, **kwargs)
+    if request.session['_auth_user_id']:
+        return HttpResponseRedirect('/')
+    else:
+        kwargs = {
+            'template_name': 'account/login.html',
+            'authentication_form': LoginForm}
+        return django_views.LoginView.as_view(**kwargs)(request, **kwargs)
 
 
 @login_required

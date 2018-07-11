@@ -35,14 +35,16 @@ function  renderProductRating(){
 	    boundRating: 5,
       },
     });
-	    $('.vue-star-rating div').each(function(index) {
+	   $('.vue-star-rating div').each(function(index) {
 	    	$(this).css('margin', '0 auto');
-});
+    });
 }
 
 
 function update_rating(product_id, value){
 	var csrftoken = getCookie('csrftoken');
+  var path = window.location.pathname;
+  
   $.ajax({
 
     type: 'POST',
@@ -50,6 +52,7 @@ function update_rating(product_id, value){
     data: {
       product_id:product_id,
       value:value,
+      previous_page:path,
       csrfmiddlewaretoken: csrftoken,
     },
     crossDomain: 'true',

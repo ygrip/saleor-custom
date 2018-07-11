@@ -1,6 +1,8 @@
 import 'jquery';
 import 'jquery.cookie';
 import 'bootstrap';
+require('webpack-icons-installer/bootstrap');
+require('webpack-icons-installer/font-awesome');
 import '../scss/storefront.scss';
 import 'lightgallery/src/sass/lightgallery.scss';
 import 'slider-pro/dist/css/slider-pro.min.css';

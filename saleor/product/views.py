@@ -720,11 +720,11 @@ def get_recommendation(request):
 
             all_products, ordinality = collaborative_filtering(user, cross_section, binary_cross_section, distinct_user, distinct_product)
             
-            all_products = all_products[:20]
+            all_products = all_products[:20] #select number of recommended product from another user
 
             products = {}
             for item in reversed(all_products):
-                similar_product = get_similar_product(item['id'], 50)
+                similar_product = get_similar_product(item['id'], 50) #select number of similar products on each recommended product
                 for sub_item in similar_product:
                     products[sub_item['id']] = item['confidence']*sub_item['similarity']
 
@@ -930,7 +930,8 @@ def update_product_rating(request):
                 result = {'success':False,'message':'Something went wrong!','process_time':(time.time() -  start_time)}
                 return JsonResponse(result)
         else:
-            result = {'success':False,'message':'You must login first!','process_time':(time.time() -  start_time),'url':settings.LOGIN_URL}
+            previous_page = data.get('previous_page')
+            result = {'success':False,'message':'You must login first!','process_time':(time.time() -  start_time),'url':(settings.LOGIN_URL+'?next='+previous_page)}
             return JsonResponse(result)
     else:
         result = {'success':False,'message':'Something went wrong!','process_time':(time.time() -  start_time)}

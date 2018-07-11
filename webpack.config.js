@@ -4,7 +4,6 @@ var path = require('path');
 var webpack = require('webpack');
 var autoprefixer = require('autoprefixer');
 var CompressionPlugin = require("compression-webpack-plugin");
-
 var resolve = path.resolve.bind(path, __dirname);
 
 var extractCssPlugin;
@@ -102,8 +101,19 @@ var config = {
         loader: 'babel-loader'
       },
       {
+        test: /\.(woff(2)?|ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,    //to support @font-face rule
+        loader: "url-loader",
+        query:{
+          limit:'10000',
+          name:'[name].[ext]',
+          outputPath:'fonts/'
+          //the fonts will be emmited to public/assets/fonts/ folder
+          //the fonts will be put in the DOM <style> tag as eg. @font-face{ src:url(assets/fonts/font.ttf); }
+        }
+      },
+      {
         test: /\.css$/,
-        loader: 'style-loader!css-loader' 
+        loader: ["style-loader","css-loader"]
       },
       {
         test: /\.scss$/,
@@ -142,7 +152,7 @@ var config = {
         query: { limit: 100000 }
       },
       {
-        test: /\.(eot|otf|png|svg|jpg|gif|ttf|woff|woff2)(\?v=[0-9.]+)?$/,
+        test: /\.(otf|png|jpg|gif|woff)(\?v=[0-9.]+)?$/,
         loader: fileLoaderPath,
         include: [
           resolve('node_modules'),

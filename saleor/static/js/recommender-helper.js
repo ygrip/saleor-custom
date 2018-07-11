@@ -31,6 +31,41 @@ $(document).ready(() => {
     renderMenu();
   }
 
+  $(window).on('shown.bs.modal', function() { 
+    var panels = $('.menu-infos');
+    var panelsButton = $('.dropdown-item-menu');
+    
+
+    //Click dropdown
+    panelsButton.click(function() {
+        //get data-for attribute
+        var dataFor = $(this).attr('data-for');
+        var idFor = $(dataFor);
+
+        //current button
+        var currentButton = $(this);
+        idFor.slideToggle(400, function() {
+            //Completed slidetoggle
+            if(idFor.is(':visible'))
+            {
+                currentButton.html('<i class="glyphicon glyphicon-chevron-up text-muted"></i>');
+            }
+            else
+            {
+                currentButton.html('<i class="glyphicon glyphicon-chevron-down text-muted"></i>');
+            }
+        })
+    });
+  });
+
+  $(window).on('hidden.bs.modal', function() { 
+    var panelsButton = $('.dropdown-item-menu');
+
+    //Click dropdown
+    panelsButton.unbind();
+  });
+  
+  
   if ($('#top-brands').length) {
     console.log('rendering-top-brands');
     var target = "#featured-brand"
@@ -56,10 +91,41 @@ $(document).ready(() => {
 
   if ($('#similar-products').length) {
     console.log('rendering-similar-products');
+    var st = new Stopwatch();
+    st.start();
     var target = "#featured-courses"
     var position = '#similar-products';
     var url = $('#similar-products').data('url');
+    
     renderSimilarProduct(url, position,target);
+    setTimeout(function (){
+      st.stop(); // Stop it 5 seconds later...
+      swal({
+          type: 'question',
+          title: 'A quick question for you...',
+          text: 'Seems like you\'ve spend many times on this product, do you like it?',
+          showCancelButton: true,
+          confirmButtonText: 'Yes!',
+          cancelButtonText: 'No!',
+        }).then((result) => {
+          if (result.value) {
+            swal(
+              'Great!',
+              'Thanks for your support.',
+              'success'
+            )
+          } else if (
+            // Read more about handling dismissals
+            result.dismiss === swal.DismissReason.cancel
+          ) {
+            swal(
+              'Oh..',
+              'Okay that\'s fine anyway',
+              'error'
+            )
+          }
+        })
+    }, 10000);
   }
 
   if ($('#sale-results').length) {
@@ -159,10 +225,10 @@ function renderSimilarProduct(url, position, target){
       error (xhr, status) {
         $(position).html('');
         swal({
-		  type: 'error',
-		  title: 'Oops...',
-		  text: 'Something went wrong! '+status,
-		})
+    		  type: 'error',
+    		  title: 'Oops...',
+    		  text: 'Something went wrong! '+status,
+    		})
       },
   });
 }
@@ -324,4 +390,39 @@ function getCookie(name) {
         }
     }
     return cookieValue;
+}
+
+// Create a stopwatch "class." 
+function Stopwatch(){
+  var startTime, endTime, instance = this;
+
+  this.start = function (){
+    startTime = new Date();
+  };
+
+  this.stop = function (){
+    endTime = new Date();
+  }
+
+  this.clear = function (){
+    startTime = null;
+    endTime = null;
+  }
+
+  this.getSeconds = function(){
+    if (!endTime){
+    return 0;
+    }
+    return Math.round((endTime.getTime() - startTime.getTime()) / 1000);
+  }
+
+  this.getMinutes = function(){
+    return instance.getSeconds() / 60;
+  }      
+  this.getHours = function(){
+    return instance.getSeconds() / 60 / 60;
+  }    
+  this.getDays = function(){
+    return instance.getHours() / 24;
+  }   
 }

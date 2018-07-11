@@ -5,7 +5,7 @@
     {% if value %}
       <li class="{% if horizontal %}nav-item row col-lg-6{% endif %} nav-item__dropdown menu__item" style="
       padding: 0 !important;">
-        <a class="{% if horizontal %}nav-link{% endif %}" data-target="#myModal{{forloop.counter0}}" data-toggle="modal">
+        <a class="{% if horizontal %}nav-link{% endif %}" data-target="#myModal{{forloop.counter0}}" data-toggle="modal" style="cursor: pointer;">
         ALL {{ key }}
         </a>
         <div class="modal fade animated bounceIn" id="myModal{{forloop.counter0}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="width : 100%;padding: 0 ;overflow-y: scroll; z-index: 10001;">
@@ -20,6 +20,9 @@
             <ul class="list-group" style="width: 100%;">
              {% for item in value %}
                 <li class="list-group-item list-group-item-secondary justify-content-between align-items-center" style="max-width: 100%; background-color: lightgray; display: block; margin-right: unset; ">
+                  <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 dropdown-item-menu" data-for="#{{key}}{{forloop.counter0}}" style="display: inline-block;">
+                      <i class="glyphicon glyphicon-chevron-up text-muted"></i>
+                  </div>
                   {% if item.url %}
                     <a href="{{ item.url }}" style="font-size: 1rem; padding: 2px;">
                       {% if horizontal %}
@@ -41,7 +44,7 @@
                   
                 </li>
                 {% if item.children %}
-                <ul class="list-group list-group-flush" style="width: 100%;">
+                <ul class="list-group list-group-flush menu-infos" id="{{key}}{{forloop.counter0}}" style="width: 100%;">
                   {% for grandchild in item.children %}
                     <li class="list-group-item justify-content-between align-items-center" style="max-width: 100%; display: block; margin-right: unset;">
                        {% if grandchild.url %}

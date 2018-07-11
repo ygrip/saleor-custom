@@ -222,7 +222,7 @@
         <div class="row">
           {% if location %}
             <a style=" text-decoration: none; margin: .25em; width: 100%;" href="https://maps.google.com?q={{ location_query }}" target="_blank" class="row">
-            <span class="glyphicon glyphicon-map-marker" aria-hidden="false" style="margin-left:.5em;   display: inherit;"><img src="{% static "assets/maps-and-flags.svg" %}" width="30" height="30" style="margin-right:.5em;"></img><div style="border-bottom: 1px #4285F4 dashed; color: #4285F4;"> {{ location.location }}</div></span>
+            <img src="{% static "assets/maps-and-flags.svg" %}" width="30" height="30" style="margin-right:.5em;"></img><div style="border-bottom: 1px #4285F4 dashed; color: #4285F4;"> {{ location.location }}</div>
             </a>
           {% else %}
             <span class="glyphicon glyphicon-map-marker" aria-hidden="false" style="margin-left:.5em;"><img src="{% static "assets/maps-and-flags.svg" %}" width="30" height="30"></img> - </span>

@@ -23,7 +23,7 @@
                     <!-- Slide 1 -->
 
                     <div class="carousel-item {% if forloop.first %} active {% endif %}">
-                          <img class="d-block w-100" src="{% static promo.promo.image %}" />
+                          <img draggable="false" class="d-block w-100" src="{% static promo.promo.image %}" />
                     </div>
                       
                     {% endfor %}
@@ -69,7 +69,7 @@
       </div>
     </div>
     <div class="home__featured">
-      <h2 class="text-center" id="recommendation-label"></h2>
+      <h2 class="text-center" id="recommendation-label">FEATURED PRODUCTS</h2>
       <div class="row" id="recommended_items">
 
       </div>

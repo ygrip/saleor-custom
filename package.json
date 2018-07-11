@@ -55,7 +55,8 @@
     "sortablejs": "^1.5.0-rc1",
     "svg-injector-2": "^2.0.35",
     "sweetalert2": "^7.24.4",
-    "vue-star-rating": "^1.6.0"
+    "vue-star-rating": "^1.6.0",
+    "webpack-icons-installer": "^1.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0-beta.44",

@@ -27,6 +27,8 @@ from django.contrib.sessions.backends.db import SessionStore
 from django.db.models import Avg
 import numpy as np
 from django.db.models import Case, When
+from ..track.views import insert_search_history
+from collections import deque
 
 total = 0
 query_appendix = {}
@@ -140,16 +142,36 @@ def search_view(request):
     request.session['page_query'] = request_page
     form = SearchForm(data=request.GET or None)
     if form.is_valid():
+        miner  = FeatureHelper()
         query = form.cleaned_data.get('q', '')
+        clean_query = miner.stem_query(query)
     else:
         query = ''
-    clean_query = ''
+        clean_query = ''
     if not settings.ENABLE_SEARCH:
         raise Http404('No such page!')
     
     ctx = {
         'query': query,
         'query_string': '?q=%s' % query}
+    if '_auth_user_id' in request.session and request.session['_auth_user_id']:
+        insert_search_history(query, clean_query, request.session['_auth_user_id'])
+    else:
+        if 'history' in request.session and 'search' in request.session['history']:
+            if query != '' and clean_query !='':
+                request.session['history']['search'] += [{'clean':clean_query, 'actual':query}]
+        else:
+            if 'history' not in request.session:
+                request.session['history'] = {'search':[],'visit':{}}
+            if query != '' and clean_query !='':
+                    request.session['history']['search'] += [{'clean':clean_query, 'actual':query}]
+
+        current_len = len(request.session['history']['search'])
+        if current_len > 10:
+            temp = deque(request.session['history']['search'])
+            for i in range(0,abs(current_len-10)):
+                temp.popleft()
+            request.session['history']['search'] = list(temp)
     response = render(request, 'search/index.html', ctx)
     return response
 
