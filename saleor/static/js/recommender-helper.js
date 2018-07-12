@@ -80,6 +80,17 @@ $(document).ready(() => {
     getFeaturedProducts(url, position);
   }
 
+  if ($('#recommendation-results').length) {
+    var loading_element = '#center-loader';
+    var position = '#recommendation-results';
+    const query = window.location.search.substring(1);
+    const parsed_query = parse_query_string(query);
+    var url = '/products/recommendation/all/render/';
+    console.log(parsed_query);
+    renderSearchResults(url, parsed_query, position, loading_element);
+    console.log('done processing recommendation product');
+  }
+
   if ($('#categories_list').length) {
     console.log('rendering-catalog-products');
     var target = ".featured-catalog"
@@ -286,12 +297,22 @@ function renderFeaturedProducts(url, position, inputdata, source){
       url: url,
       data:{
         products:inputdata,
+        source:source,
         csrfmiddlewaretoken: csrftoken,
       },
       crossDomain: 'true',
       success(response) {
         $(position).html('');
         $(position).html(response);
+        $(position).append(`<hr>
+
+            <div class="row-fluid card"> 
+              <div class="col-sm-2 home__block1" style="margin : 0 auto; margin-bottom: 1.5em;"> 
+            <a class="btn fancy-button-on" href="products/recommendation/all/" style="width: 100%;"> 
+                Show More 
+              </a> 
+            </div> 
+            </div>`);
         renderRating(position);
       },
       error (xhr, status) {

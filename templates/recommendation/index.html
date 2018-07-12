@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load staticfiles %}
+{% load bootstrap_pagination from bootstrap4 %}
+
+{% block title %}{% trans "Search results" context "Search page title" %} {{ block.super }}{% endblock %}
+
+{% block breadcrumb %}
+  {{ block.super }}
+  {% for breadcrumb in breadcrumbs %}
+    <li{% if forloop.last %} class="active"{% endif %}>
+      {% if not forloop.last %}
+        <a href="{{ breadcrumb.get_absolute_url }}">{{ breadcrumb }}</a>
+      {% else %}
+        <span>{{ breadcrumb }}</span>
+      {% endif %}
+    </li>
+  {% endfor %}
+{% endblock breadcrumb %}
+
+{% block content %}
+  <div class="row home__featured">
+    <div id="recommendation-results" style="width: 100%;">
+    </div>
+  </div>
+{% endblock content %}

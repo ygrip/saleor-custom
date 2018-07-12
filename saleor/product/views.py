@@ -483,6 +483,13 @@ def render_all_similar_product(request, product_id):
             response = TemplateResponse(request, 'product/similar_results.html', ctx)
 
             return response
+    else:
+        ctx = {
+            'query': product.model._meta.object_name,
+            'count_query' : '-',
+            'results': [],
+            'query_string': '?page='+ str(request_page)}
+        return TemplateResponse(request, 'product/similar_results.html', ctx)
 
 def get_all_discounted_product(request):
     request_page = int(request.GET.get('page','')) if request.GET.get('page','') else 1
@@ -1016,12 +1023,14 @@ def get_default_recommendation(request):
 @api_view(['POST'])
 @permission_classes((permissions.AllowAny,))
 def render_recommendation(request):
-    print('i am here')
+    allowed_source = ['visit','search','rating','order']
     if request.method == 'POST':
         data = request.data
-
-        list_product = json.loads(data.get('products'))
+        list_confidence = []
+        list_product = json.loads(data.get('products'))        
         list_product = sorted(list_product, key=itemgetter('confidence'), reverse=True)
+        request.session['recommendation'] = list_product
+        request.session['source_recommendation'] = data.get('source')
         list_product = list_product[:16]
         
         products = []
@@ -1030,12 +1039,75 @@ def render_recommendation(request):
         
         products = products_with_availability(
             products, discounts=request.discounts, local_currency=request.currency)
-        
-        list_confidence = [round(d.get('confidence'),4) for d in list_product]
+        if data.get('source') in allowed_source:
+            list_confidence = [round(d.get('confidence'),4) for d in list_product]
         response = TemplateResponse(
         request, 'product/_items.html', {
             'products': products, 'confidences':list_confidence})
         return response
+
+def all_recommendation(request):
+    request_page = int(request.GET.get('page','')) if request.GET.get('page','') else 1
+    ctx = {
+        'query_string': '?page='+ str(request_page)
+        }
+
+    request.session['recommendation_page'] = request_page
+    response = TemplateResponse(request, 'recommendation/index.html', ctx)
+    return response
+
+def get_render_all_recommendation(request):
+    start_time = time.time()
+    list_recommendation = []
+    products = []
+    request_page = int(request.GET.get('page')) if request.GET.get('page') else 1
+    if 'recommendation' in request.session and request.session['recommendation'] and 'source_recommendation' in request.session and request.session['source_recommendation']:
+        list_recommendation = request.session['recommendation']
+        source = request.session['source_recommendation']
+    else:
+        temp = json.loads(get_recommendation(request).content)
+        list_recommendation = temp['recommendation']['products']
+        source = temp['source']
+
+    if list_recommendation:
+        ratings = list(ProductRating.objects.all().values('product_id').annotate(value=Avg('value')))
+        request_page = 1
+        if 'page' not in request.GET:
+            if 'recommendation_page' in request.session and request.session['recommendation_page']:
+                request_page = request.session['recommendation_page']
+        else:
+            results = []
+            start = (settings.PAGINATE_BY*(request_page-1))
+            end = start+(settings.PAGINATE_BY)
+            preserved = Case(*[When(pk=pk, then=pos) for pos, pk in enumerate([d['id'] for d in list_recommendation[start:end]])])
+            products = list(Product.objects.filter(id__in=[d['id'] for d in list_recommendation[start:end]]).order_by(preserved))         
+            results = Parallel(n_jobs=psutil.cpu_count()*2,
+                        verbose=50,
+                        require='sharedmem',
+                        backend="threading")(delayed(render_item)(item,request.discounts,request.currency,ratings) for item in products)
+            front = [i for i in range((start))]
+            results = front+results
+            for item in [d['id'] for d in list_recommendation[end:]]:
+                results.append(item)
+            confidences = [round(d.get('confidence'),4) for d in list_recommendation]
+            page = paginate_results(list(results), request_page)
+            ctx = {
+                'query': '',
+                'count_query' : len(results) if results else 0,
+                'results': page,
+                'confidences': confidences,
+                'query_string': '?page='+ str(request_page)}
+            response = TemplateResponse(request, 'recommendation/results.html', ctx)
+
+            return response
+    else:
+        ctx = {
+            'query': '',
+            'count_query' : '-',
+            'results': [],
+            'confidences': [],
+            'query_string': '?page='+ str(request_page)}
+        return TemplateResponse(request, 'recommendation/results.html', ctx)
 
 def fake_user_data(data_input, distinct_user, distinct_product, fake_data):
     new_user =  int(np.max(distinct_user))

@@ -40,7 +40,6 @@ def paginate_results(results, page_number, paginate_by=settings.PAGINATE_BY):
         raise Http404('No such page!')
     return page
 
-
 def evaluate_search_query(form, request):
     results = products_with_details(request.user) & form.search()
     return products_with_availability(results, discounts=request.discounts,
