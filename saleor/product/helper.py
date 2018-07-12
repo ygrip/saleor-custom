@@ -247,11 +247,25 @@ def get_user_order_history(user):
 
 def get_product_order_history():
     query = """
-            SELECT p.id AS id, SUM(o.quantity) AS jumlah
+            SELECT p.id AS id, SUM(o.quantity) AS value
             FROM product_product p, product_productvariant v, order_orderline o
             WHERE v.product_id = p.id AND o.variant_id = v.id
             GROUP BY p.id
-            ORDER BY jumlah DESC
+            ORDER BY value DESC
+            """
+    cursor = connection.cursor()
+    cursor.execute(query)
+    results = [{'product_id':a[0],'value':a[1]} for a in cursor.fetchall()]
+    cursor.close()
+    return results
+
+def get_product_rating_history():
+    query = """
+            SELECT p.id AS id, AVG(r.value) AS value
+            FROM product_product p, product_productrating r
+            WHERE r.product_id_id = p.id
+            GROUP BY p.id
+            ORDER BY value DESC
             """
     cursor = connection.cursor()
     cursor.execute(query)

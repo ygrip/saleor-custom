@@ -30,9 +30,6 @@ from django.db.models import Case, When
 from ..track.views import insert_search_history
 from collections import deque
 
-total = 0
-query_appendix = {}
-product_appendix = []
 def paginate_results(results, page_number, paginate_by=settings.PAGINATE_BY):
     print('now paginate result')
     paginator = Paginator(results, paginate_by)
@@ -49,11 +46,7 @@ def evaluate_search_query(form, request):
     return products_with_availability(results, discounts=request.discounts,
                                       local_currency=request.currency)
 
-def check_similarity(item):
-    global total
-    global query_appendix
-
-    element = {}
+def check_similarity(item, query_appendix, total):
     idx, detail = item
     c = len(detail)
     similarity = 0
@@ -61,11 +54,12 @@ def check_similarity(item):
         if query_appendix[q] > 0:
             f = (detail.count(q))/c
             similarity += (f*(log10(1+total/query_appendix[q])))
-    element['id'] = idx
-    element['similarity'] = similarity
+    
     if similarity > 0:
-        global product_appendix
-        product_appendix.append(element)
+        element = {}
+        element['id'] = idx
+        element['similarity'] = similarity
+        return element
 
 def render_item(item,discounts,currency,ratings):
     availability = get_availability(item,discounts=discounts,
@@ -74,15 +68,9 @@ def render_item(item,discounts,currency,ratings):
     rating = check[0] if check else {'product_id':item.id,'value':0.0}
     return item, rating, availability
 
-def custom_query_validation(query,request,request_page):
-    global query_appendix
-    global total
-    global product_appendix
-
-    ratings = list(ProductRating.objects.all().values('product_id').annotate(value=Avg('value')))
-    if product_appendix:
-        product_appendix = []
-
+def custom_query_validation(query):
+    query_appendix = {}
+    product_appendix = []
     query = list(set(query.split(' ')))
     queryset = Q()
     for q in query:
@@ -97,45 +85,45 @@ def custom_query_validation(query,request,request_page):
         temp_idx = [d['product_id'] for d in product_details]
         for q in query_appendix:
             query_appendix[q] = len([s for s in temp_details if q in s])
-            print(query_appendix[q])
         del(product_details)
 
         product_details = zip(temp_idx, temp_details)
         del temp_details
         del temp_idx
 
-        Parallel(n_jobs=psutil.cpu_count()*2,
-            verbose=50,
-            require='sharedmem')(map(delayed(check_similarity),product_details))
-        print('Job Done')
-        product_appendix = sorted(product_appendix, key=itemgetter('similarity'), reverse=True)
-        product_appendix = [item['id'] for item in product_appendix]
-        print('Sorted')
-        start = (settings.PAGINATE_BY*(request_page-1))
-        end = start+(settings.PAGINATE_BY)
-        preserved = Case(*[When(pk=pk, then=pos) for pos, pk in enumerate(product_appendix[start:end])])
-        products = list(Product.objects.filter(id__in=product_appendix[start:end]).order_by(preserved))
-
-        results = []
-        results = Parallel(n_jobs=psutil.cpu_count(),
+        product_appendix = Parallel(n_jobs=psutil.cpu_count()*2,
             verbose=50,
             require='sharedmem',
-            backend="threading")(delayed(render_item)(item,request.discounts,request.currency,ratings) for item in products)
-        front = [i for i in range((start))]
-
-        results = front+results
-
-
-        for item in product_appendix[end:]:
-            results.append(item)
-
-        query_appendix = {}
-        total = 0
-        return results
+            backend="threading")(delayed(check_similarity)(item, query_appendix, total) for item in product_details)
+        print('Job Done')
+        product_appendix = list(filter(lambda e: e, product_appendix))
+        product_appendix = sorted(product_appendix, key=itemgetter('similarity'), reverse=True)
+        print('Sorted')
+        return product_appendix
     else:
-        query_appendix = {}
-        total = 0
-        return []
+        return product_appendix
+
+def get_search_result(request, product_appendix, request_page):
+    ratings = list(ProductRating.objects.all().values('product_id').annotate(value=Avg('value')))
+    start = (settings.PAGINATE_BY*(request_page-1))
+    end = start+(settings.PAGINATE_BY)
+    preserved = Case(*[When(pk=pk, then=pos) for pos, pk in enumerate(product_appendix[start:end])])
+    products = list(Product.objects.filter(id__in=product_appendix[start:end]).order_by(preserved))
+
+    results = []
+    results = Parallel(n_jobs=psutil.cpu_count(),
+        verbose=50,
+        require='sharedmem',
+        backend="threading")(delayed(render_item)(item,request.discounts,request.currency,ratings) for item in products)
+    front = [i for i in range((start))]
+
+    results = front+results
+
+
+    for item in product_appendix[end:]:
+        results.append(item)
+
+    return results
 
 def search_view(request):
     request_page = int(request.GET.get('page','')) if request.GET.get('page','') else 1
@@ -178,6 +166,7 @@ def search_view(request):
 def search_ajax(request):
     form = SearchForm(data=request.GET or None)
     request_page = 1
+    product_appendix = []
     if 'page' not in request.GET:
         if 'page_query' in request.session and request.session['page_query']:
             request_page = request.session['page_query']
@@ -213,11 +202,15 @@ def search_ajax(request):
                     for item in request.session['query_results'][end:]:
                         results.append(item)
                 else:
-                    results = custom_query_validation(clean_query, request, request_page)
+                    product_appendix = custom_query_validation(clean_query)
+                    product_appendix = [item['id'] for item in product_appendix]
+                    results = get_search_result(request, product_appendix, request_page)
                 if not results:
                     query, results = '', []
             else:
-                results = custom_query_validation(clean_query, request, request_page)
+                product_appendix = custom_query_validation(clean_query)
+                product_appendix = [item['id'] for item in product_appendix]
+                results = get_search_result(request, product_appendix, request_page)
                 if not results:
                     query, results = '', []
     else:

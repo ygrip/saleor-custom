@@ -95,7 +95,6 @@ def insert_visit_history(request):
 def migrate_session_callback(sender, request, user, **kwargs):
 	start_time = time.time()
 	print('migrating-session')
-	print(request)
 	if request.method=='POST':
 		if '_auth_user_id' in request.session and request.session['_auth_user_id']:
 			if 'history' in request.session and request.session['history']:
