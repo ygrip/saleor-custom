@@ -52,6 +52,8 @@ from ..account.models import User
 from ..track.models import VisitProduct, SearchHistory
 
 APPROVED_FILTER = ['Brand','Jenis','Color','Gender']
+LIMIT_COLLABORATIVE = 50
+LIMIT_CONTENT_BASE = 50
 
 def product_details(request, slug, product_id, form=None):
     """Product details page.
@@ -631,10 +633,10 @@ def get_arc_recommendation(request, mode, limit):
                         all_products.append(temp)
 
                     all_products = sorted(all_products, key=itemgetter('confident'), reverse=True)
-                    all_products = all_products[:100]
+                    all_products = all_products[:LIMIT_COLLABORATIVE]
                     products = {}
                     for item in reversed(all_products):
-                        similar_product = get_similar_product(item['id'], 50)
+                        similar_product = get_similar_product(item['id'], LIMIT_CONTENT_BASE)
                         for sub_item in similar_product:
                             products[sub_item['id']] = {'name':item['name'],
                                                         'value':item['confident']*sub_item['similarity']}
@@ -728,11 +730,11 @@ def get_recommendation(request):
                 status_source = True
                 all_products, ordinality = collaborative_filtering(anon_user, cross_section, binary_cross_section, distinct_user, distinct_product)
             
-                all_products = all_products[:100] #select number of recommended product from another user
+                all_products = all_products[:LIMIT_COLLABORATIVE] #select number of recommended product from another user
 
                 products = {}
                 for item in reversed(all_products):
-                    similar_product = get_similar_product(item['id'], 50) #select number of similar products on each recommended product
+                    similar_product = get_similar_product(item['id'], LIMIT_CONTENT_BASE) #select number of similar products on each recommended product
                     for sub_item in similar_product:
                         products[sub_item['id']] = item['confidence']*sub_item['similarity']
 
@@ -806,11 +808,11 @@ def get_recommendation(request):
 
             all_products, ordinality = collaborative_filtering(user, cross_section, binary_cross_section, distinct_user, distinct_product)
             
-            all_products = all_products[:100] #select number of recommended product from another user
+            all_products = all_products[:LIMIT_COLLABORATIVE] #select number of recommended product from another user
 
             products = {}
             for item in reversed(all_products):
-                similar_product = get_similar_product(item['id'], 50) #select number of similar products on each recommended product
+                similar_product = get_similar_product(item['id'], LIMIT_CONTENT_BASE) #select number of similar products on each recommended product
                 for sub_item in similar_product:
                     products[sub_item['id']] = item['confidence']*sub_item['similarity']
 
@@ -935,11 +937,11 @@ def get_default_recommendation(request):
 
             all_products, ordinality = collaborative_filtering(anon_user, cross_section, binary_cross_section, distinct_user, distinct_product)
         
-            all_products = all_products[:100] #select number of recommended product from another user
+            all_products = all_products[:LIMIT_COLLABORATIVE] #select number of recommended product from another user
 
             products = {}
             for item in reversed(all_products):
-                similar_product = get_similar_product(item['id'], 50) #select number of similar products on each recommended product
+                similar_product = get_similar_product(item['id'], LIMIT_CONTENT_BASE) #select number of similar products on each recommended product
                 for sub_item in similar_product:
                     products[sub_item['id']] = item['confidence']*sub_item['similarity']
 
@@ -1131,20 +1133,27 @@ def evaluate_recommendation(request):
                     if 'recommended' in data and data.get('recommended'):
                         products = json.loads(data.get('recommended')) 
                         recommended = [item['id'] for item in products]
-                        tp = len(list(set(actual).intersection(set(recommended))))
-                        fp = len(recommended) - tp
-                        fn = len(actual) - tp
+                        tp = len(set(actual)&set(recommended))
+                        fp = abs(len(recommended) - tp)
+                        fn = abs(len(actual) - tp)
                         relevant = tp + fn
-                        irrelevant = total - len(actual)
-                        tn = irrelevant - fp
+                        irrelevant = abs(total - len(actual))
+                        tn = abs(irrelevant - fp)
 
                         score = {}
-                        score['precission'] = tp/(tp+fp)
-                        score['recall'] = tp/(tp+fn)
-                        score['fallout'] = fp/(fp+tn)
-                        score['missrate'] = fn/(tp+fn)
-                        score['fonescore'] = (2*score['precission']*score['recall'])/(score['precission']+score['recall'])
+                        score['Precission'] = round(tp/(tp+fp),4)
+                        score['Recall'] = round(tp/(tp+fn),4)
+                        score['Fallout'] = round(fp/(fp+tn),4)
+                        score['Missrate'] = round(fn/(tp+fn),4)
+                        score['F-one-score'] = round((2*score['Precission']*score['Recall'])/(score['Precission']+score['Recall']),4)
                         results['evaluation'] = score
+                        results['data'] = {'tp':tp,
+                                            'fn':fn,
+                                            'tn':tn,
+                                            'fp':fp,
+                                            'total':total,
+                                            'relevant':relevant,
+                                            'irrelevant':irrelevant}
                         results['success'] = True
                         results['process_time'] = time.time() - start_time
                         return JsonResponse(results)

@@ -319,8 +319,38 @@ function evaluateRecommendation(url,position,products,source,time){
 
           var results = '<div class="row-fluid card" style="margin: 0 auto; padding:10px;"y><div class="table-responsive"><table class="table table-striped">';
           results += `<tr>
-                    <td>data source :</td>
+                    <td>Source :</td>
                     <td><strong>`+source+`</strong></td>
+                  </tr>`
+          results += `<tr>
+                    <td>Information :</td><td>`
+          results += `<table class="table table-bordered table-hover">`
+
+          results += `<tr>
+                      <td></td>
+                      <td><strong>Relevant</strong></td>
+                      <td><strong>Irrelevant</strong></td>
+                      <td><strong>Total</strong></td>
+                    </tr>`
+          results += `<tr>
+                      <td><strong>Recommended</strong></td>
+                      <td bgcolor="#7bed9f">`+response.data.tp+`</td>
+                      <td bgcolor="#ff6b81">`+response.data.fp+`</td>
+                      <td>`+(response.data.tp+response.data.fp)+`</td>
+                    </tr>`
+          results += `<tr>
+                      <td><strong>Not Recommended</strong></td>
+                      <td bgcolor="#ff6b81">`+response.data.fn+`</td>
+                      <td bgcolor="#7bed9f">`+response.data.tn+`</td>
+                      <td>`+(response.data.fn+response.data.tn)+`</td>
+                    </tr>`
+          results += `<tr>
+                      <td><strong>Total</strong></td>
+                      <td>`+response.data.relevant+`</td>
+                      <td>`+response.data.irrelevant+`</td>
+                      <td>`+response.data.total+`</td>
+                    </tr>`
+          results += `</table></td>
                   </tr>`
           for (const [key, value] of Object.entries(response.evaluation)) {
             results += `<tr>
@@ -329,7 +359,7 @@ function evaluateRecommendation(url,position,products,source,time){
                   </tr>`
           }
           results += `<tr>
-                    <td>process time :</td>
+                    <td>Process Time :</td>
                     <td><strong>`+time+`</strong></td>
                   </tr>`
           results += `</table>
