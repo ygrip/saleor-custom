@@ -20,7 +20,8 @@
             <ul class="list-group" style="width: 100%;">
              {% for item in value %}
                 <li class="list-group-item list-group-item-secondary justify-content-between align-items-center" style="max-width: 100%; background-color: lightgray; display: block; margin-right: unset; ">
-                  <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 dropdown-item-menu" data-for="#{{key}}{{forloop.counter0}}" style="display: inline-block;">
+                  <div class="row-fluid">
+                  <div class=" dropdown-item-menu" data-for="#{{key}}{{forloop.counter0}}" style="display: inline-block; margin-right: 10px;">
                       <i class="glyphicon glyphicon-chevron-up text-muted"></i>
                   </div>
                   {% if item.url %}
@@ -41,7 +42,7 @@
                   {% if item.count %}
                   <span class="badge badge-pill badge-info" style="float: right; color:white; ">{{ item.count }}</span>
                   {% endif %}
-                  
+                  </div>
                 </li>
                 {% if item.children %}
                 <ul class="list-group list-group-flush menu-infos" id="{{key}}{{forloop.counter0}}" style="width: 100%;">

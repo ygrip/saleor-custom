@@ -269,7 +269,8 @@ function getFeaturedProducts(url, position){
           var newposition = '#recommended_items';
           var data = JSON.stringify(response.recommendation.products);
           var source = response.source;
-          renderFeaturedProducts(url,newposition,data,source);
+          var total = response.recommendation.total;
+          renderFeaturedProducts(url,newposition,data,source, total);
         }else{
           $(position).html('');
           swal({
@@ -290,7 +291,7 @@ function getFeaturedProducts(url, position){
   });
 }
 
-function renderFeaturedProducts(url, position, inputdata, source){
+function renderFeaturedProducts(url, position, inputdata, source, total){
   var csrftoken = getCookie('csrftoken');
   $.ajax({
       type: 'POST',
@@ -304,15 +305,19 @@ function renderFeaturedProducts(url, position, inputdata, source){
       success(response) {
         $(position).html('');
         $(position).html(response);
-        $(position).append(`<hr>
 
-            <div class="row-fluid card"> 
-              <div class="col-sm-2 home__block1" style="margin : 0 auto; margin-bottom: 1.5em;"> 
-            <a class="btn fancy-button-on" href="products/recommendation/all/" style="width: 100%;"> 
-                Show More 
-              </a> 
-            </div> 
+        if(total>16){
+          $(position).append(`
+            <div class="row-fluid" style="width:100%;">
+              <hr>
+                <div class="home__block1" style="margin : 0 auto; margin-bottom: 1.5em;"> 
+                <a class="btn fancy-button-on col-sm-2" href="products/recommendation/all/" style="width: 100%; height:100%;"> 
+                  Show More 
+                </a> 
+              </div>
+              <hr>
             </div>`);
+        }
         renderRating(position);
       },
       error (xhr, status) {

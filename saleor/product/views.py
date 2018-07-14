@@ -30,7 +30,8 @@ from .helper import (
     get_filter_values, get_descendant, get_cross_section_order,
     get_cross_section_rating, get_list_product_from_order, get_list_product_from_rating,
     get_list_user_from_order, get_list_user_from_rating, get_all_user_rating, get_all_user_order_history,
-    get_product_order_history, get_user_order_history, get_product_rating_history)
+    get_product_order_history, get_user_order_history, get_product_rating_history, get_rating_relevant_item,
+    get_order_relevant_item, get_visit_relevant_item)
 from django.db.models import Avg
 from joblib import (Parallel, delayed)
 import psutil
@@ -456,7 +457,6 @@ def render_all_similar_product(request, product_id):
 
     if list_similar_product:
         ratings = list(ProductRating.objects.all().values('product_id').annotate(value=Avg('value')))
-        request_page = 1
         if 'page' not in request.GET:
             if 'similar_page' in request.session and request.session['similar_page']:
                 request_page = request.session['similar_page']
@@ -643,10 +643,10 @@ def get_arc_recommendation(request, mode, limit):
                         all_products.append(temp)
 
                     all_products = sorted(all_products, key=itemgetter('confident'), reverse=True)
-                    all_products = all_products[:20]
+                    all_products = all_products[:30]
                     products = {}
                     for item in reversed(all_products):
-                        similar_product = get_similar_product(item['id'], 50)
+                        similar_product = get_similar_product(item['id'], 15)
                         for sub_item in similar_product:
                             products[sub_item['id']] = {'name':item['name'],
                                                         'value':item['confident']*sub_item['similarity']}
@@ -740,11 +740,11 @@ def get_recommendation(request):
                 status_source = True
                 all_products, ordinality = collaborative_filtering(anon_user, cross_section, binary_cross_section, distinct_user, distinct_product)
             
-                all_products = all_products[:20] #select number of recommended product from another user
+                all_products = all_products[:30] #select number of recommended product from another user
 
                 products = {}
                 for item in reversed(all_products):
-                    similar_product = get_similar_product(item['id'], 50) #select number of similar products on each recommended product
+                    similar_product = get_similar_product(item['id'], 15) #select number of similar products on each recommended product
                     for sub_item in similar_product:
                         products[sub_item['id']] = item['confidence']*sub_item['similarity']
 
@@ -818,11 +818,11 @@ def get_recommendation(request):
 
             all_products, ordinality = collaborative_filtering(user, cross_section, binary_cross_section, distinct_user, distinct_product)
             
-            all_products = all_products[:20] #select number of recommended product from another user
+            all_products = all_products[:30] #select number of recommended product from another user
 
             products = {}
             for item in reversed(all_products):
-                similar_product = get_similar_product(item['id'], 50) #select number of similar products on each recommended product
+                similar_product = get_similar_product(item['id'], 15) #select number of similar products on each recommended product
                 for sub_item in similar_product:
                     products[sub_item['id']] = item['confidence']*sub_item['similarity']
 
@@ -849,7 +849,7 @@ def get_recommendation(request):
         results = get_default_recommendation(request)
         return JsonResponse(results)
 
-def collaborative_filtering(user, cross_section, binary_cross_section, distinct_user, distinct_product, limit=5):
+def collaborative_filtering(user, cross_section, binary_cross_section, distinct_user, distinct_product, limit=9):
     start_count = time.time()
     user_similarity = collaborative_similarity(cross_section, len(distinct_user))
     print('done processing collaborative similarity in %s'%(time.time() -  start_count))
@@ -862,7 +862,7 @@ def collaborative_filtering(user, cross_section, binary_cross_section, distinct_
     ordinality = 1
     while True:
         if result_matrix:
-            if 0 not in result_matrix[-1][user_id] or order >= int(limit):
+            if 0 not in result_matrix[-1][user_id] and order >= 3 or order >= int(limit):
                 ordinality = order
                 results = result_matrix[-1][user_id]
                 break
@@ -874,6 +874,8 @@ def collaborative_filtering(user, cross_section, binary_cross_section, distinct_
             final_weight = np.dot((np.dot(binary_cross_section,binary_cross_section.T))*(user_similarity),check)
             result_matrix.append(final_weight)
         order += 2
+
+    del result_matrix
 
     print('done processing similarity %s'%(time.time() -  start_similarity))
 
@@ -945,11 +947,11 @@ def get_default_recommendation(request):
 
             all_products, ordinality = collaborative_filtering(anon_user, cross_section, binary_cross_section, distinct_user, distinct_product)
         
-            all_products = all_products[:20] #select number of recommended product from another user
+            all_products = all_products[:30] #select number of recommended product from another user
 
             products = {}
             for item in reversed(all_products):
-                similar_product = get_similar_product(item['id'], 50) #select number of similar products on each recommended product
+                similar_product = get_similar_product(item['id'], 15) #select number of similar products on each recommended product
                 for sub_item in similar_product:
                     products[sub_item['id']] = item['confidence']*sub_item['similarity']
 
@@ -1058,9 +1060,12 @@ def all_recommendation(request):
 
 def get_render_all_recommendation(request):
     start_time = time.time()
+    allowed_source = ['visit','search','rating','order']
     list_recommendation = []
     products = []
+    source = ''
     request_page = int(request.GET.get('page')) if request.GET.get('page') else 1
+    print(request_page)
     if 'recommendation' in request.session and request.session['recommendation'] and 'source_recommendation' in request.session and request.session['source_recommendation']:
         list_recommendation = request.session['recommendation']
         source = request.session['source_recommendation']
@@ -1070,8 +1075,9 @@ def get_render_all_recommendation(request):
         source = temp['source']
 
     if list_recommendation:
+        confidences = []
         ratings = list(ProductRating.objects.all().values('product_id').annotate(value=Avg('value')))
-        request_page = 1
+
         if 'page' not in request.GET:
             if 'recommendation_page' in request.session and request.session['recommendation_page']:
                 request_page = request.session['recommendation_page']
@@ -1089,7 +1095,8 @@ def get_render_all_recommendation(request):
             results = front+results
             for item in [d['id'] for d in list_recommendation[end:]]:
                 results.append(item)
-            confidences = [round(d.get('confidence'),4) for d in list_recommendation]
+            if source in allowed_source:
+                confidences = [round(d.get('confidence'),4) for d in list_recommendation]
             page = paginate_results(list(results), request_page)
             ctx = {
                 'query': '',
@@ -1108,6 +1115,49 @@ def get_render_all_recommendation(request):
             'confidences': [],
             'query_string': '?page='+ str(request_page)}
         return TemplateResponse(request, 'recommendation/results.html', ctx)
+
+@csrf_exempt
+@api_view(['POST'])
+@permission_classes((permissions.AllowAny,))
+def evaluate_recommendation(request):
+    allowed_source = ['visit','rating','order']
+    start_time = time.time()
+    results = {}
+
+    if request.method == 'POST':
+        if '_auth_user_id' in request.session and request.session['_auth_user_id']:
+            user = request.session['_auth_user_id']
+            data = request.data
+            if 'source' in data and data.get('source') in allowed_source:
+                source = data.get('source')
+                actual = []
+                if source == 'rating':
+                    actual = get_rating_relevant_item()
+                elif source == 'order':
+                    actual = get_order_relevant_item()
+                else:
+                    actual = get_visit_relevant_item()
+
+                if actual:
+                    if 'recommended' in data and data.get('recommended'):
+                        results['process_time'] = time.time() - start_time
+                        return JsonResponse(results)
+                    else:
+                        result = {'success':False,'evaluation':None,'process_time':(time.time() -  start_time)}
+                        return JsonResponse(result)
+                else:
+                    result = {'success':False,'evaluation':None,'process_time':(time.time() -  start_time)}
+                    return JsonResponse(result)
+            else:
+                result = {'success':False,'evaluation':None,'process_time':(time.time() -  start_time)}
+                return JsonResponse(result)
+        else:
+            result = {'success':False,'evaluation':None,'process_time':(time.time() -  start_time)}
+            return JsonResponse(result)
+    else:
+        result = {'success':False,'evaluation':None,'process_time':(time.time() -  start_time)}
+        return JsonResponse(result, status=status.HTTP_400_BAD_REQUEST)
+        
 
 def fake_user_data(data_input, distinct_user, distinct_product, fake_data):
     new_user =  int(np.max(distinct_user))
