@@ -271,6 +271,11 @@ function getFeaturedProducts(url, position){
           var source = response.source;
           var total = response.recommendation.total;
           renderFeaturedProducts(url,newposition,data,source, total);
+          if(response.evaluate==true){
+            var evaluate_position = '#evaluation';
+            var url_eval = '/api/recommendation/evaluate/';
+            evaluateRecommendation(url_eval,evaluate_position,data,source,response.process_time);
+          }
         }else{
           $(position).html('');
           swal({
@@ -286,6 +291,61 @@ function getFeaturedProducts(url, position){
           type: 'error',
           title: 'Oops...',
           text: 'Something went wrong! '+status,
+        })
+      },
+  });
+}
+
+function evaluateRecommendation(url,position,products,source,time){
+  console.log('evaluating recommendation');
+  $(position).append('<h2 class="text-center" id="evaluattion-label" style="width:100%;">Evaluation</h2><hr><div class="row-fluid card" id="evaluation-content"></div>');
+  var newposition = '#evaluation-content';
+  $(newposition).append(spinner_loading);
+  var csrftoken = getCookie('csrftoken');
+  $.ajax({
+      type: 'POST',
+      method:'POST',
+      url: url,
+      data:{
+        recommended:products,
+        source:source,
+        csrfmiddlewaretoken: csrftoken,
+      },
+      crossDomain: 'true',
+      success(response) {
+        console.log(response)
+        if(response.success==true){
+          $(newposition).html('');
+
+          var results = '<div class="row-fluid card" style="margin: 0 auto; padding:10px;"y><div class="table-responsive"><table class="table table-striped">';
+          results += `<tr>
+                    <td>data source :</td>
+                    <td><strong>`+source+`</strong></td>
+                  </tr>`
+          for (const [key, value] of Object.entries(response.evaluation)) {
+            results += `<tr>
+                    <td>`+key+` :</td>
+                    <td><strong>`+value+`</strong></td>
+                  </tr>`
+          }
+          results += `<tr>
+                    <td>process time :</td>
+                    <td><strong>`+time+`</strong></td>
+                  </tr>`
+          results += `</table>
+            </div><div>`
+
+          $(newposition).html(results);
+        }else{
+          $(position).html('');
+        }
+      },
+      error (xhr, status) {
+        $(position).html('');
+          swal({
+            type: 'error',
+            title: 'Oops...',
+            text: 'Something went wrong! '+status,
         })
       },
   });
@@ -319,6 +379,7 @@ function renderFeaturedProducts(url, position, inputdata, source, total){
             </div>`);
         }
         renderRating(position);
+
       },
       error (xhr, status) {
         $(position).html('');

@@ -273,30 +273,23 @@ def get_product_rating_history():
     cursor.close()
     return results
 
-def get_rating_relevant_item(user, limit=10):
+def get_rating_relevant_item(user, limit=5):
     query = """
             WITH
             top_rated AS(
-                SELECT r.product_id_id AS pid, r.user_id_id AS uid, AVG(value) AS value
-                FROM product_productrating r
-                GROUP BY r.user_id_id, r.product_id_id
+                SELECT p.category_id AS cid, r.user_id_id AS uid, AVG(value) AS value
+                FROM product_productrating r, product_product p
+                WHERE r.product_id_id = p.id
+                GROUP BY r.user_id_id, p.category_id
                 ORDER BY value DESC
-            ),
-            distinct_category AS(
-                SELECT DISTINCT p.category_id AS id, p.id AS pid
-                FROM product_product p
-                ORDER BY p.category_id
             )
 
             SELECT DISTINCT p.id AS id
-            FROM product_product p
-            WHERE p.category_id IN (SELECT id
-                                    FROM distinct_category c
-                                    WHERE c.pid IN (SELECT pid 
-                                                    FROM top_rated 
-                                                    WHERE uid = (%s)::integer
-                                                    LIMIT (%s)::integer))
-            ORDER BY id;
+            FROM product_product p, (SELECT cid 
+                                    FROM top_rated 
+                                    WHERE uid = (%s)::integer
+                                    LIMIT (%s)::integer) c
+            WHERE p.category_id = c.cid;
             """ %(user,limit)
     cursor = connection.cursor()
     cursor.execute(query)
@@ -304,31 +297,23 @@ def get_rating_relevant_item(user, limit=10):
     cursor.close()
     return results
 
-def get_order_relevant_item(user, limit=10):
+def get_order_relevant_item(user, limit=5):
     query = """
             WITH
             top_ordered AS(
-                SELECT p.id AS pid, o.user_id AS uid, SUM(l.quantity) AS value
+                SELECT p.category_id AS cid, o.user_id AS uid, SUM(l.quantity) AS value
                 FROM order_order o, order_orderline l, product_product p, product_productvariant v
                 WHERE l.order_id = o.id AND l.variant_id = v.id AND v.product_id = p.id
-                GROUP BY o.user_id, p.id
+                GROUP BY o.user_id, p.category_id
                 ORDER BY value DESC
-            ),
-            distinct_category AS(
-                SELECT DISTINCT p.category_id AS id, p.id AS pid
-                FROM product_product p
-                ORDER BY p.category_id
             )
 
             SELECT DISTINCT p.id AS id
-            FROM product_product p
-            WHERE p.category_id IN (SELECT id
-                                    FROM distinct_category c
-                                    WHERE c.pid IN (SELECT pid 
-                                        FROM top_ordered 
-                                        WHERE uid = (%s)::integer
-                                        LIMIT (%s)::integer))
-            ORDER BY id;
+            FROM product_product p, (SELECT cid 
+                                    FROM top_ordered 
+                                    WHERE uid = (%s)::integer
+                                    LIMIT (%s)::integer) c
+            WHERE p.category_id = c.cid;
             """ %(user,limit)
     cursor = connection.cursor()
     cursor.execute(query)
@@ -336,30 +321,23 @@ def get_order_relevant_item(user, limit=10):
     cursor.close()
     return results
 
-def get_visit_relevant_item(user, limit=10):
+def get_visit_relevant_item(user, limit=5):
     query = """
             WITH
             top_visited AS(
-                SELECT v.product_id_id AS pid, v.user_id_id AS uid, SUM(v.count) AS value
-                FROM track_visitproduct v
-                GROUP BY v.user_id_id, v.product_id_id
-                ORDER BY value DESC
-            ),
-            distinct_category AS(
-                SELECT DISTINCT p.category_id AS id, p.id AS pid
-                FROM product_product p
-                ORDER BY p.category_id
+            SELECT p.category_id AS cid, v.user_id_id AS uid, SUM(v.count) AS value
+            FROM track_visitproduct v, product_product p
+            WHERE v.product_id_id = p.id
+            GROUP BY v.user_id_id, p.category_id
+            ORDER BY value DESC
             )
 
             SELECT DISTINCT p.id AS id
-            FROM product_product p
-            WHERE p.category_id IN (SELECT id
-                                    FROM distinct_category c
-                                    WHERE c.pid IN (SELECT pid 
-                                        FROM top_visited 
-                                        WHERE uid = (%s)::integer
-                                        LIMIT (%s)::integer))
-            ORDER BY id;
+            FROM product_product p, (SELECT cid 
+                            FROM top_visited 
+                            WHERE uid = (%s)::integer
+                            LIMIT (%s)::integer) c
+            WHERE p.category_id = c.cid;
             """ %(user,limit)
     cursor = connection.cursor()
     cursor.execute(query)

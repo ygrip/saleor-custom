@@ -328,19 +328,17 @@ def get_similar_product(product_id,limit=0):
     del fs
     target_feature = len(pivot_feature)
 
-    arr_sum = np.zeros((len(xs_val),3))
+    arr_sum = np.zeros((len(xs_val),2))
     arr_sum[:,0] = xs_val
-    arr_sum[:,1] = np.sum(final_weight, axis=1)
-    arr_sum[:,2] = np.count_nonzero(final_weight, axis=1)/target_feature
+    arr_sum[:,1] = (np.sum(final_weight, axis=1))*(np.count_nonzero(final_weight, axis=1)/target_feature)
     arr_sum = arr_sum[arr_sum[:,1].argsort()[::-1]]
     if limit > 0:
         arr_sum = arr_sum[:limit]
     del final_weight
-
-    list_similar_product = Parallel(n_jobs=psutil.cpu_count()*2,
-            verbose=50,
-            require='sharedmem',
-            backend="threading")(delayed(count_similarity)(item) for item in arr_sum)
+    
+    arr_sum = arr_sum.tolist()
+    list_similar_product = [{'id':item[0],'similarity':item[1]} for item in arr_sum]
+    list_similar_product = list(filter(lambda e:e.get('similarity') > 0, list_similar_product))
     list_similar_product = sorted(list_similar_product, key=itemgetter('similarity'), reverse=True)
     print('done populating similar products in %s'%(time.time() -  start_time))
     return list_similar_product
@@ -389,16 +387,6 @@ def render_similar_product(request, product_id):
             'products': products, 'product_id':product_id, 'similarity':list_similarity})
     print("\nWaktu eksekusi : --- %s detik ---" % (time.time() - start_time))
     return response
-
-def count_similarity(item):
-    idx=item[0]
-    similarity = item[1]*item[2]
-
-    if similarity > 0:
-        element = {}
-        element['id'] = int(idx)
-        element['similarity'] = round(similarity,4)
-        return element
 
 def all_similar_product(request, product_id):
     request_page = int(request.GET.get('page','')) if request.GET.get('page','') else 1
@@ -643,10 +631,10 @@ def get_arc_recommendation(request, mode, limit):
                         all_products.append(temp)
 
                     all_products = sorted(all_products, key=itemgetter('confident'), reverse=True)
-                    all_products = all_products[:30]
+                    all_products = all_products[:100]
                     products = {}
                     for item in reversed(all_products):
-                        similar_product = get_similar_product(item['id'], 15)
+                        similar_product = get_similar_product(item['id'], 50)
                         for sub_item in similar_product:
                             products[sub_item['id']] = {'name':item['name'],
                                                         'value':item['confident']*sub_item['similarity']}
@@ -740,11 +728,11 @@ def get_recommendation(request):
                 status_source = True
                 all_products, ordinality = collaborative_filtering(anon_user, cross_section, binary_cross_section, distinct_user, distinct_product)
             
-                all_products = all_products[:30] #select number of recommended product from another user
+                all_products = all_products[:100] #select number of recommended product from another user
 
                 products = {}
                 for item in reversed(all_products):
-                    similar_product = get_similar_product(item['id'], 15) #select number of similar products on each recommended product
+                    similar_product = get_similar_product(item['id'], 50) #select number of similar products on each recommended product
                     for sub_item in similar_product:
                         products[sub_item['id']] = item['confidence']*sub_item['similarity']
 
@@ -818,11 +806,11 @@ def get_recommendation(request):
 
             all_products, ordinality = collaborative_filtering(user, cross_section, binary_cross_section, distinct_user, distinct_product)
             
-            all_products = all_products[:30] #select number of recommended product from another user
+            all_products = all_products[:100] #select number of recommended product from another user
 
             products = {}
             for item in reversed(all_products):
-                similar_product = get_similar_product(item['id'], 15) #select number of similar products on each recommended product
+                similar_product = get_similar_product(item['id'], 50) #select number of similar products on each recommended product
                 for sub_item in similar_product:
                     products[sub_item['id']] = item['confidence']*sub_item['similarity']
 
@@ -947,11 +935,11 @@ def get_default_recommendation(request):
 
             all_products, ordinality = collaborative_filtering(anon_user, cross_section, binary_cross_section, distinct_user, distinct_product)
         
-            all_products = all_products[:30] #select number of recommended product from another user
+            all_products = all_products[:100] #select number of recommended product from another user
 
             products = {}
             for item in reversed(all_products):
-                similar_product = get_similar_product(item['id'], 15) #select number of similar products on each recommended product
+                similar_product = get_similar_product(item['id'], 50) #select number of similar products on each recommended product
                 for sub_item in similar_product:
                     products[sub_item['id']] = item['confidence']*sub_item['similarity']
 
@@ -1132,14 +1120,32 @@ def evaluate_recommendation(request):
                 source = data.get('source')
                 actual = []
                 if source == 'rating':
-                    actual = get_rating_relevant_item()
+                    actual = get_rating_relevant_item(user)
                 elif source == 'order':
-                    actual = get_order_relevant_item()
+                    actual = get_order_relevant_item(user)
                 else:
-                    actual = get_visit_relevant_item()
+                    actual = get_visit_relevant_item(user)
 
                 if actual:
+                    total = len(list(Product.objects.all()))
                     if 'recommended' in data and data.get('recommended'):
+                        products = json.loads(data.get('recommended')) 
+                        recommended = [item['id'] for item in products]
+                        tp = len(list(set(actual).intersection(set(recommended))))
+                        fp = len(recommended) - tp
+                        fn = len(actual) - tp
+                        relevant = tp + fn
+                        irrelevant = total - len(actual)
+                        tn = irrelevant - fp
+
+                        score = {}
+                        score['precission'] = tp/(tp+fp)
+                        score['recall'] = tp/(tp+fn)
+                        score['fallout'] = fp/(fp+tn)
+                        score['missrate'] = fn/(tp+fn)
+                        score['fonescore'] = (2*score['precission']*score['recall'])/(score['precission']+score['recall'])
+                        results['evaluation'] = score
+                        results['success'] = True
                         results['process_time'] = time.time() - start_time
                         return JsonResponse(results)
                     else:
