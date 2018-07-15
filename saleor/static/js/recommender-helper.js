@@ -319,6 +319,17 @@ function evaluateRecommendation(url,position,products,source,time){
 
           var results = '<div class="row-fluid card" style="margin: 0 auto; padding:10px;"y><div class="table-responsive"><table class="table table-striped">';
           results += `<tr>
+                      <td>User :</td>
+                      <td><table class="table table-bordered table-hover">
+                      <tr>
+                        <td><strong>ID : </strong></td>
+                        <td>`+response.user.id+`</td>
+                      </tr>
+                      <tr>
+                        <td><strong>Email : </strong></td>
+                        <td>`+response.user.email+`</td>
+                      </tr></table></td></tr>`
+          results += `<tr>
                     <td>Source :</td>
                     <td><strong>`+source+`</strong></td>
                   </tr>`

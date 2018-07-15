@@ -52,8 +52,11 @@ from ..account.models import User
 from ..track.models import VisitProduct, SearchHistory
 
 APPROVED_FILTER = ['Brand','Jenis','Color','Gender']
-LIMIT_COLLABORATIVE = 50
-LIMIT_CONTENT_BASE = 50
+
+#RECOMMENDATION MODULE PARAMETER:
+LIMIT_COLLABORATIVE = 50 #A REAL NUMBER RANGE FROM 0 TO ANY POSITIVE NUMBER, IF NOT 0 THEN USE THE LIMIT IF 0 THEN USE ALL
+LIMIT_CONTENT_BASE = 50 #A REAL NUMBER RAGE FROM 1 TO ANY POSITIVE NUMBER, GET THE NUMBER OF SIMILAR ITEM(S)
+EVALUATION_MODE = 1 #A NUMBER OF 0 OR 1, IF 0 THEN USE A NON-STRICT APPROACH IF 1 THEN USE A STRICT APPROACH
 
 def product_details(request, slug, product_id, form=None):
     """Product details page.
@@ -633,13 +636,17 @@ def get_arc_recommendation(request, mode, limit):
                         all_products.append(temp)
 
                     all_products = sorted(all_products, key=itemgetter('confident'), reverse=True)
-                    all_products = all_products[:LIMIT_COLLABORATIVE]
+                    if LIMIT_COLLABORATIVE > 0:
+                        all_products = all_products[:LIMIT_COLLABORATIVE]
                     products = {}
                     for item in reversed(all_products):
-                        similar_product = get_similar_product(item['id'], LIMIT_CONTENT_BASE)
-                        for sub_item in similar_product:
-                            products[sub_item['id']] = {'name':item['name'],
-                                                        'value':item['confident']*sub_item['similarity']}
+                        products[item['id']] = {'name':item['name'],
+                                                    'value':item['confident']}
+                        if LIMIT_CONTENT_BASE > 1:
+                            similar_product = get_similar_product(item['id'], LIMIT_CONTENT_BASE)
+                            for sub_item in similar_product:
+                                products[sub_item['id']] = {'name':item['name'],
+                                                            'value':item['confident']*sub_item['similarity']}
 
                     final_product = []
                     for key, value in products.items():
@@ -729,14 +736,17 @@ def get_recommendation(request):
                 source = 'visit'
                 status_source = True
                 all_products, ordinality = collaborative_filtering(anon_user, cross_section, binary_cross_section, distinct_user, distinct_product)
-            
-                all_products = all_products[:LIMIT_COLLABORATIVE] #select number of recommended product from another user
+                
+                if LIMIT_COLLABORATIVE > 0:
+                    all_products = all_products[:LIMIT_COLLABORATIVE] #select number of recommended product from another user
 
                 products = {}
                 for item in reversed(all_products):
-                    similar_product = get_similar_product(item['id'], LIMIT_CONTENT_BASE) #select number of similar products on each recommended product
-                    for sub_item in similar_product:
-                        products[sub_item['id']] = item['confidence']*sub_item['similarity']
+                    products[item['id']] = item['confidence']
+                    if LIMIT_CONTENT_BASE>1:
+                        similar_product = get_similar_product(item['id'], LIMIT_CONTENT_BASE) #select number of similar products on each recommended product
+                        for sub_item in similar_product:
+                            products[sub_item['id']] = item['confidence']*sub_item['similarity']
 
                 final_product = []
                 for key, value in products.items():
@@ -808,13 +818,16 @@ def get_recommendation(request):
 
             all_products, ordinality = collaborative_filtering(user, cross_section, binary_cross_section, distinct_user, distinct_product)
             
-            all_products = all_products[:LIMIT_COLLABORATIVE] #select number of recommended product from another user
+            if LIMIT_COLLABORATIVE > 0:
+                all_products = all_products[:LIMIT_COLLABORATIVE] #select number of recommended product from another user
 
             products = {}
             for item in reversed(all_products):
-                similar_product = get_similar_product(item['id'], LIMIT_CONTENT_BASE) #select number of similar products on each recommended product
-                for sub_item in similar_product:
-                    products[sub_item['id']] = item['confidence']*sub_item['similarity']
+                products[item['id']] = item['confidence']
+                if LIMIT_CONTENT_BASE > 1:
+                    similar_product = get_similar_product(item['id'], LIMIT_CONTENT_BASE) #select number of similar products on each recommended product
+                    for sub_item in similar_product:
+                        products[sub_item['id']] = item['confidence']*sub_item['similarity']
 
             final_product = []
             for key, value in products.items():
@@ -937,13 +950,16 @@ def get_default_recommendation(request):
 
             all_products, ordinality = collaborative_filtering(anon_user, cross_section, binary_cross_section, distinct_user, distinct_product)
         
-            all_products = all_products[:LIMIT_COLLABORATIVE] #select number of recommended product from another user
+            if LIMIT_COLLABORATIVE > 0:
+                all_products = all_products[:LIMIT_COLLABORATIVE] #select number of recommended product from another user
 
             products = {}
             for item in reversed(all_products):
-                similar_product = get_similar_product(item['id'], LIMIT_CONTENT_BASE) #select number of similar products on each recommended product
-                for sub_item in similar_product:
-                    products[sub_item['id']] = item['confidence']*sub_item['similarity']
+                products[item['id']] = item['confidence']
+                if LIMIT_CONTENT_BASE > 1:
+                    similar_product = get_similar_product(item['id'], LIMIT_CONTENT_BASE) #select number of similar products on each recommended product
+                    for sub_item in similar_product:
+                        products[sub_item['id']] = item['confidence']*sub_item['similarity']
 
             final_product = []
             for key, value in products.items():
@@ -1122,11 +1138,22 @@ def evaluate_recommendation(request):
                 source = data.get('source')
                 actual = []
                 if source == 'rating':
-                    actual = get_rating_relevant_item(user)
+                    if EVALUATION_MODE==0:
+                        actual = get_rating_relevant_item(user)
+                    else:
+                        actual = get_all_user_rating(user)
+                        actual = [item.get('product_id') for item in actual]
                 elif source == 'order':
-                    actual = get_order_relevant_item(user)
+                    if EVALUATION_MODE==0:
+                        actual = get_order_relevant_item(user)
+                    else:
+                        actual = get_user_order_history(user)
+                        actual = [item.get('product_id') for item in actual]
                 else:
-                    actual = get_visit_relevant_item(user)
+                    if EVALUATION_MODE==0:
+                        actual = get_visit_relevant_item(user)
+                    else:
+                        actual = list(VisitProduct.objects.filter(user_id_id=user).values_list('product_id_id', flat=True))
 
                 if actual:
                     total = len(list(Product.objects.all()))
@@ -1139,7 +1166,7 @@ def evaluate_recommendation(request):
                         relevant = tp + fn
                         irrelevant = abs(total - len(actual))
                         tn = abs(irrelevant - fp)
-
+                        current_user = User.objects.get(id=user)
                         score = {}
                         score['Precission'] = round(tp/(tp+fp),4)
                         score['Recall'] = round(tp/(tp+fn),4)
@@ -1147,6 +1174,7 @@ def evaluate_recommendation(request):
                         score['Missrate'] = round(fn/(tp+fn),4)
                         score['F-one-score'] = round((2*score['Precission']*score['Recall'])/(score['Precission']+score['Recall']),4)
                         results['evaluation'] = score
+                        results['user'] = {'id':user,'email':current_user.email}
                         results['data'] = {'tp':tp,
                                             'fn':fn,
                                             'tn':tn,
