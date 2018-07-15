@@ -274,7 +274,7 @@ function getFeaturedProducts(url, position){
           if(response.evaluate==true){
             var evaluate_position = '#evaluation';
             var url_eval = '/api/recommendation/evaluate/';
-            evaluateRecommendation(url_eval,evaluate_position,data,source,response.process_time);
+            evaluateRecommendation(url_eval,evaluate_position,data,source,response.process_time, response.ordinality);
           }
         }else{
           $(position).html('');
@@ -296,7 +296,7 @@ function getFeaturedProducts(url, position){
   });
 }
 
-function evaluateRecommendation(url,position,products,source,time){
+function evaluateRecommendation(url,position,products,source,time, ordinality){
   console.log('evaluating recommendation');
   $(position).append('<h2 class="text-center" id="evaluattion-label" style="width:100%;">Evaluation</h2><hr><div class="row-fluid card" id="evaluation-content"></div>');
   var newposition = '#evaluation-content';
@@ -362,6 +362,10 @@ function evaluateRecommendation(url,position,products,source,time){
                       <td>`+response.data.total+`</td>
                     </tr>`
           results += `</table></td>
+                  </tr>`
+          results += `<tr>
+                    <td>Ordinality :</td>
+                    <td><strong>`+ordinality+`</strong></td>
                   </tr>`
           for (const [key, value] of Object.entries(response.evaluation)) {
             results += `<tr>

@@ -54,9 +54,29 @@ from ..track.models import VisitProduct, SearchHistory
 APPROVED_FILTER = ['Brand','Jenis','Color','Gender']
 
 #RECOMMENDATION MODULE PARAMETER:
-LIMIT_COLLABORATIVE = 50 #A REAL NUMBER RANGE FROM 0 TO ANY POSITIVE NUMBER, IF NOT 0 THEN USE THE LIMIT IF 0 THEN USE ALL
-LIMIT_CONTENT_BASE = 50 #A REAL NUMBER RAGE FROM 1 TO ANY POSITIVE NUMBER, GET THE NUMBER OF SIMILAR ITEM(S)
-EVALUATION_MODE = 1 #A NUMBER OF 0 OR 1, IF 0 THEN USE A NON-STRICT APPROACH IF 1 THEN USE A STRICT APPROACH
+"""
+EVALUATION:
+A strict approach means the evaluation only compare the recommended item with user actual item data,
+whilst the non-strict approach means the evaluation will compare the recommended item with all item from top 5 (default)
+categories which each user favoured. The non-strict approach is inspired by how a user behaviour, a user tend to like or need
+only a specific number of categories, so we can recommend all product from a specific categories for them.
+
+COLLABORATIVE:
+We are using Associative Retrieval Correlation Algorithm as collaborative filtering, You need to specify the maximum limit
+of ordinality used by ARC. By default our system will break the iteration if all product can successfully matched to a user
+but to avoid a high number of iteration you can specify ARC_ORDINALITY as the maximum ordinality our system will handle.
+
+CONTENT BASE:
+We are using a TF-IDF Smooth approach to count the similarity between each item. This method retrieve information from item's
+name, brand, category, description, information, service, location, and specification. By that, this method is highly dependent
+on how clear you put information in each item. Luckily we use an actual E-commerce data crawled from www.blibli.com (Thanks for the data)
+so we cann get satisfying result with this type of filtering. By default you will get all similar items, but you can specify a number as
+a limit on how many similar item you would like to retrieve.
+"""
+LIMIT_COLLABORATIVE = 100 #A REAL NUMBER RANGE FROM 0 TO ANY POSITIVE NUMBER, IF NOT 0 THEN USE THE LIMIT IF 0 THEN USE ALL
+LIMIT_CONTENT_BASE = 10 #A REAL NUMBER RAGE FROM 1 TO ANY POSITIVE NUMBER, GET THE NUMBER OF SIMILAR ITEM(S)
+EVALUATION_MODE = 0 #A NUMBER OF 0 OR 1, IF 0 THEN USE A NON-STRICT APPROACH IF 1 THEN USE A STRICT APPROACH
+ARC_ORDINALITY = 9 #A POSITIVE ODD REAL NUMBER, IN RANGE OF 1 TO 13, IF 1 THEN RETURNED THE USER ORIGINAL DATA
 
 def product_details(request, slug, product_id, form=None):
     """Product details page.
@@ -760,6 +780,7 @@ def get_recommendation(request):
                 recommended_items['total'] = len(final_product)
                 results['recommendation'] = recommended_items
                 results['success'] = True
+                results['ordinality'] = ordinality
                 results['evaluate'] = True
                 results['source'] = source
                 results['process_time'] = (time.time() -  start_time)
@@ -840,6 +861,7 @@ def get_recommendation(request):
             recommended_items['products'] = final_product
             recommended_items['total'] = len(final_product)
             results['recommendation'] = recommended_items
+            results['ordinality'] = ordinality
             results['success'] = True
             results['evaluate'] = True
             results['source'] = source
@@ -852,7 +874,7 @@ def get_recommendation(request):
         results = get_default_recommendation(request)
         return JsonResponse(results)
 
-def collaborative_filtering(user, cross_section, binary_cross_section, distinct_user, distinct_product, limit=9):
+def collaborative_filtering(user, cross_section, binary_cross_section, distinct_user, distinct_product, limit=ARC_ORDINALITY):
     start_count = time.time()
     user_similarity = collaborative_similarity(cross_section, len(distinct_user))
     print('done processing collaborative similarity in %s'%(time.time() -  start_count))
@@ -973,6 +995,7 @@ def get_default_recommendation(request):
             recommended_items['total'] = len(final_product)
             results['recommendation'] = recommended_items
             results['success'] = True
+            results['ordinality'] = ordinality
             results['evaluate'] = False
             results['source'] = source
             results['process_time'] = (time.time() -  start_time)
@@ -1168,6 +1191,8 @@ def evaluate_recommendation(request):
                         tn = abs(irrelevant - fp)
                         current_user = User.objects.get(id=user)
                         score = {}
+                        score['Method'] = 'Hybrid' if LIMIT_CONTENT_BASE > 1 else 'Collaborative'
+                        score['Rule'] = 'Strict' if EVALUATION_MODE == 1 else 'Non-Strict'
                         score['Precission'] = round(tp/(tp+fp),4)
                         score['Recall'] = round(tp/(tp+fn),4)
                         score['Fallout'] = round(fp/(fp+tn),4)
