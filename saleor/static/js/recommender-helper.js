@@ -426,8 +426,10 @@ function renderChart(all,target,recommended, position){
 
   window.myScatter = Chart.Scatter(ctx, {
     data: scatterData,
-    showTooltips: false,
     options: {
+      tooltips: {
+        enabled: false
+      },
       title: {
         display: true,
         text: 'Data Distribution Visualization'
