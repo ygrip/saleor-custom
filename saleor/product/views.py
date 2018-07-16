@@ -31,7 +31,7 @@ from .helper import (
     get_cross_section_rating, get_list_product_from_order, get_list_product_from_rating,
     get_list_user_from_order, get_list_user_from_rating, get_all_user_rating, get_all_user_order_history,
     get_product_order_history, get_user_order_history, get_product_rating_history, get_rating_relevant_item,
-    get_order_relevant_item, get_visit_relevant_item)
+    get_order_relevant_item, get_visit_relevant_item, get_all_rating_data, get_all_order_data)
 from django.db.models import Avg
 from joblib import (Parallel, delayed)
 import psutil
@@ -73,9 +73,9 @@ on how clear you put information in each item. Luckily we use an actual E-commer
 so we cann get satisfying result with this type of filtering. By default you will get all similar items, but you can specify a number as
 a limit on how many similar item you would like to retrieve.
 """
-LIMIT_COLLABORATIVE = 100 #A REAL NUMBER RANGE FROM 0 TO ANY POSITIVE NUMBER, IF NOT 0 THEN USE THE LIMIT IF 0 THEN USE ALL
-LIMIT_CONTENT_BASE = 10 #A REAL NUMBER RAGE FROM 1 TO ANY POSITIVE NUMBER, GET THE NUMBER OF SIMILAR ITEM(S)
-EVALUATION_MODE = 0 #A NUMBER OF 0 OR 1, IF 0 THEN USE A NON-STRICT APPROACH IF 1 THEN USE A STRICT APPROACH
+LIMIT_COLLABORATIVE = 0 #A REAL NUMBER RANGE FROM 0 TO ANY POSITIVE NUMBER, IF NOT 0 THEN USE THE LIMIT IF 0 THEN USE ALL
+LIMIT_CONTENT_BASE = 1 #A REAL NUMBER RAGE FROM 1 TO ANY POSITIVE NUMBER, GET THE NUMBER OF SIMILAR ITEM(S)
+EVALUATION_MODE = 1 #A NUMBER OF 0 OR 1, IF 0 THEN USE A NON-STRICT APPROACH IF 1 THEN USE A STRICT APPROACH
 ARC_ORDINALITY = 9 #A POSITIVE ODD REAL NUMBER, IN RANGE OF 1 TO 13, IF 1 THEN RETURNED THE USER ORIGINAL DATA
 
 def product_details(request, slug, product_id, form=None):
@@ -1161,28 +1161,36 @@ def evaluate_recommendation(request):
                 source = data.get('source')
                 actual = []
                 if source == 'rating':
+                    all_data = get_all_rating_data()
+                    all_data = [{'y':item[0], 'x':item[1]} for item in all_data]
                     if EVALUATION_MODE==0:
                         actual = get_rating_relevant_item(user)
                     else:
                         actual = get_all_user_rating(user)
                         actual = [item.get('product_id') for item in actual]
                 elif source == 'order':
+                    all_data = get_all_order_data()
+                    all_data = [{'y':item[0], 'x':item[1]} for item in all_data]
                     if EVALUATION_MODE==0:
                         actual = get_order_relevant_item(user)
                     else:
                         actual = get_user_order_history(user)
                         actual = [item.get('product_id') for item in actual]
                 else:
+                    all_data = get_all_rating_data()
+                    all_data = [{'y':item[0], 'x':item[1]} for item in all_data]
                     if EVALUATION_MODE==0:
                         actual = get_visit_relevant_item(user)
                     else:
                         actual = list(VisitProduct.objects.filter(user_id_id=user).values_list('product_id_id', flat=True))
 
                 if actual:
+                    target = [{'y':user,'x':item} for item in actual]
                     total = len(list(Product.objects.all()))
                     if 'recommended' in data and data.get('recommended'):
                         products = json.loads(data.get('recommended')) 
                         recommended = [item['id'] for item in products]
+                        recommended_products = [{'y':user,'x':item['id']} for item in products]
                         tp = len(set(actual)&set(recommended))
                         fp = abs(len(recommended) - tp)
                         fn = abs(len(actual) - tp)
@@ -1208,6 +1216,9 @@ def evaluate_recommendation(request):
                                             'relevant':relevant,
                                             'irrelevant':irrelevant}
                         results['success'] = True
+                        results['all_products'] = all_data
+                        results['target'] = target
+                        results['recommended_products'] = recommended_products
                         results['process_time'] = time.time() - start_time
                         return JsonResponse(results)
                     else:

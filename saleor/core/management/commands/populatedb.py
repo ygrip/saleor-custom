@@ -83,7 +83,7 @@ class Command(BaseCommand):
         #     self.stdout.write(msg)
         # for msg in create_users(100):
         #     self.stdout.write(msg)
-        for msg in generate_rating(0.75,0.01):
+        for msg in generate_rating(0.5,0.1):
             self.stdout.write(msg)
         # for msg in create_orders(10):
         #     self.stdout.write(msg)

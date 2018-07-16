@@ -588,20 +588,18 @@ def generate_rating(rated,rating):
 
 			for choosen_user in random_user:
 				give_rating = random.uniform(0.0,1.0)
-				product = Product.objects.get(id=id_product)
-				user = User.objects.get(id=choosen_user)
 
 				if give_rating <= rating:
 					value = random.choice(rating_range)
 					defaults = {
-						'product_id' : product,
-						'user_id' : user,
+						'product_id_id' : id_product,
+						'user_id_id' : choosen_user,
 						'value' : value
 					}
 
-					ProductRating.objects.get_or_create(product_id=product,user_id=user,defaults=defaults)
+					ProductRating.objects.get_or_create(product_id_id=id_product,user_id_id=choosen_user,defaults=defaults)
 
-					yield 'User %s give rating %s to product %s' % (str(user),str(value),str(id_product))
+					yield 'User %s give rating %s to product %s' % (str(choosen_user),str(value),str(id_product))
 
 
 class PythonObjectEncoder(json.JSONEncoder):

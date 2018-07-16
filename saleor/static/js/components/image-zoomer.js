@@ -3,7 +3,6 @@ import 'lightgallery';
 import 'lg-thumbnail';
 import 'lg-fullscreen';
 import 'lg-autoplay';
-import 'lg-share';
 import 'lg-zoom';
 import 'picturefill';
 

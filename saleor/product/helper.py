@@ -132,6 +132,29 @@ def get_list_product_from_order():
     cursor.close()
     return results
 
+def get_all_rating_data():
+    query = """
+            SELECT user_id_id, product_id_id
+            FROM product_productrating;
+            """
+    cursor = connection.cursor()
+    cursor.execute(query)
+    results = [a[:] for a in cursor.fetchall()]
+    cursor.close()
+    return results
+
+def get_all_order_data():
+    query = """
+            SELECT DISTINCT o.user_id, p.id
+            FROM order_order o, order_orderline l, product_product p, product_productvariant v
+            WHERE l.order_id = o.id AND l.variant_id = v.id AND v.product_id = p.id;
+            """
+    cursor = connection.cursor()
+    cursor.execute(query)
+    results = [a[:] for a in cursor.fetchall()]
+    cursor.close()
+    return results
+
 def get_cross_section_rating(limit=1.0):
     query = """
             WITH

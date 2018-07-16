@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import Flickity from 'flickity';
 import swal from 'sweetalert2';
+import Chart from 'chart.js';
 
 console.log('recommender helper loaded');
 const processing_label = ` <div class="col-12 justify-content-between align-items-center mb-4 mb-md-0 menu" style="margin-top: -200px; margin-bottom: 10em !important; text-align: center; border-bottom: 1px solid #D3D1D0;">
@@ -317,7 +318,8 @@ function evaluateRecommendation(url,position,products,source,time, ordinality){
         if(response.success==true){
           $(newposition).html('');
 
-          var results = '<div class="row-fluid card" style="margin: 0 auto; padding:10px;"y><div class="table-responsive"><table class="table table-striped">';
+          var results = '<div class="row-fluid" style="margin:0 auto; width:95%; right: 10px; margin-bottom: 20px;"><canvas id="myChart" width="640" height="480"></canvas></div>'
+          results += '<div class="row-fluid card" style="margin: 0 auto; padding:10px;"y><div class="table-responsive"><table class="table table-striped">';
           results += `<tr>
                       <td>User :</td>
                       <td><table class="table table-bordered table-hover">
@@ -381,6 +383,7 @@ function evaluateRecommendation(url,position,products,source,time, ordinality){
             </div><div>`
 
           $(newposition).html(results);
+          renderChart(response.all_products, response.target, response.recommended_products, 'myChart')
         }else{
           $(position).html('');
         }
@@ -393,6 +396,63 @@ function evaluateRecommendation(url,position,products,source,time, ordinality){
             text: 'Something went wrong! '+status,
         })
       },
+  });
+}
+
+function renderChart(all,target,recommended, position){
+  var ctx = document.getElementById(position);
+  var scatterData = {
+    datasets : [
+    {
+      label:'Target Data',
+      borderColor: "rgba(231, 76, 60,1.0)",
+      backgroundColor: "rgba(231, 76, 60,0.2)",
+      data:target
+    },
+    {
+      label:'Recommended Data',
+      borderColor: "rgba(241, 196, 15,1.0)",
+      backgroundColor: "rgba(241, 196, 15,0.2)",
+      data:recommended
+    },
+    {
+      label:'All Data',
+      borderColor: "rgba(52, 152, 219,1.0)",
+      backgroundColor: "rgba(52, 152, 219,0.2)",
+      data:all
+    }
+    ]
+  };
+
+  window.myScatter = Chart.Scatter(ctx, {
+    data: scatterData,
+    showTooltips: false,
+    options: {
+      title: {
+        display: true,
+        text: 'Data Distribution Visualization'
+      },
+      responsive: true,
+      elements: {
+        point: {
+          pointStyle: 'rectRot'
+        }
+      },
+      scales: {
+        yAxes: [{
+          scaleLabel: {
+            display: true,
+            labelString: 'User'
+          }
+        }],
+        xAxes: [{
+          scaleLabel: {
+            display: true,
+            labelString: 'Products'
+          }
+        }]
+      }  
+    }
   });
 }
 
