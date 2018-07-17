@@ -904,17 +904,15 @@ def collaborative_filtering(user, cross_section, binary_cross_section, distinct_
 
     print('done processing similarity %s'%(time.time() -  start_similarity))
 
-    results = list(filter(lambda e : e > 0, results))
-    products = [distinct_product[i] for i in range(0,len(results))]
-    
     all_products = []
-    process_result = zip(products, results)
+    process_result = zip(distinct_product, results)
     for item, score in process_result:
         temp = {}
         temp['id'] = item
         temp['confidence'] = score
         all_products.append(temp)
 
+    all_products = list(filter(lambda e: e.get('confidence') > 0, all_products))
     all_products = sorted(all_products, key=itemgetter('confidence'), reverse=True)
     return all_products, ordinality
 

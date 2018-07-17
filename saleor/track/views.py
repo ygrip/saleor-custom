@@ -76,15 +76,17 @@ def insert_visit_history(request):
 				return JsonResponse(result)
 		else:
 			product_id = data.get('product_id')
+			
 			if 'history' in request.session and 'visit' in request.session['history']:
 				if str(product_id) not in request.session['history']['visit']:
-					request.session['history']['visit'].update({str(product_id):1})
+					request.session['history']['visit'][str(product_id)] = 1
 				else:
 					request.session['history']['visit'][str(product_id)] += 1
 			else:
 				if 'history' not in request.session:
 					request.session['history'] = {'search':[],'visit':{}}
-					request.session['history']['visit'].update({str(product_id):1})
+				request.session['history']['visit'] = {str(product_id) : 1}
+			request.session.modified = True
 			result = {'success':True,'message':'saved to session','process_time':(time.time() -  start_time)}
 			return JsonResponse(result)
 	else:

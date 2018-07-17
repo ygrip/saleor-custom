@@ -197,7 +197,7 @@ MIDDLEWARE = [
 
 DEBUG_TOOLBAR_CONFIG = {
     # Add in this line to disable the panel
-    'SHOW_TOOLBAR_CALLBACK': lambda r: False,
+    # 'SHOW_TOOLBAR_CALLBACK': lambda r: False,
     'JQUERY_URL' : '',
     'DISABLE_PANELS': {
         'debug_toolbar.panels.redirects.RedirectsPanel',
