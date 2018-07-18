@@ -77,6 +77,7 @@ LIMIT_COLLABORATIVE = 0 #A REAL NUMBER RANGE FROM 0 TO ANY POSITIVE NUMBER, IF N
 LIMIT_CONTENT_BASE = 1 #A REAL NUMBER RAGE FROM 1 TO ANY POSITIVE NUMBER, GET THE NUMBER OF SIMILAR ITEM(S)
 EVALUATION_MODE = 1 #A NUMBER OF 0 OR 1, IF 0 THEN USE A NON-STRICT APPROACH IF 1 THEN USE A STRICT APPROACH
 ARC_ORDINALITY = 9 #A POSITIVE ODD REAL NUMBER, IN RANGE OF 1 TO 13, IF 1 THEN RETURNED THE USER ORIGINAL DATA
+LIMIT_FEATURED = 12 #A POSITIVE REAL NUMBER STARTING FROM 1, TO LIMIT NUMBER OF FEATURED PRODUCT IN STOREFRONT
 
 def product_details(request, slug, product_id, form=None):
     """Product details page.
@@ -729,84 +730,51 @@ def get_recommendation(request):
             results = {}
             try:
                 source_data = list(VisitProduct.objects.filter(user_id=user).values('product_id_id','count'))
-                if source == 'order':
-                    data_input = get_data_order()
-                else:
-                    data_input = get_data_rating()
+                if source_data:
+                    if source == 'order':
+                        data_input = get_data_order()
+                    else:
+                        data_input = get_data_rating()
 
-                print('done db queries in %s'%(time.time() -  start_time))
-                visited = np.array([[item.get('product_id_id'), item.get('count')] for item in source_data] )
-                results = {}
-                recommended_items = {}
-                cross_section, binary_cross_section, distinct_user, distinct_product = process_cross_section(data_input)
-                anon_user = int(np.max(distinct_user)) + 1
-                distinct_user.append(anon_user)
-                anon_record = np.zeros([1,len(distinct_product)])
-                ys = visited[:,0]
-                zs = visited[:,1]
-                ys_val, ys_idx = np.unique(distinct_product, return_inverse=True)
-                check_idx = np.in1d(ys_val, ys).nonzero()[0]
-                anon_record[:,check_idx] = zs
-                anon_record[anon_record>5] = 5
-                anon_binary = np.copy(anon_record)
-                anon_binary[anon_binary>1] = 1
-                cross_section = np.vstack((cross_section,anon_record))
-                binary_cross_section = np.vstack((binary_cross_section,anon_binary))
+                    print('done db queries in %s'%(time.time() -  start_time))
+                    visited = np.array([[item.get('product_id_id'), item.get('count')] for item in source_data] )
+                    results = {}
+                    recommended_items = {}
+                    cross_section, binary_cross_section, distinct_user, distinct_product = process_cross_section(data_input)
+                    anon_user = int(np.max(distinct_user)) + 1
+                    distinct_user.append(anon_user)
+                    anon_record = np.zeros([1,len(distinct_product)])
+                    ys = visited[:,0]
+                    zs = visited[:,1]
+                    ys_val, ys_idx = np.unique(distinct_product, return_inverse=True)
+                    check_idx = np.in1d(ys_val, ys).nonzero()[0]
+                    anon_record[:,check_idx] = zs
+                    anon_record[anon_record>5] = 5
+                    anon_binary = np.copy(anon_record)
+                    anon_binary[anon_binary>1] = 1
+                    cross_section = np.vstack((cross_section,anon_record))
+                    binary_cross_section = np.vstack((binary_cross_section,anon_binary))
 
-                source = 'visit'
-                status_source = True
-                all_products, ordinality = collaborative_filtering(anon_user, cross_section, binary_cross_section, distinct_user, distinct_product)
-                
-                if LIMIT_COLLABORATIVE > 0:
-                    all_products = all_products[:LIMIT_COLLABORATIVE] #select number of recommended product from another user
-
-                products = {}
-                for item in reversed(all_products):
-                    products[item['id']] = item['confidence']
-                    if LIMIT_CONTENT_BASE>1:
-                        similar_product = get_similar_product(item['id'], LIMIT_CONTENT_BASE) #select number of similar products on each recommended product
-                        for sub_item in similar_product:
-                            products[sub_item['id']] = item['confidence']*sub_item['similarity']
-
-                final_product = []
-                for key, value in products.items():
-                    element = {}
-                    element['id'] = key
-                    element['confidence'] = round(value,4)
-                    final_product.append(element)
-
-                final_product = sorted(final_product, key=itemgetter('confidence'), reverse=True)
-                recommended_items['products'] = final_product
-                recommended_items['total'] = len(final_product)
-                results['recommendation'] = recommended_items
-                results['success'] = True
-                results['ordinality'] = ordinality
-                results['evaluate'] = True
-                results['source'] = source
-                results['process_time'] = (time.time() -  start_time)
-                return JsonResponse(results)
-            except VisitProduct.DoesNotExist:
-                pass
-            if not status_source:
-                try:
-                    source_data = list(SearchHistory.objects.filter(user_id=user).values_list('clean_query', flat=True))
-                    source = 'search'
+                    source = 'visit'
                     status_source = True
-                    common_query = []
-                    for query in source_data:
-                        common_query += query.split(' ')
-                    common_query = np.array(common_query)
-                    unique, pos = np.unique(common_query, return_inverse=True)
-                    counts = np.bincount(pos)
-                    maxsort = counts.argsort()[::-1]
-                    user_query = ' '.join(unique[maxsort][:3].tolist())
+                    all_products, ordinality = collaborative_filtering(anon_user, cross_section, binary_cross_section, distinct_user, distinct_product)
+                    
+                    if LIMIT_COLLABORATIVE > 0:
+                        all_products = all_products[:LIMIT_COLLABORATIVE] #select number of recommended product from another user
 
-                    products = custom_query_validation(user_query)
+                    products = {}
+                    for item in reversed(all_products):
+                        products[item['id']] = item['confidence']
+                        if LIMIT_CONTENT_BASE>1:
+                            similar_product = get_similar_product(item['id'], LIMIT_CONTENT_BASE) #select number of similar products on each recommended product
+                            for sub_item in similar_product:
+                                products[sub_item['id']] = item['confidence']*sub_item['similarity']
+
                     final_product = []
-                    for item in products:
+                    for key, value in products.items():
                         element = {}
-                        element['id'] = item.get('id')
-                        element['confidence'] = round(item.get('similarity'),4)
+                        element['id'] = key
+                        element['confidence'] = round(value,4)
                         final_product.append(element)
 
                     final_product = sorted(final_product, key=itemgetter('confidence'), reverse=True)
@@ -814,10 +782,50 @@ def get_recommendation(request):
                     recommended_items['total'] = len(final_product)
                     results['recommendation'] = recommended_items
                     results['success'] = True
-                    results['evaluate'] = False
+                    results['ordinality'] = ordinality
+                    results['evaluate'] = True
                     results['source'] = source
                     results['process_time'] = (time.time() -  start_time)
                     return JsonResponse(results)
+                else:
+                    status_source = False
+            except VisitProduct.DoesNotExist:
+                pass
+            if not status_source:
+                try:
+                    source_data = list(SearchHistory.objects.filter(user_id=user).values_list('clean_query', flat=True))
+                    if source_data:
+                        source = 'search'
+                        status_source = True
+                        common_query = []
+                        for query in source_data:
+                            common_query += query.split(' ')
+                        common_query = np.array(common_query)
+                        unique, pos = np.unique(common_query, return_inverse=True)
+                        counts = np.bincount(pos)
+                        maxsort = counts.argsort()[::-1]
+                        user_query = ' '.join(unique[maxsort][:3].tolist())
+
+                        products = custom_query_validation(user_query)
+                        final_product = []
+                        for item in products:
+                            element = {}
+                            element['id'] = item.get('id')
+                            element['confidence'] = round(item.get('similarity'),4)
+                            final_product.append(element)
+
+                        recommended_items = {}
+                        final_product = sorted(final_product, key=itemgetter('confidence'), reverse=True)
+                        recommended_items['products'] = final_product
+                        recommended_items['total'] = len(final_product)
+                        results['recommendation'] = recommended_items
+                        results['success'] = True
+                        results['evaluate'] = False
+                        results['source'] = source
+                        results['process_time'] = (time.time() -  start_time)
+                        return JsonResponse(results)
+                    else:
+                        status_source = False
                 except SearchHistory.DoesNotExist:
                     pass
             del source_data
@@ -905,7 +913,7 @@ def collaborative_filtering(user, cross_section, binary_cross_section, distinct_
     print('done processing similarity %s'%(time.time() -  start_similarity))
 
     all_products = []
-    process_result = zip(distinct_product, results)
+    process_result = zip(distinct_product, results.tolist())
     for item, score in process_result:
         temp = {}
         temp['id'] = item
@@ -1060,7 +1068,7 @@ def render_recommendation(request):
         list_product = sorted(list_product, key=itemgetter('confidence'), reverse=True)
         request.session['recommendation'] = list_product
         request.session['source_recommendation'] = data.get('source')
-        list_product = list_product[:16]
+        list_product = list_product[:LIMIT_FEATURED]
         
         products = []
         preserved = Case(*[When(pk=pk, then=pos) for pos, pk in enumerate([d.get('id') for d in list_product])])

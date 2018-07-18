@@ -142,7 +142,8 @@ def search_view(request):
         'query': query,
         'query_string': '?q=%s' % query}
     if '_auth_user_id' in request.session and request.session['_auth_user_id']:
-        insert_search_history(query, clean_query, request.session['_auth_user_id'])
+        if query != '' and clean_query != '':
+                insert_search_history(query, clean_query, request.session['_auth_user_id'])
     else:
         if 'history' in request.session and 'search' in request.session['history']:
             if query != '' and clean_query !='':
@@ -166,6 +167,7 @@ def search_ajax(request):
     form = SearchForm(data=request.GET or None)
     request_page = 1
     product_appendix = []
+    clean_query = ''
     if 'page' not in request.GET:
         if 'page_query' in request.session and request.session['page_query']:
             request_page = request.session['page_query']

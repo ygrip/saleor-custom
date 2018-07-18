@@ -81,12 +81,13 @@ class Command(BaseCommand):
         #     self.stdout.write(msg) 
         # for msg in create_vouchers():
         #     self.stdout.write(msg)
-        # for msg in create_users(100):
-        #     self.stdout.write(msg)
-        for msg in generate_rating(0.5,0.1):
+        for msg in create_users(10):
             self.stdout.write(msg)
-        # for msg in create_orders(10):
-        #     self.stdout.write(msg)
+        for msg in create_orders(10):
+            self.stdout.write(msg)
+        for msg in generate_rating(0.1,0.05):
+            self.stdout.write(msg)
+        
         # for msg in set_featured_products(48):
         #     self.stdout.write(msg)
         # for msg in create_collections_by_schema(self.placeholders_dir):
