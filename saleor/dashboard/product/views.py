@@ -1,7 +1,7 @@
 from django.conf import settings
 from django.contrib import messages
 from django.contrib.auth.decorators import permission_required
-from django.db.models import Q
+from django.db.models import Q, F,  Count, Avg, Func
 from django.http import JsonResponse
 from django.shortcuts import get_object_or_404, redirect, reverse
 from django.template.response import TemplateResponse
@@ -12,14 +12,49 @@ from django_prices.templatetags import prices_i18n
 from . import forms
 from ...core.utils import get_paginator_items
 from ...product.models import (
-    AttributeChoiceValue, Product, ProductAttribute, ProductImage, ProductType,
+    AttributeChoiceValue, Product, ProductAttribute, ProductImage, ProductType, ProductRating,
     ProductVariant)
 from ...product.utils.availability import get_availability
 from ...product.utils.costs import (
     get_margin_for_variant, get_product_costs_data)
 from ..views import staff_member_required
-from .filters import ProductAttributeFilter, ProductFilter, ProductTypeFilter
+from .filters import ProductAttributeFilter, ProductFilter, ProductTypeFilter, ProductRatingFilter, SimpleProductRatingFilter
 
+class Round(Func):
+    function = 'ROUND'
+    template='%(function)s(%(expressions)s, 2)'
+
+@staff_member_required
+@permission_required('product.view_rating')
+def product_rating_list(request):
+    ratings = ProductRating.objects.all().select_related('product_id')
+    ratings = ratings.values('product_id__name')
+    ratings = ratings.annotate(total_rating=Count('user_id_id'),avg_rating=Round(Avg('value')))
+    ratings = ratings.values('product_id_id','product_id__name','total_rating','avg_rating')
+
+    rating_filter = SimpleProductRatingFilter(request.GET, queryset=ratings)
+    ratings = get_paginator_items(
+        rating_filter.qs, settings.DASHBOARD_PAGINATE_BY,
+        request.GET.get('page'))
+    ctx = {
+        'ratings': ratings, 'filter_set': rating_filter,
+        'is_empty': not rating_filter.queryset.exists()}
+    return TemplateResponse(request, 'dashboard/product/product_rating/list.html', ctx)
+
+@staff_member_required
+@permission_required('product.view_rating')
+def product_rating_details(request, pk):
+    ratings = ProductRating.objects.filter(product_id_id=pk).select_related('product_id').select_related('user_id').order_by('updated_at','user_id')
+    root = ratings[0]
+    path = root
+    rating_filter = ProductRatingFilter(request.GET, queryset=ratings)
+    ratings = get_paginator_items(
+        rating_filter.qs, settings.DASHBOARD_PAGINATE_BY,
+        request.GET.get('page'))
+    ctx = {'ratings': ratings, 'path': path, 'root': root,
+           'filter_set': rating_filter,
+           'is_empty': not rating_filter.queryset.exists()}
+    return TemplateResponse(request, 'dashboard/product/product_rating/detail.html', ctx)
 
 @staff_member_required
 @permission_required('product.view_properties')

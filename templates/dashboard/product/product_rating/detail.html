@@ -1,0 +1,155 @@
+{% extends "dashboard/base.html" %}
+{% load i18n %}
+{% load mptt_tags %}
+{% load materializecss %}
+{% load staticfiles %}
+{% load utils %}
+
+{% block title %}{% trans "Categories" context "Category list page title" %} -
+  {{ block.super }}{% endblock %}
+
+{% block body_class %}body-categories{% endblock %}
+
+{% block menu_ratings_class %}active{% endblock %}
+
+{% block header_menu %}
+  {% if root %}
+    {% if root.parent %}
+      {% url 'dashboard:product-rating-details' pk=root.parent.pk as url %}
+    {% else %}
+      {% url 'dashboard:product-rating-list' as url %}
+    {% endif %}
+    {% include "dashboard/includes/_back_link.html" with url=url %}
+  {% else %}
+    {{ block.super }}
+  {% endif %}
+{% endblock %}
+
+{% block breadcrumbs %}
+  <ul class="breadcrumbs breadcrumbs--history">
+    {% if path %}
+      <li>
+        <a href="{% url 'dashboard:product-rating-list' %}">
+          {% trans "Product Rating Detail" context "Dashboard ratings list" %}
+        </a>
+      </li>
+    {% else %}
+      <li class="visible-s">
+        <span>
+          {% trans "Product Rating Detail" context "Dashboard ratings list" %}
+        </span>
+      </li>
+    {% endif %}
+    {% if path %}
+      <li class="back-mobile">
+        <a href="{% url 'dashboard:product-rating-list' %}">
+          <svg data-src="{% static 'dashboard/images/arrow-left.svg' %}" fill="#fff" width="20px" height="20px"/>
+        </a>
+      </li>
+        {% if path.product_id %}
+        <li class="hide-on-med-and-down">
+            <a href="{% url 'dashboard:product-rating-details' pk=path.product_id_id %}" title="{{ path.product_id }}" class="breadcrumbs--ellipsed-item">
+              {{ path.product_id }}
+            </a>
+          </li>
+         
+        {% else %}
+           <li title="{{ path.product_id__name }}">
+            <span class="breadcrumbs--ellipsed-item">
+              {{ path.product_id }}
+            </span>
+          </li>
+        {% endif %}
+    {% endif %}
+  </ul>
+{% endblock %}
+
+{% block menu_catalogue_class %} active{% endblock %}
+
+{% block content %}
+  {% if root %}
+    <div class="row">
+      <div class="col m12 l9">
+        <div class="card">
+          <div class="card-content">
+            <span class="card-title">
+              {{ root.product_id }}
+            </span>
+          </div>
+          {% if perms.product.edit_rating %}
+          <div class="card-action">
+            <a href="#base-modal" class="btn-flat waves-effect modal-trigger-custom" data-href="{% url 'dashboard:product-rating-delete-bulk' pk=root.product_id_id %}">
+              {% trans "Remove All ratings for this product" context "Product rating detail view action" %}
+            </a>
+          </div>
+          {% endif %}
+        </div>
+        <div class="card">
+          <div class="card-content">
+            <span class="card-title">
+               {% trans "Details" context "Title of the rating details list" %}
+            </span>
+          </div>
+          <div class="data-table-header-action">
+            <a href="{% url 'dashboard:product-rating-add' %}" class="btn-data-table btn-flat waves-effect">
+              {% trans "Add" %}
+            </a>
+          </div>
+          <div class="data-table-container">
+            <table class="bordered highlight responsive data-table data-table-description">
+              <thead>
+                <tr>
+                  {% trans "User" context "Rating list table header name" as label %}
+                  {% sorting_header 'user_id' label is_wide=False%}
+
+                  {% trans "Given At" context "Rating list table header description" as label %}
+                  {% sorting_header 'updated_at' label is_wide=True %}
+
+                  {% trans "Value" context "rating list table header description" as label %}
+                  {% sorting_header 'value' label is_wide=False %}
+
+                  {% if perms.product.edit_rating %}
+                    <th></th>
+                  {% endif %}
+                </tr>
+              </thead>
+              <tbody>
+                {% for node in ratings %}
+                  <tr>
+                    <td>
+                      {{ node.user_id }}
+                    </td>
+                    <td class="nowrap">
+                      {{ node.updated_at }}
+                    </td>
+                     <td class="nowrap">
+                      {{ node.value }}
+                    </td>
+                    {% if perms.product.edit_category %}
+                      <td class="right-align ignore-link">
+                        <a href="{% url 'dashboard:product-rating-update' pk=node.pk %}" class="btn-flat waves-effect">
+                          {% trans 'Edit' context 'Rating edit action' %}
+                        </a>
+                        <a href="#base-modal" class="btn-flat waves-effect modal-trigger-custom" data-href="{% url 'dashboard:product-rating-delete' pk=node.pk %}">
+                          {% trans "Remove" context "Rating list action link" %}
+                        </a>
+                      </td>
+                    {% endif %}
+                  </tr>
+                {% empty %}
+                  <tr>
+                    <td colspan="2">{% trans "No rating details" context "Empty list of rating" %}</td>
+                  </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+        {% paginate ratings %}
+      </div>
+      <div class="col s12 l3" id="filters">
+        {% if not is_empty %}{% filters filter_set %}{% endif %}
+      </div>
+    </div>
+  {% endif %}
+{% endblock %}

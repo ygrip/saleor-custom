@@ -12,6 +12,7 @@ from ...product.models import Category
 from ..views import staff_member_required
 from .filters import CategoryFilter
 from .forms import CategoryForm
+from ..helper import get_descendant
 
 
 @staff_member_required
@@ -84,7 +85,7 @@ def category_edit(request, root_pk=None):
 def category_details(request, pk):
     root = get_object_or_404(Category, pk=pk)
     path = root.get_ancestors(include_self=True) if root else []
-    categories = root.get_children().order_by('name')
+    categories = get_descendant(pk)
     category_filter = CategoryFilter(request.GET, queryset=categories)
     categories = get_paginator_items(
         category_filter.qs, settings.DASHBOARD_PAGINATE_BY,

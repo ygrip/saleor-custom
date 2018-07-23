@@ -30,7 +30,7 @@
                     </span>
                   </span>
                 {% endif %}  
-            <span class="product-list-item-name hideOverflow row-fluid" data-toggle="tooltip" data-placement="top" style="overflow-wrap:break-word; max-height: 55px;" title="{ product }">{{ product }}</span>
+            <span class="product-list-item-name hideOverflow row-fluid" data-toggle="tooltip" data-placement="top" style="overflow-wrap:break-word; max-height: 55px;" title="{{ product }}">{{ product|truncatewords:7  }}</span>
           </div>
           <div class="panel-footer" style="color : #e67e22;">
             {% if rating %}

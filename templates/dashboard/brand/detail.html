@@ -1,0 +1,102 @@
+{% extends "dashboard/base.html" %}
+{% load i18n %}
+{% load mptt_tags %}
+{% load materializecss %}
+{% load staticfiles %}
+{% load utils %}
+
+{% block title %}{% trans "Brands" context "Brand list page title" %} -
+  {{ block.super }}{% endblock %}
+
+{% block body_class %}body-categories{% endblock %}
+
+{% block menu_brands_class %}active{% endblock %}
+
+{% block header_menu %}
+  {% if root %}
+    {% if root.parent %}
+      {% url 'dashboard:brand-details' pk=root.parent.pk as url %}
+    {% else %}
+      {% url 'dashboard:brand-list' as url %}
+    {% endif %}
+    {% include "dashboard/includes/_back_link.html" with url=url %}
+  {% else %}
+    {{ block.super }}
+  {% endif %}
+{% endblock %}
+
+{% block breadcrumbs %}
+  <ul class="breadcrumbs breadcrumbs--history">
+    {% if path %}
+      <li>
+        <a href="{% url 'dashboard:brand-list' %}">
+          {% trans "Brands" context "Dashboard brands list" %}
+        </a>
+      </li>
+    {% else %}
+      <li class="visible-s">
+        <span>
+          {% trans "Brands" context "Dashboard brands list" %}
+        </span>
+      </li>
+    {% endif %}
+    {% if path %}
+      <li class="back-mobile">
+        <a href="{% url 'dashboard:brand-list' %}">
+          <svg data-src="{% static 'dashboard/images/arrow-left.svg' %}" fill="#fff" width="20px" height="20px"/>
+        </a>
+      </li>
+          
+          <li class="hide-on-med-and-down">
+            <a href="{% url 'dashboard:brand-details' pk=path.pk %}" title="{{ path.brand_name }}" class="breadcrumbs--ellipsed-item">
+              {{ path.brand_name }}
+            </a>
+          </li>
+    {% endif %}
+  </ul>
+{% endblock %}
+
+{% block menu_catalogue_class %} active{% endblock %}
+
+{% block content %}
+  {% if root %}
+    <div class="row">
+      <div class="col m12 l9">
+        <div class="card">
+          <div class="card-content">
+            <span class="card-title">
+              {{ root.brand_name }}
+            </span>
+            <div class="row">
+              {% if root.brand_link %}
+                <div class="col s12">
+                  <h4>
+                    {% trans "Url" context "Brand field" %}
+                  </h4>
+                  <p>
+                    {{ root.brand_link }}
+                  </p>
+                </div>
+              {% endif %}
+            </div>
+          </div>
+          {% if perms.product.edit_brand %}
+          <div class="card-action">
+            <a class="btn-flat waves-effect" href="{% url 'dashboard:brand-edit' root_pk=root.pk %}">
+              {% trans "Edit brand" context "brand detail view action" %}
+            </a>
+            <a href="#base-modal" class="btn-flat waves-effect modal-trigger-custom" data-href="{% url 'dashboard:brand-delete' pk=root.pk %}">
+              {% trans "Remove brand" context "Brand detail view action" %}
+            </a>
+          </div>
+          {% endif %}
+        </div>
+        
+        {% paginate brands %}
+      </div>
+      <div class="col s12 l3" id="filters">
+        {% if not is_empty %}{% filters filter_set %}{% endif %}
+      </div>
+    </div>
+  {% endif %}
+{% endblock %}

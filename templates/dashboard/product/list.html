@@ -80,7 +80,7 @@
                     alt="">
               </td>
               <td>
-                {{ product.name }}
+                <span  data-toggle="tooltip" data-placement="top" title="{{ product.name }}">{{ product.name|truncatewords:13 }}</span>
               </td>
               <td>
                 {{ product.price|amount:'html' }}

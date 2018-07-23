@@ -1,0 +1,38 @@
+{% extends "dashboard/base_modal.html" %}
+
+{% load i18n %}
+{% load mptt_tags %}
+
+{% block form_class %}{% endblock %}
+
+{% block action_url %}
+{% url "dashboard:brand-delete" pk=brand.pk %}
+{% endblock %}
+
+{% block title %}
+{% blocktrans trimmed with brand=brand context "Remove brand modal title" %}
+  Remove brand {{ brand }}
+{% endblocktrans %}
+{% endblock %}
+
+{% block content %}
+  <div class="col s12">
+    {% blocktrans trimmed with brand=brand context "Remove brand modal title" %}
+      Are you sure you want to remove brand <strong>{{ brand }}</strong>?
+    {% endblocktrans %}
+    
+    {% if products_count %}
+      <p>
+        {% blocktrans count counter=products_count trimmed context "Remove brand form text about products" %}
+          There is one product in this brand that will be removed.
+          {% plural %}
+          There are {{ counter }} products in this brand that will be removed.
+        {% endblocktrans %}
+      </p>
+    {% endif %}
+  </div>
+{% endblock %}
+
+{% block primary_action %}
+{% trans "Remove" context "Dashboard delete action" %}
+{% endblock %}

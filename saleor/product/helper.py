@@ -195,7 +195,7 @@ def get_cross_section_order(limit=1.0):
                 FROM account_user a CROSS JOIN product_product b LEFT JOIN orders c
                 ON c.uid = a.id AND c.pid = b.id
             )
-            SELECT * FROM tmp ORDER BY userid, value DESC;
+            SELECT * FROM tmp;
             """ %limit
 
     cursor = connection.cursor()

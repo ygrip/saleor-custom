@@ -20,6 +20,7 @@ from ..seo.fields import SeoDescriptionField, SeoTitleField
 from ..seo.utils import prepare_seo_description
 from ..widgets import RichTextEditorWidget
 from .widgets import ImagePreviewWidget
+from ...account.i18n import AddressMetaForm, get_address_form_class
 
 
 class RichTextField(forms.CharField):

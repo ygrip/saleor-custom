@@ -1,0 +1,123 @@
+{% extends "dashboard/base.html" %}
+{% load materializecss %}
+{% load i18n %}
+{% load mptt_tags %}
+{% load staticfiles %}
+
+{% block title %}
+  {% if brand.pk %}
+    {% trans "Edit Brand" context "Brand form page title" %} {{ brand }}
+  {% else %}
+    {% trans "Add new brand" context "Brand detail page title" %}
+  {% endif %}
+  - {% trans "Brands" context "Dashboard brands list" %} - {{ block.super }}
+{% endblock %}
+
+{% block body_class %}body-categories{% endblock %}
+
+{% block menu_brands_class %}active{% endblock %}
+
+{% block page_title %}
+  {% if brand.pk %}
+    {{ brand }}
+  {% else %}
+    {% trans "Add new brand" context "Brand form page title" %}
+  {% endif %}
+{% endblock %}
+
+{% block breadcrumbs %}
+  <ul class="breadcrumbs breadcrumbs--history">
+    <li>
+      <a href="{% url 'dashboard:brand-list' %}" class="breadcrumbs--ellipsed-item">
+        {% trans "Brands" context "Dashboard brand list" %}
+      </a>
+    </li>
+    <li class="back-mobile">
+      <a href="{% url 'dashboard:brand-list' %}" class="breadcrumbs--ellipsed-item">
+        <svg data-src="{% static "dashboard/images/arrow-left.svg" %}" fill="#fff" width="20px" height="20px" />
+      </a>
+    </li>
+    {% if path %}
+      <li class="back-mobile">
+        <a href="{% url 'dashboard:brand-list' %}">
+          <svg data-src="{% static "dashboard/images/arrow-left.svg" %}" fill="#fff" width="20px" height="20px"/>
+        </a>
+      </li>
+          {% if path.pk %}
+            <li>
+              <a href="{% url 'dashboard:brand-details' pk=path.pk %}" class="breadcrumbs--ellipsed-item">{{ path }}</a>
+            </li>
+            {% if brand.pk %}
+              <li>
+                <span class="breadcrumbs--ellipsed-item">
+                  {% trans "Edit" context "Brand form page title" %}
+                </span>
+              </li>
+            {% else %}
+              <li>
+                <span class="breadcrumbs--ellipsed-item">
+                  {% trans "Add new brand" context "Brand detail breadcrumbs" %}
+                </span>
+              </li>
+            {% endif %}
+          {% endif %}
+    {% else %}
+      <li>
+        <span class="breadcrumbs--ellipsed-item">
+          {% trans "Add new brand" context "Brand detail breadcrumbs" %}
+        </span>
+      </li>
+    {% endif %}
+  </ul>
+{% endblock %}
+
+{% block menu_catalogue_class %} active{% endblock %}
+
+{% block content %}
+  <div class="row">
+    <div class="col m12 l9">
+      <div class="card">
+        <form method="post" id="form-category" enctype="multipart/form-data" novalidate>
+          <div class="card-content">
+            {% csrf_token %}
+            <div class="row">
+              {{ form.brand_name|materializecss }}
+            </div>
+            <div class="row">
+              <div class="col s12">
+                <div class="row">
+                  {{ form.brand_link|materializecss }}
+                </div>
+                <div class="row">
+                  {{ form.brand_image|materializecss }}
+                </div>
+                {% include "dashboard/includes/_google_preview.html" with object=brand form=form %}
+              </div>
+            </div>
+          </div>
+          <div class="card-action right-align">
+            {% if path %}
+              <a href="{% url 'dashboard:brand-details' pk=path.pk %}" class="btn btn-flat">
+                {% trans "Cancel" context "Dashboard cancel action" %}
+              </a>
+            {% else %}
+              <a href="{% url 'dashboard:brand-list' %}" class="btn btn-flat">
+                {% trans "Cancel" context "Dashboard cancel action" %}
+              </a>
+            {% endif %}
+            {% if category.pk %}
+              <button type="submit" class="btn waves-effect">
+                {% trans "Update" context "Dashboard update action" %}
+              </button>
+            {% else %}
+              <button type="submit" class="btn waves-effect">
+                {% trans "Create" context "Dashboard create action" %}
+              </button>
+            {% endif %}
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="col m12 l3 help-box"></div>
+  </div>
+{% endblock %}

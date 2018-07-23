@@ -96,7 +96,8 @@
                 {% trans "Home" context "Dashboard homepage" %}
               </a>
             </li>
-            {% if perms.product.view_product or perms.product.view_category %}
+
+            {% if perms.product.view_product or perms.product.view_category or perms.product.view_brand %}
             <li class="side-nav-section" id="first">
               <p>
                 {% trans "Catalogue" context "Dashboard catalogue" %}
@@ -113,6 +114,20 @@
                   <li class="{% block menu_categories_class %}{% endblock %}">
                     <a href="{% url 'dashboard:category-list' %}">
                       {% trans "Categories" context "Dashboard categories list" %}
+                    </a>
+                  </li>
+                {% endif %}
+                {% if perms.product.view_brand %}
+                  <li class="{% block menu_brands_class %}{% endblock %}">
+                    <a href="{% url 'dashboard:brand-list' %}">
+                      {% trans "Brands" context "Dashboard brands list" %}
+                    </a>
+                  </li>
+                {% endif %}
+                {% if perms.product.view_rating %}
+                  <li class="{% block menu_ratings_class %}{% endblock %}">
+                    <a href="{% url 'dashboard:product-rating-list' %}">
+                      {% trans "Ratings" context "Dashboard brands list" %}
                     </a>
                   </li>
                 {% endif %}

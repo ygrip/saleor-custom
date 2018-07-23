@@ -1,0 +1,111 @@
+{% extends "dashboard/base.html" %}
+{% load i18n %}
+{% load prices_i18n %}
+{% load materializecss %}
+{% load staticfiles %}
+{% load utils %}
+
+{% block title %}
+  {% trans "Product ratings" context "Dashboard product rating list" %} - {{ block.super }}
+{% endblock %}
+
+{% block body_class %}body-products{% endblock %}
+
+{% block menu_product_ratings_class %}active{% endblock %}
+
+{% block header_extra %}
+  {% if perms.product.edit_rating %}
+  <div class="btn-fab-fixed">
+    <a class="btn-fab-default waves-effect waves-light" title="{% trans "Add product rating" context "Product rating list add button text" %}" href="{% url 'dashboard:product-rating-add' %}">
+      <svg data-src="{% static "dashboard/images/add.svg" %}" />
+    </a>
+  </div>
+  {% endif %}
+{% endblock %}
+
+{% block breadcrumbs %}
+  <ul class="breadcrumbs">
+    <li class="visible-s">
+      {% trans "Product Ratings" context "Dashboard product types list" %}
+    </li>
+  </ul>
+{% endblock %}
+
+{% block menu_catalogue_class %} active{% endblock %}
+
+{% block content %}
+  <div class="row">
+    <div class="col s12 l9">
+      {% if ratings %}
+        <div class="card">
+          <div class="data-table-container">
+            <table class="bordered highlight data-table data-table-description">
+              <thead>
+                <tr>
+                  {% trans "Product" context "Dashboard product rating list table header product" as label %}
+                  {% sorting_header 'product_id__name' label is_wide=False  %}
+
+                  
+                  {% trans "Total Given" context "Dashboard product rating list table header product" as secondlabel %}
+                  {% sorting_header 'total_rating' secondlabel is_wide=False  %}
+                  
+                  {% trans "Average Ratings" context "Dashboard product rating list table header product" as thirdlabel %}
+                  {% sorting_header 'avg_rating' thirdlabel is_wide=False  %}
+                </tr>
+              </thead>
+              <tbody>
+              {% for item in ratings %}
+                <tr data-action-go="{% if perms.product.edit_properties %}{% url 'dashboard:product-rating-details' pk=item.product_id_id %}{% endif %}">
+                  <td>
+                    <span  data-toggle="tooltip" data-placement="top" title="{{ item.product_id__name }}">{{ item.product_id__name|truncatewords:13 }}</span>
+                    
+                  </td>
+                  <td>
+                    {{ item.total_rating }}
+                  </td>
+                  <td>
+                    {{ item.avg_rating}}
+                  </td>
+                </tr>
+              {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+        {% paginate ratings %}
+      {% else %}
+        {% if is_empty %}
+          {% include 'dashboard/product/product_rating/zero_page.html' %}
+        {% else %}
+          <div class="col s12">
+            <div class="not-found">
+              <p class="grey-text">
+                {% trans "No product ratings found." context "Empty product rating list message" %}
+              </p>
+            </div>
+          </div>
+        {% endif %}
+      {% endif %}
+    </div>
+    <div class="col s12 l3" id="filters">
+      {% if not is_empty %}{% filters filter_set %}{% endif %}
+    </div>
+  </div>
+  <div id="modal-product-class" class="modal">
+    <div class="modal-content">
+      <form method="post" novalidate>
+        {% csrf_token %}
+        <div class="row">
+          {{ form|materializecss }}
+        </div>
+        <div class="row">
+          <div class="col s12">
+            <button class="btn waves-effect" type="submit">
+              {% trans "Create new" context "Dashboard create new action"  %}
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+{% endblock %}
