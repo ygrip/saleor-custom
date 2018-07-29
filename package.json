@@ -24,6 +24,7 @@
     "dropzone": "^5.2.0",
     "ez-plus": "^1.2.1",
     "flickity": "^2.1.2",
+    "flickity-imagesloaded": "^2.0.0",
     "font-awesome": "^4.7.0",
     "hammerjs": "^2.0.8",
     "jquery": "^3.3.1",

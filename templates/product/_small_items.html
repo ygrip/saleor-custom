@@ -10,7 +10,7 @@
   <div class="site-content cf row-fluid" style="margin-bottom:-.5em !important;">
      <div class="courses cf" id="featured-courses">
   {% for product, rating, availability in products %}
-    <div class="col-6 col-sm-2 product-list course-item slide" style="margin-bottom: 1em;">
+    <div class="col-6 col-sm-2 course-item slide" style="margin-bottom: 1em;">
       <a href="{{ product.get_absolute_url }}" class="link--clean" style="margin-bottom: 15px;">
         <div class="text-center">
           <div>
@@ -68,7 +68,7 @@
 </div>
 <hr>
 <div class="row-fluid">
-  <div class="col-sm-2 home__block1" style="margin:0 auto;">
+  <div class="col-sm-3 home__block1" style="margin:0 auto;">
 <a class="btn fancy-button-on" href="{% url 'product:all-similar-products' product_id=product_id %}" style="width: 100%;">
     Show More
   </a>

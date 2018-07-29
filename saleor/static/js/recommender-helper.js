@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import Flickity from 'flickity';
+require('flickity-imagesloaded');
 import swal from 'sweetalert2';
 import Chart from 'chart.js';
 
@@ -223,12 +224,14 @@ function renderSimilarProduct(url, position, target){
         $(position).html(response);
         renderRating(position);
         var galleryElems = document.querySelectorAll(target);
+        
         for ( var i=0, len = galleryElems.length; i < len; i++ ) {
           var galleryElem = galleryElems[i];
           new Flickity( galleryElem, {
             // options
             cellSelector: '.course-item',
             cellAlign: 'left',
+            imagesLoaded: true,
             lazyLoad: true,
             pageDots: false,
             arrowShape: { 
@@ -242,9 +245,10 @@ function renderSimilarProduct(url, position, target){
         }
         $('.flickity-prev-next-button.previous').css('left','-1.5em');
         $('.flickity-prev-next-button.next').css('right','-1.5em');
-        $('.flickity-viewport').css('min-height','240px !important');
-        $('.flickity-viewport').css('max-height','640px !important');
-        $('.flickity-viewport').css('height','320px !important');
+        $('.carousel-cell').css('height','120% !important');
+        $('.carousel-cell').css('min-height','120% !important');
+        $('.carousel').css('height','120% !important');
+        $('.carousel').css('min-height','120% !important');
       },
       error (xhr, status) {
         $(position).html('');
