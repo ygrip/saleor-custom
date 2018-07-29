@@ -57,7 +57,7 @@
               {% for item in ratings %}
                 <tr data-action-go="{% if perms.product.edit_properties %}{% url 'dashboard:product-rating-details' pk=item.product_id_id %}{% endif %}">
                   <td>
-                    <span  data-toggle="tooltip" data-placement="top" title="{{ item.product_id__name }}">{{ item.product_id__name|truncatewords:13 }}</span>
+                    <span  data-toggle="tooltip" data-placement="top" title="{{ item.product_id__name }}">{{ item.product_id__name|truncatewords:7 }}</span>
                     
                   </td>
                   <td>

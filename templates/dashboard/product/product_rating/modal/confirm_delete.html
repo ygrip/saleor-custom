@@ -7,12 +7,12 @@
 {% block form_class %}{% endblock %}
 
 {% block action_url %}
-{% url "dashboard:product-type-delete" pk=product_type.pk %}
+{% url "dashboard:product-rating-delete" pk=rating.pk %}
 {% endblock %}
 
 {% block title %}
 {% blocktrans trimmed context "Modal remove product type text" %}
-  Remove product type {{ product_type }}
+  Remove product rating {{ rating }}
 {% endblocktrans %}
 {% endblock title %}
 
@@ -20,20 +20,10 @@
   <div class="col s12">
     <p>
       {% blocktrans trimmed context "Modal remove product type text" %}
-        Are you sure you want to remove product type <strong>{{ product_type }}</strong>?
+        Are you sure you want to remove product rating <strong>{{ rating }}</strong>?
       {% endblocktrans %}
     </p>
-    <p>
-      {% if products %}
-        {% blocktrans trimmed context "Modal remove product type text" with product_count=products.count %}
-          There are {{ product_count }} products in product type.
-        {% endblocktrans %}
-      {% else %}
-        {% blocktrans trimmed context "Modal remove product type text" %}
-          There are no products in this product type.
-        {% endblocktrans %}
-      {% endif %}
-    </p>
+    
   </div>
 {% endblock %}
 

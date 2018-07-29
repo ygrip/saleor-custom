@@ -57,6 +57,42 @@ def product_rating_details(request, pk):
     return TemplateResponse(request, 'dashboard/product/product_rating/detail.html', ctx)
 
 @staff_member_required
+@permission_required('product.edit_rating')
+def rating_delete(request,id_product,pk):
+    rating = get_object_or_404(ProductRating, pk=pk)
+    if request.method == 'POST':
+        rating.delete()
+        msg = pgettext_lazy(
+            'Dashboard message', 'Removed rating')
+        messages.success(request, msg)
+        return redirect('dashboard:product-rating-details',pk=id_product)
+    ctx = {
+        'rating': rating
+        }
+    return TemplateResponse(
+        request,
+        'dashboard/product/product_rating/modal/confirm_delete.html',
+        ctx)
+
+@staff_member_required
+@permission_required('product.edit_rating')
+def rating_delete_bulk(request,pk):
+    ratings = ProductRating.objects.filter(product_id_id=pk)
+    if request.method == 'POST':
+        ratings.delete()
+        msg = pgettext_lazy(
+            'Dashboard message', 'Removed all rating from %s') % (Product.objects.get(id=pk),)
+        messages.success(request, msg)
+        return redirect('dashboard:product-rating-list')
+    ctx = {
+        'rating': ratings
+        }
+    return TemplateResponse(
+        request,
+        'dashboard/product/product_rating/modal/confirm_delete.html',
+        ctx)
+
+@staff_member_required
 @permission_required('product.view_properties')
 def product_type_list(request):
     types = ProductType.objects.all().prefetch_related(

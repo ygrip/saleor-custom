@@ -37,10 +37,10 @@ urlpatterns = [
         views.product_type_edit, name='product-rating-update'),
     url(r'^ratings/(?P<pk>[0-9]+)/details/$',
         views.product_rating_details, name='product-rating-details'),
-    url(r'^ratings/(?P<pk>[0-9]+)/delete/$',
+    url(r'^ratings/(?P<id_product>[0-9]+)/(?P<pk>[0-9]+)/delete/$',
         views.product_type_delete, name='product-rating-delete'),
     url(r'^ratings/(?P<pk>[0-9]+)/delete/$',
-        views.product_type_delete, name='product-rating-delete-bulk'),
+        views.rating_delete_bulk, name='product-rating-delete-bulk'),
 
     url(r'^(?P<product_pk>[0-9]+)/variants/add/$',
         views.variant_add, name='variant-add'),

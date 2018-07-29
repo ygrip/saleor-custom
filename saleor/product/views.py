@@ -73,8 +73,9 @@ on how clear you put information in each item. Luckily we use an actual E-commer
 so we cann get satisfying result with this type of filtering. By default you will get all similar items, but you can specify a number as
 a limit on how many similar item you would like to retrieve.
 """
-LIMIT_COLLABORATIVE = 50 #A REAL NUMBER RANGE FROM 0 TO ANY POSITIVE NUMBER, IF NOT 0 THEN USE THE LIMIT IF 0 THEN USE ALL
-LIMIT_CONTENT_BASE = 15 #A REAL NUMBER RAGE FROM 1 TO ANY POSITIVE NUMBER, GET THE NUMBER OF SIMILAR ITEM(S)
+
+LIMIT_COLLABORATIVE = 15 #A REAL NUMBER RANGE FROM 0 TO ANY POSITIVE NUMBER, IF NOT 0 THEN USE THE LIMIT IF 0 THEN USE ALL
+LIMIT_CONTENT_BASE = 30 #A REAL NUMBER RAGE FROM 1 TO ANY POSITIVE NUMBER, GET THE NUMBER OF SIMILAR ITEM(S)
 EVALUATION_MODE = 0 #A NUMBER OF 0 OR 1, IF 0 THEN USE A NON-STRICT APPROACH IF 1 THEN USE A STRICT APPROACH
 ARC_ORDINALITY = 9 #A POSITIVE ODD REAL NUMBER, IN RANGE OF 1 TO 13, IF 1 THEN RETURNED THE USER ORIGINAL DATA
 LIMIT_FEATURED = 12 #A POSITIVE REAL NUMBER STARTING FROM 1, TO LIMIT NUMBER OF FEATURED PRODUCT IN STOREFRONT
@@ -334,12 +335,16 @@ def get_similar_product(product_id,limit=0):
     results_freq.fill(0)
     results_count[xs_idx,ys_idx] = zs
     results_freq[xs_idx,ys_idx] = fs
+    pivot_idx = np.in1d(xs_val, float(product_id)).nonzero()[0]
+    pivot_freq = results_freq[pivot_idx]
+    results_freq = (1-(abs(results_freq-pivot_freq)/pivot_freq)) #normalize the frequency in order to make the pivot item always ranked first
     temp_pivot = np.array(pivot_feature)
+    results_freq[results_freq[:,:]<0] = 0
     check_idx = np.in1d(ys_val, temp_pivot).nonzero()[0]
-    results_count = total/results_count
-    results_count[results_count[:,:]==float('inf')] = 0
-    final_weight = np.log10(1+results_count) 
-    final_weight = final_weight*results_freq
+    # results_count = total/results_count
+    # results_count[results_count[:,:]==float('inf')] = 0
+    # final_weight = np.log10(1+results_count) 
+    final_weight = results_freq
     mask = np.ones(len(ys_val), np.bool)
     mask[check_idx] = 0
     final_weight[:,mask] = 0
@@ -356,7 +361,7 @@ def get_similar_product(product_id,limit=0):
 
     arr_sum = np.zeros((len(xs_val),2))
     arr_sum[:,0] = xs_val
-    arr_sum[:,1] = (np.sum(final_weight, axis=1))*(np.count_nonzero(final_weight, axis=1)/target_feature)
+    arr_sum[:,1] = (np.sum(final_weight, axis=1))/target_feature
     arr_sum = arr_sum[arr_sum[:,1].argsort()[::-1]]
     if limit > 0:
         arr_sum = arr_sum[:limit]
@@ -666,7 +671,13 @@ def get_arc_recommendation(request, mode, limit):
                         if LIMIT_CONTENT_BASE > 1:
                             similar_product = get_similar_product(item['id'], LIMIT_CONTENT_BASE)
                             for sub_item in similar_product:
-                                products[sub_item['id']] = {'name':item['name'],
+                            	if sub_item['id'] in products:
+                            		new_val = item['confident']*sub_item['similarity']
+                            		if products[sub_item['id']]['value'] < new_val:
+                            			products[sub_item['id']] = {'name':item['name'],
+                                                            'value':new_val}
+                            	else:
+                                	products[sub_item['id']] = {'name':item['name'],
                                                             'value':item['confident']*sub_item['similarity']}
 
                     final_product = []
@@ -768,7 +779,12 @@ def get_recommendation(request):
                         if LIMIT_CONTENT_BASE>1:
                             similar_product = get_similar_product(item['id'], LIMIT_CONTENT_BASE) #select number of similar products on each recommended product
                             for sub_item in similar_product:
-                                products[sub_item['id']] = item['confidence']*sub_item['similarity']
+                            	if sub_item['id'] in products:
+                            		new_val = item['confidence']*sub_item['similarity']
+                            		if new_val > products[sub_item['id']]:
+                            			products[sub_item['id']] = new_val
+                            	else:
+                                	products[sub_item['id']] = item['confidence']*sub_item['similarity']
 
                     final_product = []
                     for key, value in products.items():
@@ -856,7 +872,12 @@ def get_recommendation(request):
                 if LIMIT_CONTENT_BASE > 1:
                     similar_product = get_similar_product(item['id'], LIMIT_CONTENT_BASE) #select number of similar products on each recommended product
                     for sub_item in similar_product:
-                        products[sub_item['id']] = item['confidence']*sub_item['similarity']
+                    	if sub_item['id'] in products:
+                    		new_val = item['confidence']*sub_item['similarity']
+                    		if new_val > products[sub_item['id']]:
+                    			products[sub_item['id']] = new_val
+                    	else:
+                    		products[sub_item['id']] = item['confidence']*sub_item['similarity']
 
             final_product = []
             for key, value in products.items():
@@ -894,11 +915,6 @@ def collaborative_filtering(user, cross_section, binary_cross_section, distinct_
     start_similarity = time.time()
     ordinality = 1
     while True:
-        if result_matrix:
-            if 0 not in result_matrix[-1][user_id] and order >= 3 or order >= int(limit):
-                ordinality = order
-                results = result_matrix[-1][user_id]
-                break
         if order == 1:
             final_weight = cross_section
             result_matrix.append(final_weight)
@@ -906,7 +922,13 @@ def collaborative_filtering(user, cross_section, binary_cross_section, distinct_
             check = result_matrix[-1]
             final_weight = np.dot((np.dot(binary_cross_section,binary_cross_section.T))*(user_similarity),check)
             result_matrix.append(final_weight)
+        if result_matrix:
+            if 0 not in result_matrix[-1][user_id] and order >= 3 or order >= int(limit):
+                ordinality = order
+                results = result_matrix[-1][user_id]
+                break
         order += 2
+
 
     del result_matrix
 
@@ -987,7 +1009,12 @@ def get_default_recommendation(request):
                 if LIMIT_CONTENT_BASE > 1:
                     similar_product = get_similar_product(item['id'], LIMIT_CONTENT_BASE) #select number of similar products on each recommended product
                     for sub_item in similar_product:
-                        products[sub_item['id']] = item['confidence']*sub_item['similarity']
+                    	if sub_item['id'] in products:
+                    		new_val = item['confidence']*sub_item['similarity']
+                    		if new_val > products[sub_item['id']]:
+                    			products[sub_item['id']] = new_val
+                    	else:
+                    		products[sub_item['id']] = item['confidence']*sub_item['similarity']
 
             final_product = []
             for key, value in products.items():

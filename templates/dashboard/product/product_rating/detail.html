@@ -130,7 +130,7 @@
                         <a href="{% url 'dashboard:product-rating-update' pk=node.pk %}" class="btn-flat waves-effect">
                           {% trans 'Edit' context 'Rating edit action' %}
                         </a>
-                        <a href="#base-modal" class="btn-flat waves-effect modal-trigger-custom" data-href="{% url 'dashboard:product-rating-delete' pk=node.pk %}">
+                        <a href="#base-modal" class="btn-flat waves-effect modal-trigger-custom" data-href="{% url 'dashboard:product-rating-delete' id_product=path.product_id_id pk=node.pk %}">
                           {% trans "Remove" context "Rating list action link" %}
                         </a>
                       </td>
