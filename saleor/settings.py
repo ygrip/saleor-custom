@@ -173,8 +173,7 @@ TEMPLATES = [{
     ]
 
 # Make this unique, and don't share it with anybody.
-SECRET_KEY = 'UIPHFE82323rew'
-# SECRET_KEY = os.environ.get('SECRET_KEY')
+SECRET_KEY = os.environ.get('SECRET_KEY') || "Changeme"
 
 MIDDLEWARE = [
     'django.contrib.sessions.middleware.SessionMiddleware',
