@@ -121,3 +121,6 @@ webencodings==0.5.1
 wrapt==1.10.11
 xmltodict==0.11.0
 yarl==0.17.0
+numpy
+psutil
+django-async-include
